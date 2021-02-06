@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  font-family: PingFang TC;
+  font-style: normal;
+  font-weight: normal;
+  // font-family: 'PingFang TC';
+  // font-weight: normal;
+  // font-stretch: normal;
+  // font-style: normal;
+  // line-height: normal;
+  // letter-spacing: normal;
+}
+
+#__nuxt {
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+.object-fit {
+  width: 100%;
+}
+
+.observer {
+  width: 100px;
+  height: 50px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background: white;
+  border: 1px solid red;
+  z-index: 99999;
+  color: black;
+
+  text-align: center;
+  line-height: 50px;
+}
+
+.hide_text {
+  opacity: 0 !important;
+  // add transition to text that want to fade in
+  // transition: opacity 0.5s ease;
+}
