@@ -1,0 +1,32 @@
+<template>
+    <div class="HeaderNav">
+        <div class="HeaderNav__container">
+            <HeaderNavItem v-for="(item, index) in navList" :key="index" :item="item" />
+        </div>
+    </div>
+</template>
+
+<script>
+import navMixin from '../mixins/navMixin'
+import HeaderNavItem from './HeaderNavItem'
+export default {
+    mixins: [navMixin],
+    components: {
+        HeaderNavItem,
+    },
+}
+</script>
+
+<style lang="scss" scoped>
+.HeaderNav {
+    margin-top: 18.804vh;
+    &__container {
+        width: 640px;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+</style>

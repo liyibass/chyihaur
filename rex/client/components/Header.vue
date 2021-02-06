@@ -4,14 +4,17 @@
         <div class="Header__title">
             <img :src="require('@/static/images/title.png')" alt="" />
         </div>
+        <HeaderNav />
     </div>
 </template>
 
 <script>
 import HeaderRuler from './HeaderRuler'
+import HeaderNav from './HeaderNav'
 export default {
     components: {
         HeaderRuler,
+        HeaderNav,
     },
 }
 </script>

@@ -3,7 +3,8 @@
         <div class="HeaderRuler__logo">
             <AnimateLogoTime />
         </div>
-
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Lexend+Mega&display=swap" rel="stylesheet" />
         <div class="HeaderRuler__scale" />
         <div class="HeaderRuler__scale" />
         <div class="HeaderRuler__scale" />
