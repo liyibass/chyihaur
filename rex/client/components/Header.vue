@@ -4,7 +4,6 @@
         <div class="Header__title">
             <img :src="require('@/static/images/title.png')" alt="" />
         </div>
-        <HeaderNav />
     </div>
 </template>
 
@@ -21,9 +20,9 @@ export default {
 
 <style lang="scss" scoped>
 .Header {
+    width: 100%;
     position: relative;
     padding: 50px 54px 0;
-    height: 30px;
 
     display: flex;
     flex-direction: column;

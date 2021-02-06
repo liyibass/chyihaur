@@ -20,6 +20,8 @@ export default {
 <style lang="scss" scoped>
 .HeaderNav {
     margin-top: 18.804vh;
+    margin-right: 76px;
+    margin-bottom: 50px;
     &__container {
         width: 640px;
 
