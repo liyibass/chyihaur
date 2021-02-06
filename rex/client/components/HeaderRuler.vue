@@ -1,5 +1,9 @@
 <template>
     <div class="HeaderRuler">
+        <div class="HeaderRuler__logo">
+            <AnimateLogoTime />
+        </div>
+
         <div class="HeaderRuler__scale" />
         <div class="HeaderRuler__scale" />
         <div class="HeaderRuler__scale" />
@@ -12,7 +16,9 @@
 </template>
 
 <script>
+import AnimateLogoTime from './AnimateLogoTime'
 export default {
+    components: { AnimateLogoTime },
     mounted() {
         const rulerScales = document.querySelectorAll('.HeaderRuler__scale')
         rulerScales.forEach((scale, index) => {
@@ -26,7 +32,8 @@ export default {
 
 <style lang="scss" scoped>
 .HeaderRuler {
-    height: 30px;
+    position: relative;
+    height: 43px;
     width: 100%;
     margin-bottom: 10px;
 
@@ -39,6 +46,13 @@ export default {
     flex-direction: row-reverse;
     align-items: flex-end;
     justify-content: flex-start;
+
+    &__logo {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 43px;
+    }
 
     &__scale {
         width: 70px;

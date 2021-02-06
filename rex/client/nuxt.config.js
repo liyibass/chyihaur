@@ -17,7 +17,7 @@ export default {
 
     // Global page headers: https://go.nuxtjs.dev/config-head
     head: {
-        title: 'CHYIHAUR',
+        title: SITE_TITLE,
         htmlAttrs: {
             lang: 'en',
         },

@@ -1,6 +1,5 @@
 <template>
     <div class="Header">
-        <!-- <AnimateSmallLogo /> -->
         <HeaderRuler />
         <div class="Header__title">
             <img :src="require('@/static/images/title.png')" alt="" />
@@ -9,11 +8,9 @@
 </template>
 
 <script>
-import AnimateSmallLogo from './AnimateSmallLogo'
 import HeaderRuler from './HeaderRuler'
 export default {
     components: {
-        AnimateSmallLogo,
         HeaderRuler,
     },
 }
@@ -23,6 +20,7 @@ export default {
 .Header {
     position: relative;
     padding: 50px 54px 0;
+    height: 30px;
 
     display: flex;
     flex-direction: column;
