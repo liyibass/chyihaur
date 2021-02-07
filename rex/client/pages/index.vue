@@ -3,7 +3,7 @@
         <Main />
         <HeaderImage />
         <About />
-        <!-- <Main /> -->
+        <Service />
     </div>
 </template>
 
@@ -11,6 +11,7 @@
 import Main from '@/components/Main'
 import HeaderImage from '@/components/HeaderImage'
 import About from '@/components/About'
+import Service from '@/components/Service'
 
 import 'intersection-observer'
 import scrollama from 'scrollama'
@@ -19,6 +20,7 @@ export default {
         Main,
         HeaderImage,
         About,
+        Service,
     },
     mounted() {
         // -------------------------------------------------------

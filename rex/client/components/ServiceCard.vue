@@ -1,0 +1,95 @@
+<template>
+    <div
+        class="ServiceCard"
+        :class="{ isHovered: isHovered }"
+        @mouseover="isHovered = true"
+        @mouseleave="isHovered = false"
+    >
+        <div class="ServiceCard__wrapper">
+            <div class="ServiceCard__icon">
+                <img :src="require('@/static/images/logo_small.png')" alt="" />
+            </div>
+
+            <div class="ServiceCard__title" :class="`ServiceCard__title_${service.group}`">
+                {{ service.title }}
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+    props: ['service'],
+
+    data() {
+        return {
+            isHovered: false,
+        }
+    },
+}
+</script>
+
+<style lang="scss" scoped>
+.ServiceCard {
+    width: 25%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &__wrapper {
+        box-sizing: content-box;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        cursor: pointer;
+    }
+
+    &__icon {
+        width: 45px;
+        margin-bottom: 22px;
+        img {
+            width: 100%;
+        }
+    }
+}
+
+.ServiceCard__title_0 {
+    color: $mainWhite;
+}
+
+.ServiceCard__title_1 {
+    color: $mainLightGreen;
+}
+
+.ServiceCard__title_2 {
+    color: $mainGreen;
+}
+
+.isHovered {
+    .ServiceCard__wrapper {
+        background: rgba(0, 0, 0, 0.2);
+
+        .ServiceCard__icon {
+            animation-name: rotate;
+            animation-duration: 0.5s;
+        }
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: scaleX(0) translateY(0%);
+    }
+    40% {
+        transform: scaleX(-1) translateY(-10%);
+    }
+    80% {
+        transform: scaleX(0) translateY(0%);
+    }
+}
+</style>
