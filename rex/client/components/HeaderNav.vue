@@ -1,7 +1,12 @@
 <template>
     <div class="HeaderNav">
         <div class="HeaderNav__container">
-            <HeaderNavItem v-for="(item, index) in navList" :key="index" :item="item" />
+            <HeaderNavItem
+                v-for="(item, index) in navList"
+                :key="index"
+                :item="item"
+                @click.native="chooseChapter(item.link)"
+            />
         </div>
     </div>
 </template>
@@ -13,6 +18,15 @@ export default {
     mixins: [navMixin],
     components: {
         HeaderNavItem,
+    },
+    methods: {
+        chooseChapter(newId) {
+            const myEl = document.getElementById(`${newId}`)
+
+            this.$smoothScroll({
+                scrollTo: myEl,
+            })
+        },
     },
 }
 </script>

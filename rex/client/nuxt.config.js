@@ -36,7 +36,17 @@ export default {
         scss: ['./assets/scss/*.scss'],
     },
     // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-    plugins: [],
+    plugins: [
+        { src: '~/plugins/VueSmoothScroll', ssr: false },
+        {
+            src: '~plugins/vue-scrollmagic.js',
+            ssr: false,
+        },
+        {
+            src: '~plugins/vue-lazyload.js',
+            ssr: false,
+        },
+    ],
 
     // Auto import components: https://go.nuxtjs.dev/config-components
     components: true,

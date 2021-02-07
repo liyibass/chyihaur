@@ -4,6 +4,8 @@
         <HeaderImage />
         <About />
         <Service />
+        <Workflow />
+        <About />
     </div>
 </template>
 
@@ -12,6 +14,7 @@ import Main from '@/components/Main'
 import HeaderImage from '@/components/HeaderImage'
 import About from '@/components/About'
 import Service from '@/components/Service'
+import Workflow from '@/components/Workflow'
 
 import 'intersection-observer'
 import scrollama from 'scrollama'
@@ -21,6 +24,7 @@ export default {
         HeaderImage,
         About,
         Service,
+        Workflow,
     },
     mounted() {
         // -------------------------------------------------------
