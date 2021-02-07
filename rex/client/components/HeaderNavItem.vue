@@ -51,7 +51,11 @@ export default {
         align-items: center;
         justify-content: center;
 
+        transition: all 0.5s ease;
+
         &_wrapper {
+            transition: all 0.5s ease;
+
             img {
                 // max-width: 100%;
                 height: 100%;
@@ -111,6 +115,11 @@ export default {
     .HeaderNavItem__icon {
         padding-bottom: 10px;
     }
+    .HeaderNavItem__icon_wrapper {
+        // transform: scaleX(-1);
+        animation-name: rotate;
+        animation-duration: 0.5s;
+    }
 }
 
 .slide-fade-enter-active {
@@ -123,5 +132,17 @@ export default {
 /* .slide-fade-leave-active for below version 2.1.8 */ {
     transform: translateX(10px);
     opacity: 0;
+}
+
+@keyframes rotate {
+    0% {
+        transform: scaleX(0);
+    }
+    40% {
+        transform: scaleX(-1);
+    }
+    80% {
+        transform: scaleX(0);
+    }
 }
 </style>

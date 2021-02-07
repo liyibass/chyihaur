@@ -1,6 +1,6 @@
 @font-face {
     font-family: GenYoGothicTW;
-    src: url('~assets/fonts/GenYoGothicTW-Regular.ttf');
+    src: url('~assets/fonts/GenYoGothicTW-Medium.ttf');
 }
 
 * {
@@ -53,14 +53,14 @@ a {
 }
 
 .hide_text {
-    opacity: 0 !important;
+    opacity: 0.1;
     // add transition to text that want to fade in
-    // transition: opacity 0.5s ease;
+    transition: all 0.5s ease;
 }
 
 .fade-enter-active,
 .fade-leave-active {
-    transition: opacity 0.3s;
+    transition: opacity 1s;
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
     opacity: 0;

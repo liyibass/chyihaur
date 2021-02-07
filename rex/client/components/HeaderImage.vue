@@ -83,7 +83,7 @@ export default {
 .HeaderImage_hide {
     .HeaderImage__image {
         opacity: 0.8;
-        margin-right: -70px;
+        // margin-left: -70px;
     }
 }
 </style>
