@@ -23,9 +23,11 @@
             </div>
 
             <div class="Workflow__icons">
-                <div class="Workflow__icons_icon" v-for="(step, index) in workflowList" :key="index">
-                    <img :src="require('@/static/images/logo_small.png')" alt="" />
-                </div>
+                <WorkflowIcon
+                    v-for="(step, index) in workflowList"
+                    :key="index"
+                    :isFocused="index <= currentAnimate - 1 ? true : false"
+                />
             </div>
         </div>
 
@@ -41,6 +43,7 @@
 import ProgressBar from '@/components/ProgressBar'
 import OverflowImage from '@/components/OverflowImage'
 import Workflowstep from '@/components/Workflowstep'
+import WorkflowIcon from '@/components/WorkflowIcon'
 import Carousel from '@/components/Carousel'
 import workflowMixin from '@/mixins/workflowMixin'
 
@@ -50,6 +53,7 @@ export default {
         OverflowImage,
         Carousel,
         Workflowstep,
+        WorkflowIcon,
     },
     mixins: [workflowMixin],
     data() {
