@@ -1,5 +1,7 @@
 <template>
     <div class="Workflow" id="workflow">
+        <OverflowImage />
+
         <div class="Workflow__wrapper">
             <ProgressBar :nextProgress="generatePercentage" />
 
@@ -19,18 +21,34 @@
                     />
                 </div>
             </div>
+
+            <div class="Workflow__icons">
+                <div class="Workflow__icons_icon" v-for="(step, index) in workflowList" :key="index">
+                    <img :src="require('@/static/images/logo_small.png')" alt="" />
+                </div>
+            </div>
         </div>
+
+        <div class="Workflow__big_title">
+            <img :src="require('@/static/images/title2.png')" alt="" />
+        </div>
+
+        <Carousel />
     </div>
 </template>
 
 <script>
 import ProgressBar from '@/components/ProgressBar'
+import OverflowImage from '@/components/OverflowImage'
 import Workflowstep from '@/components/Workflowstep'
+import Carousel from '@/components/Carousel'
 import workflowMixin from '@/mixins/workflowMixin'
 
 export default {
     components: {
         ProgressBar,
+        OverflowImage,
+        Carousel,
         Workflowstep,
     },
     mixins: [workflowMixin],
@@ -86,7 +104,7 @@ export default {
 .Workflow {
     background: $mainGray;
     width: 100%;
-    height: 100vh;
+    // height: 100vh;
     position: relative;
 
     display: flex;
@@ -118,6 +136,33 @@ export default {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
+        }
+    }
+
+    &__big_title {
+        width: 37px;
+        position: absolute;
+        top: 0;
+        left: 10px;
+        transform: translateY(-49%);
+
+        opacity: 0.3;
+        img {
+            width: 100%;
+        }
+    }
+}
+
+.Workflow__icons {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    &_icon {
+        width: calc(100% / 6 - 10px);
+        margin-bottom: 22px;
+        img {
+            width: 100%;
         }
     }
 }
