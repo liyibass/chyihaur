@@ -22,6 +22,11 @@ export default {}
     flex-direction: row;
     align-items: flex-end;
 
+    overflow: hidden;
+    @include atLarge {
+        overflow: initial;
+    }
+
     .OverflowImage__image1 {
         width: 50%;
         height: 100%;

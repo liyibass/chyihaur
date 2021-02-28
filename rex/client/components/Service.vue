@@ -32,6 +32,8 @@
 
 <script>
 import ServiceCard from '@/components/ServiceCard'
+import 'intersection-observer'
+import scrollama from 'scrollama'
 
 export default {
     components: {
@@ -121,13 +123,57 @@ export default {
             ],
         }
     },
+
+    mounted() {
+        const allServices = document.querySelectorAll('.ServiceCard')
+
+        // // instantiate the scrollama
+        // const showServiceScroller = scrollama()
+
+        // // setup the instance, pass callback functions
+        // showServiceScroller
+        //     .setup({
+        //         step: '.Service',
+        //         offset: 0.6,
+        //     })
+        //     .onStepEnter((response) => {
+        //         // { element, index, direction }
+        //         allServices.forEach((service, index) => {
+        //             setTimeout(() => {
+        //                 service.classList.add('show_service')
+        //             }, index * 100)
+        //         })
+        //     })
+        //     .onStepExit((response) => {
+        //         // console.log('hide service')
+        //         // { element, index, direction }
+        //     })
+
+        // // setup resize event
+        // window.addEventListener('resize', showServiceScroller.resize)
+
+        // const hideServiceScroller = scrollama()
+        // hideServiceScroller
+        //     .setup({
+        //         step: '.Service',
+        //         offset: 0.5,
+        //     })
+        //     .onStepExit((response) => {
+        //         allServices.forEach((service, index) => {
+        //             service.classList.remove('show_service')
+        //         })
+        //     })
+
+        // // setup resize event
+        // window.addEventListener('resize', hideServiceScroller.resize)
+    },
 }
 </script>
 
 <style lang="scss" scoped>
 .Service {
     width: 100%;
-    height: 100vh;
+    // height: 100vh;
     background: white;
     display: flex;
     flex-direction: column;
@@ -137,6 +183,8 @@ export default {
     &__part {
         position: relative;
         flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: auto;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -153,17 +201,28 @@ export default {
         }
 
         &_title {
-            font-size: 39px;
+            font-size: 25px;
+            @include atSmall {
+                font-size: 39px;
+            }
         }
 
         &_lists {
-            width: 85%;
+            width: 100%;
             height: 100%;
             margin: auto;
             display: flex;
             flex-direction: row;
             align-items: stretch;
-            justify-content: flex-start;
+            justify-content: center;
+            flex-wrap: wrap;
+
+            @include atMedium {
+                width: 85%;
+            }
+            @include atMedium {
+                justify-content: flex-start;
+            }
         }
 
         &_quote {
@@ -172,6 +231,11 @@ export default {
             right: 0;
             width: 16px;
             height: 16px;
+            display: none;
+
+            @include atLarge {
+                display: block;
+            }
         }
     }
 

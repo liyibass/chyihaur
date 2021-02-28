@@ -19,7 +19,9 @@
 
 <script>
 export default {
-    props: ['service'],
+    props: {
+        service: Object,
+    },
 
     data() {
         return {
@@ -31,13 +33,18 @@ export default {
 
 <style lang="scss" scoped>
 .ServiceCard {
-    width: 25%;
-    height: 100%;
+    width: 50%;
+    height: 50%;
 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    @include atSmall {
+        width: 25%;
+        height: 100%;
+    }
 
     &__wrapper {
         box-sizing: content-box;
@@ -58,7 +65,11 @@ export default {
     }
 
     &__title {
-        font-size: 22px;
+        font-size: 14px;
+
+        @include atSmall {
+            font-size: 22px;
+        }
     }
 }
 
@@ -88,11 +99,34 @@ export default {
 @keyframes rotate {
     0% {
         transform: scaleX(0) translateY(0%);
+        opacity: 1;
+    }
+    40% {
+        transform: scaleX(-1) translateY(-10%);
+        opacity: 1;
+    }
+    80% {
+        transform: scaleX(0) translateY(0%);
+        opacity: 1;
+    }
+}
+
+.show_service {
+    opacity: 1;
+    animation-name: showup;
+    animation-duration: 0.5s;
+}
+
+@keyframes showup {
+    0% {
+        opacity: 0;
+        transform: scaleX(0) translateY(0%);
     }
     40% {
         transform: scaleX(-1) translateY(-10%);
     }
     80% {
+        opacity: 1;
         transform: scaleX(0) translateY(0%);
     }
 }

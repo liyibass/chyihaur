@@ -2,39 +2,40 @@
     <div class="About" id="about">
         <div class="About__wrapper">
             <div class="About__text">
-                <div class="About__text_title  hide_text hide_text_About ">
-                    ABOUT<br />
-                    US<br />
+                <div class="About__text_content ">
+                    <div class="hide_text">
+                        -- <br />
+                        佇立於都市裡的淇豪<br />
+                        簡單石灰色彩空間<br />
+                        卻有著豐富的思維與想像<br />
+                        日常生活中<br />
+                        設計的契機往往淺藏在讓人難以發想的角落<br />
+                        我們的工作就是將這些機會緊緊捉住並加以放大光彩<br />
+                    </div>
                     <br />
                     <br />
-                </div>
 
-                <div class="About__text_content  hide_text hide_text_About">
-                    -- <br />
-                    <span class="subtitle">「如何將好的設計，放在適合的位置上」</span>
-                    <br />
-                    <br />
-                    <br />
+                    <div class="hide_text">
+                        「C」象徵 Customized「客製」<br />
+                        「H」象徵 High quality「高質感」<br />
+                        CH結合「尺規」及「°」溫度意象<br class="show_in_mobile" />
+                        表現出「專業與溫度」的品牌形象<br />
+                        <br />
+                    </div>
 
-                    -- <br />
-                    佇立於都市裡的淇豪<br />
-                    簡單石灰色彩空間<br />
-                    卻有著豐富的思維與想像<br />
-                    日常生活中<br />
-                    設計的契機往往淺藏在讓人難以發想的角落<br />
-                    我們的工作就是將這些機會緊緊捉住並加以放大光彩<br />
-                    <br />
-                    <br />
-                    「C」象徵 Customized「客製」<br />
-                    「H」象徵 High quality「高質感」<br />
-                    CH結合「尺規」及「°」溫度意象表現出「專業與溫度」的品牌形象<br />
-                    --
-                    <br />
-                    關於我們的工作<br />
-                    就是讓<br />
-                    - <br />
-                    建築與空間對話<br />
-                    品牌與店面綻放<br />
+                    <div class="hide_text">
+                        --<br />
+                        關於我們的工作<br />
+                        就是讓<br />
+                    </div>
+
+                    <div class="tab hide_text">
+                        - <br />
+                        建築與空間對話<br />
+                        品牌與店面綻放<br />
+                        <br />
+                        <br />
+                    </div>
                 </div>
 
                 <!-- <div class="About__text_meaning  hide_text hide_text_About">
@@ -99,41 +100,27 @@ export default {
         margin: auto;
 
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
+        align-items: stretch;
         justify-content: center;
+
+        @include atSmall {
+            justify-content: space-between;
+        }
     }
 
     &__text {
         color: $mainWhite;
-        width: 42%;
+        width: 100%;
 
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         justify-content: center;
 
-        &_title {
-            width: 148px;
-            margin-bottom: 27px;
-
-            font-size: 18px;
-            font-weight: bold;
-
-            display: block;
-            border-bottom: 1px solid $mainWhite;
-            font-family: Broadwell;
-        }
-
         &_content {
-            max-width: 368px;
             font-size: 16px;
             line-height: 18px;
-            margin-left: 36px;
-            margin-bottom: 60px;
-
-            .subtitle {
-                font-size: 19px;
-            }
         }
 
         &_meaning {
@@ -147,17 +134,19 @@ export default {
     }
 
     &__image {
-        width: 57.5%;
+        // width: 57.5%;
         // height: calc(100vh - 16px);
 
         // position: absolute;
         right: 0.5%;
         bottom: 16px;
         // background: white;
+        padding: 30px;
 
         transform: translateX(5%);
         transition: all 0.5s ease;
         align-self: center;
+        flex-shrink: 1;
 
         img {
             opacity: 0.1;
@@ -170,9 +159,36 @@ export default {
         }
     }
 
-    @include atSmall {
+    @include atMedium {
         &__wrapper {
             padding: 18px 54px;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        &__text {
+            width: 42%;
+
+            &_content {
+                max-width: 368px;
+                font-size: 16px;
+                line-height: 18px;
+                margin-left: 36px;
+                margin-bottom: 60px;
+            }
+
+            &_meaning {
+                max-width: 368px;
+                margin-left: 40px;
+
+                img {
+                    width: 100%;
+                }
+            }
+        }
+
+        &__image {
+            width: 57.5%;
         }
     }
     @include atLarge {
@@ -191,5 +207,19 @@ export default {
             align-items: center;
         }
     }
+}
+
+.show_in_mobile {
+    display: inline-block;
+    @include atSmall {
+        display: none;
+    }
+}
+.tab {
+    margin-left: 3rem;
+    box-sizing: border-box;
+    display: block;
+    max-width: 157px;
+    border-bottom: solid 1px rgba(255, 255, 255, 0.3);
 }
 </style>

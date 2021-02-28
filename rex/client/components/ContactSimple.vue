@@ -2,7 +2,7 @@
     <div class="Contact">
         <div class="Contact__wrapper">
             <div class="Contact__background">
-                <img :src="require('@/static/images/workflow1.png')" alt="" srcset="" />
+                <img :src="require('@/static/images/contact.png')" alt="" srcset="" />
             </div>
 
             <div class="Contact__up_section">
@@ -14,12 +14,10 @@
                         ___<br />
                     </div>
 
-                    <div class="Contact__titles_title">
+                    <div class="Contact__titles_title" @click="goToContactPage">
                         CONTACT
                     </div>
                 </div>
-
-                <ContactForm />
             </div>
 
             <div class="Contact__detail">
@@ -53,6 +51,12 @@ export default {
                 { title: 'ADDRESS', value: '台北市內湖區康寧路三段189巷75號' },
             ],
         }
+    },
+    methods: {
+        goToContactPage() {
+            console.log('YOYO')
+            this.$router.push('/contact')
+        },
     },
 }
 </script>
@@ -93,6 +97,7 @@ export default {
 
         &_title {
             font-size: 40px;
+            cursor: pointer;
         }
     }
 

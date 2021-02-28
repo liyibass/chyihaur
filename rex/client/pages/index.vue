@@ -5,7 +5,7 @@
         <About />
         <Service />
         <Workflow />
-        <Contact />
+        <ContactSimple />
     </div>
 </template>
 
@@ -15,7 +15,7 @@ import HeaderImage from '@/components/HeaderImage'
 import About from '@/components/About'
 import Service from '@/components/Service'
 import Workflow from '@/components/Workflow'
-import Contact from '@/components/Contact'
+import ContactSimple from '@/components/ContactSimple'
 
 import 'intersection-observer'
 import scrollama from 'scrollama'
@@ -26,7 +26,7 @@ export default {
         About,
         Service,
         Workflow,
-        Contact,
+        ContactSimple,
     },
     mounted() {
         // -------------------------------------------------------

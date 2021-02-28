@@ -21,6 +21,10 @@ export default {
     },
     methods: {
         chooseChapter(newId) {
+            if (newId === 'contact') {
+                this.$router.push(newId)
+            }
+
             const myEl = document.getElementById(`${newId}`)
 
             this.$smoothScroll({

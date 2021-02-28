@@ -34,6 +34,11 @@ export default {
         padding-left: 18px;
         color: $mainGray;
         font-weight: bold;
+
+        font-size: 10px;
+        @include atMedium {
+            font-size: 16px;
+        }
     }
 
     &__color {

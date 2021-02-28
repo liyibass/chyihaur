@@ -32,6 +32,8 @@
             </div>
         </div>
 
+        <WorkflowDetail :currentAnimate="currentAnimate" />
+
         <div class="Workflow__big_title">
             <img :src="require('@/static/images/title2.png')" alt="" />
         </div>
@@ -45,6 +47,7 @@ import ProgressBar from '@/components/ProgressBar'
 import OverflowImage from '@/components/OverflowImage'
 import Workflowstep from '@/components/Workflowstep'
 import WorkflowIcon from '@/components/WorkflowIcon'
+import WorkflowDetail from '@/components/WorkflowDetail'
 import Carousel from '@/components/Carousel'
 import workflowMixin from '@/mixins/workflowMixin'
 
@@ -55,6 +58,7 @@ export default {
         Carousel,
         Workflowstep,
         WorkflowIcon,
+        WorkflowDetail,
     },
     mixins: [workflowMixin],
     data() {
@@ -125,6 +129,9 @@ export default {
         padding: 10px 0 30px;
         color: $mainGreen;
         text-align: center;
+        h6 {
+            font-size: 18px;
+        }
     }
 
     &__steps {
