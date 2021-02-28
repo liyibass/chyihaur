@@ -121,6 +121,7 @@ export default {
 
             display: block;
             border-bottom: 1px solid $mainWhite;
+            font-family: Broadwell;
         }
 
         &_content {
