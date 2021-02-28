@@ -29,11 +29,22 @@ export default {
     align-items: flex-end;
 
     &__title {
-        width: 560px;
-        height: 30px;
+        width: 100%;
+        // height: 30px;
 
         img {
             width: 100%;
+        }
+    }
+
+    @include atSmall {
+        &__title {
+            width: 60%;
+        }
+    }
+    @include atLarge {
+        &__title {
+            width: 560px;
         }
     }
 }

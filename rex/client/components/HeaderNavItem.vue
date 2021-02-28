@@ -33,6 +33,7 @@ export default {
 
 <style lang="scss" scoped>
 .HeaderNavItem {
+    width: 100%;
     // background: rgba(0, 0, 0, 0.2);
     background: rgba(0, 0, 0, 0);
     transition: all 0.5s ease;
@@ -41,9 +42,13 @@ export default {
 
     cursor: pointer;
 
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
     &__icon {
         height: 70px;
-        width: 100%;
+        width: 20%;
         // background: gold;
 
         display: flex;
@@ -101,11 +106,27 @@ export default {
     }
 
     &__text {
-        border-left: 1px solid rgba(220, 221, 221, 0.4);
+        // border-left: 1px solid rgba(220, 221, 221, 0.4);
         padding: 7px 6px 0;
         margin-bottom: 7px;
         color: $mainWhite;
         line-height: 16px;
+        font-size: 14px;
+    }
+
+    @include atSmall {
+        display: block;
+        width: auto;
+
+        &__icon {
+            height: 70px;
+
+            width: 100%;
+        }
+
+        &__text {
+            font-size: 16px;
+        }
     }
 }
 

@@ -26,6 +26,7 @@ export default {
     flex-direction: column;
     align-items: flex-end;
     @include atSmall {
+        align-items: flex-end;
     }
 }
 </style>

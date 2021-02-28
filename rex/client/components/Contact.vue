@@ -48,6 +48,7 @@ export default {
 
 <style lang="scss" scoped>
 .Contact {
+    position: relative;
     font-family: Broadwell;
     color: $mainWhite;
     width: 100%;
@@ -58,7 +59,7 @@ export default {
 
         width: 100%;
         height: 100vh;
-        padding: 48px 0 37px;
+        padding: 48px 20px 37px;
         margin: auto;
 
         display: flex;
@@ -68,28 +69,28 @@ export default {
     }
 
     &__sub_title {
-        font-size: 20px;
+        font-size: 14px;
         z-index: 1;
     }
 
     &__title {
+        font-size: 40px;
         z-index: 1;
-        font-size: 58px;
     }
 
     &__detail {
         display: flex;
-        flex-direction: row;
-        align-items: flex-end;
+        flex-direction: column;
+        align-items: flex-start;
         justify-content: space-between;
         &_lists {
             &_list {
                 margin-bottom: 21px;
                 &_title {
-                    font-size: 28px;
+                    font-size: 16px;
                 }
                 &_value {
-                    font-size: 21px;
+                    font-size: 14px;
                 }
 
                 &:last-child {
@@ -99,9 +100,13 @@ export default {
         }
 
         &_business_card {
-            width: 383px;
+            width: 200px;
+            align-self: center;
+            margin-top: 20px;
+
             img {
                 width: 100%;
+                box-sizing: border-box;
             }
         }
     }
@@ -114,9 +119,10 @@ export default {
         z-index: -1;
         top: 0;
         left: 0;
-        width: 100%;
+        width: 100vw;
         height: 100%;
         img {
+            box-sizing: border-box;
             opacity: 0.5;
             width: 100%;
             height: 100%;
@@ -127,6 +133,58 @@ export default {
     @include atSmall {
         &__wrapper {
             padding: 48px 55px 37px;
+        }
+
+        &__sub_title {
+            font-size: 20px;
+        }
+
+        &__title {
+            font-size: 58px;
+        }
+
+        &__detail {
+            &_lists {
+                &_list {
+                    &_title {
+                        font-size: 20px;
+                    }
+                    &_value {
+                        font-size: 18px;
+                    }
+                }
+            }
+
+            &_business_card {
+                align-self: flex-start;
+            }
+        }
+    }
+
+    @include atMedium {
+        &__detail {
+            &_lists {
+                &_list {
+                    &_title {
+                        font-size: 28px;
+                    }
+                    &_value {
+                        font-size: 21px;
+                    }
+                }
+            }
+
+            &_business_card {
+                width: 383px;
+                align-self: initial;
+            }
+        }
+    }
+
+    @include atMedium {
+        &__detail {
+            flex-direction: row;
+            align-items: flex-end;
         }
     }
     @include atUltraLarge {

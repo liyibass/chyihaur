@@ -3,16 +3,17 @@
         <div class="HeaderRuler__logo">
             <AnimateLogoTime />
         </div>
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link href="https://fonts.googleapis.com/css2?family=Lexend+Mega&display=swap" rel="stylesheet" />
-        <div class="HeaderRuler__scale" />
-        <div class="HeaderRuler__scale" />
-        <div class="HeaderRuler__scale" />
-        <div class="HeaderRuler__scale HeaderRuler__scale_long" />
-        <div class="HeaderRuler__scale" />
-        <div class="HeaderRuler__scale" />
-        <div class="HeaderRuler__scale" />
-        <div class="HeaderRuler__scale HeaderRuler__scale_long" />
+
+        <div class="HeaderRuler__scales">
+            <div class="HeaderRuler__scales_scale" />
+            <div class="HeaderRuler__scales_scale" />
+            <div class="HeaderRuler__scales_scale" />
+            <div class="HeaderRuler__scales_scale HeaderRuler__scales_scale_long" />
+            <div class="HeaderRuler__scales_scale" />
+            <div class="HeaderRuler__scales_scale" />
+            <div class="HeaderRuler__scales_scale" />
+            <div class="HeaderRuler__scales_scale HeaderRuler__scale_long" />
+        </div>
     </div>
 </template>
 
@@ -21,7 +22,7 @@ import AnimateLogoTime from './AnimateLogoTime'
 export default {
     components: { AnimateLogoTime },
     mounted() {
-        const rulerScales = document.querySelectorAll('.HeaderRuler__scale')
+        const rulerScales = document.querySelectorAll('.HeaderRuler__scales_scale')
         rulerScales.forEach((scale, index) => {
             setTimeout(() => {
                 scale.classList.add('animation')
@@ -42,28 +43,46 @@ export default {
     box-shadow: 0px 1px 0px 1px rgba(135, 136, 136, 0.3);
 
     border-top: none;
-
     display: flex;
-    flex-direction: row-reverse;
-    align-items: flex-end;
-    justify-content: flex-start;
+    justify-content: space-between;
+    flex-direction: row;
 
     &__logo {
-        position: absolute;
-        top: 0;
-        left: 0;
+        // position: absolute;
+        // top: 0;
+        // left: 0;
         height: 43px;
     }
 
-    &__scale {
-        width: 70px;
-        height: 50%;
-        border-left: 1px solid rgba(220, 221, 221, 0.4);
-        box-shadow: -1px 1px 0px 1px rgba(135, 136, 136, 0.3);
+    &__scales {
+        height: 100%;
+        width: 80%;
+
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: flex-end;
+        justify-content: flex-start;
+        &_scale {
+            width: calc(100% / 8);
+            height: 50%;
+            border-left: 1px solid rgba(220, 221, 221, 0.4);
+            box-shadow: -1px 1px 0px 1px rgba(135, 136, 136, 0.3);
+        }
+
+        &_scale_long {
+            height: 100%;
+        }
+    }
+    @include atSmall {
+        &__scales {
+            width: 50%;
+        }
     }
 
-    &__scale_long {
-        height: 100%;
+    @include atLarge {
+        &__scales {
+            width: 560px;
+        }
     }
 }
 

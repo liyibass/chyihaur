@@ -34,15 +34,33 @@ export default {
 <style lang="scss" scoped>
 .HeaderNav {
     margin-top: 18.804vh;
-    margin-right: 76px;
     margin-bottom: 50px;
     &__container {
-        width: 640px;
+        width: 100vw;
 
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         align-items: center;
         justify-content: space-between;
+    }
+
+    @include atSmall {
+        &__container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
+    @include atMedium {
+        margin-right: 76px;
+        &__container {
+            width: 640px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
     }
 }
 </style>
