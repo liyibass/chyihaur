@@ -7,7 +7,7 @@
     >
         <div class="ServiceCard__wrapper">
             <div class="ServiceCard__icon">
-                <img :src="require('@/static/images/logo_small.png')" alt="" />
+                <img :src="service.icon" alt="" />
             </div>
 
             <div class="ServiceCard__title" :class="`ServiceCard__title_${service.group}`">
