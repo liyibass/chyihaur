@@ -1,12 +1,15 @@
 <template>
     <div class="WorkflowIcon" :class="{ isFocused: isFocused }">
-        <img :src="require('@/static/images/logo_small.png')" alt="" />
+        <img :src="step.icon" alt="" />
     </div>
 </template>
 
 <script>
 export default {
-    props: ['isFocused'],
+    props: {
+        isFocused: Boolean,
+        step: Object,
+    },
 }
 </script>
 

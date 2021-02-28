@@ -26,6 +26,7 @@
                 <WorkflowIcon
                     v-for="(step, index) in workflowList"
                     :key="index"
+                    :step="step"
                     :isFocused="index <= currentAnimate - 1 ? true : false"
                 />
             </div>
@@ -35,7 +36,7 @@
             <img :src="require('@/static/images/title2.png')" alt="" />
         </div>
 
-        <Carousel />
+        <!-- <Carousel /> -->
     </div>
 </template>
 
@@ -108,7 +109,7 @@ export default {
 .Workflow {
     background: $mainGray;
     width: 100%;
-    // height: 100vh;
+    height: 100vh;
     position: relative;
 
     display: flex;

@@ -50,11 +50,15 @@ export default {
     }
 
     &__icon {
-        width: 45px;
+        width: 85px;
         margin-bottom: 22px;
         img {
             width: 100%;
         }
+    }
+
+    &__title {
+        font-size: 22px;
     }
 }
 

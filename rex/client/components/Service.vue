@@ -106,14 +106,14 @@ export default {
                             id: 0,
                             group: 2,
                             title: '商用攝影',
-                            icon: require('@/static/images/service/service_1.png'),
+                            icon: require('@/static/images/service/service_8.png'),
                             url: '',
                         },
                         {
                             id: 1,
                             group: 2,
                             title: '意象攝影',
-                            icon: require('@/static/images/service/service_1.png'),
+                            icon: require('@/static/images/service/service_9.png'),
                             url: '',
                         },
                     ],
@@ -158,10 +158,11 @@ export default {
 
         &_lists {
             width: 85%;
+            height: 100%;
             margin: auto;
             display: flex;
             flex-direction: row;
-            align-items: center;
+            align-items: stretch;
             justify-content: flex-start;
         }
 
