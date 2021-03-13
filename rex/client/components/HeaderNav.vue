@@ -44,6 +44,15 @@ export default {
 .HeaderNav {
     margin-top: 18.804vh;
     margin-bottom: 50px;
+
+    display: none;
+    @include atSmall {
+        display: block;
+    }
+
+    @include atMedium {
+        margin-right: 76px;
+    }
     &__container {
         width: 100vw;
 
@@ -51,19 +60,15 @@ export default {
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
-    }
 
-    @include atSmall {
-        &__container {
+        @include atSmall {
             display: flex;
             flex-direction: row;
             align-items: center;
             justify-content: space-between;
         }
-    }
-    @include atMedium {
-        margin-right: 76px;
-        &__container {
+
+        @include atMedium {
             width: 640px;
             display: flex;
             flex-direction: row;

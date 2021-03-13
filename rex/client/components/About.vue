@@ -1,5 +1,6 @@
 <template>
     <div class="About" id="about">
+        <div class="About__mask" />
         <div class="About__wrapper">
             <div class="About__text">
                 <div class="About__text_content ">
@@ -15,7 +16,7 @@
                     <br />
                     <br />
 
-                    <div class="hide_text">
+                    <div class="hide_text remove_in_mobile">
                         「C」象徵 Customized「客製」<br />
                         「H」象徵 High quality「高質感」<br />
                         CH結合「尺規」及「°」溫度意象<br class="show_in_mobile" />
@@ -23,13 +24,13 @@
                         <br />
                     </div>
 
-                    <div class="hide_text">
+                    <div class="hide_text remove_in_mobile">
                         --<br />
                         關於我們的工作<br />
                         就是讓<br />
                     </div>
 
-                    <div class="tab hide_text">
+                    <div class="tab hide_text remove_in_mobile">
                         - <br />
                         建築與空間對話<br />
                         品牌與店面綻放<br />
@@ -88,29 +89,55 @@ export default {
 <style lang="scss" scoped>
 .About {
     position: relative;
-    background: $mainGreen;
+    background: url('~@/static/images/aboutBackground.png');
+    background-size: cover;
+    background-position: center;
     width: 100vw;
     height: 100vh;
     overflow: hidden;
 
-    &__wrapper {
+    @include atSmall {
+        background: $mainGreen;
+    }
+
+    &__mask {
+        z-index: 0;
+        background: black;
+        opacity: 0.45;
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
         height: 100%;
-        padding: 18px 54px;
+        @include atSmall {
+            display: none;
+        }
+    }
+
+    &__wrapper {
+        z-index: 1;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        padding: 18px 18px;
         margin: auto;
 
         display: flex;
         flex-direction: column;
         align-items: stretch;
-        justify-content: center;
+        justify-content: flex-end;
 
         @include atSmall {
+            padding: 18px 54px;
+            justify-content: center;
+
             justify-content: space-between;
         }
     }
 
     &__text {
-        color: $mainWhite;
+        // color: $mainWhite;
+        color: white;
         width: 100%;
 
         display: flex;
@@ -118,8 +145,11 @@ export default {
         align-items: flex-start;
         justify-content: center;
 
+        // font-family: GenYoGothicTW;
+        font-weight: 500;
+        font-size: 14px;
+
         &_content {
-            font-size: 16px;
             line-height: 18px;
         }
 
@@ -156,6 +186,11 @@ export default {
             width: 100%;
             // height: 100%;
             object-fit: cover;
+        }
+
+        display: none;
+        @include atSmall {
+            display: block;
         }
     }
 
@@ -221,5 +256,12 @@ export default {
     display: block;
     max-width: 157px;
     border-bottom: solid 1px rgba(255, 255, 255, 0.3);
+}
+
+.remove_in_mobile {
+    display: none;
+    @include atSmall {
+        display: block;
+    }
 }
 </style>

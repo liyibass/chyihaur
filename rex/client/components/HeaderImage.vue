@@ -47,12 +47,16 @@ export default {
     width: 100%;
     height: 100vh;
     background: $mainBlue;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
 
-    transition: all 1s ease;
+    display: none;
+    @include atSmall {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+
+        transition: all 1s ease;
+    }
 
     &__image {
         width: 99%;
