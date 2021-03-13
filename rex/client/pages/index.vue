@@ -1,5 +1,14 @@
 <template>
     <div>
+        <transition name="fade">
+            <FullScreenAnimate
+                v-if="ifShowAnimation"
+                :setPlayedAnimation="setPlayedAnimation"
+                @click.native="forceCancelAnimation"
+            />
+        </transition>
+        <NavBar />
+
         <Main />
         <HeaderImage />
         <About />
@@ -10,6 +19,8 @@
 </template>
 
 <script>
+import FullScreenAnimate from '@/components/FullScreenAnimate'
+import NavBar from '@/components/NavBar'
 import Main from '@/components/Main'
 import HeaderImage from '@/components/HeaderImage'
 import About from '@/components/About'
@@ -21,12 +32,48 @@ import 'intersection-observer'
 import scrollama from 'scrollama'
 export default {
     components: {
+        FullScreenAnimate,
+        NavBar,
         Main,
         HeaderImage,
         About,
         Service,
         Workflow,
         ContactSimple,
+    },
+    data() {
+        return {
+            loaded: false,
+            playedAnimation: false,
+        }
+    },
+    computed: {
+        ifShowAnimation: function() {
+            console.log(this.loaded)
+            console.log(this.playedAnimation)
+            if (this.loaded && this.playedAnimation) {
+                return false
+            } else {
+                return true
+            }
+        },
+    },
+    methods: {
+        setPlayedAnimation() {
+            setTimeout(() => {
+                this.playedAnimation = true
+            }, 9800)
+        },
+        forceCancelAnimation() {
+            this.playedAnimation = true
+            this.loaded = true
+        },
+    },
+    created() {
+        // would work in 'ready', 'attached', etc.
+        window.addEventListener('load', () => {
+            this.loaded = true
+        })
     },
     mounted() {
         // -------------------------------------------------------

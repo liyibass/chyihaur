@@ -50,6 +50,7 @@ export default {
 
 <style lang="scss" scoped>
 .AnimateLogoTime {
+    z-index: 100;
     height: 100%;
     position: relative;
 

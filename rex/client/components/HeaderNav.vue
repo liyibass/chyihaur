@@ -23,6 +23,11 @@ export default {
         chooseChapter(newId) {
             if (newId === 'contact') {
                 this.$router.push(newId)
+                return
+            }
+
+            if (this.$route.name === 'contact') {
+                this.$router.push('/')
             }
 
             const myEl = document.getElementById(`${newId}`)

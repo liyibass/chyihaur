@@ -67,3 +67,11 @@ a {
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
     opacity: 0;
 }
+
+.fast-fade-enter-active,
+.fast-fade-leave-active {
+    transition: opacity 0.3s;
+}
+.fast-fade-enter, .fast-fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+}
