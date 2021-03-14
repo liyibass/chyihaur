@@ -173,12 +173,14 @@ export default {
 <style lang="scss" scoped>
 .Service {
     width: 100%;
-    // height: 100vh;
     background: white;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     position: relative;
+    @include atSmall {
+        height: 100vh;
+    }
 
     &__part {
         position: relative;

@@ -68,6 +68,14 @@ export default {
     width: 100%;
     background: $mainGreen;
 
+    display: flex;
+    flex-direction: column;
+
+    @include atMedium {
+        height: 100%;
+        flex-direction: row;
+    }
+
     &__title {
         z-index: 1;
         position: absolute;
@@ -109,29 +117,47 @@ export default {
 
     &__carousel {
         z-index: 0;
+        position: relative;
         padding: 2px 10px;
-        img {
-            width: 100%;
-            height: 50vh;
-            object-position: center;
-            object-fit: cover;
+        height: 50vh;
+
+        @include atMedium {
+            width: 70vw;
+            height: 100vh;
+        }
+    }
+    img {
+        width: 100%;
+        height: 49vh;
+        object-position: center;
+        object-fit: cover;
+
+        @include atMedium {
+            height: 100vh;
         }
     }
 
     &__text {
         position: relative;
-        height: 60vh;
+        height: 50vh;
 
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: flex-start;
 
-        color: $mainWhite;
-
-        font-size: 10px;
-
         padding: 60px;
+
+        @include atSmall {
+            align-items: flex-start;
+            justify-content: center;
+            padding: 0 60px;
+        }
+
+        @include atMedium {
+            height: 100vh;
+            width: 30vw;
+        }
 
         &_background {
             z-index: 0;
@@ -145,10 +171,20 @@ export default {
                 height: 100%;
                 object-fit: cover;
             }
+
+            @include atSmall {
+                height: 100vh;
+            }
         }
 
         &_container {
             z-index: 1;
+            color: $mainWhite;
+            font-size: 10px;
+
+            @include atLarge {
+                font-size: 16px;
+            }
         }
     }
 }
@@ -168,6 +204,6 @@ export default {
     width: 100%;
     height: 100%;
     background: black;
-    opacity: 0.5;
+    opacity: 0.3;
 }
 </style>
