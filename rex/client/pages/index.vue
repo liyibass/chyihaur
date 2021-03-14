@@ -10,8 +10,11 @@
         <NavBar />
 
         <Main />
+
+        <Video />
         <HeaderImage />
         <About />
+        <Portfolio />
         <Service />
         <Workflow />
         <ContactSimple />
@@ -22,8 +25,10 @@
 import FullScreenAnimate from '@/components/FullScreenAnimate'
 import NavBar from '@/components/NavBar'
 import Main from '@/components/Main'
+import Video from '@/components/Video'
 import HeaderImage from '@/components/HeaderImage'
 import About from '@/components/About'
+import Portfolio from '@/components/Portfolio'
 import Service from '@/components/Service'
 import Workflow from '@/components/Workflow'
 import ContactSimple from '@/components/ContactSimple'
@@ -35,8 +40,10 @@ export default {
         FullScreenAnimate,
         NavBar,
         Main,
+        Video,
         HeaderImage,
         About,
+        Portfolio,
         Service,
         Workflow,
         ContactSimple,
