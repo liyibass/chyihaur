@@ -34,7 +34,7 @@ export default {
 <style lang="scss" scoped>
 .ServiceCard {
     width: 50%;
-    height: 50%;
+    height: auto;
 
     display: flex;
     flex-direction: column;

@@ -1,6 +1,16 @@
 <template>
     <div class="Service" id="service">
-        <ServiceGroup v-for="serviceGroup in serviceGroupList" :key="serviceGroup" :serviceGroup="serviceGroup" />
+        <div class="Service__desktop_view">
+            <ServiceGroup v-for="serviceGroup in serviceGroupList" :key="serviceGroup" :serviceGroup="serviceGroup" />
+        </div>
+
+        <div class="Service__mobile_view">
+            <carousel :per-page="1" centerMode loop :paginationEnabled="false">
+                <slide v-for="serviceGroup in serviceGroupList" :key="serviceGroup">
+                    <ServiceGroup :serviceGroup="serviceGroup" />
+                </slide>
+            </carousel>
+        </div>
 
         <div class="Service__big_title">
             <img :src="require('@/static/images/title2.png')" alt="" />
@@ -12,10 +22,13 @@
 import ServiceGroup from '@/components/ServiceGroup'
 import 'intersection-observer'
 import scrollama from 'scrollama'
+import { Carousel, Slide } from 'vue-carousel'
 
 export default {
     components: {
         ServiceGroup,
+        Carousel,
+        Slide,
     },
     data() {
         return {
@@ -151,7 +164,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .Service {
     width: 100%;
     background: white;
@@ -175,5 +188,25 @@ export default {
             width: 100%;
         }
     }
+
+    &__mobile_view {
+        @include atSmall {
+            display: none;
+        }
+    }
+
+    &__desktop_view {
+        display: none;
+        @include atSmall {
+            display: block;
+        }
+    }
+}
+
+.VueCarousel-pagination {
+    background: transparent;
+    position: absolute;
+    top: 20%;
+    left: 0;
 }
 </style>

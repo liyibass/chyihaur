@@ -1,7 +1,10 @@
 <template>
     <div class="ServiceGroup" :class="`ServiceGroup_${serviceGroup.id}`">
         <div class="ServiceGroup__wrapper">
-            <div class="ServiceGroup__title">
+            <div class="ServiceGroup__header">
+                <!-- title -->
+                <!-- panigation -->
+                <!-- group title -->
                 {{ serviceGroup.title }}
             </div>
 
@@ -50,6 +53,12 @@ export default {
     align-items: center;
     justify-content: center;
 
+    height: 100vh;
+
+    @include atSmall {
+        height: auto;
+    }
+
     &__wrapper {
         height: 80%;
         width: 80%;
@@ -60,47 +69,55 @@ export default {
         position: relative;
     }
 
-    &__title {
+    &__header {
+        height: 27%;
         font-size: 25px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         @include atSmall {
             font-size: 39px;
+            height: auto;
         }
     }
 
     &__lists {
         width: 100%;
-        height: 100%;
+        height: 73%;
         margin: auto;
         display: flex;
-        flex-direction: row;
-        align-items: stretch;
+        flex-direction: column;
+        align-items: center;
         justify-content: center;
         flex-wrap: wrap;
 
-        @include atMedium {
-            width: 85%;
-        }
-        @include atMedium {
+        @include atSmall {
+            height: 100%;
+
+            flex-direction: row;
+
             justify-content: flex-start;
         }
     }
 
     &_0 {
         background: $mainGreen;
-        .ServiceGroup__title {
+        .ServiceGroup__header {
             color: $mainWhite;
         }
     }
 
     &_1 {
         background: white;
-        .ServiceGroup__title {
+        .ServiceGroup__header {
             color: $mainLightGreen;
         }
     }
     &_2 {
         background: $mainLightGreen;
-        .ServiceGroup__title {
+        .ServiceGroup__header {
             color: $mainGreen;
         }
     }
