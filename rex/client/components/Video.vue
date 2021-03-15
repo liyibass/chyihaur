@@ -29,5 +29,9 @@ export default {}
         min-height: 157px;
         padding: 7px;
     }
+
+    @include atSmall {
+        display: none;
+    }
 }
 </style>

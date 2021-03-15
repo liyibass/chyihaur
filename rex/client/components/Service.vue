@@ -1,28 +1,6 @@
 <template>
     <div class="Service" id="service">
-        <div
-            v-for="(service, index) in serviceList"
-            :key="index"
-            class="Service__part"
-            :class="`Service__part_${index}`"
-        >
-            <div class="Service__part_wrapper">
-                <div class="Service__part_title">
-                    {{ service.title }}
-                </div>
-
-                <div class="Service__part_lists">
-                    <ServiceCard v-for="(serviceCard, index) in service.list" :key="index" :service="serviceCard">
-                    </ServiceCard>
-                </div>
-
-                <div
-                    class="Service__part_quote"
-                    :class="`Service__part_quote_${index}`"
-                    :style="{ right: `${25 * index}%` }"
-                />
-            </div>
-        </div>
+        <ServiceGroup v-for="serviceGroup in serviceGroupList" :key="serviceGroup" :serviceGroup="serviceGroup" />
 
         <div class="Service__big_title">
             <img :src="require('@/static/images/title2.png')" alt="" />
@@ -31,20 +9,21 @@
 </template>
 
 <script>
-import ServiceCard from '@/components/ServiceCard'
+import ServiceGroup from '@/components/ServiceGroup'
 import 'intersection-observer'
 import scrollama from 'scrollama'
 
 export default {
     components: {
-        ServiceCard,
+        ServiceGroup,
     },
     data() {
         return {
-            serviceList: [
+            serviceGroupList: [
                 {
+                    id: 0,
                     title: '設計',
-                    list: [
+                    serviceList: [
                         {
                             id: 0,
                             group: 0,
@@ -76,8 +55,9 @@ export default {
                     ],
                 },
                 {
+                    id: 1,
                     title: '工程',
-                    list: [
+                    serviceList: [
                         {
                             id: 0,
                             group: 1,
@@ -102,8 +82,9 @@ export default {
                     ],
                 },
                 {
+                    id: 2,
                     title: '攝影',
-                    list: [
+                    serviceList: [
                         {
                             id: 0,
                             group: 2,
@@ -182,65 +163,6 @@ export default {
         height: 100vh;
     }
 
-    &__part {
-        position: relative;
-        flex-grow: 1;
-        flex-shrink: 1;
-        flex-basis: auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-
-        &_wrapper {
-            height: 80%;
-            width: 80%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-
-            position: relative;
-        }
-
-        &_title {
-            font-size: 25px;
-            @include atSmall {
-                font-size: 39px;
-            }
-        }
-
-        &_lists {
-            width: 100%;
-            height: 100%;
-            margin: auto;
-            display: flex;
-            flex-direction: row;
-            align-items: stretch;
-            justify-content: center;
-            flex-wrap: wrap;
-
-            @include atMedium {
-                width: 85%;
-            }
-            @include atMedium {
-                justify-content: flex-start;
-            }
-        }
-
-        &_quote {
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 16px;
-            height: 16px;
-            display: none;
-
-            @include atLarge {
-                display: block;
-            }
-        }
-    }
-
     &__big_title {
         width: 67px;
         position: absolute;
@@ -253,37 +175,5 @@ export default {
             width: 100%;
         }
     }
-
-    &__part_0 {
-        background: $mainGreen;
-        .Service__part_title {
-            color: $mainWhite;
-        }
-    }
-
-    &__part_1 {
-        background: white;
-        .Service__part_title {
-            color: $mainLightGreen;
-        }
-    }
-    &__part_2 {
-        background: $mainLightGreen;
-        .Service__part_title {
-            color: $mainGreen;
-        }
-    }
-}
-
-.Service__part_quote_0 {
-    border: 1px solid $mainWhite;
-    border-bottom: none;
-    border-left: none;
-}
-
-.Service__part_quote_1 {
-    border: 1px solid black;
-    border-bottom: none;
-    border-left: none;
 }
 </style>

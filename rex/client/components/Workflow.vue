@@ -37,8 +37,6 @@
         <div class="Workflow__big_title">
             <img :src="require('@/static/images/title2.png')" alt="" />
         </div>
-
-        <!-- <Carousel /> -->
     </div>
 </template>
 
@@ -48,14 +46,12 @@ import OverflowImage from '@/components/OverflowImage'
 import Workflowstep from '@/components/Workflowstep'
 import WorkflowIcon from '@/components/WorkflowIcon'
 import WorkflowDetail from '@/components/WorkflowDetail'
-import Carousel from '@/components/Carousel'
 import workflowMixin from '@/mixins/workflowMixin'
 
 export default {
     components: {
         ProgressBar,
         OverflowImage,
-        Carousel,
         Workflowstep,
         WorkflowIcon,
         WorkflowDetail,
