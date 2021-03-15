@@ -7,17 +7,17 @@
         </transition>
 
         <div class="NavBar__container" :style="getNavContainerCSS" @click="navBarToggler">
-            <NavBarItem v-for="(item, index) in navList" :key="index" :navItem="item" />
+            <MainTitle v-for="(item, index) in navList" :key="index" :title="item.key" />
         </div>
     </div>
 </template>
 
 <script>
 import navMixin from '../mixins/navMixin'
-import NavBarItem from './NavBarItem'
+import MainTitle from './MainTitle'
 export default {
     mixins: [navMixin],
-    components: { NavBarItem },
+    components: { MainTitle },
     data() {
         return {
             navBarIsOpen: false,
