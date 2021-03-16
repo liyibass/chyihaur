@@ -51,11 +51,15 @@ export default {
 <style lang="scss" scoped>
 .AnimateLogoTime {
     z-index: 100;
-    height: 100%;
+    height: 23px;
     position: relative;
 
     display: flex;
     flex-direction: row;
+
+    @include atSmall {
+        height: 43px;
+    }
 
     &__logo {
         height: 100%;
@@ -67,7 +71,7 @@ export default {
 
     &__date {
         @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;500&display=swap');
-        width: 56px;
+        width: 40px;
 
         display: flex;
         flex-direction: column;
@@ -75,8 +79,13 @@ export default {
 
         font-family: 'Rubik', sans-serif;
         color: $mainWhite;
-        font-size: 15px;
+        font-size: 8px;
         font-weight: 500;
+
+        @include atSmall {
+            width: 56px;
+            font-size: 15px;
+        }
 
         &_year {
             align-self: flex-start;

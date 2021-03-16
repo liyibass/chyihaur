@@ -1,6 +1,6 @@
 <template>
     <div class="Header">
-        <HeaderRuler />
+        <HeaderTop />
         <div class="Header__title">
             <img :src="require('@/static/images/title.png')" alt="" />
         </div>
@@ -8,11 +8,11 @@
 </template>
 
 <script>
-import HeaderRuler from './HeaderRuler'
+import HeaderTop from './HeaderTop'
 import HeaderNav from './HeaderNav'
 export default {
     components: {
-        HeaderRuler,
+        HeaderTop,
         HeaderNav,
     },
 }
@@ -22,28 +22,32 @@ export default {
 .Header {
     width: 100%;
     position: relative;
-    padding: 50px 54px 0;
+    padding: 30px 20px 0;
 
     display: flex;
     flex-direction: column;
     align-items: flex-end;
 
+    margin-bottom: 16px;
+
+    @include atSmall {
+        padding: 50px 54px 0;
+    }
+
     &__title {
-        width: 100%;
+        width: 50%;
         // height: 30px;
 
         img {
             width: 100%;
+            box-sizing: border-box;
         }
-    }
 
-    @include atSmall {
-        &__title {
+        @include atSmall {
             width: 60%;
         }
-    }
-    @include atLarge {
-        &__title {
+
+        @include atLarge {
             width: 560px;
         }
     }
