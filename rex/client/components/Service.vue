@@ -2,6 +2,7 @@
     <div class="Service" id="service">
         <div class="Service__main_title">
             <MainTitle title="portfolio" />
+            <ServicePagination :currentIndex="currentIndex" :pageArray="serviceGroupList" />
         </div>
 
         <div class="Service__desktop_view">
@@ -9,7 +10,7 @@
         </div>
 
         <div class="Service__mobile_view ">
-            <carousel :per-page="1" centerMode loop :paginationEnabled="false">
+            <carousel :per-page="1" centerMode loop :paginationEnabled="false" @page-change="pageChangeHandler">
                 <slide v-for="serviceGroup in serviceGroupList" :key="serviceGroup.title">
                     <ServiceGroup :serviceGroup="serviceGroup" />
                 </slide>
@@ -25,6 +26,7 @@
 <script>
 import ServiceGroup from '@/components/ServiceGroup'
 import MainTitle from '@/components/MainTitle'
+import ServicePagination from '@/components/ServicePagination'
 
 import 'intersection-observer'
 import { Carousel, Slide } from 'vue-carousel'
@@ -35,9 +37,11 @@ export default {
         Carousel,
         Slide,
         MainTitle,
+        ServicePagination,
     },
     data() {
         return {
+            currentIndex: 0,
             serviceGroupList: [
                 {
                     id: 0,
@@ -124,6 +128,12 @@ export default {
         }
     },
 
+    methods: {
+        pageChangeHandler(number) {
+            this.currentIndex = number
+        },
+    },
+
     mounted() {
         const allServices = document.querySelectorAll('.ServiceCard')
 
@@ -186,7 +196,15 @@ export default {
         position: absolute;
         top: 22px;
         left: 50%;
+
+        height: 11vh;
         transform: translateX(-50%);
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+
         @include atSmall {
             display: none;
         }

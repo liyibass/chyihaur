@@ -63,7 +63,7 @@ export default {
     }
 
     &__wrapper {
-        height: 90%;
+        height: 100%;
         width: 80%;
         display: flex;
         flex-direction: column;
@@ -96,12 +96,13 @@ export default {
     &__lists {
         width: 100%;
         height: 73vh;
+        padding-bottom: 40px;
 
         margin: auto;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: space-evenly;
+        justify-content: flex-start;
         flex-wrap: wrap;
 
         @include atSmall {
