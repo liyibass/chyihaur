@@ -16,10 +16,8 @@
                 </slide>
             </carousel>
 
-            <div class="slideshowCtrl">
-                <div class="prev" @click="prevPage" />
-                <div class="next" @click="nextPage" />
-            </div>
+            <div class="slideshowCtrl-prev" @click="prevPage" />
+            <div class="slideshowCtrl-next" @click="nextPage" />
         </div>
 
         <div class="Service__big_title">
@@ -236,6 +234,7 @@ export default {
     }
 
     &__mobile_view {
+        position: relative;
         @include atSmall {
             display: none;
         }
@@ -262,31 +261,22 @@ export default {
 //     }
 // }
 
-.slideshowCtrl {
-    width: 100%;
+.slideshowCtrl-prev,
+.slideshowCtrl-next {
     height: 100%;
+    width: 17%;
     position: absolute;
     top: 0;
+}
+
+.slideshowCtrl-prev {
     left: 0;
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;
-    justify-content: center;
-    cursor: pointer;
-
-    .prev,
-    .next {
-        height: 100%;
-        width: 50%;
-    }
-
-    // .prev {
-    //     background: red;
-    //     opacity: 0.5;
-    // }
-    // .next {
-    //     background: gold;
-    //     opacity: 0.5;
-    // }
+    // background: gray;
+    // opacity: 0.5;
+}
+.slideshowCtrl-next {
+    right: 0;
+    // background: gray;
+    // opacity: 0.5;
 }
 </style>
