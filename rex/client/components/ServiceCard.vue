@@ -59,6 +59,14 @@ export default {
     &__icon {
         width: 85px;
         margin-bottom: 22px;
+
+        @include atSmall {
+            width: 60px;
+        }
+
+        @include atLarge {
+            width: 85px;
+        }
         img {
             width: 100%;
         }
@@ -68,6 +76,10 @@ export default {
         font-size: 14px;
 
         @include atSmall {
+            font-size: 18px;
+        }
+
+        @include atLarge {
             font-size: 22px;
         }
     }

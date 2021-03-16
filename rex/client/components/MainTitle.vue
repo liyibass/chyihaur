@@ -1,5 +1,5 @@
 <template>
-    <div class="MainTitle" @click="chooseChapter(navItem.link)">
+    <div class="MainTitle" @click="chooseChapter(link)">
         <template v-if="title === 'about'">
             <div class="MainTitle__one_text">ABOUT</div>
             <div class="MainTitle__multi_text MainTitle__margin">
@@ -56,24 +56,28 @@ export default {
         title: {
             type: String,
         },
+        link: {
+            type: String,
+        },
     },
     components: {},
     methods: {
-        chooseChapter(newId) {
-            if (newId === 'contact') {
-                this.$router.push(newId)
+        chooseChapter(link) {
+            if (!link) return
+
+            const linkArray = link.split('#')
+            const linkIsAnId = linkArray.length > 1
+            if (linkIsAnId && this.$route.name !== 'index') {
+                this.$router.push('/')
+
+                const myEl = document.getElementById(`${linkArray[1]}`)
+                this.$smoothScroll({
+                    scrollTo: myEl,
+                })
                 return
             }
 
-            if (this.$route.name === 'contact') {
-                this.$router.push('/')
-            }
-
-            const myEl = document.getElementById(`${newId}`)
-
-            this.$smoothScroll({
-                scrollTo: myEl,
-            })
+            this.$router.push(link)
         },
     },
 }

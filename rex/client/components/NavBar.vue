@@ -7,7 +7,7 @@
         </transition>
 
         <div class="NavBar__container" :style="getNavContainerCSS" @click="navBarToggler">
-            <MainTitle v-for="(item, index) in navList" :key="index" :title="item.key" />
+            <MainTitle v-for="(item, index) in navList" :key="index" :title="item.key" :link="item.link" />
         </div>
     </div>
 </template>

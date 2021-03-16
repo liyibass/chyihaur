@@ -197,7 +197,7 @@ export default {
         top: 22px;
         left: 50%;
 
-        height: 11vh;
+        height: 9vh;
         transform: translateX(-50%);
 
         display: flex;

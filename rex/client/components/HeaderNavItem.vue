@@ -98,6 +98,12 @@ export default {
             width: 27px;
             height: 53px;
         }
+        &_wrapper_5 {
+            align-self: center;
+
+            width: 27px;
+            height: 53px;
+        }
     }
 
     &__divider {
