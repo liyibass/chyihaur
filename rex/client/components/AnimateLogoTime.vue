@@ -1,5 +1,5 @@
 <template>
-    <div class="AnimateLogoTime">
+    <a class="AnimateLogoTime" href="/">
         <div class="AnimateLogoTime__logo">
             <img :src="require('@/static/images/logo_small.png')" alt="" />
         </div>
@@ -8,7 +8,7 @@
             <div class="AnimateLogoTime__date_year">{{ getDate('year') }}</div>
             <div class="AnimateLogoTime__date_date">{{ getDate('month') }}{{ getDate('day') }}</div>
         </div>
-    </div>
+    </a>
 </template>
 
 <script>

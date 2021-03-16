@@ -1,5 +1,5 @@
 <template>
-    <div class="NavBar">
+    <div class="NavBar" :style="{ top: getTopHeight }">
         <transition name="fast-fade">
             <div class="NavBar__icon" v-if="!navBarIsOpen" @click="navBarToggler">
                 <img :src="require('@/static/images/navLogo.svg')" alt="" />
@@ -13,14 +13,17 @@
 </template>
 
 <script>
-import navMixin from '../mixins/navMixin'
-import MainTitle from './MainTitle'
+import MainTitle from '@/components/MainTitle'
+import navMixin from '@/mixins/navMixin'
+import { setScrollDirection } from '../utils/getScrollDirection'
+
 export default {
     mixins: [navMixin],
     components: { MainTitle },
     data() {
         return {
             navBarIsOpen: false,
+            direction: 'up',
         }
     },
     computed: {
@@ -31,11 +34,22 @@ export default {
                 return { transform: 'translateX(100%)' }
             }
         },
+        getTopHeight() {
+            // console.log(this.direction)
+            if (this.direction === 'down') {
+                return '-64px'
+            } else {
+                return '10px'
+            }
+        },
     },
     methods: {
         navBarToggler() {
             this.navBarIsOpen = !this.navBarIsOpen
         },
+    },
+    mounted() {
+        setScrollDirection(this)
     },
 }
 </script>
@@ -49,6 +63,7 @@ export default {
     width: 50px;
     height: 50px;
     // overflow: hidden;
+    transition: top 0.5s ease;
 
     &__icon {
         z-index: 1;

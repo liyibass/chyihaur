@@ -37,11 +37,15 @@ export default {
     align-items: center;
 
     &__gif {
-        width: 70%;
+        width: 140%;
         // height: 70%;
         margin: 10px;
         box-sizing: content-box;
         box-shadow: 0 0 50px 50px rgba(238, 238, 238, 1);
+
+        @include atSmall {
+            width: 70%;
+        }
         img {
             opacity: 0.7;
             width: 100%;
