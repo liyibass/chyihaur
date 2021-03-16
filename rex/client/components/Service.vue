@@ -1,12 +1,16 @@
 <template>
     <div class="Service" id="service">
-        <div class="Service__desktop_view">
-            <ServiceGroup v-for="serviceGroup in serviceGroupList" :key="serviceGroup" :serviceGroup="serviceGroup" />
+        <div class="Service__main_title">
+            <MainTitle title="portfolio" />
         </div>
 
-        <div class="Service__mobile_view">
+        <div class="Service__desktop_view">
+            <ServiceGroup v-for="(serviceGroup, index) in serviceGroupList" :key="index" :serviceGroup="serviceGroup" />
+        </div>
+
+        <div class="Service__mobile_view ">
             <carousel :per-page="1" centerMode loop :paginationEnabled="false">
-                <slide v-for="serviceGroup in serviceGroupList" :key="serviceGroup">
+                <slide v-for="serviceGroup in serviceGroupList" :key="serviceGroup.title">
                     <ServiceGroup :serviceGroup="serviceGroup" />
                 </slide>
             </carousel>
@@ -20,8 +24,9 @@
 
 <script>
 import ServiceGroup from '@/components/ServiceGroup'
+import MainTitle from '@/components/MainTitle'
+
 import 'intersection-observer'
-import scrollama from 'scrollama'
 import { Carousel, Slide } from 'vue-carousel'
 
 export default {
@@ -29,6 +34,7 @@ export default {
         ServiceGroup,
         Carousel,
         Slide,
+        MainTitle,
     },
     data() {
         return {
@@ -72,21 +78,21 @@ export default {
                     title: '工程',
                     serviceList: [
                         {
-                            id: 0,
+                            id: 4,
                             group: 1,
                             title: '招牌工程',
                             icon: require('@/static/images/service/service_5.png'),
                             url: '',
                         },
                         {
-                            id: 1,
+                            id: 5,
                             group: 1,
                             title: '指標工程',
                             icon: require('@/static/images/service/service_6.png'),
                             url: '',
                         },
                         {
-                            id: 2,
+                            id: 6,
                             group: 1,
                             title: '意象工程',
                             icon: require('@/static/images/service/service_7.png'),
@@ -96,17 +102,17 @@ export default {
                 },
                 {
                     id: 2,
-                    title: '攝影',
+                    title: '影像',
                     serviceList: [
                         {
-                            id: 0,
+                            id: 7,
                             group: 2,
                             title: '商用攝影',
                             icon: require('@/static/images/service/service_8.png'),
                             url: '',
                         },
                         {
-                            id: 1,
+                            id: 8,
                             group: 2,
                             title: '意象攝影',
                             icon: require('@/static/images/service/service_9.png'),
@@ -164,16 +170,26 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .Service {
     width: 100%;
+    height: 100vh;
+
     background: white;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     position: relative;
-    @include atSmall {
-        height: 100vh;
+
+    &__main_title {
+        z-index: 2;
+        position: absolute;
+        top: 22px;
+        left: 50%;
+        transform: translateX(-50%);
+        @include atSmall {
+            display: none;
+        }
     }
 
     &__big_title {
@@ -198,15 +214,21 @@ export default {
     &__desktop_view {
         display: none;
         @include atSmall {
-            display: block;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
         }
     }
 }
 
-.VueCarousel-pagination {
-    background: transparent;
-    position: absolute;
-    top: 20%;
-    left: 0;
-}
+// .VueCarousel-pagination {
+//     background: transparent;
+//     position: absolute;
+//     top: 20%;
+//     left: 0;
+
+//     @include atSmall {
+//         display: none;
+//     }
+// }
 </style>

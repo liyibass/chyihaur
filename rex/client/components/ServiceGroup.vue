@@ -2,14 +2,15 @@
     <div class="ServiceGroup" :class="`ServiceGroup_${serviceGroup.id}`">
         <div class="ServiceGroup__wrapper">
             <div class="ServiceGroup__header">
-                <!-- title -->
-                <!-- panigation -->
-                <!-- group title -->
-                {{ serviceGroup.title }}
+                <SubTitle :title="serviceGroup.title" />
             </div>
 
             <div class="ServiceGroup__lists">
-                <ServiceCard v-for="serviceCard in serviceGroup.serviceList" :key="serviceCard" :service="serviceCard">
+                <ServiceCard
+                    v-for="(serviceCard, index) in serviceGroup.serviceList"
+                    :key="index"
+                    :service="serviceCard"
+                >
                 </ServiceCard>
             </div>
 
@@ -24,10 +25,12 @@
 
 <script>
 import ServiceCard from '@/components/ServiceCard'
+import SubTitle from '@/components/SubTitle'
 
 export default {
     components: {
         ServiceCard,
+        SubTitle,
     },
 
     props: {
@@ -60,42 +63,49 @@ export default {
     }
 
     &__wrapper {
-        height: 80%;
+        height: 90%;
         width: 80%;
         display: flex;
         flex-direction: column;
         justify-content: center;
 
         position: relative;
+
+        @include atSmall {
+            height: 80%;
+            width: 80%;
+        }
     }
 
     &__header {
-        height: 27%;
+        height: 27vh;
+        padding: 40px;
         font-size: 25px;
 
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-end;
         @include atSmall {
-            font-size: 39px;
+            display: none;
             height: auto;
+            font-size: 39px;
         }
     }
 
     &__lists {
         width: 100%;
-        height: 73%;
+        height: 73vh;
+
         margin: auto;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
+        justify-content: space-evenly;
         flex-wrap: wrap;
 
         @include atSmall {
             height: 100%;
-
             flex-direction: row;
 
             justify-content: flex-start;
