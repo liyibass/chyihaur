@@ -2,7 +2,7 @@
     <div class="Service" id="service">
         <div class="Service__main_title">
             <MainTitle title="our-service" />
-            <ServicePagination :currentIndex="currentIndex" :pageArray="serviceGroupList" />
+            <ServicePagination :currentIndex="targetIndex" :pageArray="serviceGroupList" />
         </div>
 
         <div class="Service__desktop_view">
@@ -10,11 +10,16 @@
         </div>
 
         <div class="Service__mobile_view ">
-            <carousel :per-page="1" centerMode loop :paginationEnabled="false" @page-change="pageChangeHandler">
+            <carousel :per-page="1" centerMode loop :paginationEnabled="false" :navigateTo="targetIndex">
                 <slide v-for="serviceGroup in serviceGroupList" :key="serviceGroup.title">
                     <ServiceGroup :serviceGroup="serviceGroup" />
                 </slide>
             </carousel>
+
+            <div class="slideshowCtrl">
+                <div class="prev" @click="prevPage" />
+                <div class="next" @click="nextPage" />
+            </div>
         </div>
 
         <div class="Service__big_title">
@@ -41,7 +46,8 @@ export default {
     },
     data() {
         return {
-            currentIndex: 0,
+            // currentIndex: 0,
+            targetIndex: 0,
             serviceGroupList: [
                 {
                     id: 0,
@@ -129,8 +135,14 @@ export default {
     },
 
     methods: {
-        pageChangeHandler(number) {
-            this.currentIndex = number
+        // pageChangeHandler(number) {
+        //     this.currentIndex = number
+        // },
+        prevPage() {
+            this.targetIndex = this.targetIndex === 0 ? this.serviceGroupList.length - 1 : this.targetIndex - 1
+        },
+        nextPage() {
+            this.targetIndex = this.targetIndex === this.serviceGroupList.length - 1 ? 0 : this.targetIndex + 1
         },
     },
 
@@ -249,4 +261,32 @@ export default {
 //         display: none;
 //     }
 // }
+
+.slideshowCtrl {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+    cursor: pointer;
+
+    .prev,
+    .next {
+        height: 100%;
+        width: 50%;
+    }
+
+    // .prev {
+    //     background: red;
+    //     opacity: 0.5;
+    // }
+    // .next {
+    //     background: gold;
+    //     opacity: 0.5;
+    // }
+}
 </style>

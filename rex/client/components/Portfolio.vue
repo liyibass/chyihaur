@@ -20,7 +20,9 @@
                 paginationColor="rgba(255,255,255,0.6)"
             >
                 <slide v-for="(slide, i) in portfolioList" :key="i">
-                    <img :src="slide.imageUrl" alt="" />
+                    <a href="/portfolio">
+                        <img :src="slide.imageUrl" alt="" />
+                    </a>
                 </slide>
             </carousel>
         </div>
