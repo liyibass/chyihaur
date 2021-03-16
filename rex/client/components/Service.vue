@@ -1,7 +1,7 @@
 <template>
     <div class="Service" id="service">
         <div class="Service__main_title">
-            <MainTitle title="portfolio" />
+            <MainTitle title="our-service" />
             <ServicePagination :currentIndex="currentIndex" :pageArray="serviceGroupList" />
         </div>
 

@@ -110,6 +110,7 @@ export default {
             flex-direction: row;
 
             justify-content: flex-start;
+            padding-bottom: 0;
         }
     }
 
