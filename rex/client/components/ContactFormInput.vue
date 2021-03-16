@@ -24,13 +24,18 @@ export default {
     margin-bottom: 14px;
 
     &__title {
-        width: 142px;
+        width: 130px;
         height: 100%;
-        padding: 0 17px;
+        padding: 0 10px;
         line-height: 44px;
         margin-right: 4px;
 
         background: rgba(3, 80, 112, 0.8);
+
+        @include atSmall {
+            width: 142px;
+            padding: 0 17px;
+        }
     }
 
     &__input {

@@ -63,13 +63,13 @@ export default {
     font-family: Broadwell;
     color: $mainWhite;
     width: 100%;
-    height: 100vh;
+    // height: 100vh;
 
     &__wrapper {
         position: relative;
 
         width: 100%;
-        height: 100vh;
+        height: 100%;
         padding: 48px 20px 37px;
         margin: auto;
 
@@ -77,22 +77,50 @@ export default {
         flex-direction: column;
         align-self: flex-start;
         justify-content: space-between;
+
+        @include atSmall {
+            &__wrapper {
+                padding: 48px 55px 37px;
+            }
+        }
+        @include atUltraLarge {
+            max-width: 1000px;
+        }
     }
 
     &__up_section {
         display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+        flex-direction: column;
+        align-items: center;
+
+        @include atMedium {
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
     }
 
     &__titles {
         z-index: 1;
+        margin-bottom: 30px;
         &_sub_title {
             font-size: 14px;
+            @include atSmall {
+                font-size: 16px;
+            }
+            @include atLarge {
+                font-size: 20px;
+            }
         }
 
         &_title {
             font-size: 40px;
+            @include atSmall {
+                font-size: 49px;
+            }
+            @include atLarge {
+                font-size: 58px;
+            }
         }
     }
 
@@ -101,14 +129,32 @@ export default {
         flex-direction: column;
         align-items: flex-start;
         justify-content: space-between;
+
+        @include atMedium {
+            flex-direction: row;
+            align-items: flex-end;
+        }
+
         &_lists {
             &_list {
                 margin-bottom: 21px;
                 &_title {
                     font-size: 16px;
+                    @include atSmall {
+                        font-size: 20px;
+                    }
+                    @include atMedium {
+                        font-size: 28px;
+                    }
                 }
                 &_value {
                     font-size: 14px;
+                    @include atSmall {
+                        font-size: 18px;
+                    }
+                    @include atMedium {
+                        font-size: 21px;
+                    }
                 }
 
                 &:last-child {
@@ -121,6 +167,15 @@ export default {
             width: 200px;
             align-self: center;
             margin-top: 20px;
+
+            @include atSmall {
+                align-self: flex-start;
+            }
+
+            @include atMedium {
+                width: 383px;
+                align-self: initial;
+            }
 
             img {
                 width: 100%;
@@ -145,71 +200,6 @@ export default {
             width: 100%;
             height: 100%;
             object-fit: cover;
-        }
-    }
-
-    @include atSmall {
-        &__wrapper {
-            padding: 48px 55px 37px;
-        }
-
-        &__titles {
-            &_sub_title {
-                font-size: 20px;
-            }
-
-            &_title {
-                font-size: 58px;
-            }
-        }
-
-        &__detail {
-            &_lists {
-                &_list {
-                    &_title {
-                        font-size: 20px;
-                    }
-                    &_value {
-                        font-size: 18px;
-                    }
-                }
-            }
-
-            &_business_card {
-                align-self: flex-start;
-            }
-        }
-    }
-
-    @include atMedium {
-        &__detail {
-            &_lists {
-                &_list {
-                    &_title {
-                        font-size: 28px;
-                    }
-                    &_value {
-                        font-size: 21px;
-                    }
-                }
-            }
-
-            &_business_card {
-                width: 383px;
-                align-self: initial;
-            }
-        }
-    }
-
-    @include atMedium {
-        &__detail {
-            flex-direction: row;
-            align-items: flex-end;
-        }
-    }
-    @include atUltraLarge {
-        &__wrapper {
-            max-width: 1000px;
         }
     }
 }

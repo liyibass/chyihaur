@@ -50,8 +50,19 @@ export default {
 <style lang="scss" scoped>
 .ContactForm {
     // flex: 1;
-    margin-left: 53px;
-    width: 673px;
+    width: 100%;
+    margin-bottom: 30px;
+
+    @include atMedium {
+        margin-left: 53px;
+        margin-bottom: 0;
+    }
+
+    @include atLarge {
+        width: 673px;
+        margin-left: 53px;
+        margin-bottom: 0;
+    }
 
     // position: absolute;
     // top: 48px;
