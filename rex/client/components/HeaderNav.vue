@@ -19,24 +19,6 @@ export default {
     components: {
         HeaderNavItem,
     },
-    methods: {
-        chooseChapter(newId) {
-            if (newId === 'contact') {
-                this.$router.push(newId)
-                return
-            }
-
-            if (this.$route.name === 'contact') {
-                this.$router.push('/')
-            }
-
-            const myEl = document.getElementById(`${newId}`)
-
-            this.$smoothScroll({
-                scrollTo: myEl,
-            })
-        },
-    },
 }
 </script>
 

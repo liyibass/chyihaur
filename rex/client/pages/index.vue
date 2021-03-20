@@ -8,7 +8,6 @@
             />
         </transition>
         <NavBar />
-
         <Main />
 
         <Video />

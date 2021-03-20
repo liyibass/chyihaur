@@ -11,7 +11,7 @@ export default {
                     id: 0,
                     title: '關於淇豪',
                     engTitle: 'About Us',
-                    link: '#about',
+                    link: 'about',
                     key: 'about',
                     logoUrl: require('@/static/images/logos/0.png'),
                 },
@@ -57,6 +57,26 @@ export default {
                 },
             ],
         }
+    },
+
+    methods: {
+        chooseChapter(link) {
+            if (!link) return
+
+            const linkArray = link.split('#')
+            const linkIsAnId = linkArray.length > 1
+            if (linkIsAnId) {
+                if (this.$route.name !== 'index') this.$router.push('/')
+
+                const myEl = document.getElementById(`${linkArray[1]}`)
+                this.$smoothScroll({
+                    scrollTo: myEl,
+                })
+                return
+            }
+
+            this.$router.push(link)
+        },
     },
 }
 </script>

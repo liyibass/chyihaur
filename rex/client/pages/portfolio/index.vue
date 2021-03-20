@@ -1,19 +1,17 @@
 <template>
     <div>
-        <!-- <Main />
-        <Contact /> -->
-        Portfolio page (Todo)
+        <NavBar />
+        <Main />
     </div>
 </template>
 
 <script>
+import NavBar from '@/components/NavBar'
 import Main from '@/components/Main'
-
-import Contact from '@/components/Contact'
 export default {
     components: {
+        NavBar,
         Main,
-        Contact,
     },
 }
 </script>
