@@ -2,28 +2,74 @@
     <div class="AboutPage">
         <NavBar />
         <Main />
+        <UiEmployeeContainer :employeeList="employeeList" />
     </div>
 </template>
 
 <script>
 import NavBar from '@/components/NavBar'
 import Main from '@/components/Main'
+import UiEmployeeContainer from '@/components/UiEmployeeContainer'
 export default {
     components: {
         NavBar,
         Main,
+        UiEmployeeContainer,
     },
     data() {
         return {
-            employees: [
+            employeeList: [
                 {
                     id: 0,
-                    name: 'POP REX',
-                    engName: '',
-                    position: '總監/新手爸爸',
-                    detail: '<p>我要錢<br/>我要錢<br/>我要錢<br/>我要錢<br/></p>',
-                    snapshotUrl: '',
-                    headerUrl: '',
+                    position: 'OPERATION',
+                    title: 'AA',
+                },
+                {
+                    id: 1,
+                    position: 'DESIGN',
+                    title: 'BB',
+                },
+                {
+                    id: 2,
+                    position: 'DESIGN',
+                    title: 'CC',
+                },
+                {
+                    id: 3,
+                    position: 'OPERATION',
+                    title: 'DD',
+                },
+            ],
+            newEmployeeList: [
+                {
+                    title: 'OPERATION',
+                    child: [
+                        {
+                            id: 0,
+                            position: 'OPERATION',
+                            title: 'AA',
+                        },
+                        {
+                            id: 1,
+                            position: 'OPERATION',
+                            title: 'BB',
+                        },
+                    ],
+                },
+                {
+                    title: 'DESIGN',
+                    child: [
+                        {
+                            id: 2,
+                            position: 'DESIGN',
+                            title: 'CC',
+                        },
+                        {
+                            id: 3,
+                            position: 'DESIGN',
+                            title: 'DD',
+                        },
+                    ],
                 },
             ],
         }
