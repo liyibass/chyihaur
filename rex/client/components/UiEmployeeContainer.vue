@@ -48,7 +48,6 @@ export default {
     },
     mounted() {
         // this.positionList()
-        console.log(this.employeeList)
     },
 }
 </script>

@@ -22,7 +22,7 @@ export default {
 
     methods: {
         goToEmployeePage() {
-            this.$router.push(`/about/${this.employee.name}`)
+            this.$router.push(`/about/${this.employee.id}`)
         },
     },
 }
@@ -32,6 +32,10 @@ export default {
 .UiEmployeeCard {
     margin: 0 30px;
     cursor: pointer;
+
+    @include atSmall {
+        margin: 30px;
+    }
     &__snapshot {
         width: 200px;
         height: 200px;
