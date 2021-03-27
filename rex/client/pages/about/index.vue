@@ -1,19 +1,19 @@
 <template>
     <div class="AboutPage">
         <NavBar />
-        <Main />
+        <Header />
         <UiEmployeeContainer :employeeList="employeeList" />
     </div>
 </template>
 
 <script>
 import NavBar from '@/components/NavBar'
-import Main from '@/components/Main'
+import Header from '@/components/Header'
 import UiEmployeeContainer from '@/components/UiEmployeeContainer'
 export default {
     components: {
         NavBar,
-        Main,
+        Header,
         UiEmployeeContainer,
     },
     data() {

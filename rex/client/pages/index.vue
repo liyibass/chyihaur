@@ -8,7 +8,7 @@
             />
         </transition>
         <NavBar />
-        <Main />
+        <Header />
 
         <Video />
         <HeaderImage />
@@ -23,7 +23,7 @@
 <script>
 import FullScreenAnimate from '@/components/FullScreenAnimate'
 import NavBar from '@/components/NavBar'
-import Main from '@/components/Main'
+import Header from '@/components/Header'
 import Video from '@/components/Video'
 import HeaderImage from '@/components/HeaderImage'
 import About from '@/components/About'
@@ -38,7 +38,7 @@ export default {
     components: {
         FullScreenAnimate,
         NavBar,
-        Main,
+        Header,
         Video,
         HeaderImage,
         About,

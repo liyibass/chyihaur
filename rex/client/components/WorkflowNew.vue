@@ -8,7 +8,7 @@
                 :paginationEnabled="true"
                 :navigateTo="targetIndex"
                 paginationPosition="bottom-overlay"
-                paginationSize="20"
+                :paginationSize="20"
                 paginationColor="#dddedf"
                 paginationActiveColor="#737374"
             >

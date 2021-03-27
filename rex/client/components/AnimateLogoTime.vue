@@ -51,19 +51,18 @@ export default {
 <style lang="scss" scoped>
 .AnimateLogoTime {
     z-index: 100;
-    height: 23px;
+    height: 43px;
     position: relative;
 
     display: flex;
     flex-direction: row;
 
     @include atSmall {
-        height: 43px;
+        height: 73px;
     }
 
     &__logo {
         height: 100%;
-        margin-right: 13px;
         img {
             height: 100%;
         }
@@ -71,7 +70,13 @@ export default {
 
     &__date {
         @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;500&display=swap');
-        width: 40px;
+        width: 42px;
+        height: 45px;
+
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translate(120%, -50%);
 
         display: flex;
         flex-direction: column;
@@ -83,8 +88,9 @@ export default {
         font-weight: 500;
 
         @include atSmall {
-            width: 56px;
             font-size: 15px;
+            width: 72px;
+            justify-content: space-between;
         }
 
         &_year {

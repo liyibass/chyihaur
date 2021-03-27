@@ -24,19 +24,21 @@ export default {
 
 <style lang="scss" scoped>
 .HeaderNav {
-    margin-top: 18.804vh;
-    margin-bottom: 50px;
-
     display: none;
     @include atSmall {
         display: block;
     }
 
     @include atMedium {
-        margin-right: 76px;
     }
+
     &__container {
-        width: 100vw;
+        width: 90vw;
+        position: absolute;
+        top: 120%;
+        right: 0;
+
+        // padding: 16px 0 0;
 
         display: flex;
         flex-direction: column;
@@ -44,18 +46,23 @@ export default {
         justify-content: space-between;
 
         @include atSmall {
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        @include atMedium {
+            position: relative;
+            top: 0;
+            right: 0;
+            width: 590px;
             display: flex;
             flex-direction: row;
             align-items: center;
             justify-content: space-between;
         }
 
-        @include atMedium {
+        @include atLarge {
             width: 640px;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-between;
         }
     }
 }

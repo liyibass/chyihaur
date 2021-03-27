@@ -1,6 +1,6 @@
 <template>
     <div class="WorkflowDetail">
-        <div class="WorkflowDetail__text" v-html="returnCurrentContext" :key="currentAnimate" />
+        <div class="WorkflowDetail__text" v-html="returnCurrentContext" :key="curentDetailId" />
     </div>
 </template>
 

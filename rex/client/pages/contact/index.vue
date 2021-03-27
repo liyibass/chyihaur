@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Main />
+        <Header />
         <!-- <NavBar /> -->
 
         <Contact />
@@ -8,13 +8,13 @@
 </template>
 
 <script>
-import Main from '@/components/Main'
+import Header from '@/components/Header'
 import NavBar from '@/components/NavBar'
 
 import Contact from '@/components/Contact'
 export default {
     components: {
-        Main,
+        Header,
         Contact,
         NavBar,
     },

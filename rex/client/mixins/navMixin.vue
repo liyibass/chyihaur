@@ -10,7 +10,7 @@ export default {
                 {
                     id: 0,
                     title: '關於淇豪',
-                    engTitle: 'About Us',
+                    engTitle: 'ABOUT US',
                     link: 'about',
                     key: 'about',
                     logoUrl: require('@/static/images/logos/0.png'),
@@ -18,7 +18,7 @@ export default {
                 {
                     id: 1,
                     title: '服務項目',
-                    engTitle: 'Our Service',
+                    engTitle: 'SERVICE',
                     link: '#service',
                     key: 'our-service',
                     logoUrl: require('@/static/images/logos/1.png'),
@@ -26,7 +26,7 @@ export default {
                 {
                     id: 2,
                     title: '流程介紹',
-                    engTitle: 'Workflow',
+                    engTitle: 'WORKFLOW',
                     link: '#workflow',
                     key: 'workflow',
                     logoUrl: require('@/static/images/logos/2.png'),
@@ -34,7 +34,7 @@ export default {
                 {
                     id: 3,
                     title: '作品範例',
-                    engTitle: 'Portfolio',
+                    engTitle: 'PORTFOLIO',
                     link: 'portfolio',
                     key: 'portfolio',
                     logoUrl: require('@/static/images/logos/3.png'),
@@ -42,7 +42,7 @@ export default {
                 {
                     id: 4,
                     title: '聯絡我們',
-                    engTitle: 'Contact Us',
+                    engTitle: 'CONTACT',
                     link: 'contact',
                     key: 'contact',
                     logoUrl: require('@/static/images/logos/4.png'),
@@ -50,7 +50,7 @@ export default {
                 {
                     id: 5,
                     title: '七號倉庫',
-                    engTitle: 'n07-warehouse',
+                    engTitle: 'WEARHOUSE #7',
                     link: '',
                     key: 'n07-warehouse',
                     logoUrl: require('@/static/images/logos/4.png'),
