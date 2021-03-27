@@ -1,7 +1,5 @@
 <template>
     <div class="Workflow" id="workflow">
-        <OverflowImage />
-
         <div class="Workflow__wrapper">
             <ProgressBar :nextProgress="generatePercentage" />
 

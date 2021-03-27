@@ -29,7 +29,7 @@ import HeaderImage from '@/components/HeaderImage'
 import About from '@/components/About'
 import Portfolio from '@/components/Portfolio'
 import Service from '@/components/Service'
-import Workflow from '@/components/Workflow'
+import Workflow from '@/components/WorkflowNew'
 import ContactSimple from '@/components/ContactSimple'
 
 import 'intersection-observer'

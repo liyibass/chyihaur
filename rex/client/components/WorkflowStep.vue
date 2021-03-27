@@ -1,11 +1,5 @@
 <template>
     <div class="WorkflowStep" :class="{ isFocused: isFocused }">
-        <div class="WorkflowStep__color">
-            <div class="WorkflowStep__color_top_color" />
-            <div class="WorkflowStep__color_bottom_color" />
-            <div class="WorkflowStep__color_edge_color" />
-        </div>
-
         <div class="WorkflowStep__name">
             {{ step.name }}
         </div>
@@ -20,8 +14,8 @@ export default {
 
 <style lang="scss" scoped>
 .WorkflowStep {
-    margin-right: 11px;
-    flex-grow: 1;
+    width: 200px;
+    height: 30px;
     position: relative;
 
     display: flex;
@@ -29,9 +23,9 @@ export default {
     align-items: center;
     justify-content: center;
 
+    background: $mainGreen;
     &__name {
         z-index: 1;
-        padding-left: 18px;
         color: $mainGray;
         font-weight: bold;
 

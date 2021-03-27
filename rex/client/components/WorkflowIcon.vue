@@ -15,7 +15,8 @@ export default {
 
 <style lang="scss" scoped>
 .WorkflowIcon {
-    width: calc(100% / 6 - 10px);
+    width: 150px;
+    // width: calc(100% / 6 - 10px);
     margin-bottom: 22px;
     img {
         width: 100%;

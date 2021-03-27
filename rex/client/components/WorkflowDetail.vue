@@ -1,8 +1,6 @@
 <template>
     <div class="WorkflowDetail">
-        <transition name="showUp" mode="out-in">
-            <div class="WorkflowDetail__text" v-html="returnCurrentContext" :key="currentAnimate" />
-        </transition>
+        <div class="WorkflowDetail__text" v-html="returnCurrentContext" :key="currentAnimate" />
     </div>
 </template>
 
@@ -13,23 +11,23 @@ export default {
     mixins: [workflowMixin],
 
     props: {
-        currentAnimate: Number,
+        curentDetailId: Number,
     },
     computed: {
         returnCurrentContext() {
-            switch (this.currentAnimate) {
-                case 1:
+            switch (this.curentDetailId) {
+                case 0:
                     return '依客戶心中畫面舉凡任何想法，<br />團隊將有專人紀錄並提供回饋。'
-                case 2:
+                case 1:
                     return '安排出勤單位前往案件現場，<br />並以環境進行溝通及建議。'
+                case 2:
+                    return '當客戶與團隊想法一致時，<br />依建議材質進入編價程序，<br />並透過會計人員擬定合約及合理價格提供給客戶。'
                 case 3:
-                    return '當客戶與團隊想法一致時，依建議材質進入編價程序，<br />並透過會計人員擬定合約及合理價格提供給客戶。'
+                    return '簽訂合約時，<br />將會了解品牌精神及商空環境，<br />替客戶思考設計每個畫面及細節。'
                 case 4:
-                    return '簽訂合約時，將會了解品牌精神及商空環境，<br />替客戶思考設計每個畫面及細節。'
+                    return '簽圖面完成後，<br />設計師會再次與客戶進行全方面的校對， <br />並於後續進行備料且安排加工製程。<br />'
                 case 5:
-                    return '簽圖面完成後，設計師會再次與客戶進行全方面的校對， 並於後續進行備料且安排加工製程。<br />'
-                case 6:
-                    return '將設計畫面進行實體化，並安排專業人員現場安裝，<br />將最好的畫面留在客人的心中。'
+                    return '將設計畫面進行實體化，<br />並安排專業人員現場安裝，<br />將最好的畫面留在客人的心中。'
 
                 default:
                     break
@@ -41,8 +39,7 @@ export default {
 
 <style lang="scss" scoped>
 .WorkflowDetail {
-    height: 30vh;
-    color: $mainWhite;
+    color: $mainGreen;
     font-size: 20px;
 
     display: flex;
