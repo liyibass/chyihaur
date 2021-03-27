@@ -1,46 +1,24 @@
 <template>
     <div class="UiEmployeeContainer">
-        <!-- <UiEmployeeCard vfor/> -->
-        <!-- <h1 v-for="(position, index) in positionList" :key="index">{{ position }}</h1> -->
+            <UiEmployeeGroup v-for="employeeGroup in employeeList" :key="employeeGroup.title" :employeeGroup="employeeGroup" />
+        </div>
     </div>
 </template>
 
 <script>
-import UiEmployeeCard from '@/components/UiEmployeeCard'
 import _ from 'lodash'
-const employeeList = [
-    {
-        id: 0,
-        position: 'OPERATION',
-        title: 'AA',
-    },
-    {
-        id: 1,
-        position: 'DESIGN',
-        title: 'BB',
-    },
-    {
-        id: 2,
-        position: 'DESIGN',
-        title: 'CC',
-    },
-    {
-        id: 3,
-        position: 'OPERATION',
-        title: 'DD',
-    },
-]
+import UiEmployeeGroup from '@/components/UiEmployeeGroup'
 
 export default {
-    // props: {
-    //     employeeList: {
-    //         type: Array,
-    //         isRequired: true,
-    //         defaultValue: [],
-    //     },
-    // },
+    props: {
+        employeeList: {
+            type: Array,
+            isRequired: true,
+            defaultValue: [],
+        },
+    },
     components: {
-        UiEmployeeCard,
+        UiEmployeeGroup,
     },
     methods: {
         positionList() {
@@ -69,12 +47,18 @@ export default {
         },
     },
     mounted() {
-        this.positionList()
+        // this.positionList()
+        console.log(this.employeeList)
     },
 }
 </script>
 
 <style lang="scss" scoped>
 .UiEmployeeContainer {
+    background: $mainGreen;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 </style>

@@ -75,7 +75,7 @@ export default {
                 return
             }
 
-            this.$router.push(link)
+            this.$router.push(`/${link}`)
         },
     },
 }

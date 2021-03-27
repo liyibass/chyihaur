@@ -1,14 +1,47 @@
 <template>
-    <div class="UiEmployeeCard">
-        Card
+    <div class="UiEmployeeCard" @click="goToEmployeePage">
+        <div class="UiEmployeeCard__snapshot">
+            <img :src="employee.snapshotUrl" :alt="employee.name" />
+        </div>
     </div>
 </template>
 
 <script>
-export default {}
+export default {
+    props: {
+        employee: {
+            type: Object,
+            isRequired: true,
+            defaultValue: {
+                id: 0,
+                position: 'OPERATION',
+                name: 'AA',
+            },
+        },
+    },
+
+    methods: {
+        goToEmployeePage() {
+            this.$router.push(`/about/${this.employee.name}`)
+        },
+    },
+}
 </script>
 
 <style lang="scss" scoped>
 .UiEmployeeCard {
+    margin: 0 30px;
+    cursor: pointer;
+    &__snapshot {
+        width: 200px;
+        height: 200px;
+        img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
 }
 </style>
