@@ -42,7 +42,7 @@ export default {
 
     &__wrapper {
         width: 100%;
-        max-width: 800px;
+        max-width: 700px;
         margin: auto;
 
         display: flex;

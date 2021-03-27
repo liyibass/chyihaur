@@ -36,7 +36,10 @@ export default {
 <style lang="scss" scoped>
 .UiEmployeeGroup {
     width: 100%;
+    max-width: 800px;
+
     margin-bottom: 50px;
+
     &__title {
         font-size: 30px;
         color: $mainWhite;
