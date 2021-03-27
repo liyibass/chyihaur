@@ -41,7 +41,7 @@
 <script>
 import ProgressBar from '@/components/ProgressBar'
 import OverflowImage from '@/components/OverflowImage'
-import Workflowstep from '@/components/Workflowstep'
+import WorkflowStep from '@/components/WorkflowStep'
 import WorkflowIcon from '@/components/WorkflowIcon'
 import WorkflowDetail from '@/components/WorkflowDetail'
 import workflowMixin from '@/mixins/workflowMixin'
@@ -50,7 +50,7 @@ export default {
     components: {
         ProgressBar,
         OverflowImage,
-        Workflowstep,
+        WorkflowStep,
         WorkflowIcon,
         WorkflowDetail,
     },

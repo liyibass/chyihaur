@@ -29,8 +29,17 @@ export default {
     data() {
         return {
             navBarIsOpen: false,
-            direction: 'up',
+            direction: 'down',
         }
+    },
+    watch: {
+        direction: function(val) {
+            if (val === 'up') {
+                setTimeout(() => {
+                    this.direction = 'down'
+                }, 3000)
+            }
+        },
     },
     computed: {
         getNavContainerCSS() {
