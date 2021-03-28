@@ -19,9 +19,9 @@
                 paginationActiveColor="rgba(255,255,255,1)"
                 paginationColor="rgba(255,255,255,0.6)"
             >
-                <slide v-for="(slide, i) in portfolioList" :key="i">
+                <slide v-for="(portfolio, i) in portfolioList" :key="i">
                     <a href="/portfolio">
-                        <img :src="slide.imageUrl" alt="" />
+                        <img :src="portfolio.coverPhoto.urlOriginal" alt="" />
                     </a>
                 </slide>
             </carousel>

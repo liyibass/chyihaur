@@ -1,13 +1,25 @@
 <template>
     <div class="UiPortfolioContainer">
         <div class="UiPortfolioContainer__wrapper">
-            YOYO
+            <UiPortfolioCard v-for="portfolio in portfolioList" :key="portfolio.id" :portfolio="portfolio" />
         </div>
     </div>
 </template>
 
 <script>
-export default {}
+import UiPortfolioCard from '@/components/UiPortfolioCard'
+
+export default {
+    props: {
+        portfolioList: {
+            type: Array,
+            isRequired: true,
+        },
+    },
+    component: {
+        UiPortfolioCard,
+    },
+}
 </script>
 
 <style lang="scss" scoped>
@@ -17,8 +29,18 @@ export default {}
     min-height: 100vh;
 
     &__wrapper {
-        max-width: 700px;
+        max-width: 900px;
         margin: auto;
+
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+
+        padding: 20px;
+
+        @include atMedium {
+            flex-direction: row;
+        }
     }
 }
 </style>

@@ -4,7 +4,7 @@
         <Header />
         <div class="color_bar" />
 
-        <UiPortfolioContainer :employeeList="newEmployeeList" />
+        <UiPortfolioContainer :portfolioList="portfolioList" />
     </div>
 </template>
 
@@ -12,7 +12,7 @@
 import NavBar from '@/components/NavBar'
 import Header from '@/components/Header'
 import UiPortfolioContainer from '@/components/UiPortfolioContainer'
-import employeeMixin from '../../mixins/employeeMixin'
+import portfolioMixin from '../../mixins/portfolioMixin'
 
 export default {
     components: {
@@ -20,7 +20,12 @@ export default {
         Header,
         UiPortfolioContainer,
     },
-    mixins: [employeeMixin],
+    mixins: [portfolioMixin],
+    data() {
+        return {}
+    },
+
+    mounted() {},
 }
 </script>
 

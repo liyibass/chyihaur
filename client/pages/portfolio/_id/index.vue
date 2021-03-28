@@ -1,13 +1,12 @@
 <template>
-    <div class="AboutEmployee">
-        <div class="AboutEmployee__wrapper">
-            <div class="AboutEmployee__snapshot">
-                <img :src="employee.snapshotUrl" alt="" srcset="" />
+    <div class="AboutPortfolio">
+        <div class="AboutPortfolio__wrapper">
+            <div class="AboutPortfolio__snapshot">
+                <img :src="portfolio.coverPhoto.urlOriginal" />
             </div>
-            <div class="AboutEmployee__detail">
-                <div class="AboutEmployee__detail_position">{{ employee.position }}</div>
-                <div class="AboutEmployee__detail_name">{{ employee.name }}</div>
-                <div class="AboutEmployee__detail_detail" v-html="employee.detail" />
+            <div class="AboutPortfolio__detail">
+                <div class="AboutPortfolio__detail_name">{{ portfolio.name }}</div>
+                <!-- <div class="AboutPortfolio__detail_detail" v-html="portfolio.detail" /> -->
             </div>
         </div>
     </div>
@@ -24,19 +23,16 @@ export default {
         UiEmployeeContainer,
     },
     props: {
-        employee: {
+        portfolio: {
             type: Object,
             isRequired: true,
         },
-    },
-    mounted() {
-        console.log(this.employee)
     },
 }
 </script>
 
 <style lang="scss" scoped>
-.AboutEmployee {
+.AboutPortfolio {
     background: $mainGreen;
     padding: 50px 20px 100px;
 

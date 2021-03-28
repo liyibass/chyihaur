@@ -3,7 +3,7 @@
         <NavBar />
         <Header />
         <div class="AboutEmployeePage__color_bar" />
-        <nuxt-child :employee="currentEmployee" />
+        <nuxt-child :portfolio="currentPortfolio" />
     </div>
 </template>
 
@@ -11,7 +11,7 @@
 import NavBar from '@/components/NavBar'
 import Header from '@/components/Header'
 import UiEmployeeContainer from '@/components/UiEmployeeContainer'
-import employeeMixin from '../../mixins/employeeMixin'
+import portfolioMixin from '../../mixins/portfolioMixin'
 
 export default {
     components: {
@@ -20,23 +20,23 @@ export default {
         UiEmployeeContainer,
     },
 
-    mixins: [employeeMixin],
+    mixins: [portfolioMixin],
     data() {
         return {
-            currentId: parseInt(this.$route.params.id),
-            currentEmployee: {},
+            currentId: this.$route.params.id,
+            currentPortfolio: {},
         }
     },
     methods: {
-        getCurrentEmployee() {
-            return this.employeeList.filter((employee) => {
-                return employee.id === this.currentId
+        getCurrentPortfolio() {
+            return this.portfolioList.filter((portfolio) => {
+                return portfolio.id === this.currentId
             })
         },
     },
 
-    mounted() {
-        this.currentEmployee = this.getCurrentEmployee()[0]
+    created() {
+        this.currentPortfolio = this.getCurrentPortfolio()[0]
     },
 }
 </script>
