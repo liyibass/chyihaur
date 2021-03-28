@@ -48,7 +48,10 @@ class ImageAdapter extends MediaAdapter {
       try {
         for (const key in resizeTarget) {
           // generate resized filename
-          const resized_filename = this._generateResizedFilename(key)
+          const resized_filename = this._generateResizedFilename(
+            this.newFileName,
+            key
+          )
           // Upload image to GCS
           //   this._uploadImageToGCS(stream, resized_filename)
           // Create url which link to GCS
@@ -71,27 +74,23 @@ class ImageAdapter extends MediaAdapter {
     })
   }
 
-  async delete(id, originalFilename) {
-    // console.log('===delete in image adapter===')
-    // let imageList = []
-    // let name = originalFilename.split('.')[0]
-    // let ext = originalFilename.split('.')[1]ƒ
-    // const gcsOriginalImgDir = `${this.gcsDir}${id}.${ext}`
-    // imageList.push(gcsOriginalImgDir)
-    // for (const key in resizeTarget) {
-    //     const imageDir = `${this.gcsDir}${id}-${key}.${ext}`
-    //     imageList.push(imageDir)
-    // }
-    // imageList.forEach(async (gcsImageDir) => {
-    //     await this.bucket.file(`${gcsImageDir}`).delete()
-    //     console.log(`gs://${gcsImageDir} deleted.`)
-    // })
-    // console.log(`gs://${this.gcsDir}${oldImageFolderName} deleted.`)
+  async delete(oldFileName) {
+    console.log('===delete in image adapter===')
+    let imageList = []
+
+    const gcsOriginalImgDir = `${imageUrlBase}${oldFileName}`
+    imageList.push(gcsOriginalImgDir)
+
+    imageList.forEach(async (gcsImageDir) => {
+      console.log(gcsImageDir)
+      await this.bucket.file(`${gcsImageDir}`).delete()
+      console.log(`gs://${gcsImageDir} deleted.`)
+    })
   }
 
-  _generateResizedFilename(key) {
-    const name = this.newFileName.split('.')[0] //id-AA
-    const ext = this.newFileName.split('.')[1] //.png
+  _generateResizedFilename(newFileName, key) {
+    const name = newFileName.split('.')[0] //id-AA
+    const ext = newFileName.split('.')[1] //.png
 
     // id-AA-moblie.png
     return `${name}-${key}.${ext}`

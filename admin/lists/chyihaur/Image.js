@@ -121,14 +121,11 @@ module.exports = {
 
     // When delete image, delete image in gcs as well
     beforeDelete: async ({ existingItem }) => {
-      //       const image_adapter = new ImageAdapter(gcsDir)
-      //       if (existingItem && typeof existingItem.file !== 'undefined') {
-      //           await image_adapter.delete(
-      //               existingItem.file.id,
-      //               existingItem.file.originalFilename
-      //           )
-      //           console.log('deleted old one')
-      //       }
+      const image_adapter = new ImageAdapter()
+      if (existingItem && typeof existingItem.file !== 'undefined') {
+        await image_adapter.delete(existingItem.file.filename)
+        console.log('deleted old one')
+      }
     },
   },
   labelField: 'name',
