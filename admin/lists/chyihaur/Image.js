@@ -5,11 +5,15 @@ const {
   distributeUrlsToResolvedData,
 } = require('../../lib/utils/distributeUrlsToResolvedData')
 const fs = require('fs')
+const { getNewFilename } = require('../../utils/getNewFilename')
 
+const {
+  storage: { imagePreviewUrl },
+} = require('../../configs/config')
 const { LocalFileAdapter } = require('@keystonejs/file-adapters')
 const fileAdapter = new LocalFileAdapter({
   src: './public/images',
-  path: 'http://localhost:3000/images',
+  path: `${imagePreviewUrl}`,
 })
 
 module.exports = {
@@ -75,11 +79,15 @@ module.exports = {
         // when create or update newer image
 
         // fetch image's stream in public folder
-        let fullFileName = resolvedData.file.filename //image's name format: id-orgName.ext
-        var stream = fs.createReadStream(`./public/images/${fullFileName}`)
+        const originalFileName = resolvedData.file.filename //image's name format: id-orgName.ext
+        const newFileName = getNewFilename(resolvedData)
+        const id = resolvedData.file.id
+        const stream = fs.createReadStream(
+          `./public/images/${originalFileName}`
+        )
 
         // upload image to gcs,and generate corespond meta data(url )
-        const imageAdapter = new ImageAdapter(fullFileName)
+        const imageAdapter = new ImageAdapter(originalFileName, newFileName, id)
         await imageAdapter.uploadImages(stream)
 
         const meta = imageAdapter.meta
@@ -96,11 +104,8 @@ module.exports = {
           await imageAdapter.delete(existingItem.file.filename)
           console.log('deleted old one')
         }
-        // // update stored filename
-        // // filename ex: 5ff2779ebcfb3420789bf003-image.jpg
-        // const newFilename = formatImagePath(resolvedData)
-        // resolvedData.file.filename = newFilename
-        // // resolvedData.file.filename = newFilename
+        // update stored filename
+        resolvedData.file.filename = newFileName
       } else {
         // resolvedData = false
         // image is no needed to update

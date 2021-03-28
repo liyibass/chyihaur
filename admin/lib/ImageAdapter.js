@@ -1,8 +1,11 @@
 const { MediaAdapter } = require('./MediaAdapter.js')
 const fs = require('fs')
 const {
-  storage: { firebaseUrlBase, imageUrlBase },
+  storage: { imageUrlBase },
 } = require('../configs/config')
+const { resolve } = require('path')
+
+const { getNewFilename } = require('../utils/getNewFilename')
 
 const resizeTarget = {
   mobile: { height: 450, width: 800 },
@@ -16,32 +19,50 @@ class ImageAdapter extends MediaAdapter {
     this.meta = { url: {} }
   }
 
-  uploadImages(stream) {
-    this.saveOriginalImage(stream)
-    this.saveVariusSizeImages(stream)
-    this._deleteLocalTempFile(this.fullFileName)
+  async uploadImages(stream) {
+    await this.saveOriginalImage(stream)
+    console.log('saveOriginalImage done')
+    // await this.saveVariusSizeImages(stream)
+    this._deleteLocalTempFile(this.originalFileName)
   }
 
   saveOriginalImage(stream) {
-    // Upload image to firebase
-    this._uploadToFirebase(stream)
-    // create url
-    this._generateCorrespondingUrl(this.fullFileName)
+    return new Promise(async (resolve, reject) => {
+      try {
+        // Upload image to GCS
+        await this._uploadImageToGCS(stream, this.newFileName)
+        console.log('_uploadImageToGCS done')
+        // create url
+        this._generateCorrespondingUrl(this.newFileName)
+        console.log('_generateCorrespondingUrl done')
+
+        resolve()
+      } catch (err) {
+        reject(err)
+      }
+    })
   }
 
   saveVariusSizeImages(stream) {
-    for (const key in resizeTarget) {
-      // generate resized filename
-      const resized_filename = this._generateResizedFilename(key)
-      // Upload image to firebase
-      this._uploadToFirebase(stream, resized_filename)
-      // Create url which link to firebase
-      this._generateCorrespondingUrl(resized_filename, key)
-    }
+    return new Promise(async (rosolve, reject) => {
+      try {
+        for (const key in resizeTarget) {
+          // generate resized filename
+          const resized_filename = this._generateResizedFilename(key)
+          // Upload image to GCS
+          //   this._uploadImageToGCS(stream, resized_filename)
+          // Create url which link to GCS
+          this._generateCorrespondingUrl(resized_filename, key)
+          rosolve()
+        }
+      } catch (err) {
+        reject(err)
+      }
+    })
   }
 
-  _deleteLocalTempFile() {
-    const localTempFilePath = `./public/images/${this.fullFileName}`
+  _deleteLocalTempFile(originalFileName) {
+    const localTempFilePath = `./public/images/${originalFileName}`
     fs.unlink(localTempFilePath, (err) => {
       if (err) {
         throw err
@@ -69,28 +90,48 @@ class ImageAdapter extends MediaAdapter {
   }
 
   _generateResizedFilename(key) {
-    const name = this.fullFileName.split('.')[0] //id-AA
-    const ext = this.fullFileName.split('.')[1] //.png
+    const name = this.newFileName.split('.')[0] //id-AA
+    const ext = this.newFileName.split('.')[1] //.png
 
     // id-AA-moblie.png
     return `${name}-${key}.${ext}`
   }
 
-  _generateCorrespondingUrl(fullFileName, key) {
+  _generateCorrespondingUrl(fileName, key) {
     switch (key) {
       case 'mobile':
-        this.meta.url.urlMobileSize = `${firebaseUrlBase}${imageUrlBase}${fullFileName}`
+        this.meta.url.urlMobileSize = `${this.assetUrlBase}${imageUrlBase}${fileName}`
         break
       case 'tablet':
-        this.meta.url.urlTabletSize = `${firebaseUrlBase}${imageUrlBase}${fullFileName}`
+        this.meta.url.urlTabletSize = `${this.assetUrlBase}${imageUrlBase}${fileName}`
         break
       case 'desktop':
-        this.meta.url.urlDesktopSize = `${firebaseUrlBase}${imageUrlBase}${fullFileName}`
+        this.meta.url.urlDesktopSize = `${this.assetUrlBase}${imageUrlBase}${fileName}`
         break
       default:
-        this.meta.url.urlOriginal = `${firebaseUrlBase}${imageUrlBase}${fullFileName}`
+        this.meta.url.urlOriginal = `${this.assetUrlBase}${imageUrlBase}${fileName}`
         break
     }
+  }
+
+  _uploadImageToGCS(stream, fileName) {
+    return new Promise((resolve, reject) => {
+      const gcsUploadPath = `${imageUrlBase}${fileName}`
+      const file = this.bucket.file(gcsUploadPath) //get the upload path
+      const write = file.createWriteStream()
+
+      stream.pipe(write)
+
+      write
+        .on('finish', () => {
+          console.log(`${fileName} has been uploaded to gcs`)
+          resolve()
+        })
+        .on('error', (err) => {
+          console.log(`something was wrong when uploading ${fileName}`, err)
+          reject()
+        }) //resize and upload //resize and upload
+    })
   }
 }
 
