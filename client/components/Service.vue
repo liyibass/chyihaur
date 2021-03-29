@@ -22,9 +22,9 @@
             <div class="slideshowCtrl-next" @click="nextPage" />
         </div>
 
-        <div class="Service__big_title">
+        <!-- <div class="Service__big_title">
             <img :src="require('@/static/images/title2.png')" alt="" />
-        </div>
+        </div> -->
     </div>
 </template>
 

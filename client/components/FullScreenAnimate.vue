@@ -35,6 +35,7 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 
     &__gif {
         width: 140%;

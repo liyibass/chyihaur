@@ -12,8 +12,9 @@
 
         <Video />
         <HeaderImage />
-        <!-- <About /> -->
+        <About />
         <AboutNew />
+        <Portfolio />
         <Service />
         <Workflow />
         <WorkflowMobile />
@@ -29,6 +30,7 @@ import Video from '@/components/Video'
 import HeaderImage from '@/components/HeaderImage'
 import About from '@/components/About'
 import AboutNew from '@/components/AboutNew'
+import Portfolio from '@/components/Portfolio'
 import Service from '@/components/Service'
 import Workflow from '@/components/Workflow'
 import WorkflowMobile from '@/components/WorkflowMobile'
@@ -45,6 +47,7 @@ export default {
         HeaderImage,
         About,
         AboutNew,
+        Portfolio,
         Service,
         Workflow,
         WorkflowMobile,

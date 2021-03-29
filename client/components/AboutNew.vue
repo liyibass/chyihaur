@@ -50,6 +50,11 @@ export default {
     // overflow-x: hidden;
     background: $mainGreen;
 
+    display: none;
+    @include atMedium {
+        display: block;
+    }
+
     &__right_block {
         position: absolute;
         bottom: 0;

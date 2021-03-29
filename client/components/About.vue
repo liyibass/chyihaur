@@ -100,6 +100,10 @@ export default {
         background: $mainGreen;
     }
 
+    @include atMedium {
+        display: none;
+    }
+
     &__mask {
         z-index: 0;
         background: black;
