@@ -115,20 +115,20 @@ export default {
     }
 
     &_0 {
-        background: $mainGreen;
+        // background: $mainGreen;
         .ServiceGroup__header {
             color: $mainWhite;
         }
     }
 
     &_1 {
-        background: white;
+        // background: white;
         .ServiceGroup__header {
             color: $mainLightGreen;
         }
     }
     &_2 {
-        background: $mainLightGreen;
+        // background: $mainLightGreen;
         .ServiceGroup__header {
             color: $mainGreen;
         }

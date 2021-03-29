@@ -1,22 +1,28 @@
 <template>
     <div class="UiSlashBlock">
-        <div class="UiSlashBlock__left_block"></div>
+        <div class="UiSlashBlock__left_block" :style="getBackgroundImage"></div>
         <div class="UiSlashBlock__right_block"></div>
+
+        <div class="UiSlashBlock__content">
+            <ServiceGroup :serviceGroup="serviceGroup" />
+        </div>
     </div>
 </template>
 
 <script>
-export default {}
+import slashBlockMixin from '@/mixins/slashBlockMixin'
+
+export default {
+    mixins: [slashBlockMixin],
+}
 </script>
 
 <style lang="scss" scoped>
 .UiSlashBlock {
     position: relative;
-    width: 100%;
+    width: 100vw;
     height: 60vh;
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;
+    overflow: hidden;
 
     &__left_block {
         position: absolute;
@@ -25,6 +31,7 @@ export default {}
         height: 100%;
         width: 70%;
         background: red;
+        background-size: cover;
     }
 
     &__right_block {
@@ -37,6 +44,10 @@ export default {}
         background: $mainGreen;
         transform: skew(15deg) translateX(14.5%);
         // transform-origin: top;
+    }
+
+    &__content {
+        right: 10%;
     }
 }
 </style>

@@ -6,10 +6,9 @@
         </div>
 
         <div class="Service__desktop_view">
-            <UiSlashBlock />
-            <UiSlashBlock2 />
-            <UiSlashBlock3 />
-            <!-- <ServiceGroup v-for="(serviceGroup, index) in serviceGroupList" :key="index" :serviceGroup="serviceGroup" /> -->
+            <UiSlashBlock :serviceGroup="serviceGroupList[0]" />
+            <UiSlashBlock2 :serviceGroup="serviceGroupList[1]" />
+            <UiSlashBlock3 :serviceGroup="serviceGroupList[2]" />
         </div>
 
         <div class="Service__mobile_view ">
@@ -30,10 +29,12 @@
 </template>
 
 <script>
-import ServiceGroup from '@/components/ServiceGroup'
+import serviceMixin from '@/mixins/serviceMixin'
 import UiSlashBlock from '@/components/UiSlashBlock'
 import UiSlashBlock2 from '@/components/UiSlashBlock2'
 import UiSlashBlock3 from '@/components/UiSlashBlock3'
+import ServiceGroup from '@/components/ServiceGroup'
+
 import MainTitle from '@/components/MainTitle'
 import ServicePagination from '@/components/ServicePagination'
 
@@ -41,6 +42,7 @@ import 'intersection-observer'
 import { Carousel, Slide } from 'vue-carousel'
 
 export default {
+    mixins: [serviceMixin],
     components: {
         UiSlashBlock,
         UiSlashBlock2,
@@ -55,89 +57,6 @@ export default {
         return {
             // currentIndex: 0,
             targetIndex: 0,
-            serviceGroupList: [
-                {
-                    id: 0,
-                    title: '設計',
-                    serviceList: [
-                        {
-                            id: 0,
-                            group: 0,
-                            title: '招牌設計',
-                            icon: require('@/static/images/service/service_1.png'),
-                            url: '',
-                        },
-                        {
-                            id: 1,
-                            group: 0,
-                            title: '指標設計',
-                            icon: require('@/static/images/service/service_2.png'),
-                            url: '',
-                        },
-                        {
-                            id: 2,
-                            group: 0,
-                            title: '平面視覺設計',
-                            icon: require('@/static/images/service/service_3.png'),
-                            url: '',
-                        },
-                        {
-                            id: 3,
-                            group: 0,
-                            title: '環境視覺設計',
-                            icon: require('@/static/images/service/service_4.png'),
-                            url: '',
-                        },
-                    ],
-                },
-                {
-                    id: 1,
-                    title: '工程',
-                    serviceList: [
-                        {
-                            id: 4,
-                            group: 1,
-                            title: '招牌工程',
-                            icon: require('@/static/images/service/service_5.png'),
-                            url: '',
-                        },
-                        {
-                            id: 5,
-                            group: 1,
-                            title: '指標工程',
-                            icon: require('@/static/images/service/service_6.png'),
-                            url: '',
-                        },
-                        {
-                            id: 6,
-                            group: 1,
-                            title: '意象工程',
-                            icon: require('@/static/images/service/service_7.png'),
-                            url: '',
-                        },
-                    ],
-                },
-                {
-                    id: 2,
-                    title: '影像',
-                    serviceList: [
-                        {
-                            id: 7,
-                            group: 2,
-                            title: '商用攝影',
-                            icon: require('@/static/images/service/service_8.png'),
-                            url: '',
-                        },
-                        {
-                            id: 8,
-                            group: 2,
-                            title: '意象攝影',
-                            icon: require('@/static/images/service/service_9.png'),
-                            url: '',
-                        },
-                    ],
-                },
-            ],
         }
     },
 
@@ -154,6 +73,7 @@ export default {
     },
 
     mounted() {
+        console.log(this.serviceGroupList)
         const allServices = document.querySelectorAll('.ServiceCard')
 
         // // instantiate the scrollama
