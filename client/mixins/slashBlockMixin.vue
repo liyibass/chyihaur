@@ -20,6 +20,17 @@ export default {
 </script>
 
 <style lang="scss">
+.UiSlashBlock {
+    position: relative;
+    width: 100vw;
+    height: 80vh;
+    overflow: hidden;
+
+    @include atLarge {
+        height: 60vh;
+    }
+}
+
 .UiSlashBlock__content {
     position: absolute;
     top: 50%;

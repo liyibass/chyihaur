@@ -81,6 +81,10 @@ export default {
         flex-direction: column;
         align-self: flex-start;
         justify-content: space-between;
+
+        @include atSmall {
+            padding: 48px 55px 37px;
+        }
     }
 
     &__up_section {
@@ -93,11 +97,25 @@ export default {
         z-index: 1;
         &_sub_title {
             font-size: 14px;
+
+            @include atSmall {
+                font-size: 17px;
+            }
+            @include atLarge {
+                font-size: 20px;
+            }
         }
 
         &_title {
             font-size: 40px;
             cursor: pointer;
+
+            @include atSmall {
+                font-size: 50px;
+            }
+            @include atLarge {
+                font-size: 58px;
+            }
         }
     }
 
@@ -111,9 +129,21 @@ export default {
                 margin-bottom: 21px;
                 &_title {
                     font-size: 16px;
+                    @include atSmall {
+                        font-size: 20px;
+                    }
+                    @include atLarge {
+                        font-size: 28px;
+                    }
                 }
                 &_value {
                     font-size: 14px;
+                    @include atSmall {
+                        font-size: 18px;
+                    }
+                    @include atLarge {
+                        font-size: 21px;
+                    }
                 }
 
                 &:last-child {
@@ -126,6 +156,10 @@ export default {
             width: 200px;
             align-self: center;
             margin-top: 20px;
+
+            @include atSmall {
+                align-self: flex-start;
+            }
 
             img {
                 width: 100%;
@@ -150,59 +184,6 @@ export default {
             width: 100%;
             height: 100%;
             object-fit: cover;
-        }
-    }
-
-    @include atSmall {
-        &__wrapper {
-            padding: 48px 55px 37px;
-        }
-
-        &__titles {
-            &_sub_title {
-                font-size: 20px;
-            }
-
-            &_title {
-                font-size: 58px;
-            }
-        }
-
-        &__detail {
-            &_lists {
-                &_list {
-                    &_title {
-                        font-size: 20px;
-                    }
-                    &_value {
-                        font-size: 18px;
-                    }
-                }
-            }
-
-            &_business_card {
-                align-self: flex-start;
-            }
-        }
-    }
-
-    @include atMedium {
-        &__detail {
-            &_lists {
-                &_list {
-                    &_title {
-                        font-size: 28px;
-                    }
-                    &_value {
-                        font-size: 21px;
-                    }
-                }
-            }
-
-            &_business_card {
-                width: 383px;
-                align-self: initial;
-            }
         }
     }
 

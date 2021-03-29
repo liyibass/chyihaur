@@ -73,10 +73,11 @@ export default {
     display: flex;
     flex-direction: column;
 
+    @include atSmall {
+        // flex-direction: row;
+    }
     @include atMedium {
         display: none;
-        // height: 100%;
-        // flex-direction: row;
     }
 
     &__title {
@@ -122,7 +123,12 @@ export default {
         z-index: 0;
         position: relative;
         padding: 2px 10px;
+
         height: 50vh;
+        @include atSmall {
+            height: 80vh;
+            // flex-direction: row;
+        }
 
         @include atMedium {
             width: 70vw;
@@ -134,6 +140,11 @@ export default {
         height: 49vh;
         object-position: center;
         object-fit: cover;
+
+        @include atSmall {
+            height: 79vh;
+            // flex-direction: row;
+        }
 
         @include atMedium {
             height: 100vh;
@@ -152,6 +163,8 @@ export default {
         padding: 60px;
 
         @include atSmall {
+            height: 80vh;
+
             align-items: flex-start;
             justify-content: center;
             padding: 0 60px;

@@ -46,13 +46,16 @@ export default {
 .AboutNew {
     position: relative;
     width: 100vw;
-    height: 45vh;
+    height: 70vh;
     // overflow-x: hidden;
     background: $mainGreen;
 
     display: none;
     @include atMedium {
         display: block;
+    }
+    @include atLarge {
+        height: 45vh;
     }
 
     &__right_block {

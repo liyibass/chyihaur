@@ -76,7 +76,7 @@ export default {
         font-size: 14px;
 
         @include atSmall {
-            font-size: 18px;
+            font-size: 16px;
         }
 
         @include atLarge {

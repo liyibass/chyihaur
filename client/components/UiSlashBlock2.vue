@@ -18,10 +18,6 @@ export default {
 
 <style lang="scss" scoped>
 .UiSlashBlock {
-    position: relative;
-    width: 100vw;
-    height: 60vh;
-    overflow: hidden;
     background: white;
 
     &__left_block {

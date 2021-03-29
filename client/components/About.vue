@@ -24,7 +24,7 @@
                         <br />
                     </div>
 
-                    <div class="hide_text remove_in_mobile">
+                    <!-- <div class="hide_text remove_in_mobile">
                         --<br />
                         關於我們的工作<br />
                         就是讓<br />
@@ -36,7 +36,7 @@
                         品牌與店面綻放<br />
                         <br />
                         <br />
-                    </div>
+                    </div> -->
                 </div>
 
                 <!-- <div class="About__text_meaning  hide_text hide_text_About">
@@ -93,7 +93,7 @@ export default {
     background-size: cover;
     background-position: center;
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     overflow: hidden;
 
     @include atSmall {
@@ -112,7 +112,7 @@ export default {
         top: 0;
         left: 0;
         width: 100%;
-        height: 100%;
+        min-height: 100vh;
         @include atSmall {
             display: none;
         }
@@ -122,7 +122,7 @@ export default {
         z-index: 1;
         position: relative;
         width: 100%;
-        height: 100%;
+        min-height: 100vh;
         padding: 18px 18px;
         margin: auto;
 
