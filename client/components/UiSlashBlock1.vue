@@ -43,7 +43,7 @@ export default {
         width: 60%;
         z-index: 1;
         background: $mainGreen;
-        transform: skew(15deg) translateX(14.5%);
+        transform: skew(15deg) translateX(5.5%);
         // transform-origin: top;
     }
 

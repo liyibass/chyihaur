@@ -26,11 +26,15 @@ export default {
     transform: translateY(-50%);
 
     height: 100%;
-    width: 30%;
+    width: 40%;
     z-index: 1;
 
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @include atMedium {
+        width: 30%;
+    }
 }
 </style>

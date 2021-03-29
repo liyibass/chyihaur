@@ -32,7 +32,7 @@ export default {
         width: 57%;
         z-index: 1;
         background: white;
-        transform: skew(-15deg) translateX(-14.5%);
+        transform: skew(-15deg) translateX(-23.5%);
         // transform-origin: top;
     }
 
@@ -47,7 +47,7 @@ export default {
     }
 
     &__content {
-        left: 10%;
+        left: 5%;
     }
 }
 </style>

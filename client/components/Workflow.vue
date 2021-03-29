@@ -31,8 +31,9 @@
             </div>
         </div> -->
 
-        <WorkflowDetail :curentDetailId="currentAnimate" />
-
+        <div class="Workflow__detail">
+            <WorkflowDetail :curentDetailId="currentAnimate" />
+        </div>
         <!-- <div class="Workflow__big_title">
             <img :src="require('@/static/images/title2.png')" alt="" />
         </div> -->
@@ -127,6 +128,12 @@ export default {
         img {
             width: 100%;
         }
+    }
+
+    &__detail {
+        position: absolute;
+        bottom: 10%;
+        left: 10%;
     }
 }
 </style>
