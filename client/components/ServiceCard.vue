@@ -42,8 +42,8 @@ export default {
     justify-content: center;
 
     @include atSmall {
-        width: 25%;
-        height: 100%;
+        width: 50%;
+        height: 50%;
     }
 
     &__wrapper {

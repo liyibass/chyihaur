@@ -10,13 +10,13 @@
         <NavBar />
         <Header />
 
-        <!-- <Video />
+        <Video />
         <HeaderImage />
         <About />
-        <Portfolio /> -->
+        <!-- <Portfolio /> -->
         <Service />
-        <!-- <Workflow />
-        <ContactSimple /> -->
+        <Workflow />
+        <ContactSimple />
     </div>
 </template>
 

@@ -14,11 +14,7 @@
                 </ServiceCard>
             </div>
 
-            <div
-                class="ServiceGroup__quote"
-                :class="`ServiceGroup__quote_${serviceGroup.id}`"
-                :style="{ right: `${25 * serviceGroup.id}%` }"
-            />
+            <div class="ServiceGroup__quote" :class="`ServiceGroup__quote_${serviceGroup.id}`" />
         </div>
     </div>
 </template>
@@ -115,20 +111,29 @@ export default {
     }
 
     &_0 {
-        // background: $mainGreen;
+        background: $mainGreen;
+        @include atSmall {
+            background: transparent;
+        }
         .ServiceGroup__header {
             color: $mainWhite;
         }
     }
 
     &_1 {
-        // background: white;
+        background: white;
+        @include atSmall {
+            background: transparent;
+        }
         .ServiceGroup__header {
             color: $mainLightGreen;
         }
     }
     &_2 {
-        // background: $mainLightGreen;
+        background: $mainLightGreen;
+        @include atSmall {
+            background: transparent;
+        }
         .ServiceGroup__header {
             color: $mainGreen;
         }

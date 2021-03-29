@@ -22,6 +22,7 @@ export default {
     width: 100vw;
     height: 60vh;
     overflow: hidden;
+    background: white;
 
     &__left_block {
         position: absolute;

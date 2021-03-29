@@ -72,50 +72,7 @@ export default {
         },
     },
 
-    mounted() {
-        console.log(this.serviceGroupList)
-        const allServices = document.querySelectorAll('.ServiceCard')
-
-        // // instantiate the scrollama
-        // const showServiceScroller = scrollama()
-
-        // // setup the instance, pass callback functions
-        // showServiceScroller
-        //     .setup({
-        //         step: '.Service',
-        //         offset: 0.6,
-        //     })
-        //     .onStepEnter((response) => {
-        //         // { element, index, direction }
-        //         allServices.forEach((service, index) => {
-        //             setTimeout(() => {
-        //                 service.classList.add('show_service')
-        //             }, index * 100)
-        //         })
-        //     })
-        //     .onStepExit((response) => {
-        //         // console.log('hide service')
-        //         // { element, index, direction }
-        //     })
-
-        // // setup resize event
-        // window.addEventListener('resize', showServiceScroller.resize)
-
-        // const hideServiceScroller = scrollama()
-        // hideServiceScroller
-        //     .setup({
-        //         step: '.Service',
-        //         offset: 0.5,
-        //     })
-        //     .onStepExit((response) => {
-        //         allServices.forEach((service, index) => {
-        //             service.classList.remove('show_service')
-        //         })
-        //     })
-
-        // // setup resize event
-        // window.addEventListener('resize', hideServiceScroller.resize)
-    },
+    mounted() {},
 }
 </script>
 
@@ -154,6 +111,7 @@ export default {
     }
 
     &__big_title {
+        z-index: 3;
         width: 67px;
         position: absolute;
         top: 0;
