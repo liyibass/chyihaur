@@ -1,6 +1,8 @@
 <template>
     <div class="WorkflowDetail">
-        <div class="WorkflowDetail__text" v-html="returnCurrentContext" :key="curentDetailId" />
+        <transition name="showUp">
+            <div class="WorkflowDetail__text" v-html="returnCurrentContext" :key="curentDetailId" />
+        </transition>
     </div>
 </template>
 
@@ -39,8 +41,9 @@ export default {
 
 <style lang="scss" scoped>
 .WorkflowDetail {
-    color: $mainGreen;
+    color: $mainWhite;
     font-size: 20px;
+    font-weight: bold;
 
     display: flex;
     flex-direction: column;

@@ -1,7 +1,7 @@
 <template>
     <div class="WorkflowPage">
         <div class="WorkflowPage__title">
-            <WorkflowStep :step="workflowPage" :isFocused="true" />
+            <WorkflowStepTitle :step="workflowPage" :isFocused="true" />
         </div>
 
         <div class="WorkflowPage__content">
@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import WorkflowStep from '@/components/WorkflowStep'
+import WorkflowStepTitle from '@/components/WorkflowStepTitle'
 import WorkflowIcon from '@/components/WorkflowIcon'
 import WorkflowDetail from '@/components/WorkflowDetail'
 
@@ -29,7 +29,7 @@ export default {
         },
     },
     components: {
-        WorkflowStep,
+        WorkflowStepTitle,
         WorkflowIcon,
         WorkflowDetail,
     },

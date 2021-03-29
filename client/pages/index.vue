@@ -16,6 +16,7 @@
         <!-- <Portfolio /> -->
         <Service />
         <Workflow />
+        <WorkflowMobile />
         <ContactSimple />
     </div>
 </template>
@@ -29,7 +30,8 @@ import HeaderImage from '@/components/HeaderImage'
 import About from '@/components/About'
 import Portfolio from '@/components/Portfolio'
 import Service from '@/components/Service'
-import Workflow from '@/components/WorkflowNew'
+import Workflow from '@/components/Workflow'
+import WorkflowMobile from '@/components/WorkflowMobile'
 import ContactSimple from '@/components/ContactSimple'
 
 import 'intersection-observer'
@@ -45,6 +47,7 @@ export default {
         Portfolio,
         Service,
         Workflow,
+        WorkflowMobile,
         ContactSimple,
     },
     data() {

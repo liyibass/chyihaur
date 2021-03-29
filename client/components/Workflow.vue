@@ -1,8 +1,6 @@
 <template>
     <div class="Workflow" id="workflow">
-        <div class="Workflow__wrapper">
-            <ProgressBar :nextProgress="generatePercentage" />
-
+        <!-- <div class="Workflow__wrapper">
             <div class="Workflow__title">
                 <h6 v-if="currentAnimate > 0">
                     {{ workflowList[currentAnimate - 1].name }}
@@ -11,7 +9,7 @@
 
             <div class="Workflow__steps">
                 <div class="Workflow__steps_wrapper">
-                    <Workflowstep
+                    <WorkflowStepTitle
                         v-for="(step, index) in workflowList"
                         :key="index"
                         :step="step"
@@ -28,20 +26,20 @@
                     :isFocused="index <= currentAnimate - 1 ? true : false"
                 />
             </div>
-        </div>
+        </div> -->
 
-        <WorkflowDetail :currentAnimate="currentAnimate" />
+        <WorkflowDetail :curentDetailId="currentAnimate" />
 
-        <div class="Workflow__big_title">
+        <!-- <div class="Workflow__big_title">
             <img :src="require('@/static/images/title2.png')" alt="" />
-        </div>
+        </div> -->
     </div>
 </template>
 
 <script>
 import ProgressBar from '@/components/ProgressBar'
 import OverflowImage from '@/components/OverflowImage'
-import WorkflowStep from '@/components/WorkflowStep'
+import WorkflowStepTitle from '@/components/WorkflowStepTitle'
 import WorkflowIcon from '@/components/WorkflowIcon'
 import WorkflowDetail from '@/components/WorkflowDetail'
 import workflowMixin from '@/mixins/workflowMixin'
@@ -50,7 +48,7 @@ export default {
     components: {
         ProgressBar,
         OverflowImage,
-        WorkflowStep,
+        WorkflowStepTitle,
         WorkflowIcon,
         WorkflowDetail,
     },
@@ -105,14 +103,18 @@ export default {
 
 <style lang="scss" scoped>
 .Workflow {
-    background: $mainGray;
+    background: $workflowGray;
     width: 100%;
     height: 100vh;
     position: relative;
 
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
+
+    @include atSmall {
+        display: flex;
+    }
 
     &__wrapper {
         width: 100%;
@@ -145,18 +147,18 @@ export default {
         }
     }
 
-    &__big_title {
-        width: 37px;
-        position: absolute;
-        top: 0;
-        left: 10px;
-        transform: translateY(-49%);
+    // &__big_title {
+    //     width: 67px;
+    //     position: absolute;
+    //     top: 0;
+    //     left: 10px;
+    //     transform: translateY(-49%);
 
-        opacity: 0.3;
-        img {
-            width: 100%;
-        }
-    }
+    //     opacity: 0.3;
+    //     img {
+    //         width: 100%;
+    //     }
+    // }
 }
 
 .Workflow__icons {
