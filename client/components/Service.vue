@@ -6,7 +6,7 @@
         </div>
 
         <div class="Service__desktop_view">
-            <UiSlashBlock :serviceGroup="serviceGroupList[0]" />
+            <UiSlashBlock1 :serviceGroup="serviceGroupList[0]" />
             <UiSlashBlock2 :serviceGroup="serviceGroupList[1]" />
             <UiSlashBlock3 :serviceGroup="serviceGroupList[2]" />
         </div>
@@ -30,7 +30,7 @@
 
 <script>
 import serviceMixin from '@/mixins/serviceMixin'
-import UiSlashBlock from '@/components/UiSlashBlock'
+import UiSlashBlock1 from '@/components/UiSlashBlock1'
 import UiSlashBlock2 from '@/components/UiSlashBlock2'
 import UiSlashBlock3 from '@/components/UiSlashBlock3'
 import ServiceGroup from '@/components/ServiceGroup'
@@ -44,7 +44,7 @@ import { Carousel, Slide } from 'vue-carousel'
 export default {
     mixins: [serviceMixin],
     components: {
-        UiSlashBlock,
+        UiSlashBlock1,
         UiSlashBlock2,
         UiSlashBlock3,
         ServiceGroup,

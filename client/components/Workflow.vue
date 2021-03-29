@@ -1,5 +1,8 @@
 <template>
     <div class="Workflow" id="workflow">
+        <div class="Workflow__background">
+            <img :src="require('@/static/images/serviceBackground.png')" alt="" srcset="" />
+        </div>
         <!-- <div class="Workflow__wrapper">
             <div class="Workflow__title">
                 <h6 v-if="currentAnimate > 0">
@@ -116,59 +119,11 @@ export default {
         display: flex;
     }
 
-    &__wrapper {
-        width: 100%;
-        max-width: 800px;
-    }
-
-    &__title {
-        padding: 10px 0 30px;
-        color: $mainGreen;
-        text-align: center;
-        h6 {
-            font-size: 18px;
-        }
-    }
-
-    &__steps {
-        position: relative;
-        width: 100%;
-        height: 36px;
-        overflow: hidden;
-        &_wrapper {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            // right: -18px;
-
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-        }
-    }
-
-    // &__big_title {
-    //     width: 67px;
-    //     position: absolute;
-    //     top: 0;
-    //     left: 10px;
-    //     transform: translateY(-49%);
-
-    //     opacity: 0.3;
-    //     img {
-    //         width: 100%;
-    //     }
-    // }
-}
-
-.Workflow__icons {
-    margin-top: 40px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    &_icon {
-        width: calc(100% / 6 - 10px);
-        margin-bottom: 22px;
+    &__background {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 56vw;
         img {
             width: 100%;
         }
