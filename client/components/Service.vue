@@ -6,7 +6,10 @@
         </div>
 
         <div class="Service__desktop_view">
-            <ServiceGroup v-for="(serviceGroup, index) in serviceGroupList" :key="index" :serviceGroup="serviceGroup" />
+            <UiSlashBlock />
+            <UiSlashBlock2 />
+            <UiSlashBlock3 />
+            <!-- <ServiceGroup v-for="(serviceGroup, index) in serviceGroupList" :key="index" :serviceGroup="serviceGroup" /> -->
         </div>
 
         <div class="Service__mobile_view ">
@@ -28,6 +31,9 @@
 
 <script>
 import ServiceGroup from '@/components/ServiceGroup'
+import UiSlashBlock from '@/components/UiSlashBlock'
+import UiSlashBlock2 from '@/components/UiSlashBlock2'
+import UiSlashBlock3 from '@/components/UiSlashBlock3'
 import MainTitle from '@/components/MainTitle'
 import ServicePagination from '@/components/ServicePagination'
 
@@ -36,6 +42,9 @@ import { Carousel, Slide } from 'vue-carousel'
 
 export default {
     components: {
+        UiSlashBlock,
+        UiSlashBlock2,
+        UiSlashBlock3,
         ServiceGroup,
         Carousel,
         Slide,
@@ -201,6 +210,10 @@ export default {
     justify-content: space-between;
     position: relative;
 
+    @include atSmall {
+        height: auto;
+    }
+
     &__main_title {
         z-index: 2;
         position: absolute;
@@ -245,7 +258,6 @@ export default {
         @include atSmall {
             display: flex;
             flex-direction: column;
-            height: 100vh;
         }
     }
 }
