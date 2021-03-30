@@ -30,11 +30,11 @@ export default {
 
 <style lang="scss" scoped>
 .UiEmployeeCard {
-    margin: 0 30px;
+    margin: 30px;
     cursor: pointer;
 
     @include atSmall {
-        margin: 30px;
+        margin: 0 30px;
     }
     &__snapshot {
         width: 200px;

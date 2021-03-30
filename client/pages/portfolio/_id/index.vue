@@ -42,7 +42,12 @@ export default {
         margin: auto;
 
         display: flex;
-        flex-direction: row;
+
+        flex-direction: column;
+
+        @include atMedium {
+            flex-direction: row;
+        }
     }
 
     &__snapshot {

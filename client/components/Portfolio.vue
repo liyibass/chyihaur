@@ -9,15 +9,14 @@
         </div>
         <div class="Portfolio__carousel">
             <carousel
-                autoplay
-                autoplayHoverPause
                 :per-page="1"
                 centerMode
                 loop
-                :autoplayTimeout="4000"
+                :paginationEnabled="true"
                 paginationPosition="bottom-overlay"
-                paginationActiveColor="rgba(255,255,255,1)"
-                paginationColor="rgba(255,255,255,0.6)"
+                :paginationSize="20"
+                paginationColor="#dddedf"
+                paginationActiveColor="#737374"
             >
                 <slide v-for="(portfolio, i) in portfolioList" :key="i">
                     <a href="/portfolio">

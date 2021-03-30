@@ -57,7 +57,7 @@ export default {
         display: none;
     }
 
-    .VueCarousel-pagination {
+    .VueCarousel-pagination--bottom-overlay {
         margin-bottom: 50px;
     }
 }

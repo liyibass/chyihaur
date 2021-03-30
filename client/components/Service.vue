@@ -2,7 +2,7 @@
     <div class="Service" id="service">
         <div class="Service__main_title">
             <MainTitle title="our-service" />
-            <ServicePagination :currentIndex="targetIndex" :pageArray="serviceGroupList" />
+            <!-- <ServicePagination :currentIndex="targetIndex" :pageArray="serviceGroupList" /> -->
         </div>
 
         <div class="Service__desktop_view">
@@ -12,7 +12,17 @@
         </div>
 
         <div class="Service__mobile_view ">
-            <carousel :per-page="1" centerMode loop :paginationEnabled="false" :navigateTo="targetIndex">
+            <carousel
+                :per-page="1"
+                centerMode
+                loop
+                :paginationEnabled="true"
+                paginationPosition="top-overlay"
+                :paginationSize="20"
+                paginationColor="#dddedf"
+                paginationActiveColor="#737374"
+                :navigateTo="targetIndex"
+            >
                 <slide v-for="serviceGroup in serviceGroupList" :key="serviceGroup.title">
                     <ServiceGroup :serviceGroup="serviceGroup" />
                 </slide>
@@ -76,7 +86,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .Service {
     width: 100%;
     height: 100vh;
@@ -168,5 +178,9 @@ export default {
     right: 0;
     // background: gray;
     // opacity: 0.5;
+}
+
+.VueCarousel-pagination--top-overlay {
+    margin-top: 50px;
 }
 </style>
