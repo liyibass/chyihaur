@@ -11,7 +11,6 @@
         <Header />
 
         <Video />
-        <HeaderImage />
         <About />
         <AboutNew />
         <Portfolio />
@@ -27,7 +26,6 @@ import FullScreenAnimate from '@/components/FullScreenAnimate'
 import NavBar from '@/components/NavBar'
 import Header from '@/components/Header'
 import Video from '@/components/Video'
-import HeaderImage from '@/components/HeaderImage'
 import About from '@/components/About'
 import AboutNew from '@/components/AboutNew'
 import Portfolio from '@/components/Portfolio'
@@ -44,7 +42,6 @@ export default {
         NavBar,
         Header,
         Video,
-        HeaderImage,
         About,
         AboutNew,
         Portfolio,

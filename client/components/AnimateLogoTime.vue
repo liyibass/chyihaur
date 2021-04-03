@@ -1,12 +1,12 @@
 <template>
-    <div class="AnimateLogoTime">
-        <a class="AnimateLogoTime__logo" href="/">
+    <div class="animate-logo">
+        <a class="animate-logo__logo" href="/">
             <img :src="require('@/static/images/logo_small.png')" alt="" />
         </a>
 
-        <div class="AnimateLogoTime__date">
-            <div class="AnimateLogoTime__date_year">{{ getDate('year') }}</div>
-            <div class="AnimateLogoTime__date_date">{{ getDate('month') }}{{ getDate('day') }}</div>
+        <div class="animate-logo__date">
+            <div class="animate-logo__date_year">{{ getDate('year') }}</div>
+            <div class="animate-logo__date_date">{{ getDate('month') }}{{ getDate('day') }}</div>
         </div>
     </div>
 </template>
@@ -49,17 +49,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.AnimateLogoTime {
+.animate-logo {
     z-index: 100;
-    height: 43px;
+    height: 41px;
     position: relative;
 
     display: flex;
     flex-direction: row;
-
-    @include atSmall {
-        height: 73px;
-    }
 
     &__logo {
         height: 100%;
@@ -89,8 +85,12 @@ export default {
 
         @include atSmall {
             font-size: 15px;
-            width: 72px;
+            width: 50px;
             justify-content: space-between;
+        }
+
+        @include atLarge {
+            width: 72px;
         }
 
         &_year {

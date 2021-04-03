@@ -1,6 +1,6 @@
 <template>
-    <div class="HeaderNav">
-        <div class="HeaderNav__container">
+    <div class="header-nav">
+        <div class="header-nav__wrapper">
             <HeaderNavItem
                 v-for="(item, index) in navList"
                 :key="index"
@@ -23,17 +23,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.HeaderNav {
+.header-nav {
     display: none;
-    @include atSmall {
+
+    @include atMedium {
         display: block;
     }
 
-    @include atMedium {
-    }
-
-    &__container {
-        width: 90vw;
+    &__wrapper {
+        width: 100%;
         position: absolute;
         top: 120%;
         right: 0;
@@ -48,13 +46,14 @@ export default {
         @include atSmall {
             flex-direction: row;
             flex-wrap: wrap;
+            padding-top: 10px;
         }
 
         @include atMedium {
             position: relative;
             top: 0;
             right: 0;
-            width: 590px;
+
             display: flex;
             flex-direction: row;
             align-items: center;
@@ -62,7 +61,6 @@ export default {
         }
 
         @include atLarge {
-            width: 640px;
         }
     }
 }

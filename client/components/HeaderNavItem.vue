@@ -13,7 +13,7 @@
 
         <transition name="slide-fade" mode="out-in">
             <div v-if="isHovered" class="HeaderNavItem__text" key="1">{{ item.title }}</div>
-            <div v-else class="HeaderNavItem__text" key="2">{{ item.engTitle }}</div>
+            <nobr v-else class="HeaderNavItem__text" key="2">{{ item.engTitle }}</nobr>
         </transition>
     </div>
 </template>
@@ -32,6 +32,7 @@ export default {
 <style lang="scss" scoped>
 .HeaderNavItem {
     width: 100%;
+    margin-left: 20px;
     // background: rgba(0, 0, 0, 0.2);
     background: rgba(0, 0, 0, 0);
     transition: all 0.5s ease;
@@ -53,6 +54,7 @@ export default {
         // border-left: 1px solid rgba(220, 221, 221, 0.4);
         color: $mainWhite;
         font-size: 10px;
+        // width: 20px;
         font-weight: bold;
     }
 }
