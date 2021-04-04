@@ -9,11 +9,10 @@
         </transition>
         <NavBar />
         <Header />
-
         <Video />
-        <About />
+
         <AboutNew />
-        <Portfolio />
+
         <Service />
         <Workflow />
         <WorkflowMobile />
@@ -26,9 +25,7 @@ import FullScreenAnimate from '@/components/FullScreenAnimate'
 import NavBar from '@/components/NavBar'
 import Header from '@/components/Header'
 import Video from '@/components/Video'
-import About from '@/components/About'
 import AboutNew from '@/components/AboutNew'
-import Portfolio from '@/components/Portfolio'
 import Service from '@/components/Service'
 import Workflow from '@/components/Workflow'
 import WorkflowMobile from '@/components/WorkflowMobile'
@@ -42,9 +39,7 @@ export default {
         NavBar,
         Header,
         Video,
-        About,
         AboutNew,
-        Portfolio,
         Service,
         Workflow,
         WorkflowMobile,
