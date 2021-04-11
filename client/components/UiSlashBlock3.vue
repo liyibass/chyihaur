@@ -1,6 +1,8 @@
 <template>
     <div class="UiSlashBlock">
-        <div class="UiSlashBlock__left_block" :style="getBackgroundImage"></div>
+        <div class="UiSlashBlock__left_block" :style="getBackgroundImage">
+            <ServiceGroupTitle :title="serviceGroup.title" :engTitle="serviceGroup.engTitle" />
+        </div>
         <div class="UiSlashBlock__right_block"></div>
 
         <div class="UiSlashBlock__content">
@@ -27,6 +29,14 @@ export default {
         height: 100%;
         width: 70%;
         background: red;
+
+        .service-group-title {
+            width: auto;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            margin-bottom: 0;
+        }
     }
 
     &__right_block {

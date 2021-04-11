@@ -6,8 +6,6 @@
             <ServiceCard v-for="(serviceCard, index) in serviceGroup.serviceList" :key="index" :service="serviceCard">
             </ServiceCard>
         </div>
-
-        <div class="ServiceGroup__quote" :class="`ServiceGroup__quote_${serviceGroup.id}`" />
     </div>
 </template>
 
@@ -48,7 +46,7 @@ export default {
 
     @include atSmall {
         min-height: auto;
-        padding: 10%;
+        padding: 5%;
     }
 
     &__lists {
@@ -68,29 +66,34 @@ export default {
         }
     }
 
-    .ServiceGroup__quote {
-        position: absolute;
+    &_image {
+        position: relative;
         top: 0;
-        right: 0;
-        width: 16px;
-        height: 16px;
-        display: none;
+        left: 0;
+        width: 129.84%;
+        // height: 100%;
+        padding: 0px;
 
+        @include atSmall {
+            width: 100%;
+        }
+        @include atMedium {
+            width: 100%;
+            padding-bottom: 80px;
+        }
         @include atLarge {
-            display: block;
+            width: 130%;
+            padding-bottom: 39px;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            opacity: 0;
+            transition: all 0.5s ease-in-out;
+            transition-delay: 0.7s;
         }
     }
-}
-
-.ServiceGroup__quote_0 {
-    border: 1px solid $mainWhite;
-    border-bottom: none;
-    border-left: none;
-}
-
-.ServiceGroup__quote_1 {
-    border: 1px solid black;
-    border-bottom: none;
-    border-left: none;
 }
 </style>

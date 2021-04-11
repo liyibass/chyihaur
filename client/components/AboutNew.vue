@@ -48,7 +48,7 @@ export default {
             })
             .setClassToggle('.AboutNew__left_block', 'text_visible') // add class to block
 
-            .addIndicators({ name: 'leftBlockScene' })
+        // .addIndicators({ name: 'leftBlockScene' })
 
         const rightBlockScene = this.$scrollmagic
             .scene({
@@ -60,7 +60,7 @@ export default {
             })
             .setClassToggle('.AboutNew__right_block', 'visible') // add class to block
 
-            .addIndicators({ name: 'rightBlockScene' })
+        // .addIndicators({ name: 'rightBlockScene' })
 
         this.$scrollmagic.addScene([leftBlockScene, rightBlockScene])
     },

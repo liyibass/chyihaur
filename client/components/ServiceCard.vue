@@ -52,8 +52,6 @@ export default {
         display: flex;
         flex-direction: column;
         align-items: center;
-
-        cursor: pointer;
     }
 
     &__icon {
@@ -99,8 +97,6 @@ export default {
 
 .isHovered {
     .ServiceCard__wrapper {
-        background: rgba(0, 0, 0, 0.2);
-
         .ServiceCard__icon {
             animation-name: rotate;
             animation-duration: 0.5s;

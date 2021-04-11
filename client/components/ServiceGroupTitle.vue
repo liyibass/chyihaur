@@ -53,5 +53,16 @@ export default {
         line-height: 1;
         font-weight: bold;
     }
+
+    @include atMedium {
+        &__title {
+            font-size: 130px;
+            line-height: 1;
+        }
+
+        &__engTitle {
+            display: none;
+        }
+    }
 }
 </style>

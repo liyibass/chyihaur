@@ -1,5 +1,6 @@
 <script>
 import ServiceGroup from '@/components/ServiceGroup'
+import ServiceGroupTitle from '@/components/ServiceGroupTitle'
 
 export default {
     props: {
@@ -10,6 +11,7 @@ export default {
     },
     components: {
         ServiceGroup,
+        ServiceGroupTitle,
     },
     computed: {
         getBackgroundImage: function() {
