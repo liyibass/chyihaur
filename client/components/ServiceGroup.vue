@@ -1,32 +1,24 @@
 <template>
-    <div class="ServiceGroup" :class="`ServiceGroup_${serviceGroup.id}`">
-        <div class="ServiceGroup__wrapper">
-            <div class="ServiceGroup__header">
-                <SubTitle :title="serviceGroup.title" />
-            </div>
+    <div class="ServiceGroup">
+        <!-- <ServiceGroupTitle :title="serviceGroup.title" :engTitle="serviceGroup.engTitle" /> -->
 
-            <div class="ServiceGroup__lists">
-                <ServiceCard
-                    v-for="(serviceCard, index) in serviceGroup.serviceList"
-                    :key="index"
-                    :service="serviceCard"
-                >
-                </ServiceCard>
-            </div>
-
-            <div class="ServiceGroup__quote" :class="`ServiceGroup__quote_${serviceGroup.id}`" />
+        <div class="ServiceGroup__lists">
+            <ServiceCard v-for="(serviceCard, index) in serviceGroup.serviceList" :key="index" :service="serviceCard">
+            </ServiceCard>
         </div>
+
+        <div class="ServiceGroup__quote" :class="`ServiceGroup__quote_${serviceGroup.id}`" />
     </div>
 </template>
 
 <script>
 import ServiceCard from '@/components/ServiceCard'
-import SubTitle from '@/components/SubTitle'
+import ServiceGroupTitle from '@/components/ServiceGroupTitle'
 
 export default {
     components: {
         ServiceCard,
-        SubTitle,
+        ServiceGroupTitle,
     },
 
     props: {
@@ -51,50 +43,16 @@ export default {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
-    height: 100vh;
+    padding: 0 10%;
+    min-height: 400px;
 
     @include atSmall {
-        height: auto;
-    }
-
-    &__wrapper {
-        height: 100%;
-        width: 80%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-
-        position: relative;
-
-        @include atSmall {
-            height: 80%;
-            width: 80%;
-        }
-    }
-
-    &__header {
-        height: 27vh;
-        padding: 40px;
-        font-size: 25px;
-
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-end;
-        @include atSmall {
-            display: none;
-            height: auto;
-            font-size: 39px;
-        }
+        min-height: auto;
+        padding: 10%;
     }
 
     &__lists {
         width: 100%;
-        height: 73vh;
-        padding-bottom: 40px;
-
-        margin: auto;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -107,35 +65,6 @@ export default {
 
             justify-content: flex-start;
             padding-bottom: 0;
-        }
-    }
-
-    &_0 {
-        background: $mainGreen;
-        @include atSmall {
-            background: transparent;
-        }
-        .ServiceGroup__header {
-            color: $mainWhite;
-        }
-    }
-
-    &_1 {
-        background: white;
-        @include atSmall {
-            background: transparent;
-        }
-        .ServiceGroup__header {
-            color: $mainLightGreen;
-        }
-    }
-    &_2 {
-        background: $mainLightGreen;
-        @include atSmall {
-            background: transparent;
-        }
-        .ServiceGroup__header {
-            color: $mainGreen;
         }
     }
 

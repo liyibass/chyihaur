@@ -112,13 +112,9 @@ export default {
     height: 100vh;
     position: relative;
 
-    display: none;
+    display: flex;
     flex-direction: column;
     align-items: center;
-
-    @include atSmall {
-        display: flex;
-    }
 
     &__background {
         position: absolute;
@@ -133,7 +129,11 @@ export default {
     &__detail {
         position: absolute;
         bottom: 10%;
-        left: 10%;
+        left: 0;
+
+        @include atLarge {
+            left: 10%;
+        }
     }
 }
 </style>

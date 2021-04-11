@@ -44,7 +44,11 @@ export default {
     }
 
     &__content {
-        right: 10%;
+        right: 5%;
+
+        @include atMedium {
+            right: 10%;
+        }
     }
 }
 </style>

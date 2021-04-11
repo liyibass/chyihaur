@@ -58,17 +58,17 @@ export default {
 
     &__icon {
         width: 85px;
-        margin-bottom: 22px;
+        margin-bottom: 18px;
+        img {
+            width: 100%;
+        }
 
         @include atSmall {
             width: 60px;
         }
 
         @include atLarge {
-            width: 85px;
-        }
-        img {
-            width: 100%;
+            width: 80px;
         }
     }
 
@@ -80,7 +80,7 @@ export default {
         }
 
         @include atLarge {
-            font-size: 22px;
+            font-size: 16px;
         }
     }
 }

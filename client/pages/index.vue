@@ -11,7 +11,6 @@
         <AboutNew />
         <Service />
         <Workflow />
-        <WorkflowMobile />
         <ContactSimple />
     </div>
 </template>
@@ -23,7 +22,6 @@ import Video from '@/components/Video'
 import AboutNew from '@/components/AboutNew'
 import Service from '@/components/Service'
 import Workflow from '@/components/Workflow'
-import WorkflowMobile from '@/components/WorkflowMobile'
 import ContactSimple from '@/components/ContactSimple'
 
 import 'intersection-observer'
@@ -31,12 +29,10 @@ import scrollama from 'scrollama'
 export default {
     components: {
         FullScreenAnimate,
-
         Video,
         AboutNew,
         Service,
         Workflow,
-        WorkflowMobile,
         ContactSimple,
     },
     data() {

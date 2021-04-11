@@ -27,7 +27,7 @@ export default {
     overflow: hidden;
 
     @include atLarge {
-        height: 60vh;
+        height: 384px;
     }
 }
 
