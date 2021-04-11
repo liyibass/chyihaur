@@ -46,7 +46,7 @@ export default {
     justify-content: center;
 
     @include atMedium {
-        min-width: 90px;
+        width: 92px;
     }
 
     &__text {

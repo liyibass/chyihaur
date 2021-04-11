@@ -22,21 +22,19 @@ export default {
 <style lang="scss" scoped>
 .header {
     width: 100%;
-    height: 72px;
+    // height: 72px;
     position: relative;
     background: $mainGreen;
-    padding: 16px 20px;
+    padding: 13px 18px;
 
     @include atMedium {
-        padding: 16px 62px;
-    }
-
-    @include atLarge {
-        padding: 10px 62px;
+        padding: 14px 62px;
     }
 
     &__wrapper {
         height: 100%;
+        width: 100%;
+        position: relative;
         display: flex;
         flex-direction: row;
         align-items: center;

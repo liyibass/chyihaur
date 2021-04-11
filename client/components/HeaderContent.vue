@@ -24,26 +24,25 @@ export default {
 <style lang="scss" scoped>
 .header-content {
     position: relative;
-    height: 41px;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: center;
     justify-content: center;
 
     @include atSmall {
+        height: 42px;
+        align-items: flex-end;
         justify-content: space-between;
     }
 
     &__title {
-        width: 70%;
+        width: 63%;
         height: 18px;
-        max-width: 200px;
-        padding-right: 10px;
-
         @include atSmall {
             max-width: none;
             width: 300px;
+            margin-right: 10px;
         }
 
         @include atLarge {
@@ -68,7 +67,8 @@ export default {
             top: 50%;
             transform: translateY(-50%);
             height: 4px;
-            width: 100%;
+            width: calc(100% - 70px);
+
             background: $mainWhite;
         }
     }

@@ -51,11 +51,18 @@ export default {
 <style lang="scss" scoped>
 .animate-logo {
     z-index: 100;
-    height: 41px;
-    position: relative;
+    height: 22px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
 
     display: flex;
     flex-direction: row;
+
+    @include atSmall {
+        height: 42px;
+    }
 
     &__logo {
         height: 100%;
@@ -74,7 +81,7 @@ export default {
         right: 0;
         transform: translate(120%, -50%);
 
-        display: flex;
+        display: none;
         flex-direction: column;
         justify-content: center;
 
@@ -84,6 +91,7 @@ export default {
         font-weight: 500;
 
         @include atSmall {
+            display: flex;
             font-size: 15px;
             width: 50px;
             justify-content: space-between;
