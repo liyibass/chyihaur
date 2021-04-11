@@ -1,12 +1,12 @@
 <template>
     <div>
-        <transition name="fade">
+        <!-- <transition name="fade">
             <FullScreenAnimate
                 v-if="ifShowAnimation"
                 :setPlayedAnimation="setPlayedAnimation"
                 @click.native="forceCancelAnimation"
             />
-        </transition>
+        </transition> -->
         <NavBar />
         <Header />
         <Video />
@@ -53,8 +53,6 @@ export default {
     },
     computed: {
         ifShowAnimation: function() {
-            console.log(this.loaded)
-            console.log(this.playedAnimation)
             if (this.loaded && this.playedAnimation) {
                 return false
             } else {
@@ -80,26 +78,24 @@ export default {
         })
     },
     mounted() {
-        // -------------------------------------------------------
-        // instantiate the scrollama
-        const hideTextScroller = scrollama()
-
-        // setup the instance, pass callback functions
-        hideTextScroller
-            .setup({
-                step: '.hide_text',
-                offset: 0.7,
-            })
-            .onStepEnter((response) => {
-                // { element, index, direction }
-                response.element.style.opacity = 1
-            })
-            .onStepExit((response) => {
-                // { element, index, direction }
-            })
-
-        // setup resize event
-        window.addEventListener('resize', hideTextScroller.resize)
+        // // -------------------------------------------------------
+        // // instantiate the scrollama
+        // const hideTextScroller = scrollama()
+        // // setup the instance, pass callback functions
+        // hideTextScroller
+        //     .setup({
+        //         step: '.hide_text',
+        //         offset: 0.7,
+        //     })
+        //     .onStepEnter((response) => {
+        //         // { element, index, direction }
+        //         response.element.style.opacity = 1
+        //     })
+        //     .onStepExit((response) => {
+        //         // { element, index, direction }
+        //     })
+        // // setup resize event
+        // window.addEventListener('resize', hideTextScroller.resize)
     },
 }
 </script>

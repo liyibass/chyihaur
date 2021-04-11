@@ -1,23 +1,38 @@
 <template>
-    <div class="Video">
-        <div class="Video__player">
-            I am Video Block(TODO)
-        </div>
+    <div class="video">
+        <video class="video__player" :src="video.url" loop></video>
     </div>
 </template>
 
 <script>
-export default {}
+export default {
+    data() {
+        return {
+            video: {
+                url: require('@/static/videos/0.mp4'),
+            },
+        }
+    },
+    mounted() {
+        const videoDOM = document.querySelector('.video__player')
+        videoDOM.addEventListener('loadeddata', () => {
+            console.log(videoDOM)
+            videoDOM.play()
+        })
+    },
+}
 </script>
 
 <style lang="scss" scoped>
-.Video {
+.video {
     background: black;
     height: 100vh;
 
-    &__player {
-        min-height: 157px;
-        padding: 7px;
+    video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
     }
 }
 </style>
