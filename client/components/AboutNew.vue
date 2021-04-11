@@ -71,40 +71,48 @@ export default {
 .AboutNew {
     position: relative;
     width: 100vw;
-    height: 296px;
+    height: 100vh;
     background: $mainGreen;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
 
     @include atMedium {
         height: 396px;
+        display: block;
     }
 
     &__left_block {
-        width: 50%;
-        height: 100%;
-        transform: translate(-30%, 0%);
         opacity: 0;
         transition: all 0.5s ease-in-out;
 
-        .AboutNew__text {
-            width: 80%;
+        @include atMedium {
+            width: 50%;
             height: 100%;
-            padding: 0 0 0 20px;
+            transform: translate(-30%, 0%);
+            opacity: 0;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .AboutNew__text {
+            height: 100%;
+            padding: 0 0 0 0;
 
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
+            align-items: center;
             justify-content: center;
 
             color: white;
             font-size: 10px;
-
-            @include atSmall {
-                padding: 0 0 0 20px;
-            }
+            text-align: center;
 
             @include atMedium {
+                width: 80%;
+                align-items: flex-start;
                 padding: 0 0 0 30px;
                 font-size: 16px;
+                text-align: left;
             }
 
             @include atLarge {
@@ -114,25 +122,21 @@ export default {
     }
 
     &__right_block {
-        transform: translate(20%, -20%);
-        opacity: 0;
-        transition: all 0.5s ease-in-out;
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        width: 30%;
-        height: 340px;
-
         display: flex;
         flex-direction: column;
         align-items: flex-end;
         justify-content: center;
+        margin-bottom: 70px;
 
-        @include atSmall {
-            width: 50%;
-            height: 340px;
-        }
         @include atMedium {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            margin-bottom: 0;
+            transform: translate(20%, -20%);
+            opacity: 0;
+            transition: all 0.5s ease-in-out;
+
             width: 400px;
             height: 458px;
             justify-content: flex-end;
@@ -142,18 +146,19 @@ export default {
         }
 
         &_color {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 200%;
-            height: 100%;
-            background: $workflowGray;
-            background-size: cover;
-            transform: skew(-23deg) translate(0%, 0%);
-            transform-origin: top;
+            display: none;
 
-            @include atSmall {
+            @include atMedium {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 200%;
+                height: 100%;
+                display: block;
+
+                background: $workflowGray;
                 transform: skew(-23deg) translate(4%, 0%);
+                transform-origin: top;
             }
 
             @include atLarge {
@@ -164,21 +169,22 @@ export default {
         &_image {
             position: relative;
             top: 0;
-            left: 0;
-            width: 129.84%;
+            right: 0;
+            width: 100%;
+            max-width: 341px;
             // height: 100%;
-            padding: 0px;
+            margin: auto;
 
-            @include atSmall {
-                width: 100%;
-            }
             @include atMedium {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-30%);
                 width: 100%;
-                padding-bottom: 80px;
+                max-width: none;
             }
             @include atLarge {
+                transform: translateY(-38%);
                 width: 130%;
-                padding-bottom: 39px;
             }
 
             img {
@@ -194,10 +200,12 @@ export default {
 }
 
 .tab {
-    margin-left: 3rem;
-    box-sizing: border-box;
-    display: block;
-    max-width: 157px;
+    @include atMedium {
+        margin-left: 3rem;
+        box-sizing: border-box;
+        display: block;
+        max-width: 157px;
+    }
 }
 .show_in_mobile {
     display: inline-block;
