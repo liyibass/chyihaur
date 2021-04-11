@@ -5,43 +5,50 @@
         </a>
 
         <div class="animate-logo__date">
-            <div class="animate-logo__date_year">{{ getDate('year') }}</div>
-            <div class="animate-logo__date_date">{{ getDate('month') }}{{ getDate('day') }}</div>
+            <div class="animate-logo__date_year">
+                <NumberJumpFromZero type="year" :targetNumber="getDate('year')" :initialNumber="1990" />
+            </div>
+            <div class="animate-logo__date_date">
+                <NumberJumpFromZero type="dateTime" :targetNumber="getDate('monthAndDay')" :initialNumber="100" />
+            </div>
         </div>
     </div>
 </template>
 
 <script>
-function addZeroHandler(number) {
-    if (parseInt(number) > 10) {
-        return number
-    } else {
-        return '0' + number
-    }
-}
+import NumberJumpFromZero from '@/components/NumberJumpFromZero'
+
 export default {
     data() {
         return {
             date: new Date(),
         }
     },
-
+    componens: {
+        NumberJumpFromZero,
+    },
     methods: {
         getDate(desiredPart) {
             const dateString = this.date.toLocaleDateString()
             const splitedDateString = dateString.split('/')
+
+            const monthAndDay = parseInt(splitedDateString[1]) * 100 + parseInt(splitedDateString[2])
+
             switch (desiredPart) {
                 case 'year':
-                    return splitedDateString[0]
+                    return parseInt(splitedDateString[0])
 
                 case 'month':
-                    return addZeroHandler(splitedDateString[1])
+                    return parseInt(splitedDateString[1])
 
                 case 'day':
-                    return addZeroHandler(splitedDateString[2])
+                    return parseInt(splitedDateString[2])
+
+                case 'monthAndDay':
+                    return monthAndDay
 
                 default:
-                    return ''
+                    return 0
             }
         },
     },
@@ -85,14 +92,8 @@ export default {
         flex-direction: column;
         justify-content: center;
 
-        font-family: 'Rubik', sans-serif;
-        color: $mainWhite;
-        font-size: 8px;
-        font-weight: 500;
-
         @include atSmall {
             display: flex;
-            font-size: 15px;
             width: 50px;
             justify-content: space-between;
         }
