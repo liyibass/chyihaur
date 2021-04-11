@@ -1,7 +1,5 @@
 <template>
     <div class="AboutPage">
-        <NavBar />
-        <Header />
         <div class="AboutPage__color_bar" />
 
         <UiEmployeeContainer :employeeList="newEmployeeList" />
@@ -9,15 +7,11 @@
 </template>
 
 <script>
-import NavBar from '@/components/NavBar'
-import Header from '@/components/Header'
 import UiEmployeeContainer from '@/components/UiEmployeeContainer'
 import employeeMixin from '../../mixins/employeeMixin'
 
 export default {
     components: {
-        NavBar,
-        Header,
         UiEmployeeContainer,
     },
     mixins: [employeeMixin],

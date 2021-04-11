@@ -32,7 +32,6 @@ export default {
 <style lang="scss" scoped>
 .HeaderNavItem {
     width: 100%;
-    margin-left: 20px;
     // background: rgba(0, 0, 0, 0.2);
     background: rgba(0, 0, 0, 0);
     transition: all 0.5s ease;
@@ -44,10 +43,10 @@ export default {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
 
-    @include atSmall {
-        display: block;
-        width: auto;
+    @include atMedium {
+        min-width: 90px;
     }
 
     &__text {

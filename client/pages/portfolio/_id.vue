@@ -1,22 +1,16 @@
 <template>
     <div class="AboutEmployeePage">
-        <NavBar />
-        <Header />
         <div class="AboutEmployeePage__color_bar" />
         <nuxt-child :portfolio="currentPortfolio" />
     </div>
 </template>
 
 <script>
-import NavBar from '@/components/NavBar'
-import Header from '@/components/Header'
 import UiEmployeeContainer from '@/components/UiEmployeeContainer'
 import portfolioMixin from '../../mixins/portfolioMixin'
 
 export default {
     components: {
-        NavBar,
-        Header,
         UiEmployeeContainer,
     },
 

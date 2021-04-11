@@ -13,13 +13,9 @@
 </template>
 
 <script>
-import NavBar from '@/components/NavBar'
-import Header from '@/components/Header'
 import UiEmployeeContainer from '@/components/UiEmployeeContainer'
 export default {
     components: {
-        NavBar,
-        Header,
         UiEmployeeContainer,
     },
     props: {

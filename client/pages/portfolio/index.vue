@@ -1,7 +1,5 @@
 <template>
     <div class="PortfolioPage">
-        <NavBar />
-        <Header />
         <div class="color_bar" />
 
         <UiPortfolioContainer :portfolioList="portfolioList" />
@@ -9,15 +7,11 @@
 </template>
 
 <script>
-import NavBar from '@/components/NavBar'
-import Header from '@/components/Header'
 import UiPortfolioContainer from '@/components/UiPortfolioContainer'
 import portfolioMixin from '../../mixins/portfolioMixin'
 
 export default {
     components: {
-        NavBar,
-        Header,
         UiPortfolioContainer,
     },
     mixins: [portfolioMixin],

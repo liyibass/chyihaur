@@ -7,12 +7,8 @@
                 @click.native="forceCancelAnimation"
             />
         </transition> -->
-        <NavBar />
-        <Header />
         <Video />
-
         <AboutNew />
-
         <Service />
         <Workflow />
         <WorkflowMobile />
@@ -22,8 +18,7 @@
 
 <script>
 import FullScreenAnimate from '@/components/FullScreenAnimate'
-import NavBar from '@/components/NavBar'
-import Header from '@/components/Header'
+
 import Video from '@/components/Video'
 import AboutNew from '@/components/AboutNew'
 import Service from '@/components/Service'
@@ -36,8 +31,7 @@ import scrollama from 'scrollama'
 export default {
     components: {
         FullScreenAnimate,
-        NavBar,
-        Header,
+
         Video,
         AboutNew,
         Service,
