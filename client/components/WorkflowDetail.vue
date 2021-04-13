@@ -40,14 +40,15 @@ export default {
 <style lang="scss" scoped>
 .workflow-detail {
     color: $mainWhite;
-    font-size: 20px;
+    font-size: 14px;
     font-weight: bold;
+    width: 200px;
+    margin: auto;
 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    padding: 20px;
 }
 
 .showUp-enter-active,

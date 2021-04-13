@@ -81,7 +81,7 @@ export default {
 
 <style lang="scss" scoped>
 .workflow {
-    background: $workflowGray;
+    background: $mainGreen;
     width: 100%;
     height: 100vh;
     position: relative;
@@ -101,12 +101,16 @@ export default {
         }
     }
 
+    .workflow-slide {
+        position: relative;
+        margin-bottom: 67px;
+    }
+
     &__detail {
         position: absolute;
-        bottom: 7%;
-        left: 0;
-
+        bottom: 9vh;
         @include atLarge {
+            bottom: 7%;
             left: 10%;
         }
     }
