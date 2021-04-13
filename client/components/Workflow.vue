@@ -1,42 +1,14 @@
 <template>
-    <div class="Workflow" id="workflow">
-        <div class="Workflow__background">
+    <div class="workflow" id="workflow">
+        <div class="workflow__background">
             <img :src="require('@/static/images/serviceBackground.png')" alt="" srcset="" />
         </div>
-        <!-- <div class="Workflow__wrapper">
-            <div class="Workflow__title">
-                <h6 v-if="currentAnimate > 0">
-                    {{ workflowList[currentAnimate - 1].name }}
-                </h6>
-            </div>
 
-            <div class="Workflow__steps">
-                <div class="Workflow__steps_wrapper">
-                    <WorkflowStepTitle
-                        v-for="(step, index) in workflowList"
-                        :key="index"
-                        :step="step"
-                        :isFocused="index <= currentAnimate - 1 ? true : false"
-                    />
-                </div>
-            </div>
+        <WorkflowSlide :curentDetailId="currentAnimate" />
 
-            <div class="Workflow__icons">
-                <WorkflowIcon
-                    v-for="(step, index) in workflowList"
-                    :key="index"
-                    :step="step"
-                    :isFocused="index <= currentAnimate - 1 ? true : false"
-                />
-            </div>
-        </div> -->
-
-        <div class="Workflow__detail">
+        <div class="workflow__detail">
             <WorkflowDetail :curentDetailId="currentAnimate" />
         </div>
-        <!-- <div class="Workflow__big_title">
-            <img :src="require('@/static/images/title2.png')" alt="" />
-        </div> -->
     </div>
 </template>
 
@@ -45,6 +17,7 @@ import ProgressBar from '@/components/ProgressBar'
 import OverflowImage from '@/components/OverflowImage'
 import WorkflowStepTitle from '@/components/WorkflowStepTitle'
 import WorkflowIcon from '@/components/WorkflowIcon'
+import WorkflowSlide from '@/components/WorkflowSlide'
 import WorkflowDetail from '@/components/WorkflowDetail'
 import workflowMixin from '@/mixins/workflowMixin'
 
@@ -54,6 +27,7 @@ export default {
         OverflowImage,
         WorkflowStepTitle,
         WorkflowIcon,
+        WorkflowSlide,
         WorkflowDetail,
     },
     mixins: [workflowMixin],
@@ -72,12 +46,12 @@ export default {
     mounted() {
         const workflowScene = this.$scrollmagic
             .scene({
-                triggerElement: '.Workflow',
+                triggerElement: '.workflow',
                 offset: 0,
                 triggerHook: 0,
                 duration: 2000,
             })
-            .setPin('.Workflow')
+            .setPin('.workflow')
             .on('enter', () => {})
 
             .on('leave', () => {})
@@ -106,7 +80,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.Workflow {
+.workflow {
     background: $workflowGray;
     width: 100%;
     height: 100vh;
@@ -115,6 +89,7 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 
     &__background {
         position: absolute;
@@ -128,7 +103,7 @@ export default {
 
     &__detail {
         position: absolute;
-        bottom: 10%;
+        bottom: 7%;
         left: 0;
 
         @include atLarge {
