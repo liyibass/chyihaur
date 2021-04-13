@@ -15,7 +15,11 @@ export default {
     },
     computed: {
         getBackgroundImage: function() {
-            return { background: `url(${this.serviceGroup.backgroundUrl})`, backgroundSize: 'cover' }
+            return {
+                background: `url(${this.serviceGroup.backgroundUrl})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+            }
         },
     },
 }

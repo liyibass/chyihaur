@@ -1,5 +1,9 @@
 <template>
     <div class="AboutNew">
+        <div class="AboutNew__background">
+            <div class="AboutNew__background_mask" />
+            <img :src="require('@/static/images/about.jpg')" alt="" />
+        </div>
         <div class="AboutNew__left_block">
             <div class="AboutNew__text">
                 <div class="remove_in_mobile">
@@ -72,7 +76,7 @@ export default {
     position: relative;
     width: 100vw;
     height: 100vh;
-    background: $mainGreen;
+
     display: flex;
     flex-direction: column-reverse;
     justify-content: center;
@@ -117,6 +121,35 @@ export default {
 
             @include atLarge {
                 padding: 0 0 0 70px;
+            }
+        }
+    }
+
+    &__background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: black;
+
+        &_mask {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+            opacity: 0.68;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+
+            @include atMedium {
+                width: 70%;
             }
         }
     }

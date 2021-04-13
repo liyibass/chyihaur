@@ -83,16 +83,10 @@ export default {
     }
 }
 
-.ServiceCard__title_0 {
-    color: $mainWhite;
-}
-
-.ServiceCard__title_1 {
-    color: $mainLightGreen;
-}
-
+.ServiceCard__title_0,
+.ServiceCard__title_1,
 .ServiceCard__title_2 {
-    color: $mainGreen;
+    color: $mainWhite;
 }
 
 .isHovered {

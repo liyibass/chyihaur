@@ -6,6 +6,7 @@
                 :key="serviceGroup.title"
                 class="group-wrapper"
                 :class="`group-wrapper_${serviceGroup.id}`"
+                :style="getBackgroundImage(serviceGroup.backgroundUrl)"
             >
                 <ServiceGroupTitle :title="serviceGroup.title" :engTitle="serviceGroup.engTitle" />
                 <ServiceGroup :serviceGroup="serviceGroup" />
@@ -54,7 +55,7 @@ export default {
                     id: 0,
                     title: '設計',
                     engTitle: 'DESIGN',
-                    backgroundUrl: require('@/static/images/portfolio/3.png'),
+                    backgroundUrl: require('@/static/images/service1.jpg'),
                     serviceList: [
                         {
                             id: 0,
@@ -90,7 +91,7 @@ export default {
                     id: 1,
                     title: '工程',
                     engTitle: 'PROJECT',
-                    backgroundUrl: require('@/static/images/portfolio/2.png'),
+                    backgroundUrl: require('@/static/images/service2.jpg'),
 
                     serviceList: [
                         {
@@ -120,7 +121,7 @@ export default {
                     id: 2,
                     title: '影像',
                     engTitle: 'PHOTOGRAPH',
-                    backgroundUrl: require('@/static/images/portfolio/1.png'),
+                    backgroundUrl: require('@/static/images/service3.jpg'),
 
                     serviceList: [
                         {
@@ -152,6 +153,14 @@ export default {
         },
         nextPage() {
             this.targetIndex = this.targetIndex === this.serviceGroupList.length - 1 ? 0 : this.targetIndex + 1
+        },
+        getBackgroundImage(url) {
+            return {
+                background: `url(${url})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundAttachment: 'fixed',
+            }
         },
     },
 
