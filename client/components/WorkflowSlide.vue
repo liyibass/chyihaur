@@ -1,6 +1,6 @@
 <template>
     <div class="workflow-slide">
-        <div class="workflow-slide__ruler" :style="currentRulerPosition">
+        <div class="workflow-slide__ruler" :class="currentRulerPosition">
             <div class="workflow-slide__ruler_center" />
             <div
                 v-for="workflow in workflowList"
@@ -42,7 +42,8 @@ export default {
     computed: {
         currentRulerPosition() {
             const degreeMove = this.curentDetailId === 0 ? 0 : this.curentDetailId - 1
-            return { left: `calc(50% - ((100% - 36px) / 4) * ${degreeMove})` }
+            // return { left: `calc(50% - ((100% - 36px) / 4) * ${degreeMove})` }
+            return `move${this.curentDetailId}`
         },
     },
 }
@@ -124,6 +125,25 @@ export default {
                 transition: all 0.5s ease-in-out;
             }
         }
+    }
+
+    .move1 {
+        left: calc(50% - ((100% - 36px) / 4) * 0);
+    }
+    .move2 {
+        left: calc(50% - ((100% - 36px) / 4) * 1);
+    }
+    .move3 {
+        left: calc(50% - ((100% - 36px) / 4) * 2);
+    }
+    .move4 {
+        left: calc(50% - ((100% - 36px) / 4) * 3);
+    }
+    .move5 {
+        left: calc(50% - ((100% - 36px) / 4) * 4);
+    }
+    .move6 {
+        left: calc(50% - ((100% - 36px) / 4) * 5);
     }
 }
 </style>

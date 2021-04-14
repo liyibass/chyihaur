@@ -90,7 +90,6 @@ export default {
 
     &__up_section {
         z-index: 2;
-
         display: flex;
         flex-direction: column;
         align-items: center;
