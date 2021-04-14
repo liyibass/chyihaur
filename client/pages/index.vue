@@ -1,39 +1,15 @@
 <template>
-    <div>
-        <!-- <transition name="fade">
-            <FullScreenAnimate
-                v-if="ifShowAnimation"
-                :setPlayedAnimation="setPlayedAnimation"
-                @click.native="forceCancelAnimation"
-            />
-        </transition> -->
-        <Video />
-        <AboutNew />
-        <Service />
-        <Workflow />
-        <ContactSimple />
+    <div class="home-animation">
+        <FullScreenAnimate :setPlayedAnimation="setPlayedAnimation" @click.native="forceCancelAnimation" />
     </div>
 </template>
 
 <script>
 import FullScreenAnimate from '@/components/FullScreenAnimate'
 
-import Video from '@/components/Video'
-import AboutNew from '@/components/AboutNew'
-import Service from '@/components/Service'
-import Workflow from '@/components/Workflow'
-import ContactSimple from '@/components/ContactSimple'
-
-import 'intersection-observer'
-import scrollama from 'scrollama'
 export default {
     components: {
         FullScreenAnimate,
-        Video,
-        AboutNew,
-        Service,
-        Workflow,
-        ContactSimple,
     },
     data() {
         return {
@@ -41,24 +17,22 @@ export default {
             playedAnimation: false,
         }
     },
-    computed: {
-        ifShowAnimation: function() {
-            if (this.loaded && this.playedAnimation) {
-                return false
-            } else {
-                return true
-            }
-        },
-    },
     methods: {
         setPlayedAnimation() {
             setTimeout(() => {
                 this.playedAnimation = true
-            }, 9800)
+                this.loaded = true
+            }, 3000)
         },
         forceCancelAnimation() {
             this.playedAnimation = true
             this.loaded = true
+        },
+    },
+    watch: {
+        loaded: function(val) {
+            console.log(val)
+            this.$router.push('/home')
         },
     },
     created() {
@@ -67,27 +41,12 @@ export default {
             this.loaded = true
         })
     },
-    mounted() {
-        // // -------------------------------------------------------
-        // // instantiate the scrollama
-        // const hideTextScroller = scrollama()
-        // // setup the instance, pass callback functions
-        // hideTextScroller
-        //     .setup({
-        //         step: '.hide_text',
-        //         offset: 0.7,
-        //     })
-        //     .onStepEnter((response) => {
-        //         // { element, index, direction }
-        //         response.element.style.opacity = 1
-        //     })
-        //     .onStepExit((response) => {
-        //         // { element, index, direction }
-        //     })
-        // // setup resize event
-        // window.addEventListener('resize', hideTextScroller.resize)
-    },
+    mounted() {},
 }
 </script>
 
-<style></style>
+<style>
+.home-animation {
+    cursor: pointer;
+}
+</style>

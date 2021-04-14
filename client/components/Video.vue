@@ -1,10 +1,12 @@
 <template>
     <div class="video">
-        <video class="video__player" :src="video.url" loop></video>
+        <video class="video__player" :src="video.url" loop muted></video>
     </div>
 </template>
 
 <script>
+import 'intersection-observer'
+import scrollama from 'scrollama'
 export default {
     data() {
         return {
@@ -16,9 +18,28 @@ export default {
     mounted() {
         const videoDOM = document.querySelector('.video__player')
         videoDOM.addEventListener('loadeddata', () => {
-            console.log(videoDOM)
             videoDOM.play()
         })
+        const videoScene = this.$scrollmagic
+            .scene({
+                triggerElement: '.video__player',
+                offset: 0,
+                triggerHook: 0.2,
+                duration: '100%',
+            })
+            .on('enter', () => {
+                const videoDOM = document.querySelector('.video__player')
+                videoDOM.play()
+            })
+
+            .on('leave', () => {
+                const videoDOM = document.querySelector('.video__player')
+                videoDOM.pause()
+            })
+
+            .on('progress', (e) => {})
+        // .addIndicators({ name: 'workflowScene' })
+        this.$scrollmagic.addScene([videoScene])
     },
 }
 </script>

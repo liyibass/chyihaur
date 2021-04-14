@@ -108,6 +108,7 @@ export default {
 
     &__detail {
         position: absolute;
+        
         bottom: 9vh;
         @include atLarge {
             bottom: 7%;

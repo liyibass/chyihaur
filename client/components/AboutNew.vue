@@ -226,7 +226,7 @@ export default {
                 object-fit: contain;
                 opacity: 0;
                 transition: all 0.5s ease-in-out;
-                transition-delay: 0.7s;
+                // transition-delay: 0.7s;
             }
         }
     }

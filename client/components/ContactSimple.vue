@@ -120,6 +120,7 @@ export default {
     }
 
     &__detail {
+        z-index: 1;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -173,7 +174,7 @@ export default {
     &__background {
         position: absolute;
         background: black;
-        z-index: -1;
+        z-index: 0;
         top: 0;
         left: 0;
         width: 100vw;

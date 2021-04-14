@@ -89,6 +89,8 @@ export default {
     }
 
     &__up_section {
+        z-index: 2;
+
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -131,6 +133,7 @@ export default {
         justify-content: space-between;
 
         @include atMedium {
+            z-index: 1;
             flex-direction: row;
             align-items: flex-end;
         }
@@ -189,7 +192,7 @@ export default {
     &__background {
         position: absolute;
         background: black;
-        z-index: -1;
+        z-index: 0;
         top: 0;
         left: 0;
         width: 100vw;

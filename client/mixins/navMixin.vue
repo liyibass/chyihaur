@@ -19,7 +19,7 @@ export default {
                     id: 1,
                     title: '服務項目',
                     engTitle: 'SERVICE',
-                    link: '#service',
+                    link: 'home/#service',
                     key: 'our-service',
                     logoUrl: require('@/static/images/logos/1.png'),
                 },
@@ -27,7 +27,7 @@ export default {
                     id: 2,
                     title: '流程介紹',
                     engTitle: 'WORKFLOW',
-                    link: '#workflow',
+                    link: 'home/#workflow',
                     key: 'workflow',
                     logoUrl: require('@/static/images/logos/2.png'),
                 },
@@ -62,17 +62,17 @@ export default {
     methods: {
         chooseChapter(link) {
             if (!link) return
-
             const linkArray = link.split('#')
             const linkIsAnId = linkArray.length > 1
             if (linkIsAnId) {
-                if (this.$route.name !== 'index') this.$router.push('/')
+                console.log(this.$route.name)
+                if (this.$route.name !== 'home') this.$router.push('/home')
 
-                const myEl = document.getElementById(`${linkArray[1]}`)
-                this.$smoothScroll({
-                    scrollTo: myEl,
-                })
-                return
+                // const myEl = document.getElementById(`${linkArray[1]}`)
+                // this.$smoothScroll({
+                //     scrollTo: myEl,
+                // })
+                this.$router.push(`/home/${linkArray[1]}`)
             }
 
             this.$router.push(`/${link}`)
