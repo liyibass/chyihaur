@@ -1,12 +1,14 @@
 <template>
-    <div class="UiSlashBlock">
-        <div class="UiSlashBlock__left_block" :style="getBackgroundImage">
+    <div class="UiSlashBlock UiSlashBlock_1">
+        <div class="UiSlashBlock__left_block UiSlashBlock__background" :style="getBackgroundImage">
             <ServiceGroupTitle :title="serviceGroup.title" :engTitle="serviceGroup.engTitle" />
         </div>
-        <div class="UiSlashBlock__right_block"></div>
+        <div class="UiSlashBlock__right_block">
+            <div class="UiSlashBlock__color"></div>
 
-        <div class="UiSlashBlock__content">
-            <ServiceGroup :serviceGroup="serviceGroup" />
+            <div class="UiSlashBlock__content">
+                <ServiceGroup :serviceGroup="serviceGroup" />
+            </div>
         </div>
     </div>
 </template>
@@ -29,8 +31,6 @@ export default {
         left: 0;
         height: 100%;
         width: 70%;
-        background: red;
-        background-size: cover;
 
         .service-group-title {
             width: auto;
@@ -48,16 +48,33 @@ export default {
         height: 100%;
         width: 60%;
         z-index: 1;
-        background: $mainGreen;
-        transform: skew(15deg) translateX(5.5%);
-        // transform-origin: top;
-    }
 
-    &__content {
-        right: 5%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
 
-        @include atMedium {
-            right: 10%;
+        .UiSlashBlock__color {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            width: 100%;
+            background: $mainGreen;
+            transform: skew(15deg) translateX(5.5%);
+        }
+
+        .UiSlashBlock__content {
+            margin-right: 10%;
+
+            @include atMedium {
+                margin-right: 15%;
+                // right: 10%;
+            }
+
+            @include atLarge {
+                margin-right: 20%;
+                // right: 10%;
+            }
         }
     }
 }

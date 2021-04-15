@@ -17,8 +17,6 @@ export default {
         getBackgroundImage: function() {
             return {
                 background: `url(${this.serviceGroup.backgroundUrl})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
             }
         },
     },
@@ -35,15 +33,18 @@ export default {
     @include atLarge {
         height: 384px;
     }
+
+    &__background {
+        background-size: cover !important;
+        background-position: center !important;
+    }
 }
 
 .UiSlashBlock__content {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    position: relative;
 
     height: 100%;
-    width: 40%;
+    width: 217px;
     z-index: 1;
 
     display: flex;
@@ -51,7 +52,7 @@ export default {
     justify-content: center;
 
     @include atMedium {
-        width: 30%;
+        width: 317px;
     }
 }
 </style>

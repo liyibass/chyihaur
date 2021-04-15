@@ -62,11 +62,20 @@ export default {
                 duration: '100%',
                 offset: 50,
             })
-            .setClassToggle('.AboutNew__right_block', 'visible') // add class to block
+            .setClassToggle('.AboutNew__right_block', 'block_visible') // add class to block
 
+        const backgroundScene = this.$scrollmagic
+            .scene({
+                triggerElement: '.AboutNew',
+                offset: 0,
+                triggerHook: 0.6,
+                duration: '100%',
+                offset: 50,
+            })
+            .setClassToggle('.AboutNew__background', 'background_visible') // add class to block
         // .addIndicators({ name: 'rightBlockScene' })
 
-        this.$scrollmagic.addScene([leftBlockScene, rightBlockScene])
+        this.$scrollmagic.addScene([leftBlockScene, rightBlockScene, backgroundScene])
     },
 }
 </script>
@@ -76,6 +85,7 @@ export default {
     position: relative;
     width: 100vw;
     height: 100vh;
+    background: black;
 
     display: flex;
     flex-direction: column-reverse;
@@ -126,12 +136,15 @@ export default {
     }
 
     &__background {
+        opacity: 0;
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
         background: black;
+        transform: translate(-30%, 0%);
+        transition: all 0.5s ease-in-out;
 
         &_mask {
             position: absolute;
@@ -247,9 +260,18 @@ export default {
     }
 }
 
-.visible {
+.background_visible {
+    opacity: 1;
+    transform: translate(0%, 0%);
+}
+
+.block_visible {
     transform: translate(0%, 0%);
     opacity: 1;
+
+    &:hover {
+        transform: translate(-15%, 0%) scale(1.15);
+    }
 
     img {
         opacity: 1;
@@ -259,5 +281,9 @@ export default {
 .text_visible {
     transform: translate(0%, 0%);
     opacity: 1;
+
+    &:hover {
+        transform: translate(10%, 0%) scale(1.1);
+    }
 }
 </style>

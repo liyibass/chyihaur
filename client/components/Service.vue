@@ -172,7 +172,7 @@ export default {
 .Service {
     width: 100%;
 
-    background: $mainGreen;
+    // background: $mainGreen;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

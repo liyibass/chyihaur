@@ -22,7 +22,7 @@ export default {
             setTimeout(() => {
                 this.playedAnimation = true
                 this.loaded = true
-            }, 3000)
+            }, 5000)
         },
         forceCancelAnimation() {
             this.playedAnimation = true
@@ -35,12 +35,12 @@ export default {
             this.$router.push('/home')
         },
     },
-    created() {
-        // would work in 'ready', 'attached', etc.
-        window.addEventListener('load', () => {
-            this.loaded = true
-        })
-    },
+    // created() {
+    //     // would work in 'ready', 'attached', etc.
+    //     window.addEventListener('load', () => {
+    //         this.loaded = true
+    //     })
+    // },
     mounted() {},
 }
 </script>

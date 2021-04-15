@@ -1,7 +1,7 @@
 <template>
     <div class="service-group-title">
-        <div class="service-group-title__title">{{ title }}</div>
-        <div class="service-group-title__engTitle" :style="handleWidth">{{ engTitle }}</div>
+        <nobr class="service-group-title__title">{{ title }}</nobr>
+        <nobr class="service-group-title__engTitle" :style="handleWidth">{{ engTitle }}</nobr>
     </div>
 </template>
 
@@ -49,7 +49,7 @@ export default {
     }
 
     &__engTitle {
-        font-size: 31px;
+        font-size: 28px;
         line-height: 1;
         font-weight: bold;
     }
