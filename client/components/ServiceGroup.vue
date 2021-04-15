@@ -3,7 +3,12 @@
         <!-- <ServiceGroupTitle :title="serviceGroup.title" :engTitle="serviceGroup.engTitle" /> -->
 
         <div class="ServiceGroup__lists">
-            <ServiceCard v-for="(serviceCard, index) in serviceGroup.serviceList" :key="index" :service="serviceCard">
+            <ServiceCard
+                v-for="(serviceCard, index) in serviceGroup.serviceList"
+                :key="index"
+                :service="serviceCard"
+                :style="iconColor(serviceGroup.id)"
+            >
             </ServiceCard>
         </div>
     </div>
@@ -26,6 +31,11 @@ export default {
             default: () => {
                 return {}
             },
+        },
+    },
+    methods: {
+        iconColor(key) {
+            console.log(key)
         },
     },
 }

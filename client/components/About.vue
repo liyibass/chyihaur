@@ -94,7 +94,6 @@ export default {
     background-position: center;
     width: 100vw;
     min-height: 100vh;
-    overflow: hidden;
 
     @include atSmall {
         background: $mainGreen;

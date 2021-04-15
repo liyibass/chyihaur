@@ -11,12 +11,7 @@
 </template>
 
 <script>
-export default {
-    props: ['setPlayedAnimation'],
-    mounted() {
-        this.setPlayedAnimation()
-    },
-}
+export default {}
 </script>
 
 <style lang="scss" scoped>

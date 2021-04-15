@@ -1,6 +1,6 @@
 <template>
     <div class="home-animation">
-        <FullScreenAnimate :setPlayedAnimation="setPlayedAnimation" @click.native="forceCancelAnimation" />
+        <FullScreenAnimate @click.native="forceCancelAnimation" />
     </div>
 </template>
 

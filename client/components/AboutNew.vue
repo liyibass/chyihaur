@@ -92,6 +92,8 @@ export default {
     justify-content: center;
 
     @include atMedium {
+        background: $mainGreen;
+
         height: 396px;
         display: block;
     }

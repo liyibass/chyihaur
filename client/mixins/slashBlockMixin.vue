@@ -55,4 +55,8 @@ export default {
         width: 317px;
     }
 }
+
+.visible {
+    transform: translate(0, 0);
+}
 </style>
