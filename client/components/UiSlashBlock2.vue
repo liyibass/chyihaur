@@ -116,11 +116,23 @@ export default {
     }
 }
 
+.service-group-title,
+.UiSlashBlock__content {
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+    transition-delay: 1s;
+}
+
 .visible {
     transform: translate(0, 0);
     opacity: 1;
+
     .UiSlashBlock__color {
         transform: skew(-15deg) translateX(-23.5%);
+    }
+    .service-group-title,
+    .UiSlashBlock__content {
+        opacity: 1;
     }
 }
 </style>

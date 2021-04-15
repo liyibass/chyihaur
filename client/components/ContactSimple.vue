@@ -194,10 +194,5 @@ export default {
             align-items: flex-end;
         }
     }
-    @include atUltraLarge {
-        &__wrapper {
-            max-width: 1000px;
-        }
-    }
 }
 </style>

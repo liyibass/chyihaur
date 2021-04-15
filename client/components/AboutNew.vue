@@ -272,7 +272,9 @@ export default {
     opacity: 1;
 
     &:hover {
-        transform: translate(-15%, 0%) scale(1.15);
+        @include atMedium {
+            transform: translate(-15%, 0%) scale(1.15);
+        }
     }
 
     img {
@@ -285,7 +287,9 @@ export default {
     opacity: 1;
 
     &:hover {
-        transform: translate(10%, 0%) scale(1.1);
+        @include atMedium {
+            transform: translate(10%, 0%) scale(1.1);
+        }
     }
 }
 </style>

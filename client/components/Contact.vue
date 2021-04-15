@@ -1,10 +1,9 @@
 <template>
     <div class="Contact">
+        <div class="Contact__background">
+            <img :src="require('@/static/images/workflow1.png')" alt="" srcset="" />
+        </div>
         <div class="Contact__wrapper">
-            <div class="Contact__background">
-                <img :src="require('@/static/images/workflow1.png')" alt="" srcset="" />
-            </div>
-
             <div class="Contact__up_section">
                 <div class="Contact__titles">
                     <div class="Contact__titles_sub_title">
@@ -63,40 +62,42 @@ export default {
     font-family: Broadwell;
     color: $mainWhite;
     width: 100%;
-    // height: 100vh;
 
     &__wrapper {
         position: relative;
-
         width: 100%;
-        height: 100%;
+        min-height: 100vh;
         padding: 48px 20px 37px;
         margin: auto;
 
         display: flex;
         flex-direction: column;
         align-self: flex-start;
-        justify-content: space-between;
+        justify-content: center;
 
         @include atSmall {
-            &__wrapper {
-                padding: 48px 55px 37px;
-            }
+            padding: 48px 55px 37px;
+        }
+
+        @include atSuperLarge {
+            max-width: 1000px;
         }
         @include atUltraLarge {
-            max-width: 1000px;
+            max-width: 1200px;
         }
     }
 
     &__up_section {
+        flex: 1;
         z-index: 2;
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
 
         @include atMedium {
             flex-direction: row;
-            align-items: flex-start;
+            align-items: center;
             justify-content: space-between;
         }
     }

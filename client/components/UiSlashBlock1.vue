@@ -26,7 +26,7 @@ export default {
         // import slashBlockMixin from '@/mixins/slashBlockMixin'
         const leftBlockScene = this.$scrollmagic
             .scene({
-                triggerElement: '.UiSlashBlock__left_block_1',
+                triggerElement: '.Service',
                 offset: 0,
                 triggerHook: 0.7,
                 duration: '100%',
@@ -38,7 +38,7 @@ export default {
 
         const rightBlockScene = this.$scrollmagic
             .scene({
-                triggerElement: '.UiSlashBlock__right_block_1',
+                triggerElement: '.Service',
                 offset: 0,
                 triggerHook: 0.7,
                 duration: '100%',
@@ -116,11 +116,24 @@ export default {
     }
 }
 
+.service-group-title,
+.UiSlashBlock__content {
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+    transition-delay: 1s;
+}
+
 .visible {
     transform: translate(0, 0);
     opacity: 1;
+
     .UiSlashBlock__color {
         transform: skew(15deg) translateX(5.5%);
+    }
+
+    .service-group-title,
+    .UiSlashBlock__content {
+        opacity: 1;
     }
 }
 </style>
