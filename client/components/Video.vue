@@ -1,12 +1,11 @@
 <template>
     <div class="video">
-        <video class="video__player" :src="video.url" loop muted></video>
+        <video class="video__player" :src="video.url" loop muted playsinline></video>
     </div>
 </template>
 
 <script>
 import 'intersection-observer'
-import scrollama from 'scrollama'
 export default {
     data() {
         return {
