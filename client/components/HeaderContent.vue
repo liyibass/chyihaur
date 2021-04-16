@@ -31,7 +31,6 @@ export default {
     justify-content: center;
 
     @include atSmall {
-        height: 42px;
         align-items: flex-end;
         justify-content: space-between;
     }
@@ -45,8 +44,14 @@ export default {
             margin-right: 10px;
         }
 
+        @include atMedium {
+            margin-bottom: 4px;
+        }
+
         @include atLarge {
-            width: 394px;
+            width: auto;
+            height: 22px;
+            // width: 394px;
         }
 
         img {
@@ -61,12 +66,12 @@ export default {
     &__devide_line {
         display: none;
 
-        @include atSmall {
+        @include atMedium {
             display: block;
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            height: 4px;
+            height: 3px;
             width: calc(100% - 70px);
 
             background: $mainWhite;
@@ -76,7 +81,7 @@ export default {
     &__top_right_line {
         display: none;
 
-        @include atSmall {
+        @include atMedium {
             display: block;
             position: absolute;
             top: 0;

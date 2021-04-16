@@ -33,7 +33,7 @@ export default {
     mixins: [workflowMixin],
     data() {
         return {
-            currentAnimate: 0,
+            currentAnimate: 1,
         }
     },
     computed: {
@@ -49,7 +49,7 @@ export default {
                 triggerElement: '.workflow',
                 offset: 0,
                 triggerHook: 0,
-                duration: 2000,
+                duration: 5500,
             })
             .setPin('.workflow')
             .on('enter', () => {})
@@ -58,7 +58,7 @@ export default {
 
             .on('progress', (e) => {
                 if (e.progress < 0.01) {
-                    this.currentAnimate = 0
+                    this.currentAnimate = 1
                 } else if (e.progress > 0.01 && e.progress < 0.16) {
                     this.currentAnimate = 1
                 } else if (e.progress > 0.16 && e.progress < 0.32) {

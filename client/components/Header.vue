@@ -1,5 +1,5 @@
 <template>
-    <div class="header">
+    <div class="header" :style="{ top: getTopHeight }">
         <div class="header__wrapper">
             <AnimateLogoTime />
             <HeaderContent />
@@ -11,24 +11,56 @@
 import AnimateLogoTime from './AnimateLogoTime'
 
 import HeaderContent from './HeaderContent'
+import { setScrollDirection } from '../utils/getScrollDirection'
+
 export default {
     components: {
         AnimateLogoTime,
         HeaderContent,
+    },
+    data() {
+        return {
+            navBarIsOpen: false,
+            direction: 'up',
+        }
+    },
+    computed: {
+        getNavContainerCSS() {
+            if (this.navBarIsOpen) {
+                return { transform: 'translateX(0%)' }
+            } else {
+                return { transform: 'translateX(100%)' }
+            }
+        },
+        getTopHeight() {
+            // console.log(this.direction)
+            if (this.direction === 'down') {
+                return '-200px'
+            } else {
+                return '0px'
+            }
+        },
+    },
+    mounted() {
+        setScrollDirection(this)
     },
 }
 </script>
 
 <style lang="scss" scoped>
 .header {
+    z-index: 9999;
+    position: fixed;
+    top: 0%;
+    left: 0;
     width: 100%;
     // height: 72px;
-    position: relative;
     background: $mainGreen;
     padding: 13px 18px;
+    transition: top 0.5s ease;
 
     @include atMedium {
-        padding: 14px 62px;
+        padding: 26px 62px;
     }
 
     &__wrapper {

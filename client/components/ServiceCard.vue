@@ -100,15 +100,12 @@ export default {
 
 @keyframes rotate {
     0% {
-        transform: scaleX(0) translateY(0%);
+        transform: scale(1);
         opacity: 1;
     }
-    40% {
-        transform: scaleX(-1) translateY(-10%);
-        opacity: 1;
-    }
-    80% {
-        transform: scaleX(0) translateY(0%);
+
+    100% {
+        transform: scale(1.1);
         opacity: 1;
     }
 }

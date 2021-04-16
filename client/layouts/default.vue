@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="default">
         <NavBar />
         <Header />
         <Nuxt />
@@ -17,7 +17,11 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+.defualt {
+    margin-top: 108px;
+    background: $mainGreen;
+}
 html {
     font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
         sans-serif;

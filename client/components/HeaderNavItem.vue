@@ -45,21 +45,24 @@ export default {
     align-items: center;
     justify-content: center;
 
-    @include atMedium {
+    @include atLarge {
         width: 92px;
     }
 
     &__text {
         // border-left: 1px solid rgba(220, 221, 221, 0.4);
         color: $mainWhite;
-        font-size: 10px;
+        font-size: 12px;
         // width: 20px;
         font-weight: bold;
+        @include atLarge {
+            width: 92px;
+        }
     }
 }
 
 .isHovered {
-    background: rgba(0, 0, 0, 0.2);
+    // background: rgba(0, 0, 0, 0.2);
 
     .HeaderNavItem__icon {
         padding-bottom: 10px;

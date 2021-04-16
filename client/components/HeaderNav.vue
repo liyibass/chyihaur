@@ -28,6 +28,12 @@ export default {
 
     @include atMedium {
         display: block;
+        width: 100%;
+        transform: translateY(21px);
+    }
+    @include atLarge {
+        width: 740px;
+        transform: translateY(0);
     }
 
     &__wrapper {

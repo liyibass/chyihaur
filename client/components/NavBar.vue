@@ -80,6 +80,10 @@ export default {
     // overflow: hidden;
     transition: top 0.5s ease;
 
+    @include atMedium {
+        display: none;
+    }
+
     &__icon {
         z-index: 1;
         position: absolute;

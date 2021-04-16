@@ -92,7 +92,7 @@ export default {
         flex-direction: column;
         justify-content: center;
 
-        @include atSmall {
+        @include atMedium {
             display: flex;
             width: 50px;
             justify-content: space-between;

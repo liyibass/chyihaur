@@ -51,7 +51,7 @@ export default {
 
 <style lang="scss" scoped>
 .UiSlashBlock {
-    background: white;
+    background: $mainLightGreen;
 
     &__left_block {
         transform: translate(-100%, 0);
@@ -73,7 +73,7 @@ export default {
             right: 0;
             height: 100%;
             width: 100%;
-            background: white;
+            background: $mainLightGreen;
             transform: skew(0deg) translateX(-23.5%);
             transition: all 0.5s ease-in-out;
             transition-delay: 0.5s;
