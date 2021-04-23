@@ -27,7 +27,8 @@ export default {
 .UiSlashBlock {
     position: relative;
     width: 100vw;
-    height: 80vh;
+    // height: 80vh;
+    height: 384px;
     overflow: hidden;
 
     @include atLarge {

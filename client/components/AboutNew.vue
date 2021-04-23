@@ -185,12 +185,12 @@ export default {
             opacity: 0;
             transition: all 0.5s ease-in-out;
 
-            width: 400px;
+            width: 61%;
             height: 458px;
             justify-content: flex-end;
         }
         @include atLarge {
-            width: 437px;
+            width: 61%;
         }
 
         &_color {
@@ -200,13 +200,14 @@ export default {
                 position: absolute;
                 top: 0;
                 left: 0;
-                width: 200%;
+                width: 120%;
                 height: 100%;
                 display: block;
 
                 background: $workflowGray;
-                transform: skew(-23deg) translate(4%, 0%);
-                transform-origin: top;
+                // transform: skew(-23deg) translate(4%, 0%);
+                transform: skew(-37deg) translate(0%, 0%);
+                transform-origin: bottom;
             }
 
             @include atLarge {
@@ -226,13 +227,18 @@ export default {
             @include atMedium {
                 position: absolute;
                 top: 50%;
-                transform: translateY(-30%);
-                width: 100%;
-                max-width: none;
+                transform: translate(0, -30%);
+                width: 70%;
+                max-width: 650px;
             }
             @include atLarge {
-                transform: translateY(-38%);
-                width: 130%;
+                transform: translate(0, -38%);
+                width: 70%;
+            }
+
+            @include atSuperLarge {
+                right: 40%;
+                transform: translate(50%, -50%);
             }
 
             img {

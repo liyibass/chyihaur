@@ -60,7 +60,7 @@ export default {
         top: 0;
         left: 0;
         height: 100%;
-        width: 71%;
+        width: 39%;
         z-index: 1;
 
         display: flex;
@@ -73,7 +73,7 @@ export default {
             right: 0;
             height: 100%;
             width: 100%;
-            background: $mainLightGreen;
+            background: white;
             transform: skew(0deg) translateX(-23.5%);
             transition: all 0.5s ease-in-out;
             transition-delay: 0.5s;
@@ -102,7 +102,7 @@ export default {
         top: 0;
         right: 0;
         height: 100%;
-        width: 60%;
+        width: 70%;
         background: red;
         background-size: cover;
 
@@ -128,7 +128,7 @@ export default {
     opacity: 1;
 
     .UiSlashBlock__color {
-        transform: skew(-15deg) translateX(-23.5%);
+        transform: skew(-15deg) translateX(0);
     }
     .service-group-title,
     .UiSlashBlock__content {
