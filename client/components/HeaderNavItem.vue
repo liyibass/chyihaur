@@ -32,6 +32,7 @@ export default {
 <style lang="scss" scoped>
 .HeaderNavItem {
     width: 100%;
+    height: 14px;
     // background: rgba(0, 0, 0, 0.2);
     background: rgba(0, 0, 0, 0);
     transition: all 0.5s ease;
@@ -46,17 +47,18 @@ export default {
     justify-content: center;
 
     @include atLarge {
-        width: 92px;
+        width: 120px;
     }
 
     &__text {
         // border-left: 1px solid rgba(220, 221, 221, 0.4);
         color: $mainWhite;
         font-size: 12px;
+        text-align: center;
         // width: 20px;
         font-weight: bold;
         @include atLarge {
-            width: 92px;
+            width: 100%;
         }
     }
 }
@@ -82,7 +84,7 @@ export default {
 }
 .slide-fade-enter, .slide-fade-leave-to
 /* .slide-fade-leave-active for below version 2.1.8 */ {
-    transform: translateX(10px);
+    transform: translateX(0);
     opacity: 0;
 }
 

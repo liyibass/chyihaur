@@ -4,11 +4,13 @@
             <img :src="require('@/static/images/serviceBackground.png')" alt="" srcset="" />
         </div>
 
-        <WorkflowDesktop :currentId="currentAnimate" />
-        <WorkflowSlide :currentId="currentAnimate" />
+        <div class="workflow__wrapper">
+            <WorkflowDesktop :currentId="currentAnimate" />
+            <WorkflowSlide :currentId="currentAnimate" />
 
-        <div class="workflow__detail">
-            <WorkflowDetail :curentDetailId="currentAnimate" />
+            <div class="workflow__detail">
+                <WorkflowDetail :curentDetailId="currentAnimate" />
+            </div>
         </div>
     </div>
 </template>
@@ -93,9 +95,25 @@ export default {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 64px 0;
 
     @include atLarge {
         background: $workflowGray;
+        padding: 64px 97px;
+    }
+    @include atUltraLarge {
+    }
+
+    &__wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        max-width: 1616px;
+        max-height: 1080px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
 
     &__background {
@@ -116,10 +134,10 @@ export default {
     &__detail {
         position: absolute;
 
-        bottom: 20vh;
+        bottom: 17vh;
         @include atLarge {
-            bottom: 7%;
-            left: 10%;
+            bottom: 0%;
+            left: 0%;
         }
     }
 }

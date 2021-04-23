@@ -236,7 +236,7 @@ export default {
                 width: 70%;
             }
 
-            @include atSuperLarge {
+            @include atUltraLarge {
                 right: 40%;
                 transform: translate(50%, -50%);
             }

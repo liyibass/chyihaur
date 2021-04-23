@@ -27,7 +27,7 @@ export default {
                 triggerElement: '.UiSlashBlock__left_block_2',
                 offset: 0,
                 triggerHook: 0.7,
-                duration: '100%',
+                duration: '150%',
                 offset: 50,
             })
             .setClassToggle('.UiSlashBlock__left_block_2', 'visible') // add class to block
@@ -39,7 +39,7 @@ export default {
                 triggerElement: '.UiSlashBlock__right_block_2',
                 offset: 0,
                 triggerHook: 0.7,
-                duration: '100%',
+                duration: '150%',
                 offset: 50,
             })
             .setClassToggle('.UiSlashBlock__right_block_2', 'visible') // add class to block
@@ -73,8 +73,9 @@ export default {
             right: 0;
             height: 100%;
             width: 100%;
-            background: white;
-            transform: skew(0deg) translateX(-23.5%);
+            background: $mainLightGreen;
+            transform: skew(0deg) translateX(0);
+            transform-origin: bottom;
             transition: all 0.5s ease-in-out;
             transition-delay: 0.5s;
         }

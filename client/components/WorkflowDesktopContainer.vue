@@ -89,11 +89,19 @@ export default {
             transform: scale(1);
             opacity: 1;
         }
+
+        @include atUltraLarge {
+            top: 84.5px;
+            height: 6px;
+        }
     }
 
     &.column {
         width: 2px;
         height: calc(100% - 36px - 96px);
+        @include atUltraLarge {
+            height: calc(100% - 100px - 96px);
+        }
         .workflow-container__scale {
             width: 2px;
             height: 100%;
@@ -101,10 +109,15 @@ export default {
         }
         .workflow-card {
             position: absolute;
-            top: 60%;
+            top: 60.284%;
             left: -116px;
             width: 230px;
             flex-direction: row-reverse;
+
+            @include atUltraLarge {
+                width: auto;
+                left: -176px;
+            }
         }
     }
 }

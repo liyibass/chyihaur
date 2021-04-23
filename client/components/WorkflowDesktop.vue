@@ -51,7 +51,6 @@ export default {
 
 <style lang="scss" scoped>
 .workflow-desktop {
-    padding: 36px 63px;
     position: relative;
     width: 100%;
     height: 100%;
@@ -67,7 +66,7 @@ export default {
     }
 
     &__up {
-        width: 34%;
+        width: 35.458%;
         // height: 173px;
         // background: gold;
         position: absolute;
@@ -76,7 +75,7 @@ export default {
     }
 
     &__bottom {
-        width: 70%;
+        width: 68.557%;
         // height: 173px;
         // background: gold;
         position: absolute;
@@ -87,7 +86,7 @@ export default {
     &__column {
         position: absolute;
         top: -23px;
-        left: 32%;
+        left: calc(35.458% - 30px);
     }
 }
 </style>

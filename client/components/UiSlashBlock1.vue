@@ -29,7 +29,7 @@ export default {
                 triggerElement: '.Service',
                 offset: 0,
                 triggerHook: 0.7,
-                duration: '100%',
+                duration: '150%',
                 offset: 50,
             })
             .setClassToggle('.UiSlashBlock__left_block_1', 'visible') // add class to block
@@ -41,7 +41,7 @@ export default {
                 triggerElement: '.Service',
                 offset: 0,
                 triggerHook: 0.7,
-                duration: '100%',
+                duration: '150%',
                 offset: 50,
             })
             .setClassToggle('.UiSlashBlock__right_block_1', 'visible') // add class to block

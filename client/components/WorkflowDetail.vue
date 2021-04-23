@@ -49,6 +49,11 @@ export default {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+
+    @include atUltraLarge {
+        font-size: 24px;
+        width: 350px;
+    }
 }
 
 .showUp-enter-active,

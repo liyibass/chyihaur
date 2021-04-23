@@ -1,8 +1,8 @@
 <template>
     <div class="workflow-card" :class="{ show: showCard }">
-        <div class="workflow-card__title">
+        <nobr class="workflow-card__title">
             {{ workflow.name }}
-        </div>
+        </nobr>
 
         <div class="workflow-card__scale"></div>
 
@@ -58,6 +58,9 @@ export default {
         color: white;
         margin-bottom: 8px;
         font-weight: bold;
+        @include atUltraLarge {
+            font-size: 32px;
+        }
     }
 
     &__scale {
@@ -65,16 +68,26 @@ export default {
         height: 45px;
         background: white;
         margin-bottom: 22px;
+        @include atUltraLarge {
+            width: 3px;
+            height: 67px;
+        }
     }
 
     .workflow-icon {
         width: 73px;
+        @include atUltraLarge {
+            width: 110px;
+        }
     }
 
     &.row {
         .workflow-card__title {
             margin-bottom: 0;
             margin-left: 10px;
+            @include atUltraLarge {
+                margin-left: 32px;
+            }
         }
 
         .workflow-card__scale {
@@ -82,6 +95,12 @@ export default {
             height: 4px;
             margin-bottom: 0;
             margin-left: 10px;
+
+            @include atUltraLarge {
+                width: 67px;
+                height: 6px;
+                margin-left: 32px;
+            }
         }
     }
 
