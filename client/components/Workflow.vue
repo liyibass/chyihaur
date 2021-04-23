@@ -120,7 +120,7 @@ export default {
         position: absolute;
         top: 0;
         right: 0;
-        width: 56vw;
+        width: 54vw;
         img {
             width: 100%;
         }

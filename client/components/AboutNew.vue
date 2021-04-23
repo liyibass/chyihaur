@@ -202,7 +202,7 @@ export default {
             justify-content: flex-end;
         }
         @include atLarge {
-            width: 61%;
+            width: 57.552%;
         }
 
         @include atUltraLarge {
@@ -227,7 +227,7 @@ export default {
             }
 
             @include atLarge {
-                transform: skew(-37deg) translate(0%, 0%);
+                transform: skew(-26deg) translate(0%, 0%);
             }
         }
 

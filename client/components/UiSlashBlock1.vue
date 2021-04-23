@@ -81,7 +81,7 @@ export default {
         top: 0;
         right: 0;
         height: 100%;
-        width: 61%;
+        width: 57.6%;
         z-index: 1;
 
         display: flex;
@@ -121,7 +121,7 @@ export default {
     opacity: 1;
 
     .UiSlashBlock__color {
-        transform: skew(15deg) translateX(0);
+        transform: skew(29deg) translateX(0);
     }
 
     .service-group-title,
