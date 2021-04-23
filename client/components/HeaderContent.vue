@@ -4,6 +4,8 @@
             <img :src="require('@/static/images/title.png')" alt="title" />
         </div>
 
+        <NavBar />
+
         <div class="header-content__devide_line" />
         <div class="header-content__top_right_line" />
 
@@ -12,10 +14,12 @@
 </template>
 
 <script>
+import NavBar from '@/components/NavBar'
 import HeaderNav from './HeaderNav'
 
 export default {
     components: {
+        NavBar,
         HeaderNav,
     },
 }
@@ -26,11 +30,12 @@ export default {
     position: relative;
     flex-grow: 1;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
 
-    @include atSmall {
+    @include atMedium {
+        flex-direction: column;
         align-items: flex-end;
         justify-content: space-between;
     }

@@ -1,6 +1,5 @@
 <template>
     <div class="default">
-        <NavBar />
         <Header />
         <Nuxt />
     </div>
@@ -18,11 +17,16 @@ export default {
 </script>
 
 <style lang="scss">
-.defualt {
-    margin-top: 108px;
+.default {
+    margin-top: 42px;
     background: $mainGreen;
+
+    @include atMedium {
+        margin-top: 100px;
+    }
 }
 html {
+    background: $mainGreen;
     font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
         sans-serif;
     font-size: 16px;

@@ -1,5 +1,5 @@
 <template>
-    <div class="NavBar" :style="{ top: getTopHeight }">
+    <div class="NavBar">
         <transition name="fast-fade">
             <div class="NavBar__icon" v-if="!navBarIsOpen" @click="navBarToggler">
                 <img :src="require('@/static/images/navLogo.svg')" alt="" />
@@ -21,7 +21,6 @@
 <script>
 import MainTitle from '@/components/MainTitle'
 import navMixin from '@/mixins/navMixin'
-import { setScrollDirection } from '../utils/getScrollDirection'
 
 export default {
     mixins: [navMixin],
@@ -29,18 +28,9 @@ export default {
     data() {
         return {
             navBarIsOpen: false,
-            direction: 'down',
         }
     },
-    watch: {
-        direction: function(val) {
-            if (val === 'up') {
-                setTimeout(() => {
-                    this.direction = 'down'
-                }, 3000)
-            }
-        },
-    },
+
     computed: {
         getNavContainerCSS() {
             if (this.navBarIsOpen) {
@@ -49,22 +39,11 @@ export default {
                 return { transform: 'translateX(100%)' }
             }
         },
-        getTopHeight() {
-            // console.log(this.direction)
-            if (this.direction === 'down') {
-                return '-64px'
-            } else {
-                return '10px'
-            }
-        },
     },
     methods: {
         navBarToggler() {
             this.navBarIsOpen = !this.navBarIsOpen
         },
-    },
-    mounted() {
-        setScrollDirection(this)
     },
 }
 </script>
@@ -72,13 +51,13 @@ export default {
 <style lang="scss" scoped>
 .NavBar {
     z-index: 666;
-    position: fixed;
-    top: 10px;
-    right: 10px;
     width: 50px;
     height: 50px;
     // overflow: hidden;
     transition: top 0.5s ease;
+    position: absolute;
+    right: 0;
+    top: -17px;
 
     @include atMedium {
         display: none;
@@ -86,9 +65,7 @@ export default {
 
     &__icon {
         z-index: 1;
-        position: absolute;
-        top: 10px;
-        right: 10px;
+
         width: 50px;
         height: 50px;
 
