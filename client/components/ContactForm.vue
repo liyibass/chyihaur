@@ -15,13 +15,13 @@ export default {
     data() {
         return {
             fieldList: [
-                { type: 'text', tag: '公司/品牌名稱', value: '' },
-                { type: 'text', tag: '聯絡人姓名', value: '' },
-                { type: 'text', tag: 'line ID', value: '' },
-                { type: 'text', tag: '電話', value: '' },
-                { type: 'text', tag: 'email', value: '' },
-                { type: 'select', tag: '欲洽談業務', value: '' },
-                { type: 'text', tag: '其他需求', value: '' },
+                { type: 'text', tag: '公司/品牌名稱', placeholder: 'Enter your company here', value: '' },
+                { type: 'text', tag: '聯絡人姓名', placeholder: 'Enter your name here', value: '' },
+                { type: 'text', tag: 'line ID', placeholder: 'Enter your line id here', value: '' },
+                { type: 'text', tag: '電話', placeholder: 'Enter your phone here', value: '' },
+                { type: 'text', tag: 'email', placeholder: 'Enter your email here', value: '' },
+                { type: 'checkbox', tag: '欲洽談業務', value: [] },
+                { type: 'textarea', tag: '其他需求', placeholder: '', value: '' },
             ],
         }
     },
@@ -32,11 +32,11 @@ export default {
             console.log(this.fieldList)
             // Emit form to CMS (Todo)
 
-            this.clearFormField()
+            // this.clearFormField()
 
-            alert('謝謝您的訊息，我們會儘快回覆')
+            // alert('謝謝您的訊息，我們會儘快回覆')
 
-            this.$router.push('/')
+            // this.$router.push('/')
         },
         clearFormField() {
             this.fieldList.forEach((field) => {
@@ -54,8 +54,7 @@ export default {
     margin-bottom: 30px;
 
     @include atMedium {
-        margin-left: 53px;
-        margin-bottom: 0;
+        max-width: 620px;
     }
 
     @include atLarge {

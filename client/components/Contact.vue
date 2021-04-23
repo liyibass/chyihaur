@@ -80,7 +80,7 @@ export default {
         }
 
         @include atSuperLarge {
-            max-width: 1000px;
+            max-width: 1200px;
         }
         @include atUltraLarge {
             max-width: 1200px;
@@ -95,7 +95,7 @@ export default {
         align-items: center;
         justify-content: center;
 
-        @include atMedium {
+        @include atLarge {
             flex-direction: row;
             align-items: center;
             justify-content: space-between;
