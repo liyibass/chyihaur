@@ -98,12 +98,16 @@ export default {
         display: block;
     }
 
+    @include atUltraLarge {
+        height: 585px;
+    }
+
     &__left_block {
         opacity: 0;
         transition: all 0.5s ease-in-out;
 
         @include atMedium {
-            width: 50%;
+            width: 70%;
             height: 100%;
             transform: translate(-30%, 0%);
             opacity: 0;
@@ -120,19 +124,23 @@ export default {
             justify-content: center;
 
             color: white;
-            font-size: 10px;
+            font-size: 16px;
             text-align: center;
 
             @include atMedium {
                 width: 80%;
                 align-items: flex-start;
                 padding: 0 0 0 30px;
-                font-size: 16px;
                 text-align: left;
             }
 
             @include atLarge {
                 padding: 0 0 0 70px;
+                font-size: 20px;
+            }
+
+            @include atUltraLarge {
+                font-size: 24px;
             }
         }
     }
@@ -187,10 +195,18 @@ export default {
 
             width: 61%;
             height: 458px;
+
+            display: flex;
+            flex-direction: row;
+            align-items: center;
             justify-content: flex-end;
         }
         @include atLarge {
             width: 61%;
+        }
+
+        @include atUltraLarge {
+            height: 684px;
         }
 
         &_color {
@@ -206,7 +222,7 @@ export default {
 
                 background: $workflowGray;
                 // transform: skew(-23deg) translate(4%, 0%);
-                transform: skew(-37deg) translate(0%, 0%);
+                transform: skew(-15deg) translate(0%, 0%);
                 transform-origin: bottom;
             }
 
@@ -225,20 +241,17 @@ export default {
             margin: auto;
 
             @include atMedium {
-                position: absolute;
-                top: 50%;
-                transform: translate(0, -30%);
-                width: 70%;
-                max-width: 650px;
+                max-width: none;
+                margin: 0;
+                width: 78%;
             }
+
             @include atLarge {
-                transform: translate(0, -38%);
-                width: 70%;
+                width: 68%;
             }
 
             @include atUltraLarge {
-                right: 40%;
-                transform: translate(50%, -50%);
+                max-width: 853px;
             }
 
             img {
@@ -258,7 +271,6 @@ export default {
         margin-left: 3rem;
         box-sizing: border-box;
         display: block;
-        max-width: 157px;
     }
 }
 .show_in_mobile {
