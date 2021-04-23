@@ -48,7 +48,7 @@ export default {
     position: relative;
 
     height: 100%;
-    width: 217px;
+    width: 317px;
     z-index: 1;
 
     display: flex;

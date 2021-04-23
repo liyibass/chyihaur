@@ -49,7 +49,7 @@ export default {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 10px 49px;
+    padding: 10px 10px 10px;
 
     @include atSmall {
         width: 33%;
@@ -58,7 +58,6 @@ export default {
 
     &__wrapper {
         box-sizing: content-box;
-        padding: 10px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -66,6 +65,7 @@ export default {
 
     &__icon {
         width: 85px;
+        height: 90px;
         margin-bottom: 18px;
         img {
             width: 100%;
@@ -73,14 +73,17 @@ export default {
 
         @include atSmall {
             width: 60px;
+            height: 65px;
         }
 
         @include atLarge {
             width: 80px;
+            height: 85px;
         }
 
         @include atSuperLarge {
             width: 115px;
+            height: 120px;
         }
     }
 
