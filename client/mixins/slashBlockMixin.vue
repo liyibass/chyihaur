@@ -59,7 +59,7 @@ export default {
         width: 317px;
     }
     @include atLarge {
-        width: 400px;
+        width: 577px;
     }
 }
 

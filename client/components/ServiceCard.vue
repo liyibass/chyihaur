@@ -7,7 +7,10 @@
     >
         <div class="ServiceCard__wrapper">
             <div class="ServiceCard__icon">
-                <img :src="service.icon" alt="" />
+                <picture>
+                    <source media="(min-width:480px)" :srcset="service.iconColor ? service.iconColor : service.color" />
+                    <img :src="service.icon" :alt="service.name" />
+                </picture>
             </div>
 
             <nobr class="ServiceCard__title" :class="`ServiceCard__title_${service.group}`">
@@ -21,12 +24,18 @@
 export default {
     props: {
         service: Object,
+        color: Number,
     },
 
     data() {
         return {
             isHovered: false,
         }
+    },
+    computed: {
+        setLogoColor() {
+            console.log(this.color)
+        },
     },
 }
 </script>
@@ -40,10 +49,10 @@ export default {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 0 49px;
+    padding: 10px 49px;
 
     @include atSmall {
-        width: 50%;
+        width: 33%;
         height: 50%;
     }
 

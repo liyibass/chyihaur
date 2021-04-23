@@ -2,12 +2,12 @@
     <div class="ServiceGroup">
         <!-- <ServiceGroupTitle :title="serviceGroup.title" :engTitle="serviceGroup.engTitle" /> -->
 
-        <div class="ServiceGroup__lists">
+        <div class="ServiceGroup__lists" :style="{ justifyContent: justifyContent }">
             <ServiceCard
                 v-for="(serviceCard, index) in serviceGroup.serviceList"
                 :key="index"
                 :service="serviceCard"
-                :style="iconColor(serviceGroup.id)"
+                :color="serviceGroup.id"
             >
             </ServiceCard>
         </div>
@@ -33,9 +33,13 @@ export default {
             },
         },
     },
-    methods: {
-        iconColor(key) {
-            console.log(key)
+    computed: {
+        justifyContent() {
+            if (this.serviceGroup.serviceList.length >= 5) {
+                return 'flex-end'
+            } else {
+                return 'space-evenly'
+            }
         },
     },
 }
