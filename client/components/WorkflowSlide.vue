@@ -56,6 +56,10 @@ export default {
     height: 177px;
     overflow: hidden;
 
+    @include atLarge {
+        display: none;
+    }
+
     &__ruler {
         position: absolute;
         bottom: 0;

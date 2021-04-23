@@ -4,6 +4,7 @@
             <img :src="require('@/static/images/serviceBackground.png')" alt="" srcset="" />
         </div>
 
+        <WorkflowDesktop :curentDetailId="currentAnimate" />
         <WorkflowSlide :curentDetailId="currentAnimate" />
 
         <div class="workflow__detail">
@@ -17,6 +18,7 @@ import ProgressBar from '@/components/ProgressBar'
 import OverflowImage from '@/components/OverflowImage'
 import WorkflowStepTitle from '@/components/WorkflowStepTitle'
 import WorkflowIcon from '@/components/WorkflowIcon'
+import WorkflowDesktop from '@/components/WorkflowDesktop'
 import WorkflowSlide from '@/components/WorkflowSlide'
 import WorkflowDetail from '@/components/WorkflowDetail'
 import workflowMixin from '@/mixins/workflowMixin'
@@ -27,6 +29,7 @@ export default {
         OverflowImage,
         WorkflowStepTitle,
         WorkflowIcon,
+        WorkflowDesktop,
         WorkflowSlide,
         WorkflowDetail,
     },
@@ -90,6 +93,10 @@ export default {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    @include atLarge {
+        background: $workflowGray;
+    }
 
     &__background {
         position: absolute;
