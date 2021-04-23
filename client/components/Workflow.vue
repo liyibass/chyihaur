@@ -4,8 +4,8 @@
             <img :src="require('@/static/images/serviceBackground.png')" alt="" srcset="" />
         </div>
 
-        <WorkflowDesktop :curentDetailId="currentAnimate" />
-        <WorkflowSlide :curentDetailId="currentAnimate" />
+        <WorkflowDesktop :currentId="currentAnimate" />
+        <WorkflowSlide :currentId="currentAnimate" />
 
         <div class="workflow__detail">
             <WorkflowDetail :curentDetailId="currentAnimate" />

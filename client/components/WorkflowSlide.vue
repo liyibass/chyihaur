@@ -6,9 +6,9 @@
                 v-for="workflow in workflowList"
                 :key="workflow.id"
                 class="workflow-slide__ruler_degree"
-                :class="{ current: workflow.id + 1 === curentDetailId }"
+                :class="{ current: workflow.id + 1 === currentId }"
             >
-                <div class="workflow-slide__icon" :class="{ isFocused: workflow.id + 1 === curentDetailId }">
+                <div class="workflow-slide__icon" :class="{ isFocused: workflow.id + 1 === currentId }">
                     <WorkflowIcon :icon="workflow.icon" />
 
                     <div class="workflow-slide__icon_title">
@@ -32,7 +32,7 @@ export default {
         WorkflowIcon,
     },
     props: {
-        curentDetailId: Number,
+        currentId: Number,
         isRequired: true,
         default: () => {
             return 0
@@ -41,9 +41,9 @@ export default {
 
     computed: {
         currentRulerPosition() {
-            const degreeMove = this.curentDetailId === 0 ? 0 : this.curentDetailId - 1
+            const degreeMove = this.currentId === 0 ? 0 : this.currentId - 1
             // return { left: `calc(50% - ((100% - 36px) / 4) * ${degreeMove})` }
-            return `move${this.curentDetailId}`
+            return `move${this.currentId}`
         },
     },
 }

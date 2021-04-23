@@ -1,5 +1,5 @@
 <template>
-    <div class="workflow-card">
+    <div class="workflow-card" :class="{ show: showCard }">
         <div class="workflow-card__title">
             {{ workflow.name }}
         </div>
@@ -18,15 +18,29 @@ export default {
         WorkflowIcon,
     },
     props: {
-        workflow: Object,
-        isRequired: true,
-        default: () => {
-            return {
-                id: 0,
-                name: '初步查詢',
-                icon: require('@/static/images/workflow/workflow_1.png'),
-                detail: '依顧客心中畫面舉凡任何想法，<br/>團隊將有專人紀錄並提供回饋。',
-            }
+        workflow: {
+            type: Object,
+            isRequired: true,
+            default: () => {
+                return {
+                    id: 0,
+                    name: '初步查詢',
+                    icon: require('@/static/images/workflow/workflow_1.png'),
+                    detail: '依顧客心中畫面舉凡任何想法，<br/>團隊將有專人紀錄並提供回饋。',
+                }
+            },
+        },
+        currentId: {
+            type: Number,
+            isRequired: true,
+            default: () => {
+                return 0
+            },
+        },
+    },
+    computed: {
+        showCard() {
+            return this.workflow.id + 1 <= this.currentId
         },
     },
 }
@@ -69,6 +83,14 @@ export default {
             margin-bottom: 0;
             margin-left: 10px;
         }
+    }
+
+    opacity: 0.2;
+    transform: scale(0.9);
+    transition: all 0.3s ease-in-out;
+    &.show {
+        transform: scale(1);
+        opacity: 1;
     }
 }
 </style>

@@ -1,9 +1,18 @@
 <template>
     <div class="workflow-desktop">
         <div class="workflow-desktop__wrapper">
-            <WorkflowDesktopContainer class="workflow-desktop__up" :cardArray="upContainer" />
-            <WorkflowDesktopContainer class="workflow-desktop__column" :cardArray="columnContainer" :column="true" />
-            <WorkflowDesktopContainer class="workflow-desktop__bottom" :cardArray="bottomContainer" />
+            <WorkflowDesktopContainer class="workflow-desktop__up" :currentId="currentId" :cardArray="upContainer" />
+            <WorkflowDesktopContainer
+                class="workflow-desktop__column"
+                :currentId="currentId"
+                :cardArray="columnContainer"
+                :column="true"
+            />
+            <WorkflowDesktopContainer
+                class="workflow-desktop__bottom"
+                :currentId="currentId"
+                :cardArray="bottomContainer"
+            />
         </div>
     </div>
 </template>
@@ -18,10 +27,12 @@ export default {
         WorkflowDesktopContainer,
     },
     props: {
-        curentDetailId: Number,
-        isRequired: true,
-        default: () => {
-            return 0
+        currentId: {
+            type: Number,
+            isRequired: true,
+            default: () => {
+                return 0
+            },
         },
     },
     computed: {
@@ -44,6 +55,10 @@ export default {
     position: relative;
     width: 100%;
     height: 100%;
+    display: none;
+    @include atLarge {
+        display: block;
+    }
 
     &__wrapper {
         position: relative;
@@ -71,7 +86,7 @@ export default {
 
     &__column {
         position: absolute;
-        top: 36px;
+        top: -23px;
         left: 32%;
     }
 }
