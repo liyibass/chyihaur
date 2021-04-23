@@ -1,34 +1,34 @@
 <template>
-    <div class="Contact">
-        <div class="Contact__wrapper">
-            <div class="Contact__background">
-                <img :src="require('@/static/images/contact.png')" alt="" srcset="" />
+    <div class="ContactSimple">
+        <div class="ContactSimple__wrapper">
+            <div class="ContactSimple__background">
+                <img :src="require('@/static/images/Contact.png')" alt="" srcset="" />
             </div>
 
-            <div class="Contact__up_section">
-                <div class="Contact__titles">
-                    <div class="Contact__titles_sub_title">
+            <div class="ContactSimple__up_section">
+                <div class="ContactSimple__titles">
+                    <div class="ContactSimple__titles_sub_title">
                         CHANGE FOR HUMANITY,<br />
                         CHANGE FOR YOU.<br />
                         ___<br />
                         ___<br />
                     </div>
 
-                    <div class="Contact__titles_title" @click="goToContactPage">
-                        CONTACT
+                    <div class="ContactSimple__titles_title" @click="goToContactPage">
+                        Contact
                     </div>
                 </div>
             </div>
 
-            <div class="Contact__detail">
-                <div class="Contact__detail_lists">
-                    <div class="Contact__detail_lists_list" v-for="list in contactList" :key="list.title">
-                        <span class="Contact__detail_lists_list_title">{{ list.title }}</span>
-                        <span class="Contact__detail_lists_list_value">{{ list.value }}</span>
+            <div class="ContactSimple__detail">
+                <div class="ContactSimple__detail_lists">
+                    <div class="ContactSimple__detail_lists_list" v-for="list in ContactList" :key="list.title">
+                        <span class="ContactSimple__detail_lists_list_title">{{ list.title }}</span>
+                        <span class="ContactSimple__detail_lists_list_value">{{ list.value }}</span>
                     </div>
                 </div>
 
-                <div class="Contact__detail_business_card">
+                <div class="ContactSimple__detail_business_card">
                     <img :src="require('@/static/images/business-card.png')" alt="" />
                 </div>
             </div>
@@ -45,7 +45,7 @@ export default {
     },
     data() {
         return {
-            contactList: [
+            ContactList: [
                 { title: 'PHONE', value: '02-2630-8111' },
                 { title: 'EMAIL', value: 'Chyi.haur@msa.hinet.net' },
                 { title: 'ADDRESS', value: '台北市內湖區康寧路三段189巷75號' },
@@ -55,14 +55,14 @@ export default {
     methods: {
         goToContactPage() {
             console.log('YOYO')
-            this.$router.push('/contact')
+            this.$router.push('/Contact')
         },
     },
 }
 </script>
 
 <style lang="scss" scoped>
-.Contact {
+.ContactSimple {
     position: relative;
     font-family: Broadwell;
     color: $mainWhite;
@@ -169,7 +169,7 @@ export default {
         }
     }
 
-    // background: url('~@/static/images/contact.png');
+    // background: url('~@/static/images/ContactSimple.png');
 
     &__background {
         position: absolute;

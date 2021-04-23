@@ -4,6 +4,7 @@
         <AboutNew />
         <Service />
         <Workflow />
+        <Contact />
         <ContactSimple />
     </div>
 </template>
@@ -13,6 +14,7 @@ import Video from '@/components/Video'
 import AboutNew from '@/components/AboutNew'
 import Service from '@/components/Service'
 import Workflow from '@/components/Workflow'
+import Contact from '@/components/Contact'
 import ContactSimple from '@/components/ContactSimple'
 
 export default {
@@ -21,6 +23,7 @@ export default {
         AboutNew,
         Service,
         Workflow,
+        Contact,
         ContactSimple,
     },
 
@@ -28,8 +31,21 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 .main-page {
+    .Contact {
+        display: block;
+        @include atSmall {
+            display: none;
+        }
+    }
+
+    .ContactSimple {
+        display: none;
+        @include atSmall {
+            display: block;
+        }
+    }
     /* background: black; */
 }
 </style>
