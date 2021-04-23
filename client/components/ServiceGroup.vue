@@ -71,7 +71,7 @@ export default {
             height: 100%;
             flex-direction: row;
 
-            justify-content: flex-start;
+            justify-content: center;
             padding-bottom: 0;
         }
     }

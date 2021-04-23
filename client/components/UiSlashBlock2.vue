@@ -65,7 +65,7 @@ export default {
 
         display: flex;
         align-items: center;
-        justify-content: flex-start;
+        justify-content: center;
 
         .UiSlashBlock__color {
             position: absolute;
@@ -81,17 +81,6 @@ export default {
         }
 
         .UiSlashBlock__content {
-            margin-left: 5%;
-
-            @include atMedium {
-                margin-left: 10%;
-                // right: 10%;
-            }
-
-            @include atLarge {
-                margin-left: 15%;
-                // right: 10%;
-            }
         }
     }
 

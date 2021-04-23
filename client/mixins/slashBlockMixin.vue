@@ -34,6 +34,9 @@ export default {
     @include atLarge {
         height: 384px;
     }
+    @include atSuperLarge {
+        height: 570px;
+    }
 
     &__background {
         background-size: cover !important;
@@ -54,6 +57,9 @@ export default {
 
     @include atMedium {
         width: 317px;
+    }
+    @include atLarge {
+        width: 400px;
     }
 }
 

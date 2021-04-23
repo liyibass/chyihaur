@@ -10,9 +10,9 @@
                 <img :src="service.icon" alt="" />
             </div>
 
-            <div class="ServiceCard__title" :class="`ServiceCard__title_${service.group}`">
+            <nobr class="ServiceCard__title" :class="`ServiceCard__title_${service.group}`">
                 {{ service.title }}
-            </div>
+            </nobr>
         </div>
     </div>
 </template>
@@ -40,6 +40,7 @@ export default {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 0 49px;
 
     @include atSmall {
         width: 50%;
@@ -68,17 +69,25 @@ export default {
         @include atLarge {
             width: 80px;
         }
+
+        @include atSuperLarge {
+            width: 115px;
+        }
     }
 
     &__title {
-        font-size: 14px;
+        font-size: 12px;
 
         @include atSmall {
-            font-size: 16px;
+            font-size: 14px;
         }
 
         @include atLarge {
             font-size: 16px;
+        }
+
+        @include atSuperLarge {
+            font-size: 24px;
         }
     }
 }
