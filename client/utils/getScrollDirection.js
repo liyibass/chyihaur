@@ -17,7 +17,7 @@ export const setScrollDirection = (vueComponent) => {
             }
 
             lastScrollTop = st <= 0 ? 0 : st // For Mobile or negative scrolling
-        }, 50)
+        }, 10)
     )
 
     return null

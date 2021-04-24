@@ -1,9 +1,7 @@
 <template>
     <div class="NavBar">
         <transition name="fast-fade">
-            <div class="NavBar__icon" v-if="!navBarIsOpen" @click="navBarToggler">
-                <img :src="require('@/static/images/navLogo.svg')" alt="" />
-            </div>
+            <NavBarBurger v-if="!navBarIsOpen" @click.native="navBarToggler" />
         </transition>
 
         <div class="NavBar__container" :style="getNavContainerCSS" @click="navBarToggler">
@@ -20,17 +18,17 @@
 
 <script>
 import MainTitle from '@/components/MainTitle'
+import NavBarBurger from '@/components/NavBarBurger'
 import navMixin from '@/mixins/navMixin'
 
 export default {
     mixins: [navMixin],
-    components: { MainTitle },
+    components: { MainTitle, NavBarBurger },
     data() {
         return {
             navBarIsOpen: false,
         }
     },
-
     computed: {
         getNavContainerCSS() {
             if (this.navBarIsOpen) {
@@ -58,6 +56,9 @@ export default {
     position: absolute;
     right: 0;
     top: -17px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     @include atMedium {
         display: none;

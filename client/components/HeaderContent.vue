@@ -4,7 +4,7 @@
             <img :src="require('@/static/images/title.png')" alt="title" />
         </div>
 
-        <NavBar />
+        <NavBar v-if="!hideBurger" />
 
         <div class="header-content__devide_line" />
         <div class="header-content__top_right_line" />
@@ -21,6 +21,15 @@ export default {
     components: {
         NavBar,
         HeaderNav,
+    },
+    props: {
+        hideBurger: {
+            type: Boolean,
+            isRequired: true,
+            default: () => {
+                return true
+            },
+        },
     },
 }
 </script>

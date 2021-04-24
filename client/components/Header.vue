@@ -2,7 +2,7 @@
     <div class="header" :style="{ top: getTopHeight }">
         <div class="header__wrapper">
             <AnimateLogoTime />
-            <HeaderContent />
+            <HeaderContent :hideBurger="hideBurger" />
         </div>
     </div>
 </template>
@@ -20,18 +20,21 @@ export default {
     },
     data() {
         return {
-            navBarIsOpen: false,
             direction: 'up',
+            hideBurger: true,
         }
     },
-    computed: {
-        getNavContainerCSS() {
-            if (this.navBarIsOpen) {
-                return { transform: 'translateX(0%)' }
-            } else {
-                return { transform: 'translateX(100%)' }
+    watch: {
+        direction: function() {
+            if (this.hideBurger) {
+                setTimeout(() => {
+                    this.hideBurger = false
+                }, 1000)
             }
         },
+    },
+
+    computed: {
         getTopHeight() {
             // console.log(this.direction)
             if (this.direction === 'down') {
