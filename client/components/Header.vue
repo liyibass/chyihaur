@@ -2,7 +2,7 @@
     <div class="header" :style="{ top: getTopHeight }">
         <div class="header__wrapper">
             <AnimateLogoTime />
-            <HeaderContent :hideBurger="hideBurger" />
+            <HeaderContent :hideBurger="isTop" />
         </div>
     </div>
 </template>
@@ -22,16 +22,8 @@ export default {
         return {
             direction: 'up',
             hideBurger: true,
+            isTop: true,
         }
-    },
-    watch: {
-        direction: function() {
-            if (this.hideBurger) {
-                setTimeout(() => {
-                    this.hideBurger = false
-                }, 1000)
-            }
-        },
     },
 
     computed: {
