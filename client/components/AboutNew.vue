@@ -15,14 +15,14 @@
 
                 <div class="remove_in_mobile">
                     --<br />
-                    關於我們的工作<br />
+                    關於我們的使命<br />
                     就是讓<br />
                 </div>
 
                 <div class="tab remove_in_mobile">
                     - <br />
                     建築與空間對話<br />
-                    品牌與店面綻放<br />
+                    品牌與商空綻放<br />
                 </div>
             </div>
         </div>

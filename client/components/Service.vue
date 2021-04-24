@@ -104,7 +104,7 @@ export default {
                         {
                             id: 4,
                             group: 1,
-                            title: '招牌工程',
+                            title: '意象工程',
                             icon: require('@/static/images/service/5.png'),
                             iconColor: require('@/static/images/service/5-color.png'),
                             url: '',
@@ -112,7 +112,7 @@ export default {
                         {
                             id: 5,
                             group: 1,
-                            title: '指標工程',
+                            title: '招牌工程',
                             icon: require('@/static/images/service/6.png'),
                             iconColor: require('@/static/images/service/6-color.png'),
                             url: '',
@@ -120,7 +120,7 @@ export default {
                         {
                             id: 6,
                             group: 1,
-                            title: '意象工程',
+                            title: '指標工程',
                             icon: require('@/static/images/service/7.png'),
                             iconColor: require('@/static/images/service/7-color.png'),
                             url: '',
