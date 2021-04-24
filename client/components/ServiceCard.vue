@@ -81,7 +81,7 @@ export default {
             height: 85px;
         }
 
-        @include atSuperLarge {
+        @include atUltraLarge {
             width: 115px;
             height: 120px;
         }
@@ -98,7 +98,7 @@ export default {
             font-size: 16px;
         }
 
-        @include atSuperLarge {
+        @include atUltraLarge {
             font-size: 24px;
         }
     }

@@ -120,7 +120,11 @@ export default {
     opacity: 1;
 
     .UiSlashBlock__color {
-        transform: skew(29deg) translateX(0);
+        transform: skew(15deg) translateX(0);
+
+        @include atUltraLarge {
+            transform: skew(29deg) translateX(0);
+        }
     }
 
     .service-group-title,

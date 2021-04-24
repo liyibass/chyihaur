@@ -54,6 +54,17 @@ export default {
         font-weight: bold;
     }
 
+    @include atSmall {
+        &__title {
+            font-size: 100px;
+            line-height: 1;
+        }
+
+        &__engTitle {
+            display: none;
+        }
+    }
+
     @include atMedium {
         &__title {
             font-size: 130px;

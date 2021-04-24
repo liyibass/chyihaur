@@ -34,7 +34,7 @@ export default {
     @include atLarge {
         height: 384px;
     }
-    @include atSuperLarge {
+    @include atUltraLarge {
         height: 570px;
     }
 
@@ -59,6 +59,9 @@ export default {
         width: 317px;
     }
     @include atLarge {
+        width: 417px;
+    }
+    @include atUltraLarge {
         width: 577px;
     }
 }

@@ -193,7 +193,7 @@ export default {
             opacity: 0;
             transition: all 0.5s ease-in-out;
 
-            width: 61%;
+            width: 57.552%;
             height: 458px;
 
             display: flex;

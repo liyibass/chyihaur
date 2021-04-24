@@ -120,7 +120,23 @@ export default {
         position: absolute;
         top: 0;
         right: 0;
-        width: 54vw;
+        width: 49vw;
+        @include atMedium {
+            width: 54vw;
+        }
+
+        @include atLarge {
+            width: 58vw;
+        }
+
+        @include atSuperLarge {
+            width: 60vw;
+        }
+
+        @include atUltraLarge {
+            width: 54vw;
+        }
+
         img {
             width: 100%;
         }
