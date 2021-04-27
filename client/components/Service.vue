@@ -4,12 +4,19 @@
             <div
                 v-for="serviceGroup in serviceGroupList"
                 :key="serviceGroup.title"
-                class="group-wrapper"
-                :class="`group-wrapper_${serviceGroup.id}`"
-                :style="getBackgroundImage(serviceGroup.backgroundUrl)"
+                class="service-mobile-group"
+                :class="`service-mobile-group_${serviceGroup.id}`"
             >
-                <ServiceGroupTitle :title="serviceGroup.title" :engTitle="serviceGroup.engTitle" />
-                <ServiceGroup :serviceGroup="serviceGroup" />
+                <ServiceGroupTitle
+                    class="service-mobile-group__title"
+                    :title="serviceGroup.title"
+                    :engTitle="serviceGroup.engTitle"
+                />
+                <ServiceGroup class="service-mobile-group__group" :serviceGroup="serviceGroup" />
+
+                <div class="service-mobile-group__background">
+                    <img :src="serviceGroup.backgroundUrl" alt="" />
+                </div>
             </div>
         </div>
 
@@ -102,7 +109,7 @@ export default {
 
                     serviceList: [
                         {
-                            id: 4,
+                            id: 5,
                             group: 1,
                             title: '意象工程',
                             icon: require('@/static/images/service/5.png'),
@@ -110,7 +117,7 @@ export default {
                             url: '',
                         },
                         {
-                            id: 5,
+                            id: 6,
                             group: 1,
                             title: '招牌工程',
                             icon: require('@/static/images/service/6.png'),
@@ -118,7 +125,7 @@ export default {
                             url: '',
                         },
                         {
-                            id: 6,
+                            id: 7,
                             group: 1,
                             title: '指標工程',
                             icon: require('@/static/images/service/7.png'),
@@ -135,7 +142,7 @@ export default {
 
                     serviceList: [
                         {
-                            id: 7,
+                            id: 8,
                             group: 2,
                             title: '商用攝影',
                             icon: require('@/static/images/service/8.png'),
@@ -143,7 +150,7 @@ export default {
                             url: '',
                         },
                         {
-                            id: 8,
+                            id: 9,
                             group: 2,
                             title: '意象攝影',
                             icon: require('@/static/images/service/9.png'),
@@ -176,7 +183,28 @@ export default {
         },
     },
 
-    mounted() {},
+    mounted() {
+        const serviceGroupTitleList = document.querySelectorAll('.service-mobile-group')
+        const sceneArray = []
+
+        for (let i = 0; i < serviceGroupTitleList.length; i++) {
+            const serviceGroupTitleDOM = serviceGroupTitleList[i]
+
+            const serviceTitleScene = this.$scrollmagic
+                .scene({
+                    triggerElement: serviceGroupTitleDOM,
+                    offset: 0,
+                    triggerHook: 0.5,
+                    duration: 5500,
+                })
+                .setClassToggle(serviceGroupTitleDOM, 'active') // add class toggle
+            // .addIndicators({ name: 'workflowScene' })
+
+            sceneArray.push(serviceTitleScene)
+        }
+
+        this.$scrollmagic.addScene(sceneArray)
+    },
 }
 </script>
 
@@ -184,7 +212,7 @@ export default {
 .Service {
     width: 100%;
 
-    // background: $mainGreen;
+    background: black;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -209,8 +237,13 @@ export default {
         }
     }
 
-    .group-wrapper {
+    .service-mobile-group {
         padding: 48px 0 60px;
+        position: relative;
+
+        overflow: scroll;
+        opacity: 0.2;
+        transition: 0.6s all ease-in-out;
 
         @include atSmall {
             .service-group-title {
@@ -218,37 +251,45 @@ export default {
             }
         }
 
-        &_0 {
-            background: $mainGreen;
-            @include atSmall {
-                background: transparent;
-            }
+        &__title {
+            z-index: 1;
+            position: relative;
+            opacity: 0;
+            transition: 0.3s all ease-in-out;
+            transition-delay: 0.3s;
+            transform: translateX(50%);
         }
-        &_1 {
-            background: white;
-            @include atSmall {
-                background: transparent;
-            }
+
+        &__group {
+            min-height: 70vh;
         }
-        &_2 {
-            background: $mainLightGreen;
-            @include atSmall {
-                background: transparent;
+
+        &__background {
+            z-index: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform: translateX(-100%);
+            transition: 0.3s all ease-in-out;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
             }
         }
     }
-
-    &__big_title {
-        z-index: 3;
-        width: 67px;
-        position: absolute;
-        top: 0;
-        right: 10px;
-        transform: translateY(-53%);
-
-        opacity: 0.3;
-        img {
-            width: 100%;
+    .active {
+        opacity: 1;
+        .service-mobile-group__title {
+            opacity: 1;
+            transform: translateX(0%);
+        }
+        .service-mobile-group__background {
+            transform: translateX(0%);
         }
     }
 }

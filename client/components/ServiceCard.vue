@@ -1,10 +1,5 @@
 <template>
-    <div
-        class="ServiceCard"
-        :class="{ isHovered: isHovered }"
-        @mouseover="isHovered = true"
-        @mouseleave="isHovered = false"
-    >
+    <div :id="`service-card-${service.id}`" class="ServiceCard">
         <div class="ServiceCard__wrapper">
             <div class="ServiceCard__icon">
                 <picture>
@@ -27,22 +22,36 @@ export default {
         color: Number,
     },
 
-    data() {
-        return {
-            isHovered: false,
-        }
-    },
     computed: {
         setLogoColor() {
             console.log(this.color)
         },
+    },
+
+    mounted() {
+        const cardId = `#service-card-${this.service.id}`
+
+        const serviceCardScene = this.$scrollmagic
+            .scene({
+                triggerElement: cardId,
+                offset: 0,
+                triggerHook: 0.6,
+                duration: 1000,
+            })
+            .setClassToggle(cardId, 'active') // add class toggle
+
+            .on('enter', () => {})
+            .on('leave', () => {})
+
+        // .addsIndicators({ name: cardId })
+        this.$scrollmagic.addScene([serviceCardScene])
     },
 }
 </script>
 
 <style lang="scss" scoped>
 .ServiceCard {
-    width: 50%;
+    width: 80%;
     height: auto;
 
     display: flex;
@@ -50,6 +59,9 @@ export default {
     align-items: center;
     justify-content: center;
     padding: 10px 10px 10px;
+    opacity: 0.7;
+    transform: scale(0.7);
+    transition: all 0.6s ease-in-out;
 
     @include atSmall {
         width: 33%;
@@ -102,52 +114,16 @@ export default {
             font-size: 24px;
         }
     }
+
+    &.active {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
 .ServiceCard__title_0,
 .ServiceCard__title_1,
 .ServiceCard__title_2 {
     color: $mainWhite;
-}
-
-.isHovered {
-    .ServiceCard__wrapper {
-        .ServiceCard__icon {
-            animation-name: rotate;
-            animation-duration: 0.5s;
-        }
-    }
-}
-
-@keyframes rotate {
-    0% {
-        transform: scale(1);
-        opacity: 1;
-    }
-
-    100% {
-        transform: scale(1.1);
-        opacity: 1;
-    }
-}
-
-.show_service {
-    opacity: 1;
-    animation-name: showup;
-    animation-duration: 0.5s;
-}
-
-@keyframes showup {
-    0% {
-        opacity: 0;
-        transform: scaleX(0) translateY(0%);
-    }
-    40% {
-        transform: scaleX(-1) translateY(-10%);
-    }
-    80% {
-        opacity: 1;
-        transform: scaleX(0) translateY(0%);
-    }
 }
 </style>

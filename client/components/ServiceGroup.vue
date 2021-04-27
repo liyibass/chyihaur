@@ -47,6 +47,7 @@ export default {
 
 <style lang="scss" scoped>
 .ServiceGroup {
+    z-index: 1;
     position: relative;
     flex-grow: 1;
     flex-shrink: 1;
