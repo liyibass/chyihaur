@@ -1,5 +1,6 @@
 // const { access } = require('./Permission.js');
 const { Text, Relationship } = require('@keystonejs/fields')
+const ImageRelationship = require('../../fields/ImageRelationship')
 
 module.exports = {
   fields: {
@@ -20,13 +21,13 @@ module.exports = {
     },
     snapshotUrl: {
       label: '大頭照',
-      type: Relationship,
+      type: ImageRelationship,
       ref: 'Image',
       many: false,
     },
     headerUrl: {
-      label: '大頭照',
-      type: Relationship,
+      label: '人物照',
+      type: ImageRelationship,
       ref: 'Image',
       many: false,
     },
