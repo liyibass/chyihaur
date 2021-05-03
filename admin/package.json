@@ -38,6 +38,7 @@
     "express": "^4.17.1",
     "firebase": "^8.2.6",
     "nuxt": "^2.14.7",
+    "react-responsive-carousel": "^3.2.18",
     "sharp": "^0.27.1"
   }
 }
