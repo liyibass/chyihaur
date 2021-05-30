@@ -1,0 +1,26 @@
+query fetchEmployees($first: Int, $skip: Int) {
+    allEmployees: allEmployees(first: $first, skip: $skip) {
+        id
+        name
+        engName
+        position {
+            name
+            engName
+        }
+        snapshotUrl {
+            urlOriginal
+        }
+    }
+}
+query fetchPortfolio($id: ID!) {
+    portfolio: Portfolio(where: { id: $id }) {
+        id
+        name
+        coverPhoto {
+            urlOriginal
+        }
+        photos {
+            urlOriginal
+        }
+    }
+}

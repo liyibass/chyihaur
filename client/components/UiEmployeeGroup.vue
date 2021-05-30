@@ -21,12 +21,16 @@ export default {
         employeeGroup: {
             type: Object,
             isRequired: true,
-            defaultValue: {
-                id: 0,
-                position: 'OPERATION',
-                name: 'AA',
-                snapshotUrl:
-                    'https://cdn.neard.com/t/51e479/f/640x0/filters:extract_cover()/https://attachment-storage.neard.com/9cea60fd3cbfd0f5149a785feda81c98.jpg',
+            default: () => {
+                return {
+                    id: 0,
+                    position: 'OPERATION',
+                    name: 'AA',
+                    snapshotUrl: {
+                        urlOriginal:
+                            'https://cdn.neard.com/t/51e479/f/640x0/filters:extract_cover()/https://attachment-storage.neard.com/9cea60fd3cbfd0f5149a785feda81c98.jpg',
+                    },
+                }
             },
         },
     },

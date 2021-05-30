@@ -1,6 +1,9 @@
 <template>
     <div class="UiEmployeeContainer">
-            <UiEmployeeGroup v-for="employeeGroup in employeeList" :key="employeeGroup.title" :employeeGroup="employeeGroup" />
+            <UiEmployeeGroup  :employeeGroup="employeeGroupObject['OPERATION']" />
+            <UiEmployeeGroup  :employeeGroup="employeeGroupObject['DESIGN']" />
+            <UiEmployeeGroup  :employeeGroup="employeeGroupObject['TECHNICIAN']" />
+            <UiEmployeeGroup  :employeeGroup="employeeGroupObject['MARKETING']" />
         </div>
     </div>
 </template>
@@ -11,10 +14,9 @@ import UiEmployeeGroup from '@/components/UiEmployeeGroup'
 
 export default {
     props: {
-        employeeList: {
-            type: Array,
-            isRequired: true,
-            defaultValue: [],
+        employeeGroupObject: {
+            type: Object,
+            isRequired: true,  
         },
     },
     components: {
@@ -46,9 +48,7 @@ export default {
             })
         },
     },
-    mounted() {
-        // this.positionList()
-    },
+ 
 }
 </script>
 

@@ -1,7 +1,7 @@
 <template>
     <div class="UiEmployeeCard" @click="goToEmployeePage">
         <div class="UiEmployeeCard__snapshot">
-            <img :src="employee.snapshotUrl" :alt="employee.name" />
+            <img :src="imageUrl" :alt="employee.name" />
         </div>
     </div>
 </template>
@@ -19,7 +19,11 @@ export default {
             },
         },
     },
-
+    computed: {
+        imageUrl() {
+            return this.employee?.snapshotUrl?.urlOriginal || require('@/static/images/logo_small.png')
+        },
+    },
     methods: {
         goToEmployeePage() {
             this.$router.push(`/about/${this.employee.id}`)
