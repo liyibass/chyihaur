@@ -9,9 +9,9 @@
     "node": ">=10.0.0"
   },
   "scripts": {
-    "dev": "cross-env NODE_ENV=development DISABLE_LOGGING=true keystone dev",
-    "build": "cross-env NODE_ENV=production keystone build",
-    "start": "cross-env NODE_ENV=production  DISABLE_LOGGING=true keystone start",
+    "dev": "cross-env NODE_ENV=development DISABLE_LOGGING=true PORT=8000 keystone dev",
+    "build": "cross-env NODE_ENV=production PORT=8000 keystone build",
+    "start": "cross-env NODE_ENV=production PORT=8000 DISABLE_LOGGING=true keystone start",
     "create-tables": "cross-env keystone create-tables",
     "gcp-build": "keystone build",
     "deploy": "gcloud app deploy"

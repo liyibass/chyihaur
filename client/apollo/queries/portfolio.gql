@@ -1,26 +1,26 @@
 query fetchImages($first: Int, $skip: Int) {
-  allImages: allImages(first: $first, skip: $skip) {
-    id
-    name
-  }
+    allImages: allImages(first: $first, skip: $skip) {
+        id
+        name
+    }
 }
 
 mutation updateImages($data: [ImagesUpdateInput]) {
-  updateImages(data: $data) {
-    id
-    keywords
-  }
+    updateImages(data: $data) {
+        id
+        keywords
+    }
 }
 
 query fetchPortfolios($first: Int, $skip: Int) {
-  allPortfolios: allPortfolios(first: $first, skip: $skip) {
-    id
-    name
-    coverPhoto {
-      urlOriginal
+    allPortfolios: allPortfolios(first: $first, skip: $skip, orderBy: "date_DESC") {
+        id
+        name
+        coverPhoto {
+            urlOriginal
+        }
+        photos {
+            urlOriginal
+        }
     }
-    photos {
-      urlOriginal
-    }
-  }
 }

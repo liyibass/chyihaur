@@ -60,7 +60,8 @@ export default {
     apollo: {
         clientConfigs: {
             default: {
-                httpEndpoint: 'https://chyihaur.df.r.appspot.com/admin/api',
+                // httpEndpoint: 'https://chyihaur.df.r.appspot.com/admin/api',
+                httpEndpoint: 'http://localhost:8000/admin/api',
             },
         },
     },
