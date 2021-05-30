@@ -12,14 +12,19 @@ query fetchEmployees($first: Int, $skip: Int) {
         }
     }
 }
-query fetchPortfolio($id: ID!) {
-    portfolio: Portfolio(where: { id: $id }) {
+query fetchEmployee($id: ID!) {
+    employee: Employee(where: { id: $id }) {
         id
         name
-        coverPhoto {
+        engName
+        position {
+            name
+            engName
+        }
+        snapshotUrl {
             urlOriginal
         }
-        photos {
+        headerUrl {
             urlOriginal
         }
     }

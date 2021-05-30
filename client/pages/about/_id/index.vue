@@ -2,10 +2,10 @@
     <div class="AboutEmployee">
         <div class="AboutEmployee__wrapper">
             <div class="AboutEmployee__snapshot">
-                <img :src="employee.snapshotUrl" alt="" srcset="" />
+                <img :src="imageUrl" />
             </div>
             <div class="AboutEmployee__detail">
-                <div class="AboutEmployee__detail_position">{{ employee.position }}</div>
+                <div class="AboutEmployee__detail_position">{{ employee.position.engName }}</div>
                 <div class="AboutEmployee__detail_name">{{ employee.name }}</div>
                 <div class="AboutEmployee__detail_detail" v-html="employee.detail" />
             </div>
@@ -14,23 +14,53 @@
 </template>
 
 <script>
-import NavBar from '@/components/NavBar'
-import Header from '@/components/Header'
 import UiEmployeeContainer from '@/components/UiEmployeeContainer'
+import { fetchEmployee } from '~/apollo/queries/employee.gql'
 export default {
     components: {
-        NavBar,
-        Header,
         UiEmployeeContainer,
     },
-    props: {
+
+    apollo: {
         employee: {
-            type: Object,
-            isRequired: true,
+            query: fetchEmployee,
+            variables() {
+                const id = this.$route.params.id
+                return {
+                    id: id,
+                }
+            },
+            update: (data) => {
+                return data?.employee || {}
+            },
         },
     },
-    mounted() {
-        console.log(this.employee)
+
+    data() {
+        return {
+            employee: {
+                id: 0,
+                position: 'OPERATION',
+                name: 'AA',
+                headerUrl: {
+                    urlOriginal: require('@/static/images/logo_small.png'),
+                },
+            },
+        }
+    },
+    watch: {
+        employee: function(val) {
+            console.log(val)
+        },
+    },
+    computed: {
+        imageUrl() {
+            return (
+                this.employee?.headerUrl?.urlOriginal ||
+                this.employee?.snapshotUrl?.urlOriginal ||
+                require('@/static/images/logo_small.png')
+            )
+        },
     },
 }
 </script>
