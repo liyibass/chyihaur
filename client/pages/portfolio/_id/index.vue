@@ -14,15 +14,54 @@
 
 <script>
 import UiEmployeeContainer from '@/components/UiEmployeeContainer'
+import { fetchPortfolio } from '~/apollo/queries/portfolio.gql'
+
 export default {
     components: {
         UiEmployeeContainer,
     },
-    props: {
+    apollo: {
         portfolio: {
-            type: Object,
-            isRequired: true,
+            query: fetchPortfolio,
+            variables() {
+                const id = this.$route.params.id
+                return {
+                    id: id,
+                }
+            },
+            update: (data) => {
+                return data?.portfolio || {}
+            },
         },
+    },
+    data() {
+        return {
+            portfolio: {
+                id: '60600f786c53617e9b95d5d1',
+                name: 'portfolio01',
+                coverPhoto: {
+                    urlOriginal:
+                        'https://storage.googleapis.com/chyihaur-statics-01/assets/images/60600f056c53617e9b95d5bf.jpg',
+                },
+                photos: [
+                    {
+                        urlOriginal:
+                            'https://storage.googleapis.com/chyihaur-statics-01/assets/images/60600f186c53617e9b95d5c3.jpg',
+                    },
+                    {
+                        urlOriginal:
+                            'https://storage.googleapis.com/chyihaur-statics-01/assets/images/60600f226c53617e9b95d5c5.jpg',
+                    },
+                    {
+                        urlOriginal:
+                            'https://storage.googleapis.com/chyihaur-statics-01/assets/images/60600f2b6c53617e9b95d5c7.jpg',
+                    },
+                ],
+            },
+        }
+    },
+    mounted() {
+        console.log(this.portfolio)
     },
 }
 </script>

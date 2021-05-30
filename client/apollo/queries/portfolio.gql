@@ -24,3 +24,15 @@ query fetchPortfolios($first: Int, $skip: Int) {
         }
     }
 }
+query fetchPortfolio($id: ID!) {
+    portfolio: Portfolio(where: { id: $id }) {
+        id
+        name
+        coverPhoto {
+            urlOriginal
+        }
+        photos {
+            urlOriginal
+        }
+    }
+}
