@@ -1,7 +1,7 @@
 <template>
     <div class="AboutPortfolio">
         <div class="AboutPortfolio__wrapper">
-            <div class="AboutPortfolio__snapshot">
+            <div v-if="portfolio.coverPhoto.urlOriginal.length" class="AboutPortfolio__snapshot">
                 <img :src="portfolio.coverPhoto.urlOriginal" />
             </div>
             <div class="AboutPortfolio__detail">
@@ -38,23 +38,19 @@ export default {
         return {
             portfolio: {
                 id: '60600f786c53617e9b95d5d1',
-                name: 'portfolio01',
+                name: '',
                 coverPhoto: {
-                    urlOriginal:
-                        'https://storage.googleapis.com/chyihaur-statics-01/assets/images/60600f056c53617e9b95d5bf.jpg',
+                    urlOriginal: '',
                 },
                 photos: [
                     {
-                        urlOriginal:
-                            'https://storage.googleapis.com/chyihaur-statics-01/assets/images/60600f186c53617e9b95d5c3.jpg',
+                        urlOriginal: '',
                     },
                     {
-                        urlOriginal:
-                            'https://storage.googleapis.com/chyihaur-statics-01/assets/images/60600f226c53617e9b95d5c5.jpg',
+                        urlOriginal: '',
                     },
                     {
-                        urlOriginal:
-                            'https://storage.googleapis.com/chyihaur-statics-01/assets/images/60600f2b6c53617e9b95d5c7.jpg',
+                        urlOriginal: '',
                     },
                 ],
             },

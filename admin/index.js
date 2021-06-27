@@ -4,6 +4,7 @@ const { PasswordAuthStrategy } = require('@keystonejs/auth-password')
 const { GraphQLApp } = require('@keystonejs/app-graphql')
 const { AdminUIApp } = require('@keystonejs/app-admin-ui')
 const { StaticApp } = require('@keystonejs/app-static')
+const cors = require('cors')
 
 const { createItems } = require('@keystonejs/server-side-graphql-client')
 
@@ -65,6 +66,10 @@ const authStrategy = keystone.createAuthStrategy({
   list: 'User',
 })
 
+const corsOptions = {
+  origin: false,
+}
+
 module.exports = {
   keystone,
   apps: [
@@ -77,4 +82,7 @@ module.exports = {
     }),
     new StaticApp({ path: '/', src: 'public' }),
   ],
+  configureExpress: (app) => {
+    app.use(cors(corsOptions))
+  },
 }

@@ -10,8 +10,8 @@
   },
   "scripts": {
     "dev": "cross-env NODE_ENV=development DISABLE_LOGGING=true PORT=8000 keystone dev",
-    "build": "cross-env NODE_ENV=production PORT=8000 keystone build",
-    "start": "cross-env NODE_ENV=production PORT=8000 DISABLE_LOGGING=true keystone start",
+    "build": "cross-env NODE_ENV=production keystone build",
+    "start": "cross-env NODE_ENV=production DISABLE_LOGGING=true keystone start",
     "create-tables": "cross-env keystone create-tables",
     "gcp-build": "keystone build",
     "deploy": "gcloud app deploy"
@@ -34,6 +34,7 @@
     "@keystonejs/list-plugins": "^7.1.5",
     "@keystonejs/server-side-graphql-client": "^1.1.2",
     "core-js": "^3.8.0",
+    "cors": "^2.8.5",
     "cross-env": "^7.0.2",
     "express": "^4.17.1",
     "firebase": "^8.2.6",

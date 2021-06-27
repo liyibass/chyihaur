@@ -4,7 +4,7 @@
             <img :src="require('@/static/images/title.png')" alt="title" />
         </div>
 
-        <NavBar v-if="!hideBurger" />
+        <NavBar />
 
         <div class="header-content__devide_line" />
         <div class="header-content__top_right_line" />

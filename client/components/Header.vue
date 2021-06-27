@@ -21,8 +21,6 @@ export default {
     data() {
         return {
             direction: 'up',
-            hideBurger: true,
-            isTop: true,
         }
     },
 
