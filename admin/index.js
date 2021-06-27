@@ -73,7 +73,14 @@ const corsOptions = {
 module.exports = {
   keystone,
   apps: [
-    new GraphQLApp(),
+    new GraphQLApp({
+      apollo: {
+        cacheControl: {
+          defaultMaxAge: 60,
+          // defaultMaxAge: 3600,
+        },
+      },
+    }),
     new AdminUIApp({
       name: app.applicationName,
       enableDefaultRoute: true,

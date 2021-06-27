@@ -11,4 +11,8 @@ module.exports = {
       isRequired: true,
     },
   },
+  cacheHint: {
+    scope: 'PUBLIC',
+    maxAge: 0,
+  },
 }
