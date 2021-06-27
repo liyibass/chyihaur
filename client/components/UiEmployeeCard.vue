@@ -37,7 +37,7 @@ export default {
     margin: 30px;
     cursor: pointer;
 
-    @include atSmall {
+    @include atMedium {
         margin: 0 30px;
     }
     &__snapshot {

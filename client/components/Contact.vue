@@ -23,9 +23,15 @@
 
             <div class="Contact__detail">
                 <div class="Contact__detail_lists">
-                    <div class="Contact__detail_lists_list" v-for="list in contactList" :key="list.title">
-                        <span class="Contact__detail_lists_list_title">{{ list.title }}</span>
-                        <span class="Contact__detail_lists_list_value">{{ list.value }}</span>
+                    <div class="Contact__detail_lists_col">
+                        <div class="Contact__detail_lists_list" v-for="list in contactList" :key="list.title">
+                            <span class="Contact__detail_lists_list_title">{{ list.title }}</span>
+                        </div>
+                    </div>
+                    <div class="Contact__detail_lists_col">
+                        <div class="Contact__detail_lists_list" v-for="list in contactList" :key="list.title">
+                            <span class="Contact__detail_lists_list_value">{{ list.value }}</span>
+                        </div>
                     </div>
                 </div>
 
@@ -139,6 +145,12 @@ export default {
         }
 
         &_lists {
+            display: flex;
+            &_col {
+                &:first-child {
+                    width: 96px;
+                }
+            }
             &_list {
                 margin-bottom: 21px;
                 &_title {

@@ -1,0 +1,6 @@
+query fetchVideo($first: Int, $skip: Int) {
+    allImages: allImages(first: $first, skip: $skip) {
+        id
+        name
+    }
+}

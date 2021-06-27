@@ -2,7 +2,7 @@
     <div class="header" :style="{ top: getTopHeight }">
         <div class="header__wrapper">
             <AnimateLogoTime />
-            <HeaderContent :hideBurger="isTop" />
+            <HeaderContent />
         </div>
     </div>
 </template>

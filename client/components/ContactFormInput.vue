@@ -79,13 +79,12 @@ export default {
         line-height: 1;
         padding: 8px 0;
         background: rgba(3, 80, 112, 0.8);
-        margin-bottom: 4px;
+
         display: flex;
         align-items: center;
         justify-content: center;
 
         @include atSmall {
-            height: 44px;
             width: 142px;
             padding: 0 17px;
         }

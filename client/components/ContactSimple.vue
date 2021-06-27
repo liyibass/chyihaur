@@ -22,9 +22,15 @@
 
             <div class="ContactSimple__detail">
                 <div class="ContactSimple__detail_lists">
-                    <div class="ContactSimple__detail_lists_list" v-for="list in ContactList" :key="list.title">
-                        <span class="ContactSimple__detail_lists_list_title">{{ list.title }}</span>
-                        <span class="ContactSimple__detail_lists_list_value">{{ list.value }}</span>
+                    <div class="ContactSimple__detail_lists_col">
+                        <div class="ContactSimple__detail_lists_list" v-for="list in ContactList" :key="list.title">
+                            <span class="ContactSimple__detail_lists_list_title">{{ list.title }}</span>
+                        </div>
+                    </div>
+                    <div class="ContactSimple__detail_lists_col">
+                        <div class="ContactSimple__detail_lists_list" v-for="list in ContactList" :key="list.title">
+                            <span class="ContactSimple__detail_lists_list_value">{{ list.value }}</span>
+                        </div>
                     </div>
                 </div>
 
@@ -125,11 +131,20 @@ export default {
         flex-direction: column;
         align-items: flex-start;
         justify-content: space-between;
+
         &_lists {
+            display: flex;
+            &_col {
+                &:first-child {
+                    width: 120px;
+                }
+            }
+
             &_list {
                 margin-bottom: 21px;
                 &_title {
                     font-size: 16px;
+                    line-height: 16px;
                     @include atSmall {
                         font-size: 20px;
                     }
@@ -139,6 +154,7 @@ export default {
                 }
                 &_value {
                     font-size: 14px;
+                    line-height: 16px;
                     @include atSmall {
                         font-size: 18px;
                     }

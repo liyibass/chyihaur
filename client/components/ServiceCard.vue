@@ -121,9 +121,14 @@ export default {
     }
 }
 
-.ServiceCard__title_0,
-.ServiceCard__title_1,
-.ServiceCard__title_2 {
+.ServiceCard__title_0 {
     color: $mainWhite;
+}
+.ServiceCard__title_1 {
+    color: rgb(41, 83, 52);
+}
+
+.ServiceCard__title_2 {
+    color: rgb(41, 83, 52);
 }
 </style>
