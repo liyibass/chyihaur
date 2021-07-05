@@ -137,6 +137,10 @@ export default {
             &_col {
                 &:first-child {
                     width: 120px;
+
+                    @include atLarge {
+                        width: 170px;
+                    }
                 }
             }
 
@@ -160,6 +164,7 @@ export default {
                     }
                     @include atLarge {
                         font-size: 21px;
+                        line-height: 20px;
                     }
                 }
 

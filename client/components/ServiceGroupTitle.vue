@@ -1,6 +1,6 @@
 <template>
     <div class="service-group-title">
-        <nobr class="service-group-title__title">{{ title }}</nobr>
+        <nobr class="service-group-title__title" @click="clickHandler">{{ title }}</nobr>
         <nobr class="service-group-title__engTitle" :style="handleWidth">{{ engTitle }}</nobr>
     </div>
 </template>
@@ -31,6 +31,11 @@ export default {
             }
         },
     },
+    methods: {
+        clickHandler() {
+            this.$router.push('/portfolio')
+        },
+    },
 }
 </script>
 
@@ -46,6 +51,7 @@ export default {
     &__title {
         font-size: 83px;
         line-height: 1;
+        cursor: pointer;
     }
 
     &__engTitle {
