@@ -33,6 +33,7 @@ export default {
 
 <style lang="scss" scoped>
 .main-page {
+    width: 100%;
     .Contact {
         display: block;
         @include atSmall {

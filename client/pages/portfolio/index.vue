@@ -40,6 +40,7 @@ export default {
 
 <style lang="scss" scoped>
 .PortfolioPage {
+    width: 100%;
     background: $mainGreen;
 }
 .color_bar {

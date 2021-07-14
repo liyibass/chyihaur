@@ -241,7 +241,6 @@ export default {
         padding: 48px 0 60px;
         position: relative;
 
-        overflow: scroll;
         opacity: 0.2;
         transition: 0.6s all ease-in-out;
 

@@ -30,7 +30,12 @@ export default {
     },
 
     // Global CSS: https://go.nuxtjs.dev/config-css
-    css: ['~assets/scss/global.style.scss', '~assets/scss/responsiveMixin.scss', '~assets/scss/variable.scss'],
+    css: [
+        '~assets/scss/base.css',
+        '~assets/scss/global.style.scss',
+        '~assets/scss/responsiveMixin.scss',
+        '~assets/scss/variable.scss',
+    ],
 
     styleResources: {
         scss: ['./assets/scss/*.scss'],
