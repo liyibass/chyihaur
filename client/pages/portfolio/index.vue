@@ -1,17 +1,20 @@
 <template>
     <div class="PortfolioPage">
         <div class="color_bar" />
+        <UiLogoBar />
 
         <UiPortfolioContainer :portfolioList="portfolioList" />
     </div>
 </template>
 
 <script>
+import UiLogoBar from '@/components/UiLogoBar'
 import UiPortfolioContainer from '@/components/UiPortfolioContainer'
 import portfolioMixin from '../../mixins/portfolioMixin'
 import { fetchPortfolios } from '~/apollo/queries/portfolio.gql'
 export default {
     components: {
+        UiLogoBar,
         UiPortfolioContainer,
     },
     mixins: [portfolioMixin],
@@ -46,6 +49,8 @@ export default {
 .color_bar {
     background: $mainBlue;
     height: 35px;
+}
+.logo-bar {
     margin-bottom: 70px;
 }
 </style>
