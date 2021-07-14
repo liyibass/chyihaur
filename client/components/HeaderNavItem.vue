@@ -13,7 +13,7 @@
 
         <transition name="slide-fade" mode="out-in">
             <div v-if="isHovered" class="HeaderNavItem__text" key="1">{{ item.title }}</div>
-            <nobr v-else class="HeaderNavItem__text" key="2">{{ item.engTitle }}</nobr>
+            <nobr v-else class="HeaderNavItem__text eng" key="2">{{ item.engTitle }}</nobr>
         </transition>
     </div>
 </template>

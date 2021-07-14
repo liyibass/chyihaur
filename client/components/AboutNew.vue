@@ -7,8 +7,8 @@
         <div class="AboutNew__left_block">
             <div class="AboutNew__text">
                 <div class="remove_in_mobile">
-                    「C」象徵 Customized「客製」<br />
-                    「H」象徵 High quality「高質感」<br />
+                    <span class="eng">「C」</span>象徵<span class="eng"> Customized</span>「客製」<br />
+                    <span class="eng">「H」</span>象徵<span class="eng"> High quality</span>「高質感」<br />
                     「尺規」及「°」溫度<br class="show_in_mobile" />
                     表現出「專業與溫度」<br />
                 </div>

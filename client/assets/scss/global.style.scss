@@ -1,6 +1,6 @@
 @font-face {
     font-family: GenYoGothicTW;
-    src: url('~assets/fonts/GenYoGothicTW-Medium.ttf');
+    src: url('~assets/fonts/GenYoGothicTW-Light.ttf');
     font-family: Broadwell;
     src: url('~assets/fonts/Broadwell-Standard.otf');
 }
@@ -10,22 +10,19 @@
     padding: 0;
 }
 
-html,
 body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-
-    // font-family: GenYoGothicTW;
-    font-family: Broadwell;
+    font-family: GenYoGothicTW;
     font-style: normal;
     font-weight: normal;
-    // font-family: 'PingFang TC';
+
     // font-weight: normal;
     // font-stretch: normal;
     // font-style: normal;
     // line-height: normal;
     // letter-spacing: normal;
+}
+.eng {
+    font-family: Broadwell;
 }
 
 #__nuxt {

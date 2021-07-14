@@ -6,14 +6,14 @@
         <div class="Contact__wrapper">
             <div class="Contact__up_section">
                 <div class="Contact__titles">
-                    <div class="Contact__titles_sub_title">
+                    <div class="Contact__titles_sub_title eng">
                         CHANGE FOR HUMANITY,<br />
                         CHANGE FOR YOU.<br />
                         ___<br />
                         ___<br />
                     </div>
 
-                    <div class="Contact__titles_title">
+                    <div class="Contact__titles_title eng">
                         CONTACT
                     </div>
                 </div>
@@ -21,43 +21,18 @@
                 <ContactForm />
             </div>
 
-            <div class="Contact__detail">
-                <div class="Contact__detail_lists">
-                    <div class="Contact__detail_lists_col">
-                        <div class="Contact__detail_lists_list" v-for="list in contactList" :key="list.title">
-                            <span class="Contact__detail_lists_list_title">{{ list.title }}</span>
-                        </div>
-                    </div>
-                    <div class="Contact__detail_lists_col">
-                        <div class="Contact__detail_lists_list" v-for="list in contactList" :key="list.title">
-                            <span class="Contact__detail_lists_list_value">{{ list.value }}</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="Contact__detail_business_card">
-                    <img :src="require('@/static/images/business-card.png')" alt="" />
-                </div>
-            </div>
+            <ContactDetail />
         </div>
     </div>
 </template>
 
 <script>
 import ContactForm from '@/components/ContactForm'
-
+import ContactDetail from '@/components/ContactDetail'
 export default {
     components: {
         ContactForm,
-    },
-    data() {
-        return {
-            contactList: [
-                { title: 'PHONE', value: '02-2630-8111' },
-                { title: 'EMAIL', value: 'Chyi.haur@msa.hinet.net' },
-                { title: 'ADDRESS', value: '台北市內湖區康寧路三段189巷75號' },
-            ],
-        }
+        ContactDetail,
     },
 }
 </script>
@@ -65,7 +40,7 @@ export default {
 <style lang="scss" scoped>
 .Contact {
     position: relative;
-    font-family: Broadwell;
+
     color: $mainWhite;
     width: 100%;
 

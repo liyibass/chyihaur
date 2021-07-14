@@ -107,6 +107,8 @@ export default {
         &_title {
             opacity: 0;
             color: $mainWhite;
+            text-align: center;
+
             // transition: all 0.5s ease-in-out;
         }
 
@@ -123,6 +125,7 @@ export default {
             }
 
             .workflow-icon {
+                margin-bottom: 10px;
                 opacity: 1;
                 width: 74px;
                 top: -100px;

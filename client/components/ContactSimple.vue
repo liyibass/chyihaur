@@ -7,57 +7,34 @@
 
             <div class="ContactSimple__up_section">
                 <div class="ContactSimple__titles">
-                    <div class="ContactSimple__titles_sub_title">
+                    <div class="ContactSimple__titles_sub_title eng">
                         CHANGE FOR HUMANITY,<br />
                         CHANGE FOR YOU.<br />
                         ___<br />
                         ___<br />
                     </div>
 
-                    <div class="ContactSimple__titles_title" @click="goToContactPage">
+                    <div class="ContactSimple__titles_title eng" @click="goToContactPage">
                         Contact
                     </div>
                 </div>
             </div>
 
-            <div class="ContactSimple__detail">
-                <div class="ContactSimple__detail_lists">
-                    <div class="ContactSimple__detail_lists_col">
-                        <div class="ContactSimple__detail_lists_list" v-for="list in ContactList" :key="list.title">
-                            <span class="ContactSimple__detail_lists_list_title">{{ list.title }}</span>
-                        </div>
-                    </div>
-                    <div class="ContactSimple__detail_lists_col">
-                        <div class="ContactSimple__detail_lists_list" v-for="list in ContactList" :key="list.title">
-                            <span class="ContactSimple__detail_lists_list_value">{{ list.value }}</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="ContactSimple__detail_business_card">
-                    <img :src="require('@/static/images/business-card.png')" alt="" />
-                </div>
-            </div>
+            <ContactDetail />
         </div>
     </div>
 </template>
 
 <script>
 import ContactForm from '@/components/ContactForm'
+import ContactDetail from '@/components/ContactDetail'
 
 export default {
     components: {
         ContactForm,
+        ContactDetail,
     },
-    data() {
-        return {
-            ContactList: [
-                { title: 'PHONE', value: '02-2630-8111' },
-                { title: 'EMAIL', value: 'Chyi.haur@msa.hinet.net' },
-                { title: 'ADDRESS', value: '台北市內湖區康寧路三段189巷75號' },
-            ],
-        }
-    },
+
     methods: {
         goToContactPage() {
             console.log('YOYO')
@@ -70,7 +47,7 @@ export default {
 <style lang="scss" scoped>
 .ContactSimple {
     position: relative;
-    font-family: Broadwell;
+
     color: $mainWhite;
     width: 100%;
     height: 100vh;
@@ -125,71 +102,6 @@ export default {
         }
     }
 
-    &__detail {
-        z-index: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: space-between;
-
-        &_lists {
-            display: flex;
-            &_col {
-                &:first-child {
-                    width: 120px;
-
-                    @include atLarge {
-                        width: 170px;
-                    }
-                }
-            }
-
-            &_list {
-                margin-bottom: 21px;
-                &_title {
-                    font-size: 16px;
-                    line-height: 16px;
-                    @include atSmall {
-                        font-size: 20px;
-                    }
-                    @include atLarge {
-                        font-size: 28px;
-                    }
-                }
-                &_value {
-                    font-size: 14px;
-                    line-height: 16px;
-                    @include atSmall {
-                        font-size: 18px;
-                    }
-                    @include atLarge {
-                        font-size: 21px;
-                        line-height: 20px;
-                    }
-                }
-
-                &:last-child {
-                    margin-bottom: 0;
-                }
-            }
-        }
-
-        &_business_card {
-            width: 200px;
-            align-self: center;
-            margin-top: 20px;
-
-            @include atSmall {
-                align-self: flex-start;
-            }
-
-            img {
-                width: 100%;
-                box-sizing: border-box;
-            }
-        }
-    }
-
     // background: url('~@/static/images/ContactSimple.png');
 
     &__background {
@@ -206,13 +118,6 @@ export default {
             width: 100%;
             height: 100%;
             object-fit: cover;
-        }
-    }
-
-    @include atMedium {
-        &__detail {
-            flex-direction: row;
-            align-items: flex-end;
         }
     }
 }
