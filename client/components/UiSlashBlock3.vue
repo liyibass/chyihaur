@@ -52,7 +52,7 @@ export default {
 
 <style lang="scss" scoped>
 .UiSlashBlock {
-    background: white;
+    background: #c4c5c4;
 
     &__left_block {
         opacity: 0;
@@ -93,7 +93,7 @@ export default {
             right: 0;
             height: 100%;
             width: 100%;
-            background: white;
+            background: #c4c5c4;
             transform: skew(0deg) translateX(0);
             transform-origin: top;
             transition: all 0.5s ease-in-out;

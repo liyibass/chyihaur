@@ -142,16 +142,13 @@ export default {
         }
     }
 
-    .workflow-slide {
-        position: relative;
-        margin-bottom: 67px;
-    }
-
     &__detail {
         position: absolute;
 
-        bottom: 17vh;
+        bottom: 25vh;
+        transform: translatey(100%);
         @include atLarge {
+            transform: translatey(0%);
             bottom: 0%;
             left: 0%;
         }

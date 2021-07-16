@@ -40,18 +40,19 @@ export default {
 <style lang="scss" scoped>
 .workflow-detail {
     color: $mainWhite;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: bold;
-    width: 200px;
+    width: 230px;
     margin: auto;
 
     display: flex;
-    flex-direction: column;
     align-items: center;
+    flex-direction: column;
     justify-content: flex-start;
 
-    @include atUltraLarge {
-        font-size: 24px;
+    @include atLarge {
+        align-items: flex-start;
+        font-size: 20px;
         width: 350px;
     }
 }

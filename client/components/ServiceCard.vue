@@ -125,10 +125,16 @@ export default {
     color: $mainWhite;
 }
 .ServiceCard__title_1 {
-    color: rgb(41, 83, 52);
+    color: $mainWhite;
+    @include atSmall {
+        color: rgb(41, 83, 52);
+    }
 }
 
 .ServiceCard__title_2 {
-    color: rgb(41, 83, 52);
+    color: $mainWhite;
+    @include atSmall {
+        color: rgb(41, 83, 52);
+    }
 }
 </style>

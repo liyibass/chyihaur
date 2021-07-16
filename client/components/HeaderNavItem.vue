@@ -53,7 +53,7 @@ export default {
     &__text {
         // border-left: 1px solid rgba(220, 221, 221, 0.4);
         color: $mainWhite;
-        font-size: 12px;
+        font-size: 10px;
         text-align: center;
         // width: 20px;
         font-weight: bold;

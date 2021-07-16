@@ -55,6 +55,7 @@ export default {
     width: 100%;
     height: 177px;
     overflow: hidden;
+    margin-bottom: 67px;
 
     @include atLarge {
         display: none;
