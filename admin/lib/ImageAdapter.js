@@ -8,6 +8,7 @@ const { resolve } = require('path')
 const { getNewFilename } = require('../utils/getNewFilename')
 
 const resizeTarget = {
+  tiny: { height: 84, width: 150 },
   mobile: { height: 450, width: 800 },
   tablet: { height: 675, width: 1200 },
   desktop: { height: 713, width: 1268 },
@@ -98,14 +99,17 @@ class ImageAdapter extends MediaAdapter {
 
   _generateCorrespondingUrl(fileName, key) {
     switch (key) {
+      case 'tiny':
+        this.meta.url.urlTinySized = `${this.assetUrlBase}${imageUrlBase}${fileName}`
+        break
       case 'mobile':
-        this.meta.url.urlMobileSize = `${this.assetUrlBase}${imageUrlBase}${fileName}`
+        this.meta.url.urlMobileSized = `${this.assetUrlBase}${imageUrlBase}${fileName}`
         break
       case 'tablet':
-        this.meta.url.urlTabletSize = `${this.assetUrlBase}${imageUrlBase}${fileName}`
+        this.meta.url.urlTabletSized = `${this.assetUrlBase}${imageUrlBase}${fileName}`
         break
       case 'desktop':
-        this.meta.url.urlDesktopSize = `${this.assetUrlBase}${imageUrlBase}${fileName}`
+        this.meta.url.urlDesktopSized = `${this.assetUrlBase}${imageUrlBase}${fileName}`
         break
       default:
         this.meta.url.urlOriginal = `${this.assetUrlBase}${imageUrlBase}${fileName}`

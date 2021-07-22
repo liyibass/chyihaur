@@ -41,21 +41,35 @@ module.exports = {
         update: false,
       },
     },
-    urlDesktopSize: {
+    urlDesktopSized: {
       type: Url,
       access: {
         create: false,
         update: false,
       },
     },
-    urlTabletSize: {
+    urlTabletSized: {
       type: Url,
       access: {
         create: false,
         update: false,
       },
     },
-    urlMobileSize: {
+    urlMobileSized: {
+      type: Url,
+      access: {
+        create: false,
+        update: false,
+      },
+    },
+    urlTinySized: {
+      type: Url,
+      access: {
+        create: false,
+        update: false,
+      },
+    },
+    imageApiData: {
       type: Url,
       access: {
         create: false,

@@ -1,14 +1,16 @@
 const resolvedDataUrlList = [
   'urlOriginal',
-  'urlDesktopSize',
-  'urlMobileSize',
-  'urlTabletSize',
+  'urlDesktopSized',
+  'urlMobileSized',
+  'urlTabletSized',
+  'urlTinySized',
 ]
 const metaUrlList = [
   'urlOriginal',
-  'urlDesktopSize',
-  'urlMobileSize',
-  'urlTabletSize',
+  'urlDesktopSized',
+  'urlMobileSized',
+  'urlTabletSized',
+  'urlTinySized',
 ]
 
 const distributeUrlsToResolvedData = (resolvedData, meta) => {
