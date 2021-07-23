@@ -1,11 +1,11 @@
 <template>
     <div class="AboutPortfolio">
+        <div class="AboutPortfolio__snapshot">
+            <img :src="coverPhoto" />
+            <div class="AboutPortfolio__snapshot_title">{{ portfolio.name }}</div>
+        </div>
         <div class="AboutPortfolio__wrapper">
-            <div v-if="portfolio.coverPhoto.urlOriginal.length" class="AboutPortfolio__snapshot">
-                <img :src="portfolio.coverPhoto.urlOriginal" />
-            </div>
             <div class="AboutPortfolio__detail">
-                <div class="AboutPortfolio__detail_name">{{ portfolio.name }}</div>
                 <!-- <div class="AboutPortfolio__detail_detail" v-html="portfolio.detail" /> -->
             </div>
         </div>
@@ -56,6 +56,11 @@ export default {
             },
         }
     },
+    computed: {
+        coverPhoto() {
+            return this.portfolio?.coverPhoto?.urlOriginal || require('@/static/images/logo_small.png')
+        },
+    },
     mounted() {
         console.log(this.portfolio)
     },
@@ -65,9 +70,53 @@ export default {
 <style lang="scss" scoped>
 .AboutPortfolio {
     background: $mainGreen;
-    padding: 50px 20px 100px;
+    min-height: 100vh;
+
+    &__snapshot {
+        position: relative;
+        flex: 1;
+        width: 100%;
+        height: 50vh;
+        background: black;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.5;
+            transition: all 0.5s linear;
+        }
+
+        &_title {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 40px;
+            font-family: Broadwell;
+            color: $mainWhite;
+            opacity: 1;
+            transition: all 0.5s linear;
+
+            @include atSmall {
+                font-size: 44px;
+            }
+            @include atLarge {
+                font-size: 48px;
+            }
+        }
+
+        &:hover {
+            img {
+                opacity: 1;
+            }
+            .AboutPortfolio__snapshot_title {
+                opacity: 0;
+            }
+        }
+    }
 
     &__wrapper {
+        padding: 50px 20px 100px;
         width: 100%;
         max-width: 700px;
         margin: auto;
@@ -75,21 +124,8 @@ export default {
         display: flex;
 
         flex-direction: column;
-
-        @include atMedium {
-            flex-direction: row;
-        }
     }
 
-    &__snapshot {
-        flex: 1;
-        height: 500px;
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-    }
     &__detail {
         flex: 1;
 
@@ -105,16 +141,7 @@ export default {
                 font-size: 25px;
             }
         }
-        &_name {
-            font-size: 40px;
-            font-family: Broadwell;
-            @include atSmall {
-                font-size: 44px;
-            }
-            @include atLarge {
-                font-size: 48px;
-            }
-        }
+
         &_detail {
             padding: 20px 0;
         }

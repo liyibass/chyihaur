@@ -1,6 +1,6 @@
 <template>
     <div class="UiPortfolioCard" @click="goToPortfolioPage" :style="{ flex: getRandomFlexSize }">
-        <img :src="portfolio.coverPhoto.urlOriginal" :alt="portfolio.name" />
+        <img :src="coverPhoto" :alt="portfolio.name" />
     </div>
 </template>
 
@@ -34,6 +34,11 @@ export default {
             },
         },
     },
+    computed: {
+        coverPhoto() {
+            return this.portfolio?.coverPhoto?.urlOriginal || require('@/static/images/logo_small.png')
+        },
+    },
 
     methods: {
         goToPortfolioPage() {
@@ -42,6 +47,9 @@ export default {
         getRandomFlexSize() {
             return Math.floor(Math.random() * 3) + 1
         },
+    },
+    mounted() {
+        console.log(this.portfolio)
     },
 }
 </script>
