@@ -35,12 +35,12 @@ export default {
                 )
             case 'header-one':
                 return (
-                    <h1 class="article-heading" domPropsInnerHTML={content} />
+                    <h1 class="article-heading-1" domPropsInnerHTML={content} />
                 )
 
             case 'header-two':
                 return (
-                    <h2 class="article-heading" domPropsInnerHTML={content} />
+                    <h2 class="article-heading-2" domPropsInnerHTML={content} />
                 )
 
             case 'code-block':
@@ -109,7 +109,7 @@ export default {
                 return <ArticleSlideshow items={props.block.content} />
 
             case 'youtube':
-                return <ArticleYoutubeEmbedByIframeApi videoId={content.id} />
+                return <YoutubeEmbedByIframeApi videoId={content.id} />
 
             default:
                 return undefined
@@ -118,4 +118,73 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.article {
+    &-heading-1 {
+        font-size: 30px;
+        font-weight: bolder;
+        line-height: 2;
+    }
+
+    &-heading-2 {
+        font-size: 20px;
+        font-weight: bolder;
+        line-height: 2;
+    }
+
+    &-code {
+        padding: 5px;
+        background: rgba(0, 0, 0, 0.2);
+    }
+
+    &-paragraph {
+        font-size: 16px;
+        line-height: 1.75;
+        text-align: justify;
+        > * {
+            max-width: 100%;
+        }
+    }
+
+    &-blockquote {
+        text-align: justify;
+        line-height: 1.75;
+        padding: 15px;
+        border-left: 3px $mainWhite solid;
+    }
+
+    &-embedded-code {
+        iframe {
+            width: 100%;
+        }
+    }
+    &-paragraph,
+    &-quote-by,
+    &-annotation {
+        a {
+            font-weight: 500;
+        }
+    }
+    &-ordered-list {
+        margin-top: 0 !important;
+        padding-left: 2rem;
+        list-style-type: decimal;
+        li {
+            font-size: 16px;
+            line-height: 1.75;
+            text-align: justify;
+        }
+    }
+
+    &-unordered-list {
+        margin-top: 0 !important;
+        padding-left: 2rem;
+        list-style-type: disc;
+        li {
+            font-size: 16px;
+            line-height: 1.75;
+            text-align: justify;
+        }
+    }
+}
+</style>
