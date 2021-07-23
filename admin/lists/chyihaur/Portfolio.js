@@ -33,9 +33,9 @@ module.exports = {
     descriptionApiData: {
       type: Text,
       default: '',
-      // adminConfig: {
-      //   isReadOnly: true,
-      // },
+      adminConfig: {
+        isReadOnly: true,
+      },
     },
   },
 
