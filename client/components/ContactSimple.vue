@@ -2,7 +2,11 @@
     <div class="ContactSimple">
         <div class="ContactSimple__wrapper">
             <div class="ContactSimple__background">
-                <img :src="require('@/static/images/Contact.png')" alt="" srcset="" />
+                <img
+                    :src="require('@/static/images/Contact.png')"
+                    alt=""
+                    srcset=""
+                />
             </div>
 
             <div class="ContactSimple__up_section">
@@ -14,7 +18,10 @@
                         ___<br />
                     </div>
 
-                    <div class="ContactSimple__titles_title eng" @click="goToContactPage">
+                    <div
+                        class="ContactSimple__titles_title eng"
+                        @click="goToContactPage"
+                    >
                         Contact
                     </div>
                 </div>
@@ -37,7 +44,6 @@ export default {
 
     methods: {
         goToContactPage() {
-            console.log('YOYO')
             this.$router.push('/Contact')
         },
     },

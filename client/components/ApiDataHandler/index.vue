@@ -21,9 +21,6 @@ export default {
             default: () => [],
         },
     },
-    mounted() {
-        console.log(this.apiData)
-    },
 }
 </script>
 

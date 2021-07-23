@@ -1,13 +1,13 @@
 <script>
 import ArticleImage from './ArticleImage.vue'
 import ArticleSlideshow from './ArticleSlideshow.vue'
-import ArticleYoutubeEmbedByIframeApi from './ArticleYoutubeEmbedByIframeApi.vue'
+import YoutubeEmbedByIframeApi from '@/components/YoutubeEmbedByIframeApi.vue'
 export default {
     functional: true,
     component: {
         ArticleImage,
         ArticleSlideshow,
-        ArticleYoutubeEmbedByIframeApi,
+        YoutubeEmbedByIframeApi,
     },
     props: {
         block: {

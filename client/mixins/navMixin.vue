@@ -51,7 +51,7 @@ export default {
                     id: 5,
                     title: '七號倉庫',
                     engTitle: 'WEARHOUSE 7',
-                    link: '',
+                    link: 'n07-warehouse',
                     key: 'n07-warehouse',
                     logoUrl: require('@/static/images/logos/4.png'),
                 },
