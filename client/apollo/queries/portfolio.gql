@@ -34,5 +34,6 @@ query fetchPortfolio($id: ID!) {
         photos {
             urlOriginal
         }
+        descriptionApiData
     }
 }

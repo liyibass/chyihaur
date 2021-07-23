@@ -1,12 +1,14 @@
 <template>
-    <div class="AboutPortfolio">
+    <div v-if="portfolio" class="AboutPortfolio">
         <div class="AboutPortfolio__snapshot">
             <img :src="coverPhoto" />
-            <div class="AboutPortfolio__snapshot_title">{{ portfolio.name }}</div>
+            <div class="AboutPortfolio__snapshot_title">
+                {{ portfolio.name }}
+            </div>
         </div>
         <div class="AboutPortfolio__wrapper">
             <div class="AboutPortfolio__detail">
-                <!-- <div class="AboutPortfolio__detail_detail" v-html="portfolio.detail" /> -->
+                <ApiDataHandler :apiData="description" />
             </div>
         </div>
     </div>
@@ -15,10 +17,11 @@
 <script>
 import UiEmployeeContainer from '@/components/UiEmployeeContainer'
 import { fetchPortfolio } from '~/apollo/queries/portfolio.gql'
-
+import ApiDataHandler from '@/components/ApiDataHandler'
 export default {
     components: {
         UiEmployeeContainer,
+        ApiDataHandler,
     },
     apollo: {
         portfolio: {
@@ -34,35 +37,17 @@ export default {
             },
         },
     },
-    data() {
-        return {
-            portfolio: {
-                id: '60600f786c53617e9b95d5d1',
-                name: '',
-                coverPhoto: {
-                    urlOriginal: '',
-                },
-                photos: [
-                    {
-                        urlOriginal: '',
-                    },
-                    {
-                        urlOriginal: '',
-                    },
-                    {
-                        urlOriginal: '',
-                    },
-                ],
-            },
-        }
-    },
     computed: {
         coverPhoto() {
-            return this.portfolio?.coverPhoto?.urlOriginal || require('@/static/images/logo_small.png')
+            return (
+                this.portfolio?.coverPhoto?.urlOriginal ||
+                require('@/static/images/logo_small.png')
+            )
         },
-    },
-    mounted() {
-        console.log(this.portfolio)
+        description() {
+            const description = this.portfolio?.descriptionApiData || ''
+            return JSON.parse(description)
+        },
     },
 }
 </script>
