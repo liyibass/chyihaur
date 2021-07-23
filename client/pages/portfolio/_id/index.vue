@@ -45,8 +45,8 @@ export default {
             )
         },
         description() {
-            const description = this.portfolio?.descriptionApiData || ''
-            return JSON.parse(description)
+            const description = this.portfolio?.descriptionApiData
+            return description ? JSON.parse(description) : []
         },
     },
 }

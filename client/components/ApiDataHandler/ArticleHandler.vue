@@ -25,7 +25,6 @@ export default {
         },
     },
     render(h, { props }) {
-        console.log(props)
         const type = props.block.type
         const content = props.block.content[0]
 
@@ -116,19 +115,6 @@ export default {
                 return undefined
         }
     },
-    // render(h) {
-    //     switch (this.block.type) {
-    //         case 'unstyled':
-    //             return h({
-    //                 template: <h1>FUCK</h1>,
-    //             })
-
-    //         default:
-    //             return h({
-    //                 template: <h1>YOYO</h1>,
-    //             })
-    //     }
-    // },
 }
 </script>
 
