@@ -1,0 +1,5 @@
+query fetchYoutube($first: Int, $skip: Int) {
+    allWareshouses: allWareshouses(first: $first, skip: $skip) {
+        url
+    }
+}
