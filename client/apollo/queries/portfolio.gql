@@ -13,9 +13,14 @@ mutation updateImages($data: [ImagesUpdateInput]) {
 }
 
 query fetchPortfolios($first: Int, $skip: Int) {
-    allPortfolios: allPortfolios(first: $first, skip: $skip, orderBy: "date_DESC") {
+    allPortfolios: allPortfolios(
+        first: $first
+        skip: $skip
+        orderBy: "date_DESC"
+    ) {
         id
         name
+        date
         coverPhoto {
             urlOriginal
         }

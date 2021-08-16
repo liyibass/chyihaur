@@ -31,6 +31,7 @@ export default {
                 }
             },
             update: (data) => {
+                console.log(data)
                 const employeeList = data?.allEmployees
                 let groupList = {}
 

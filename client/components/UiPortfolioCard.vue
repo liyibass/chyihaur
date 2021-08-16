@@ -5,6 +5,7 @@
         :style="{ flex: getRandomFlexSize }"
     >
         <img :src="coverPhoto" :alt="portfolio.name" />
+        <h1>{{ portfolio.name }}</h1>
     </div>
 </template>
 
@@ -60,13 +61,19 @@ export default {
 
 <style lang="scss" scoped>
 .UiPortfolioCard {
-    flex: 1;
-    min-width: 33%;
-    max-height: 400px;
+    // flex: 1;
+    position: relative;
+    width: 33%;
+    padding-top: 33%;
+    // max-height: 400px;
+    // width: 100%;
 
     background: black;
     overflow: hidden;
     img {
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
         height: 100%;
         object-fit: cover;
@@ -74,9 +81,26 @@ export default {
         transition: all 0.5s linear;
     }
 
+    h1 {
+        color: white;
+        width: fit-content;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        transition: all 0.5s linear;
+        text-align: center;
+        font-family: GenYoGothicTW;
+        font-weight: bold;
+    }
+
     &:hover {
-        img {
+        h1 {
             opacity: 1;
+        }
+        img {
+            opacity: 0.5;
             transform: scale(1.05);
         }
     }
