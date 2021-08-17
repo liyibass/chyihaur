@@ -75,18 +75,20 @@ export default {
             position: absolute;
             top: 50%;
             left: 50%;
+            width: 100%;
+            text-align: center;
             transform: translate(-50%, -50%);
-            font-size: 40px;
+            font-size: 20px;
             font-family: Broadwell;
             color: $mainWhite;
             opacity: 1;
             transition: all 0.5s linear;
 
             @include atSmall {
-                font-size: 44px;
+                font-size: 20px;
             }
             @include atLarge {
-                font-size: 48px;
+                font-size: 20px;
             }
         }
 

@@ -33,9 +33,7 @@ query fetchPortfolio($id: ID!) {
         coverPhoto {
             urlOriginal
         }
-        photos {
-            urlOriginal
-        }
+
         descriptionApiData
     }
 }
