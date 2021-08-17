@@ -16,13 +16,18 @@
             class="swiper-button-nav swiper-button-nav--prev"
             @click="contentSwiper.slidePrev()"
         >
-            <span />
+            <div class="arrow">
+                <img src="@/static/images/arrow.png" alt="" />
+            </div>
         </button>
+
         <button
             class="swiper-button-nav swiper-button-nav--next"
             @click="contentSwiper.slideNext()"
         >
-            <span />
+            <div class="arrow">
+                <img src="@/static/images/arrow.png" alt="" />
+            </div>
         </button>
         <div class="swiper-pagination" />
     </div>
@@ -96,28 +101,36 @@ export default {
     }
     .swiper-button-nav {
         position: absolute;
+
+        background: rgba(255, 255, 255, 0.3);
         top: calc((100% - 54px - 8px) / 2);
         transform: translateY(-50%);
-        left: -2px;
+        right: -2px;
         z-index: 20;
         padding: 10px;
         outline: none;
-        > span {
+        > .arrow {
             display: block;
             width: 28px;
             height: 28px;
             // border-left: 4px solid $color-blue;
             // border-bottom: 4px solid $color-blue;
-            transform: rotate(45deg);
+            // transform: rotate(45deg);
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: fill;
+            }
         }
         @include atLarge {
             top: 116px;
         }
-        &--next {
-            left: auto;
-            right: -2px;
-            > span {
-                transform: rotate(-135deg);
+        &--prev {
+            right: auto;
+            left: -2px;
+
+            > .arrow {
+                transform: rotate(-180deg);
             }
         }
     }
