@@ -1,12 +1,34 @@
-// const { access } = require('./Permission.js');
 const { Text } = require('@keystonejs/fields')
-
+const HTML = require('../../fields/HTML')
 module.exports = {
   fields: {
-    url: {
-      label: 'YouTube網址',
+    description: {
+      label: '內文',
+      type: HTML,
+    },
+    descriptionApiData: {
       type: Text,
-      isRequired: true,
+      default: '',
+      adminConfig: {
+        isReadOnly: true,
+      },
+    },
+  },
+  hooks: {
+    resolveInput: async ({
+      existingItem,
+      originalInput,
+      resolvedData,
+      context,
+      operation,
+    }) => {
+      if (resolvedData && resolvedData.description) {
+        const draftData = JSON.parse(resolvedData.description)
+
+        resolvedData.descriptionApiData = JSON.stringify(draftData.apiData)
+      }
+
+      return resolvedData
     },
   },
 }

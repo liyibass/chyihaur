@@ -1,6 +1,6 @@
 <template>
     <div class="openwarehouse-page">
-        <YoutubeEmbedByIframeApi :videoId="youtubeId || ''" />
+        <!-- <YoutubeEmbedByIframeApi :videoId="youtubeId || ''" /> -->
     </div>
 </template>
 
@@ -12,13 +12,18 @@ export default {
         YoutubeEmbedByIframeApi,
     },
     apollo: {
-        youtubeId: {
+        description: {
             query: fetchYoutube,
             update: (data) => {
-                const urlArray = data.allWareshouses[0].url.split('?v=')
-                return urlArray[urlArray.length - 1] || ''
+                console.log(data)
+                return ''
+                // const urlArray = data.allWareshouses[0].url.split('?v=')
+                // return urlArray[urlArray.length - 1] || ''
             },
         },
+    },
+    mounted() {
+        // console.log(description)
     },
 }
 </script>

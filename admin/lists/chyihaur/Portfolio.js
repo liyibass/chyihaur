@@ -20,12 +20,6 @@ module.exports = {
       ref: 'Image',
       many: false,
     },
-    photos: {
-      label: '圖片集',
-      type: ImageRelationship,
-      ref: 'Image',
-      many: true,
-    },
     description: {
       label: '內文',
       type: HTML,

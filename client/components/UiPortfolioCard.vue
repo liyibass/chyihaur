@@ -63,11 +63,14 @@ export default {
 .UiPortfolioCard {
     // flex: 1;
     position: relative;
-    width: 33%;
-    padding-top: 33%;
+    width: 100%;
+    padding-top: 100%;
     // max-height: 400px;
     // width: 100%;
-
+    @include atSmall {
+        width: 33%;
+        padding-top: 33%;
+    }
     background: black;
     overflow: hidden;
     img {

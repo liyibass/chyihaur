@@ -24,9 +24,6 @@ query fetchPortfolios($first: Int, $skip: Int) {
         coverPhoto {
             urlOriginal
         }
-        photos {
-            urlOriginal
-        }
     }
 }
 query fetchPortfolio($id: ID!) {
