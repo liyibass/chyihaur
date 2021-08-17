@@ -1,5 +1,5 @@
-query fetchYoutube($first: Int, $skip: Int) {
-    allWareshouses: allWareshouses(first: $first, skip: $skip) {
+query fetchWarehouse($first: Int, $skip: Int) {
+    allWarehouses: allWarehouses(first: $first, skip: $skip) {
         descriptionApiData
     }
 }

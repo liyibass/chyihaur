@@ -1,25 +1,37 @@
 <template>
     <div class="openwarehouse-page">
-        <!-- <YoutubeEmbedByIframeApi :videoId="youtubeId || ''" /> -->
+        <div class="openwarehouse-page__content">
+            <ApiDataHandler :apiData="description" />
+        </div>
     </div>
 </template>
 
 <script>
-import YoutubeEmbedByIframeApi from '@/components/YoutubeEmbedByIframeApi.vue'
-import { fetchYoutube } from '~/apollo/queries/warehouse.gql'
+import { fetchWarehouse } from '~/apollo/queries/warehouse.gql'
+import ApiDataHandler from '@/components/ApiDataHandler'
 export default {
     component: {
-        YoutubeEmbedByIframeApi,
+        ApiDataHandler,
     },
     apollo: {
-        description: {
-            query: fetchYoutube,
+        warehouse: {
+            query: fetchWarehouse,
             update: (data) => {
-                console.log(data)
-                return ''
-                // const urlArray = data.allWareshouses[0].url.split('?v=')
-                // return urlArray[urlArray.length - 1] || ''
+                const description = data.allWarehouses[0]
+                return description
             },
+        },
+    },
+    computed: {
+        coverPhoto() {
+            return (
+                this.portfolio?.coverPhoto?.urlOriginal ||
+                require('@/static/images/logo_small.png')
+            )
+        },
+        description() {
+            const description = this.warehouse?.descriptionApiData
+            return description ? JSON.parse(description) : []
         },
     },
     mounted() {

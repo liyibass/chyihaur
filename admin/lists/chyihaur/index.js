@@ -6,5 +6,5 @@ module.exports = {
   Tag: require('./Tag'),
   Employee: require('./Employee'),
   Position: require('./Position'),
-  Wareshouse: require('./Warehouse'),
+  Warehouse: require('./Warehouse'),
 }
