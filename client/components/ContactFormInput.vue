@@ -2,10 +2,17 @@
     <div class="ContactFormInput">
         <div class="ContactFormInput__title">{{ field.tag }}</div>
 
-        <div v-if="field.type === 'checkbox'" class="ContactFormInput__input ContactFormInput__input_checkbox">
+        <div
+            v-if="field.type === 'checkbox'"
+            class="ContactFormInput__input ContactFormInput__input_checkbox"
+        >
             <div v-for="checkbox in checkBoxList" :key="checkbox.id">
                 <label>
-                    <input type="checkbox" :value="checkbox.name" v-model.lazy="field.value" />
+                    <input
+                        type="checkbox"
+                        :value="checkbox.name"
+                        v-model.lazy="field.value"
+                    />
                     <span>
                         {{ checkbox.name }}
                     </span>
@@ -13,12 +20,19 @@
             </div>
         </div>
 
-        <div v-else-if="field.type === 'textarea'" class="ContactFormInput__input ContactFormInput__input_textarea">
+        <div
+            v-else-if="field.type === 'textarea'"
+            class="ContactFormInput__input ContactFormInput__input_textarea"
+        >
             <textarea type="text" v-model.lazy="field.value" />
         </div>
 
         <div v-else class="ContactFormInput__input">
-            <input type="text" v-model.lazy="field.value" :placeholder="field.placeholder" />
+            <input
+                type="text"
+                v-model.lazy="field.value"
+                :placeholder="field.placeholder"
+            />
         </div>
     </div>
 </template>
@@ -112,13 +126,14 @@ export default {
         }
 
         &_textarea {
+            height: 159px;
             textarea {
-                height: 159px;
+                height: 100%;
+                width: 100%;
                 color: rgba(255, 255, 255, 0.7);
                 font-size: 16px;
                 line-height: 1;
                 padding: 8px 8px;
-                width: 100%;
                 background: rgba(96, 96, 96, 0.8);
 
                 border: none;
