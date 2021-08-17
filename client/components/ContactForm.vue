@@ -1,7 +1,12 @@
 <template>
     <div class="ContactForm">
         <form @submit="submitHandler">
-            <ContactFormInput v-for="field in fieldList" :key="field.title" :field="field" />
+            <ContactFormInput
+                v-for="field in fieldList"
+                :key="field.title"
+                :field="field"
+                v-model="field.value"
+            />
 
             <button class="ContactForm__submit_btn">提交</button>
         </form>
@@ -10,29 +15,78 @@
 
 <script>
 import ContactFormInput from './ContactFormInput'
+import { emitContact } from '../utils/contactHandler'
 export default {
     components: { ContactFormInput },
     data() {
         return {
             fieldList: [
-                { type: 'text', tag: '公司/品牌名稱', placeholder: 'Enter your company here', value: '' },
-                { type: 'text', tag: '聯絡人姓名', placeholder: 'Enter your name here', value: '' },
-                { type: 'text', tag: 'line ID', placeholder: 'Enter your line id here', value: '' },
-                { type: 'text', tag: '電話', placeholder: 'Enter your phone here', value: '' },
-                { type: 'text', tag: 'email', placeholder: 'Enter your email here', value: '' },
-                { type: 'checkbox', tag: '欲洽談業務', value: [] },
-                { type: 'textarea', tag: '其他需求', placeholder: '', value: '' },
+                {
+                    type: 'text',
+                    tag: '公司/品牌名稱',
+                    placeholder: 'Enter your company here',
+                    key: 'company',
+                    value: '',
+                },
+                {
+                    type: 'text',
+                    tag: '聯絡人姓名',
+                    placeholder: 'Enter your name here',
+                    key: 'name',
+                    value: '',
+                },
+                {
+                    type: 'text',
+                    tag: 'line ID',
+                    placeholder: 'Enter your line id here',
+                    key: 'line',
+                    value: '',
+                },
+                {
+                    type: 'text',
+                    tag: '電話',
+                    placeholder: 'Enter your phone here',
+                    key: 'phone',
+                    value: '',
+                },
+                {
+                    type: 'text',
+                    tag: 'email',
+                    placeholder: 'Enter your email here',
+                    key: 'email',
+                    value: '',
+                },
+                {
+                    type: 'checkbox',
+                    tag: '欲洽談業務',
+                    key: 'business',
+                    value: '',
+                },
+                {
+                    type: 'textarea',
+                    tag: '其他需求',
+                    placeholder: '',
+                    key: 'other',
+                    value: '',
+                },
             ],
         }
     },
 
     methods: {
-        submitHandler(e) {
+        async submitHandler(e) {
             e.preventDefault()
-            console.log(this.fieldList)
+
+            const variables = {}
+            this.fieldList.forEach((field) => {
+                variables[`${field.key}`] = field.value
+            })
+
+            await emitContact(variables)
+
             // Emit form to CMS (Todo)
 
-            // this.clearFormField()
+            this.clearFormField()
 
             // alert('謝謝您的訊息，我們會儘快回覆')
 

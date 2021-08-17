@@ -11,7 +11,8 @@
                     <input
                         type="checkbox"
                         :value="checkbox.name"
-                        v-model.lazy="field.value"
+                        :checked="field.value === checkbox.name"
+                        @change="changeHandler"
                     />
                     <span>
                         {{ checkbox.name }}
@@ -24,13 +25,18 @@
             v-else-if="field.type === 'textarea'"
             class="ContactFormInput__input ContactFormInput__input_textarea"
         >
-            <textarea type="text" v-model.lazy="field.value" />
+            <textarea
+                type="text"
+                :value="field.value"
+                @change="changeHandler"
+            />
         </div>
 
         <div v-else class="ContactFormInput__input">
             <input
                 type="text"
-                v-model.lazy="field.value"
+                :value="field.value"
+                @change="changeHandler"
                 :placeholder="field.placeholder"
             />
         </div>
@@ -38,6 +44,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
     props: { field: Object },
     data() {
@@ -68,7 +75,13 @@ export default {
                     name: '影像',
                 },
             ],
+            fieldValue: '',
         }
+    },
+    methods: {
+        changeHandler(e) {
+            this.$emit('input', e.target.value)
+        },
     },
 }
 </script>
