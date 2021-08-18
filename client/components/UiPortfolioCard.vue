@@ -68,6 +68,10 @@ export default {
     // max-height: 400px;
     // width: 100%;
     @include atSmall {
+        width: 50%;
+        padding-top: 50%;
+    }
+    @include atMedium {
         width: 33%;
         padding-top: 33%;
     }

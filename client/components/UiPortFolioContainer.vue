@@ -1,7 +1,11 @@
 <template>
     <div class="UiPortfolioContainer">
         <div class="UiPortfolioContainer__wrapper">
-            <UiPortfolioCard v-for="portfolio in portfolioList" :key="portfolio.id" :portfolio="portfolio" />
+            <UiPortfolioCard
+                v-for="portfolio in portfolioList"
+                :key="portfolio.id"
+                :portfolio="portfolio"
+            />
         </div>
     </div>
 </template>
@@ -38,7 +42,7 @@ export default {
 
         padding: 20px;
 
-        @include atMedium {
+        @include atSmall {
             flex-direction: row;
         }
     }
