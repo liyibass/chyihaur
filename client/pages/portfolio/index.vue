@@ -30,7 +30,7 @@ export default {
             query: fetchPortfolios,
             variables() {
                 return {
-                    first: 10,
+                    first: 100,
                     skip: 0,
                 }
             },
@@ -50,6 +50,8 @@ export default {
 
     &__title {
         width: 100%;
+        max-width: 900px;
+        margin: auto;
         padding: 20px;
         img {
             width: 100%;

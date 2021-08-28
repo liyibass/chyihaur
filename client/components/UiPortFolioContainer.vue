@@ -30,14 +30,14 @@ export default {
 
     &__wrapper {
         position: relative;
-        max-width: 900px;
+        max-width: 920px;
         margin: auto;
 
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
 
-        padding: 20px;
+        padding: 20px 10px;
 
         @include atSmall {
             flex-direction: row;

@@ -62,7 +62,7 @@ export default {
         portfolioCardScroller
             .setup({
                 step: selfDOM,
-                offset: 0.4,
+                offset: 0.5,
             })
             .onStepEnter((response) => {
                 // { element, index, direction }
