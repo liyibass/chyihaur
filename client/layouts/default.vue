@@ -2,16 +2,19 @@
     <div class="default">
         <Header />
         <Nuxt />
+        <Footer />
     </div>
 </template>
 
 <script>
 import NavBar from '@/components/NavBar'
 import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 export default {
     components: {
         NavBar,
         Header,
+        Footer,
     },
 }
 </script>
@@ -19,14 +22,12 @@ export default {
 <style lang="scss">
 .default {
     margin-top: 42px;
-    background: $mainGreen;
-
+    min-height: calc(100vh -42px);
     @include atMedium {
         margin-top: 100px;
     }
 }
 html {
-    background: $mainGreen;
     font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
         sans-serif;
 }

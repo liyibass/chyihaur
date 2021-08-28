@@ -1,6 +1,6 @@
 <template>
-    <div class="openwarehouse-page">
-        <div class="openwarehouse-page__content">
+    <div class="warehouse-page">
+        <div class="warehouse-page__content">
             <ApiDataHandler :apiData="description" />
         </div>
     </div>
@@ -24,10 +24,7 @@ export default {
     },
     computed: {
         coverPhoto() {
-            return (
-                this.portfolio?.coverPhoto?.urlOriginal ||
-                require('@/static/images/logo_small.png')
-            )
+            return this.portfolio?.coverPhoto?.urlOriginal || require('@/static/images/logo_small.png')
         },
         description() {
             const description = this.warehouse?.descriptionApiData
@@ -41,8 +38,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.openwarehouse-page {
+.warehouse-page {
     padding: 100px;
     position: relative;
+    background: $mainGreen;
 }
 </style>
