@@ -1,9 +1,5 @@
 <template>
-    <div
-        class="UiPortfolioCard"
-        @click="goToPortfolioPage"
-        :style="{ flex: getRandomFlexSize }"
-    >
+    <div class="UiPortfolioCard" @click="goToPortfolioPage" :style="{ flex: getRandomFlexSize }">
         <img :src="coverPhoto" :alt="portfolio.name" />
         <h1>{{ portfolio.name }}</h1>
     </div>
@@ -41,10 +37,7 @@ export default {
     },
     computed: {
         coverPhoto() {
-            return (
-                this.portfolio?.coverPhoto?.urlOriginal ||
-                require('@/static/images/logo_small.png')
-            )
+            return this.portfolio?.coverPhoto?.urlOriginal || require('@/static/images/logo_small.png')
         },
     },
 
@@ -65,15 +58,16 @@ export default {
     position: relative;
     width: 100%;
     padding-top: 100%;
+    margin: 5px;
     // max-height: 400px;
     // width: 100%;
     @include atSmall {
-        width: 50%;
-        padding-top: 50%;
+        width: calc((100% - 30px) / 2);
+        padding-top: calc((100% - 30px) / 2);
     }
     @include atMedium {
-        width: 33%;
-        padding-top: 33%;
+        width: calc((100% - 30px) / 3);
+        padding-top: calc((100% - 30px) / 3);
     }
     background: black;
     overflow: hidden;

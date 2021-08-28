@@ -1,11 +1,7 @@
 <template>
     <div class="UiPortfolioContainer">
         <div class="UiPortfolioContainer__wrapper">
-            <UiPortfolioCard
-                v-for="portfolio in portfolioList"
-                :key="portfolio.id"
-                :portfolio="portfolio"
-            />
+            <UiPortfolioCard v-for="portfolio in portfolioList" :key="portfolio.id" :portfolio="portfolio" />
         </div>
     </div>
 </template>
@@ -33,6 +29,7 @@ export default {
     min-height: 100vh;
 
     &__wrapper {
+        position: relative;
         max-width: 900px;
         margin: auto;
 
