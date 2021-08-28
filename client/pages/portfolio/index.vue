@@ -1,20 +1,21 @@
 <template>
     <div class="PortfolioPage">
         <div class="color_bar" />
-        <UiLogoBar />
+
+        <div class="PortfolioPage__title">
+            <img :src="require('@/static/images/portfolio/title.png')" alt="" srcset="" />
+        </div>
 
         <UiPortfolioContainer :portfolioList="portfolioList" />
     </div>
 </template>
 
 <script>
-import UiLogoBar from '@/components/UiLogoBar'
 import UiPortfolioContainer from '@/components/UiPortfolioContainer'
 import portfolioMixin from '../../mixins/portfolioMixin'
 import { fetchPortfolios } from '~/apollo/queries/portfolio.gql'
 export default {
     components: {
-        UiLogoBar,
         UiPortfolioContainer,
     },
     mixins: [portfolioMixin],
@@ -46,6 +47,14 @@ export default {
 .PortfolioPage {
     width: 100%;
     background: $mainGreen;
+
+    &__title {
+        width: 100%;
+        padding: 20px;
+        img {
+            width: 100%;
+        }
+    }
 }
 .color_bar {
     background: $mainBlue;

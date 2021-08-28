@@ -21,15 +21,13 @@ export default {
 
 <style lang="scss">
 .default {
-    margin-top: 42px;
-    min-height: calc(100vh -42px);
+    padding-top: 42px;
+    min-height: calc(100vh);
+    background: $mainGreen;
+
     @include atMedium {
-        margin-top: 100px;
+        padding-top: 100px;
     }
-}
-html {
-    font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
-        sans-serif;
 }
 
 .button--green {
