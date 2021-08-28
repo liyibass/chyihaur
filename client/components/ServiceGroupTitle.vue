@@ -1,7 +1,14 @@
 <template>
     <div class="service-group-title">
-        <nobr class="service-group-title__title" @click="clickHandler">{{ title }}</nobr>
-        <nobr class="service-group-title__engTitle" :style="handleWidth">{{ engTitle }}</nobr>
+        <!-- <nobr class="service-group-title__title" @click="clickHandler">{{
+            title
+        }}</nobr> -->
+        <div class="service-group-title__title" @click="clickHandler">
+            <img :src="titleImage" />
+        </div>
+        <nobr class="service-group-title__engTitle" :style="handleWidth">{{
+            engTitle
+        }}</nobr>
     </div>
 </template>
 
@@ -16,6 +23,13 @@ export default {
             },
         },
         engTitle: {
+            type: String,
+            isRequired: true,
+            default: () => {
+                return ''
+            },
+        },
+        titleImage: {
             type: String,
             isRequired: true,
             default: () => {
@@ -52,32 +66,28 @@ export default {
         font-size: 83px;
         line-height: 1;
         cursor: pointer;
+        width: 166px;
+        img {
+            width: 100%;
+        }
+
+        @include atSmall {
+            font-size: 100px;
+            width: 260px;
+            line-height: 1;
+        }
+
+        @include atMedium {
+            font-size: 130px;
+            line-height: 1;
+        }
     }
 
     &__engTitle {
         font-size: 28px;
         line-height: 1;
         font-weight: bold;
-    }
-
-    @include atSmall {
-        &__title {
-            font-size: 100px;
-            line-height: 1;
-        }
-
-        &__engTitle {
-            display: none;
-        }
-    }
-
-    @include atMedium {
-        &__title {
-            font-size: 130px;
-            line-height: 1;
-        }
-
-        &__engTitle {
+        @include atSmall {
             display: none;
         }
     }

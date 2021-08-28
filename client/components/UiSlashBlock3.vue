@@ -4,7 +4,11 @@
             class="UiSlashBlock__left_block UiSlashBlock__left_block_3 UiSlashBlock__background"
             :style="getBackgroundImage"
         >
-            <ServiceGroupTitle :title="serviceGroup.title" :engTitle="serviceGroup.engTitle" />
+            <ServiceGroupTitle
+                :title="serviceGroup.title"
+                :engTitle="serviceGroup.engTitle"
+                :titleImage="serviceGroup.titleImage"
+            />
         </div>
 
         <div class="UiSlashBlock__right_block UiSlashBlock__right_block_3">
@@ -67,8 +71,8 @@ export default {
         .service-group-title {
             width: auto;
             position: absolute;
-            bottom: 0;
-            left: 0;
+            bottom: 10px;
+            left: 10px;
             margin-bottom: 0;
         }
     }

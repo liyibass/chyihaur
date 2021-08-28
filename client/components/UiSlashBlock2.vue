@@ -11,7 +11,11 @@
             class="UiSlashBlock__right_block UiSlashBlock__right_block_2 UiSlashBlock__background"
             :style="getBackgroundImage"
         >
-            <ServiceGroupTitle :title="serviceGroup.title" :engTitle="serviceGroup.engTitle" />
+            <ServiceGroupTitle
+                :title="serviceGroup.title"
+                :engTitle="serviceGroup.engTitle"
+                :titleImage="serviceGroup.titleImage"
+            />
         </div>
     </div>
 </template>
@@ -99,8 +103,8 @@ export default {
         .service-group-title {
             width: auto;
             position: absolute;
-            bottom: 0;
-            right: 0;
+            bottom: 10px;
+            right: 10px;
             margin-bottom: 0;
         }
     }

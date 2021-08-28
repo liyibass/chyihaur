@@ -11,8 +11,12 @@
                     class="service-mobile-group__title"
                     :title="serviceGroup.title"
                     :engTitle="serviceGroup.engTitle"
+                    :titleImage="serviceGroup.titleImage"
                 />
-                <ServiceGroup class="service-mobile-group__group" :serviceGroup="serviceGroup" />
+                <ServiceGroup
+                    class="service-mobile-group__group"
+                    :serviceGroup="serviceGroup"
+                />
 
                 <div class="service-mobile-group__background">
                     <img :src="serviceGroup.backgroundUrl" alt="" />
@@ -61,6 +65,7 @@ export default {
                 {
                     id: 0,
                     title: '設計',
+                    titleImage: require('@/static/images/service/service_title_1.png'),
                     engTitle: 'DESIGN',
                     backgroundUrl: require('@/static/images/service1.jpg'),
                     serviceList: [
@@ -104,6 +109,7 @@ export default {
                 {
                     id: 1,
                     title: '工程',
+                    titleImage: require('@/static/images/service/service_title_2.png'),
                     engTitle: 'PROJECT',
                     backgroundUrl: require('@/static/images/service2.jpg'),
 
@@ -137,6 +143,7 @@ export default {
                 {
                     id: 2,
                     title: '影像',
+                    titleImage: require('@/static/images/service/service_title_3.png'),
                     engTitle: 'PHOTOGRAPH',
                     backgroundUrl: require('@/static/images/service3.jpg'),
 
@@ -168,10 +175,16 @@ export default {
         //     this.currentIndex = number
         // },
         prevPage() {
-            this.targetIndex = this.targetIndex === 0 ? this.serviceGroupList.length - 1 : this.targetIndex - 1
+            this.targetIndex =
+                this.targetIndex === 0
+                    ? this.serviceGroupList.length - 1
+                    : this.targetIndex - 1
         },
         nextPage() {
-            this.targetIndex = this.targetIndex === this.serviceGroupList.length - 1 ? 0 : this.targetIndex + 1
+            this.targetIndex =
+                this.targetIndex === this.serviceGroupList.length - 1
+                    ? 0
+                    : this.targetIndex + 1
         },
         getBackgroundImage(url) {
             return {
@@ -184,7 +197,9 @@ export default {
     },
 
     mounted() {
-        const serviceGroupTitleList = document.querySelectorAll('.service-mobile-group')
+        const serviceGroupTitleList = document.querySelectorAll(
+            '.service-mobile-group'
+        )
         const sceneArray = []
 
         for (let i = 0; i < serviceGroupTitleList.length; i++) {
@@ -238,7 +253,7 @@ export default {
     }
 
     .service-mobile-group {
-        padding: 48px 0 60px;
+        padding: 48px 10px 60px;
         position: relative;
 
         opacity: 0.2;
