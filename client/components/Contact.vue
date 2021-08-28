@@ -20,19 +20,15 @@
 
                 <ContactForm />
             </div>
-
-            <ContactDetail />
         </div>
     </div>
 </template>
 
 <script>
 import ContactForm from '@/components/ContactForm'
-import ContactDetail from '@/components/ContactDetail'
 export default {
     components: {
         ContactForm,
-        ContactDetail,
     },
 }
 </script>
@@ -103,73 +99,6 @@ export default {
             }
             @include atLarge {
                 font-size: 58px;
-            }
-        }
-    }
-
-    &__detail {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: space-between;
-
-        @include atMedium {
-            z-index: 1;
-            flex-direction: row;
-            align-items: flex-end;
-        }
-
-        &_lists {
-            display: flex;
-            &_col {
-                &:first-child {
-                    width: 96px;
-                }
-            }
-            &_list {
-                margin-bottom: 21px;
-                &_title {
-                    font-size: 16px;
-                    @include atSmall {
-                        font-size: 20px;
-                    }
-                    @include atMedium {
-                        font-size: 28px;
-                    }
-                }
-                &_value {
-                    font-size: 14px;
-                    @include atSmall {
-                        font-size: 18px;
-                    }
-                    @include atMedium {
-                        font-size: 21px;
-                    }
-                }
-
-                &:last-child {
-                    margin-bottom: 0;
-                }
-            }
-        }
-
-        &_business_card {
-            width: 200px;
-            align-self: center;
-            margin-top: 20px;
-
-            @include atSmall {
-                align-self: flex-start;
-            }
-
-            @include atMedium {
-                width: 383px;
-                align-self: initial;
-            }
-
-            img {
-                width: 100%;
-                box-sizing: border-box;
             }
         }
     }

@@ -30,9 +30,6 @@ export default {
         display: block;
         width: 500px;
     }
-    @include atLarge {
-        width: 740px;
-    }
 
     &__wrapper {
         width: 100%;
