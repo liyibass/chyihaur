@@ -59,17 +59,17 @@ export default {
                 {
                     id: 0,
                     logo: require('@/static/images/footer/fb.svg'),
-                    url: 'https://www.google.com/',
+                    url: 'https://www.facebook.com/Chyi.haur.design',
                 },
                 {
                     id: 1,
                     logo: require('@/static/images/footer/ig.svg'),
-                    url: 'https://www.google.com/',
+                    url: 'https://www.instagram.com/chyi.haur/',
                 },
                 {
                     id: 2,
                     logo: require('@/static/images/footer/yt.svg'),
-                    url: 'https://www.google.com/',
+                    url: 'https://youtube.com/channel/UCK1VIkULDRfYzgHLTSIH0WQ',
                 },
             ],
         }
