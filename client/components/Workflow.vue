@@ -5,7 +5,7 @@
         </div>
 
         <div class="workflow__wrapper">
-            <WorkflowDesktop :currentId="currentAnimate" />
+            <WorkflowDesktop :currentAnimate="currentAnimate" />
             <WorkflowSlide :currentId="currentAnimate" />
 
             <div class="workflow__detail">
@@ -38,7 +38,7 @@ export default {
     mixins: [workflowMixin],
     data() {
         return {
-            currentAnimate: 1,
+            currentAnimate: 0,
         }
     },
     computed: {
@@ -63,7 +63,7 @@ export default {
 
             .on('progress', (e) => {
                 if (e.progress < 0.01) {
-                    this.currentAnimate = 1
+                    this.currentAnimate = 0
                 } else if (e.progress > 0.01 && e.progress < 0.16) {
                     this.currentAnimate = 1
                 } else if (e.progress > 0.16 && e.progress < 0.32) {

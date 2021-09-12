@@ -30,7 +30,7 @@ export default {
                 }
             },
         },
-        currentId: {
+        currentAnimate: {
             type: Number,
             isRequired: true,
             default: () => {
@@ -40,7 +40,7 @@ export default {
     },
     computed: {
         showCard() {
-            return this.workflow.id + 1 <= this.currentId
+            return this.workflow.id + 1 <= this.currentAnimate
         },
     },
 }

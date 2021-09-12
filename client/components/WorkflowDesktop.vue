@@ -1,16 +1,20 @@
 <template>
     <div class="workflow-desktop">
         <div class="workflow-desktop__wrapper">
-            <WorkflowDesktopContainer class="workflow-desktop__up" :currentId="currentId" :cardArray="upContainer" />
+            <WorkflowDesktopContainer
+                class="workflow-desktop__up"
+                :currentAnimate="currentAnimate"
+                :cardArray="upContainer"
+            />
             <WorkflowDesktopContainer
                 class="workflow-desktop__column"
-                :currentId="currentId"
+                :currentAnimate="currentAnimate"
                 :cardArray="columnContainer"
                 :column="true"
             />
             <WorkflowDesktopContainer
                 class="workflow-desktop__bottom"
-                :currentId="currentId"
+                :currentAnimate="currentAnimate"
                 :cardArray="bottomContainer"
             />
         </div>
@@ -27,7 +31,7 @@ export default {
         WorkflowDesktopContainer,
     },
     props: {
-        currentId: {
+        currentAnimate: {
             type: Number,
             isRequired: true,
             default: () => {

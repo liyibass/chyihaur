@@ -1,13 +1,15 @@
 <template>
     <div class="workflow-container" :class="{ column: column }">
-        <div class="workflow-container__scale" :class="{ show: showCard }" />
+        <div class="workflow-container__scale" :class="{ show: showCard }">
+            <div class="workflow-container__scale_light" :style="lightCss" />
+        </div>
 
         <WorkflowDesktopCard
             v-for="workflow in cardArray"
             :key="workflow.id"
             :class="{ row: column }"
             :workflow="workflow"
-            :currentId="currentId"
+            :currentAnimate="currentAnimate"
         />
     </div>
 </template>
@@ -51,7 +53,7 @@ export default {
                 return false
             },
         },
-        currentId: {
+        currentAnimate: {
             type: Number,
             isRequired: true,
             default: () => {
@@ -62,7 +64,37 @@ export default {
 
     computed: {
         showCard() {
-            return this.currentId >= this.cardArray[0].id + 1
+            return this.currentAnimate >= this.cardArray[0].id + 1
+        },
+        lightCss() {
+            console.log(this.currentAnimate)
+            const firstCardId = this.cardArray[0].id
+            const lastCardId = this.cardArray[this.cardArray.length - 1].id
+            if (this.currentAnimate >= firstCardId + 1) {
+                if (this.currentAnimate > lastCardId + 1) {
+                    return { width: '100%', height: '100%' }
+                } else {
+                    switch (this.currentAnimate) {
+                        case 0:
+                            return { width: '0%', height: '100%' }
+                        case 1:
+                            return { width: '50%', height: '100%' }
+                        case 2:
+                            return { width: '100%', height: '100%' }
+                        case 3:
+                            return { width: '100%', height: '57%' }
+                        case 4:
+                            return { width: '22%', height: '100%' }
+                        case 5:
+                            return { width: '50%', height: '100%' }
+                        case 6:
+                            return { width: '100%', height: '100%' }
+
+                        default:
+                            return { width: '0%', height: '0%' }
+                    }
+                }
+            }
         },
     },
 }
@@ -81,7 +113,7 @@ export default {
         left: 0;
         width: 100%;
         height: 4px;
-        background: white;
+        background: rgba(255, 255, 255, 0.3);
         opacity: 0.2;
         transform: scale(0.95);
         transition: all 0.3s ease-in-out;
@@ -94,6 +126,17 @@ export default {
             top: 84.5px;
             height: 6px;
         }
+
+        &_light {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: white;
+            width: 0%;
+            height: 0%;
+            transition: all 0.5s ease-in-out;
+            // box-shadow: 0 0 0 1px white;
+        }
     }
 
     &.column {
@@ -105,7 +148,7 @@ export default {
         .workflow-container__scale {
             width: 2px;
             height: 100%;
-            background: white;
+            background: rgba(255, 255, 255, 0.3);
         }
         .workflow-card {
             position: absolute;
