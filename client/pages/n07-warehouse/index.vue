@@ -39,6 +39,8 @@ export default {
 
 <style lang="scss" scoped>
 .warehouse-page {
+    color: $mainWhite;
+    text-align: center;
     padding: 100px;
     position: relative;
     background: $mainGreen;
