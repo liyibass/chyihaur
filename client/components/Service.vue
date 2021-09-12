@@ -13,10 +13,7 @@
                     :engTitle="serviceGroup.engTitle"
                     :titleImage="serviceGroup.titleImage"
                 />
-                <ServiceGroup
-                    class="service-mobile-group__group"
-                    :serviceGroup="serviceGroup"
-                />
+                <ServiceGroup class="service-mobile-group__group" :serviceGroup="serviceGroup" />
 
                 <div class="service-mobile-group__background">
                     <img :src="serviceGroup.backgroundUrl" alt="" />
@@ -175,16 +172,10 @@ export default {
         //     this.currentIndex = number
         // },
         prevPage() {
-            this.targetIndex =
-                this.targetIndex === 0
-                    ? this.serviceGroupList.length - 1
-                    : this.targetIndex - 1
+            this.targetIndex = this.targetIndex === 0 ? this.serviceGroupList.length - 1 : this.targetIndex - 1
         },
         nextPage() {
-            this.targetIndex =
-                this.targetIndex === this.serviceGroupList.length - 1
-                    ? 0
-                    : this.targetIndex + 1
+            this.targetIndex = this.targetIndex === this.serviceGroupList.length - 1 ? 0 : this.targetIndex + 1
         },
         getBackgroundImage(url) {
             return {
@@ -197,9 +188,7 @@ export default {
     },
 
     mounted() {
-        const serviceGroupTitleList = document.querySelectorAll(
-            '.service-mobile-group'
-        )
+        const serviceGroupTitleList = document.querySelectorAll('.service-mobile-group')
         const sceneArray = []
 
         for (let i = 0; i < serviceGroupTitleList.length; i++) {
@@ -285,8 +274,18 @@ export default {
             left: 0;
             width: 100%;
             height: 100%;
-            transform: translateX(-100%);
+
             transition: 0.3s all ease-in-out;
+
+            &::before {
+                position: absolute;
+                z-index: 1;
+                content: '';
+                background: black;
+                opacity: 0.9;
+                transition: 0.3s all ease-in-out;
+                transition-delay: 0.3s;
+            }
 
             img {
                 width: 100%;
@@ -295,15 +294,59 @@ export default {
                 object-position: center;
             }
         }
+
+        &.service-mobile-group_0 {
+            .service-mobile-group__background {
+                transform: translateX(-100%);
+                &::before {
+                    top: 0;
+                    right: -150%;
+                    bottom: 0;
+                    left: 100%;
+                    transform: skew(15deg);
+                    transform-origin: 100% 100%;
+                }
+            }
+        }
+        &.service-mobile-group_1 {
+            .service-mobile-group__background {
+                transform: translateX(100%);
+                &::before {
+                    top: 0;
+                    right: 100%;
+                    bottom: 0;
+                    left: -150%;
+                    transform: skew(-15deg);
+                    transform-origin: 100% 100%;
+                }
+            }
+        }
+        &.service-mobile-group_2 {
+            .service-mobile-group__background {
+                transform: translateX(-100%);
+                &::before {
+                    top: 0;
+                    right: -150%;
+                    bottom: 0;
+                    left: 100%;
+                    transform: skew(15deg);
+                    transform-origin: 100% 100%;
+                }
+            }
+        }
     }
+
     .active {
         opacity: 1;
         .service-mobile-group__title {
             opacity: 1;
-            transform: translateX(0%);
+            transform: translateX(0%) !important;
         }
         .service-mobile-group__background {
-            transform: translateX(0%);
+            transform: translateX(0%) !important;
+            &::before {
+                transform: skew(0) !important;
+            }
         }
     }
 }
