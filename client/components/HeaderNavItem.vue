@@ -12,8 +12,8 @@
         </div> -->
 
         <transition name="slide-fade" mode="out-in">
-            <div v-if="isHovered" class="HeaderNavItem__text" key="1">{{ item.title }}</div>
-            <nobr v-else class="HeaderNavItem__text eng" key="2">{{ item.engTitle }}</nobr>
+            <nobr v-if="!isHovered" class="HeaderNavItem__text eng" key="2">{{ item.engTitle }}</nobr>
+            <div v-else class="HeaderNavItem__text" key="1">{{ item.title }}</div>
         </transition>
     </div>
 </template>
@@ -37,7 +37,7 @@ export default {
     background: rgba(0, 0, 0, 0);
     transition: all 0.5s ease;
 
-    flex: 1;
+    // flex: 1;
 
     cursor: pointer;
 
@@ -46,14 +46,15 @@ export default {
     align-items: center;
     justify-content: center;
 
-    @include atLarge {
-        width: 120px;
+    @include atMedium {
+        width: 110px;
     }
 
     &__text {
         // border-left: 1px solid rgba(220, 221, 221, 0.4);
         color: $mainWhite;
         font-size: 10px;
+        line-height: 10px;
         text-align: center;
         // width: 20px;
         font-weight: bold;

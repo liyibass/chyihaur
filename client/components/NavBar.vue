@@ -40,6 +40,7 @@ export default {
     },
     methods: {
         navBarToggler() {
+            console.log(this.navList)
             this.navBarIsOpen = !this.navBarIsOpen
         },
     },

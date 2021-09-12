@@ -1,6 +1,11 @@
 <template>
     <div class="MainTitle">
-        <template v-if="title === 'about'">
+        <template v-if="title === 'home'">
+            <div class="MainTitle__multi_text_up" :style="{ alignSelf: 'center' }">首頁</div>
+            <div class="MainTitle__one_text">HOME</div>
+        </template>
+
+        <template v-else-if="title === 'about'">
             <div class="MainTitle__one_text">ABOUT</div>
             <div class="MainTitle__multi_text MainTitle__margin">
                 <div class="MainTitle__multi_text_up">關於淇豪</div>

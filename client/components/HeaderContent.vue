@@ -60,12 +60,13 @@ export default {
 
         @include atMedium {
             margin-bottom: 4px;
+            width: 500px;
+            height: 20px;
         }
 
         @include atLarge {
-            width: auto;
+            width: 540px;
             height: 22px;
-            // width: 394px;
         }
 
         img {

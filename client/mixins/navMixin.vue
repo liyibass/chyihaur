@@ -9,6 +9,14 @@ export default {
             navList: [
                 {
                     id: 0,
+                    title: '首頁',
+                    engTitle: 'HOME',
+                    link: 'home',
+                    key: 'home',
+                    logoUrl: require('@/static/images/logos/0.png'),
+                },
+                {
+                    id: 1,
                     title: '關於淇豪',
                     engTitle: 'ABOUT US',
                     link: 'about',

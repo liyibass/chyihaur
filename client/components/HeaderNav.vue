@@ -28,7 +28,12 @@ export default {
 
     @include atMedium {
         display: block;
-        width: 500px;
+        // width: calc(510px + 30px);
+        width: calc(510px + 10px + 30px);
+    }
+    @include atLarge {
+        display: block;
+        width: calc(540px + 10px + 35px);
     }
 
     &__wrapper {
