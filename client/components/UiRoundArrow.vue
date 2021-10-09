@@ -40,12 +40,12 @@ export default {
     }
 
     opacity: 0.5;
-    transform: scale(0.96);
+    transform: translate(-50%, 50%) scale(0.9) !important;
     transition: all 0.5s ease-in-out;
 
     &.active {
         opacity: 1;
-        transform: scale(1);
+        transform: translate(-50%, 50%) scale(1) !important;
     }
 }
 </style>

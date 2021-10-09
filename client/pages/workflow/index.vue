@@ -2,7 +2,9 @@
     <div class="workflow-page">
         <UiMainTitle title="工作流程" engTitle="WORKFLOW" />
         <div class="workflow-page__container" :style="{ background: `url(${bg})` }">
-            <div v-for="step in newWorkflowList" class="workflow-page__wrapper" :key="step.id">
+            <WorkflowSidebar :currentStepId="currentStepId" />
+
+            <div v-for="step in newWorkflowList" class="workflow-page__card-wrapper" :key="step.id">
                 <WorkflowCard
                     :id="step.id"
                     :step="step.step"
@@ -123,6 +125,21 @@ export default {
             this.currentStepId = id
         },
     },
+    mounted() {
+        const workflowSidebarScene = this.$scrollmagic
+            .scene({
+                triggerElement: '.workflow-page__container',
+                offset: 0,
+                triggerHook: 0,
+            })
+            .setClassToggle('.workflow-sidebar', 'active') // add class toggle
+
+            .on('enter', () => {})
+            .on('leave', () => {})
+
+        // .addsIndicators({ name: cardId })
+        this.$scrollmagic.addScene([workflowSidebarScene])
+    },
 }
 </script>
 
@@ -130,12 +147,27 @@ export default {
 .workflow-page {
     &__container {
         // padding: 255px 0 255px;
+        position: relative;
         background-repeat: no-repeat !important;
         background-size: cover !important;
         background-position-x: 50% !important;
+        margin-left: 73px;
+        width: calc(100% - 73px);
     }
 
-    &__wrapper {
+    .workflow-sidebar {
+        position: absolute;
+        top: 0;
+        left: -73px;
+
+        &.active {
+            position: fixed !important;
+            top: 0;
+            left: 0 !important;
+        }
+    }
+
+    &__card-wrapper {
         position: relative;
         height: 90vh;
         display: flex;

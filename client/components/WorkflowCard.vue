@@ -54,7 +54,7 @@ export default {
 .workflow-card {
     text-align: center;
     color: white;
-    opacity: 0.5;
+    opacity: 0.2;
     transition: all 0.5s ease-in-out;
 
     h1 {

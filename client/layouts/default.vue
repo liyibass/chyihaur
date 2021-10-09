@@ -21,12 +21,18 @@ export default {
 
 <style lang="scss">
 .default {
+    position: relative;
     padding-top: 42px;
     min-height: calc(100vh);
     background: $mainGreen;
 
     @include atMedium {
         padding-top: 100px;
+    }
+
+    .Footer {
+        z-index: 999;
+        position: relative;
     }
 }
 

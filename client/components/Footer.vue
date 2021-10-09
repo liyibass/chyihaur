@@ -94,6 +94,7 @@ export default {
 .Footer {
     background: rgb(107, 107, 107);
     padding: 30px 30px;
+
     &__container {
         padding: 0px 30px;
         position: relative;
