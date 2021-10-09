@@ -3,11 +3,15 @@
         <UiMainTitle title="工作流程" engTitle="WORKFLOW" />
         <div class="workflow-page__container" :style="{ background: `url(${bg})` }">
             <div v-for="step in newWorkflowList" class="workflow-page__wrapper" :key="step.id">
-                <WorkflowCard :step="step.step" :name="step.name" :detail="step.detail" />
+                <WorkflowCard
+                    :id="step.id"
+                    :step="step.step"
+                    :name="step.name"
+                    :detail="step.detail"
+                    @active="activeHandler"
+                />
 
-                <div class="workflow-page__arrow">
-                    <img :src="require('@/static/images/round-arrow.svg')" alt="" />
-                </div>
+                <UiRoundArrow />
             </div>
         </div>
     </div>
@@ -17,16 +21,21 @@
 import workflowMixin from '@/mixins/workflowMixin'
 import UiMainTitle from '@/components/UiMainTitle'
 import WorkflowCard from '@/components/WorkflowCard'
+import UiRoundArrow from '@/components/UiRoundArrow'
+import WorkflowSidebar from '@/components/WorkflowSidebar'
 import bg from '../../static/images/workflow/background.png'
 export default {
     mixins: [workflowMixin],
     components: {
         UiMainTitle,
         WorkflowCard,
+        UiRoundArrow,
+        WorkflowSidebar,
     },
     data() {
         return {
             bg,
+            currentStepId: 0,
             newWorkflowList: [
                 {
                     id: 0,
@@ -109,6 +118,11 @@ export default {
             ],
         }
     },
+    methods: {
+        activeHandler(id) {
+            this.currentStepId = id
+        },
+    },
 }
 </script>
 
@@ -121,21 +135,6 @@ export default {
         background-position-x: 50% !important;
     }
 
-    &__arrow {
-        width: 101px;
-        height: 101px;
-        // margin: 122px auto 0;
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translate(-50%, 50%);
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-    }
-
     &__wrapper {
         position: relative;
         height: 90vh;
@@ -144,9 +143,16 @@ export default {
         align-items: center;
         justify-content: center;
         &:last-child {
-            .workflow-page__arrow {
+            .round-arrow {
                 display: none !important;
             }
+        }
+
+        .round-arrow {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%, 50%);
         }
     }
 }

@@ -23,7 +23,6 @@ export default {
     },
     computed: {
         isWarehouse7() {
-            console.log(this.engTitle)
             return this.engTitle === 'WAREHOUSE 7'
         },
     },
