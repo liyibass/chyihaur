@@ -33,7 +33,7 @@ export default {
                 // },
                 {
                     id: 2,
-                    title: '流程介紹',
+                    title: '工作流程',
                     engTitle: 'WORKFLOW',
                     link: 'home/#workflow',
                     key: 'workflow',
@@ -58,7 +58,7 @@ export default {
                 {
                     id: 5,
                     title: '七號倉庫',
-                    engTitle: 'WEARHOUSE 7',
+                    engTitle: 'WAREHOUSE 7',
                     link: 'n07-warehouse',
                     key: 'n07-warehouse',
                     logoUrl: require('@/static/images/logos/4.png'),

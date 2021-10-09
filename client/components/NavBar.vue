@@ -5,10 +5,11 @@
         </transition>
 
         <div class="NavBar__container" :style="getNavContainerCSS" @click="navBarToggler">
-            <MainTitle
+            <NavbarTitle
                 v-for="(item, index) in navList"
                 :key="index"
-                :title="item.key"
+                :title="item.title"
+                :engTitle="item.engTitle"
                 :link="item.link"
                 @click.native="chooseChapter(item.link)"
             />
@@ -18,12 +19,13 @@
 
 <script>
 import MainTitle from '@/components/MainTitle'
+import NavbarTitle from '@/components/NavbarTitle'
 import NavBarBurger from '@/components/NavBarBurger'
 import navMixin from '@/mixins/navMixin'
 
 export default {
     mixins: [navMixin],
-    components: { MainTitle, NavBarBurger },
+    components: { MainTitle, NavBarBurger, NavbarTitle },
     data() {
         return {
             navBarIsOpen: false,
@@ -91,7 +93,7 @@ export default {
 
         display: flex;
         flex-direction: column;
-        align-items: flex-end;
+        align-items: center;
 
         padding: 28px 10px;
     }

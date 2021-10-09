@@ -40,8 +40,8 @@ export default {
         return {
             employee: {
                 id: 0,
-                position: 'OPERATION',
-                name: 'AA',
+                position: '',
+                name: '',
                 headerUrl: {
                     urlOriginal: require('@/static/images/logo_small.png'),
                 },

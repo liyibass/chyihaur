@@ -50,7 +50,7 @@
                 <div class="MainTitle__multi_text_up">七號倉庫</div>
                 <div class="MainTitle__multi_text_down">N07</div>
             </div>
-            <div class="MainTitle__one_text MainTitle__margin">WEARHOUSE</div>
+            <div class="MainTitle__one_text MainTitle__margin">WAREHOUSE</div>
         </template>
     </div>
 </template>
