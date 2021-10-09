@@ -15,7 +15,38 @@
                 "headers": [
                     {
                         "key": "Cache-Control",
-                        "value": "max-age = 3600"
+                        "value": "max-age = 3600 s-maxage ="
+                    }
+                ]
+            },
+            {
+                "source": "**/*.@(eot|otf|ttf|ttc|woff|font.css)",
+                "headers": [
+                    {
+                        "key": "Access-Control-Allow-Origin",
+                        "value": "*"
+                    },
+                    {
+                        "key": "Cache-Control",
+                        "value": "max-age = 31536000"
+                    }
+                ]
+            },
+            {
+                "source": "**/*.@(mp4)",
+                "headers": [
+                    {
+                        "key": "Cache-Control",
+                        "value": "max-age = 31536000"
+                    }
+                ]
+            },
+            {
+                "source": "**/*.@(jpg|jpeg|gif|png)",
+                "headers": [
+                    {
+                        "key": "Cache-Control",
+                        "value": "max-age = 31536000"
                     }
                 ]
             }
