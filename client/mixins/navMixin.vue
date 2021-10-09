@@ -35,7 +35,7 @@ export default {
                     id: 2,
                     title: '工作流程',
                     engTitle: 'WORKFLOW',
-                    link: 'home/#workflow',
+                    link: 'workflow',
                     key: 'workflow',
                     logoUrl: require('@/static/images/logos/2.png'),
                 },
