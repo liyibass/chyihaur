@@ -151,15 +151,23 @@ export default {
         background-repeat: no-repeat !important;
         background-size: cover !important;
         background-position-x: 50% !important;
-        margin-left: 73px;
-        width: calc(100% - 73px);
+        margin-left: 50px;
+        width: calc(100% - 50px);
+
+        @include atSmall {
+            margin-left: 73px;
+            width: calc(100% - 73px);
+        }
     }
 
     .workflow-sidebar {
         position: absolute;
         top: 0;
-        left: -73px;
+        left: -50px;
 
+        @include atSmall {
+            left: -73px;
+        }
         &.active {
             position: fixed !important;
             top: 0;

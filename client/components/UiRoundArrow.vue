@@ -29,9 +29,14 @@ export default {
 
 <style lang="scss" scoped>
 .round-arrow {
-    width: 101px;
-    height: 101px;
+    width: 71px;
+    height: 71px;
     // margin: 122px auto 0;
+
+    @include atSmall {
+        width: 101px;
+        height: 101px;
+    }
 
     img {
         width: 100%;

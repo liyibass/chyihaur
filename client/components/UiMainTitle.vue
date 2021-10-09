@@ -38,18 +38,18 @@ export default {
         font-size: 30px;
         font-family: Broadwell;
         color: $mainWhite;
-        margin-bottom: 10px;
 
-        @include atSmall {
+        @include atMedium {
             font-size: 60px;
             line-height: 73px;
+            margin-bottom: 10px;
         }
 
         span {
             font-size: 20px;
             line-height: 20px;
 
-            @include atSmall {
+            @include atMedium {
                 font-size: 36px;
             }
         }
@@ -59,7 +59,7 @@ export default {
         font-size: 20px;
         color: $mainWhite;
         font-family: GenYoGothicTW;
-        @include atSmall {
+        @include atMedium {
             font-size: 36px;
             line-height: 43px;
         }

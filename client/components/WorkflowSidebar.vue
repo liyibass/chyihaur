@@ -44,8 +44,12 @@ export default {
 <style lang="scss" scoped>
 .workflow-sidebar {
     height: 100vh;
-    width: 73px;
+    width: 50px;
     background: rgb(27, 90, 125);
+
+    @include atSmall {
+        width: 73px;
+    }
 
     display: flex;
     flex-direction: column;
@@ -57,13 +61,22 @@ export default {
         writing-mode: vertical-rl;
         text-orientation: mixed;
         font-family: Broadwell;
-        font-size: 48px;
-        margin-bottom: 40px;
+        font-size: 28px;
+        margin-bottom: 20px;
+
+        @include atSmall {
+            font-size: 48px;
+            margin-bottom: 40px;
+        }
     }
 
     p {
         writing-mode: vertical-rl;
-        font-size: 24px;
+        font-size: 16px;
+
+        @include atSmall {
+            font-size: 24px;
+        }
     }
 }
 

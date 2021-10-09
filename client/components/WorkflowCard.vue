@@ -69,6 +69,7 @@ export default {
 
     p {
         font-size: 15px;
+        padding: 10px;
         @include atMedium {
             font-size: 25px;
         }
