@@ -2,7 +2,7 @@
     <div class="AboutPage">
         <div class="AboutPage__color_bar" />
 
-        <UiEmployeeContainer :employeeGroupObject="employeeGroupObject" />
+        <UiEmployeeContainer :allPositions="allPositions" />
     </div>
 </template>
 
@@ -10,51 +10,27 @@
 import UiEmployeeContainer from '@/components/UiEmployeeContainer'
 import employeeMixin from '../../mixins/employeeMixin'
 import { fetchEmployees } from '~/apollo/queries/employee.gql'
+import { fetchAllPositions } from '~/apollo/queries/position.gql'
 
 export default {
     components: {
         UiEmployeeContainer,
     },
     mixins: [employeeMixin],
+    apollo: {
+        allPositions: {
+            query: fetchAllPositions,
+            update: (data) => {
+                const allPositions = data?.allPositions
+
+                return allPositions
+            },
+        },
+    },
     data() {
         return {
-            employeeGroupObject: {},
+            allPositions: [],
         }
-    },
-    apollo: {
-        employeeGroupObject: {
-            query: fetchEmployees,
-            variables() {
-                return {
-                    first: 10,
-                    skip: 0,
-                }
-            },
-            update: (data) => {
-                console.log(data)
-                const employeeList = data?.allEmployees
-                let groupList = {}
-
-                employeeList.forEach((employee) => {
-                    const position = employee.position.engName
-                    const prevChild = groupList[position]?.child || []
-
-                    const child = [...prevChild, employee]
-
-                    groupList[position] = {
-                        title: position,
-                        child,
-                    }
-                })
-
-                return groupList
-            },
-        },
-    },
-    watch: {
-        employeeGroupObject: function(val) {
-            console.log(val)
-        },
     },
 }
 </script>

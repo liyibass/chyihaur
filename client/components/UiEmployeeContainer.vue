@@ -1,10 +1,10 @@
 <template>
     <div class="UiEmployeeContainer">
-            <UiEmployeeGroup  :employeeGroup="employeeGroupObject['OPERATION']" />
-            <UiEmployeeGroup  :employeeGroup="employeeGroupObject['DESIGN']" />
-            <UiEmployeeGroup  :employeeGroup="employeeGroupObject['TECHNICIAN']" />
-            <UiEmployeeGroup  :employeeGroup="employeeGroupObject['MARKETING']" />
-        </div>
+        <UiEmployeeGroup
+            v-for="employeeGroup in allPositions"
+            :key="employeeGroup.name"
+            :employeeGroup="employeeGroup"
+        />
     </div>
 </template>
 
@@ -14,16 +14,14 @@ import UiEmployeeGroup from '@/components/UiEmployeeGroup'
 
 export default {
     props: {
-        employeeGroupObject: {
-            type: Object,
-            isRequired: true,  
+        allPositions: {
+            type: Array,
+            isRequired: true,
         },
     },
     components: {
         UiEmployeeGroup,
     },
- 
- 
 }
 </script>
 

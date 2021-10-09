@@ -1,11 +1,11 @@
 <template>
     <div class="UiEmployeeGroup">
         <div class="UiEmployeeGroup__title">
-            {{ employeeGroup.title }}
+            {{ employeeGroup.name }}
         </div>
 
         <div class="UiEmployeeGroup__container">
-            <UiEmployeeCard v-for="employee in employeeGroup.child" :key="employee.id" :employee="employee" />
+            <UiEmployeeCard v-for="employee in employeeGroup.employee" :key="employee.id" :employee="employee" />
         </div>
     </div>
 </template>
@@ -23,13 +23,9 @@ export default {
             isRequired: true,
             default: () => {
                 return {
-                    id: 0,
-                    position: 'OPERATION',
-                    name: 'AA',
-                    snapshotUrl: {
-                        urlOriginal:
-                            'https://cdn.neard.com/t/51e479/f/640x0/filters:extract_cover()/https://attachment-storage.neard.com/9cea60fd3cbfd0f5149a785feda81c98.jpg',
-                    },
+                    name: '',
+                    engName: '',
+                    employee: [],
                 }
             },
         },

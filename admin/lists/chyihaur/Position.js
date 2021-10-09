@@ -1,5 +1,5 @@
 // const { access } = require('./Permission.js');
-const { Text } = require('@keystonejs/fields')
+const { Text, Relationship } = require('@keystonejs/fields')
 
 module.exports = {
   fields: {
@@ -12,6 +12,12 @@ module.exports = {
       label: '職位英文名稱',
       type: Text,
       isRequired: true,
+    },
+    employee: {
+      label: '員工',
+      type: Relationship,
+      ref: 'Employee.position',
+      many: true,
     },
   },
 }

@@ -1,0 +1,18 @@
+query fetchAllPositions {
+    allPositions {
+        name
+        engName
+        employee {
+            id
+            name
+            engName
+            position {
+                name
+                engName
+            }
+            snapshotUrl {
+                urlOriginal
+            }
+        }
+    }
+}

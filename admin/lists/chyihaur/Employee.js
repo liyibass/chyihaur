@@ -16,7 +16,7 @@ module.exports = {
     position: {
       label: '職位',
       type: Relationship,
-      ref: 'Position',
+      ref: 'Position.employee',
       isRequired: true,
     },
     snapshotUrl: {
