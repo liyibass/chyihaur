@@ -7,11 +7,12 @@
                 <span v-for="nav in navs" :key="nav.id" @click="navHandler(nav.url)">{{ nav.title }}</span>
             </div>
 
-            <div class="Footer__link">
+            <div class="Footer__link Footer__link_desktop">
                 <a class="Footer__link_icon" v-for="link in links" :key="link.id" :href="link.url" target="_blank">
                     <img :src="link.logo" alt="" />
                 </a>
             </div>
+
             <div class="Footer__info">
                 <div class="Footer__info_wrapper">
                     <div class="Footer__info_card">
@@ -39,6 +40,13 @@
                     </div>
                 </div>
             </div>
+
+            <div class="Footer__link Footer__link_mobile">
+                <a class="Footer__link_icon" v-for="link in links" :key="link.id" :href="link.url" target="_blank">
+                    <img :src="link.logo" alt="" />
+                </a>
+            </div>
+
             <div class="Footer__logo">
                 <img :src="require('@/static/images/business-card.png')" alt="" />
             </div>
@@ -87,7 +95,7 @@ export default {
     background: rgb(107, 107, 107);
     padding: 30px 30px;
     &__container {
-        padding: 30px 30px;
+        padding: 0px 30px;
         position: relative;
         display: flex;
         flex-direction: column;
@@ -123,18 +131,23 @@ export default {
 
     &__nav {
         color: $mainWhite;
-        display: flex;
         flex-direction: column;
         align-items: center;
-        font-size: 18px;
+        font-size: 9px;
         line-height: 36px;
         font-weight: bold;
         margin-bottom: 60px;
         cursor: pointer;
+        display: none;
 
         @include atMedium {
+            display: flex;
             margin-bottom: 0;
             align-items: flex-start;
+        }
+
+        @include atLarge {
+            font-size: 18px;
         }
     }
 
@@ -142,7 +155,7 @@ export default {
         width: 135px;
         display: flex;
         justify-content: space-between;
-        margin-bottom: 70px;
+        margin-bottom: 24px;
 
         @include atMedium {
             margin: 0 40px;
@@ -152,7 +165,17 @@ export default {
         @include atSuperLarge {
             width: 155px;
         }
-
+        &.Footer__link_mobile {
+            @include atMedium {
+                display: none;
+            }
+        }
+        &.Footer__link_desktop {
+            display: none;
+            @include atMedium {
+                display: flex;
+            }
+        }
         &_icon {
             width: 36px;
             height: 36px;
@@ -164,7 +187,7 @@ export default {
     }
 
     &__info {
-        margin-bottom: 70px;
+        margin-bottom: 22px;
         display: flex;
         flex-direction: column;
         flex-grow: 1;
@@ -190,18 +213,22 @@ export default {
 
         &_card {
             text-align: center;
-            font-size: 18px;
+            font-size: 9px;
             line-height: 21.6px;
-            margin-bottom: 15px;
+            margin-bottom: 9px;
             @include atLarge {
+                font-size: 18px;
                 text-align: left;
                 margin: 8px;
             }
             color: $mainWhite;
             h6 {
-                font-size: 18px;
-                line-height: 21.6px;
+                font-size: 9px;
                 font-weight: bold;
+
+                @include atLarge {
+                    font-size: 18px;
+                }
             }
         }
     }
