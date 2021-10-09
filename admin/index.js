@@ -76,8 +76,8 @@ module.exports = {
     new GraphQLApp({
       apollo: {
         cacheControl: {
-          defaultMaxAge: 60,
-          // defaultMaxAge: 3600,
+          // defaultMaxAge: 60,
+          defaultMaxAge: 3600,
         },
       },
     }),

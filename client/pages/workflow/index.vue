@@ -137,7 +137,7 @@ export default {
             .on('enter', () => {})
             .on('leave', () => {})
 
-        // .addsIndicators({ name: cardId })
+        // .addIndicators({ name: cardId })
         this.$scrollmagic.addScene([workflowSidebarScene])
     },
 }
@@ -168,6 +168,7 @@ export default {
         @include atSmall {
             left: -73px;
         }
+
         &.active {
             position: fixed !important;
             top: 0;

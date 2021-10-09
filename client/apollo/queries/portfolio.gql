@@ -13,11 +13,7 @@ mutation updateImages($data: [ImagesUpdateInput]) {
 }
 
 query fetchPortfolios($first: Int, $skip: Int) {
-    allPortfolios: allPortfolios(
-        first: $first
-        skip: $skip
-        sortBy: date_DESC
-    ) {
+    allPortfolios: allPortfolios(first: $first, skip: $skip, sortBy: date_DESC) {
         id
         name
         date
@@ -35,5 +31,10 @@ query fetchPortfolio($id: ID!) {
         }
 
         descriptionApiData
+    }
+}
+query fetchPortfolioMetaCount {
+    _allPortfoliosMeta {
+        count
     }
 }

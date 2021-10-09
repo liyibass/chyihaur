@@ -21,7 +21,7 @@ export default {
             .on('enter', () => {})
             .on('leave', () => {})
 
-        // .addsIndicators({ name: cardId })
+        // .addIndicators({ name: cardId })
         this.$scrollmagic.addScene([roundArrowScene])
     },
 }

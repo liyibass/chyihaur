@@ -121,7 +121,11 @@ class ImageAdapter extends MediaAdapter {
     return new Promise((resolve, reject) => {
       const gcsUploadPath = `${imageUrlBase}${fileName}`
       const file = this.bucket.file(gcsUploadPath) //get the upload path
-      const write = file.createWriteStream()
+      const write = file.createWriteStream({
+        metadata: {
+          'max-age': '2592000',
+        },
+      })
 
       stream.pipe(write)
 

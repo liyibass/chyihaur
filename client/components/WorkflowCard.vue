@@ -44,7 +44,7 @@ export default {
             })
             .on('leave', () => {})
 
-        // .addsIndicators({ name: cardId })
+        // .addIndicators({ name: cardId })
         this.$scrollmagic.addScene([workflowCardScene])
     },
 }

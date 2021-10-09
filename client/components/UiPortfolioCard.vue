@@ -1,6 +1,6 @@
 <template>
     <div class="UiPortfolioCard" ref="card" @click="goToPortfolioPage" :style="{ flex: getRandomFlexSize }">
-        <img :src="coverPhoto" :alt="portfolio.name" />
+        <img v-lazy="coverPhoto" :alt="portfolio.name" />
         <h1>{{ portfolio.name }}</h1>
     </div>
 </template>
