@@ -2,9 +2,10 @@
     <div class="PortfolioPage">
         <div class="color_bar" />
 
-        <div class="PortfolioPage__title">
+        <!-- <div class="PortfolioPage__title">
             <img :src="require('@/static/images/portfolio/title.png')" alt="" srcset="" />
-        </div>
+        </div> -->
+        <UiMainTitle title="作品範例" engTitle="PORTFOLIO" />
 
         <UiPortfolioContainer :portfolioList="portfolioList" />
     </div>
@@ -14,9 +15,11 @@
 import UiPortfolioContainer from '@/components/UiPortfolioContainer'
 import portfolioMixin from '../../mixins/portfolioMixin'
 import { fetchPortfolios } from '~/apollo/queries/portfolio.gql'
+import UiMainTitle from '@/components/UiMainTitle'
 export default {
     components: {
         UiPortfolioContainer,
+        UiMainTitle,
     },
     mixins: [portfolioMixin],
     data() {

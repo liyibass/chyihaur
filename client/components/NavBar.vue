@@ -5,7 +5,7 @@
         </transition>
 
         <div class="NavBar__container" :style="getNavContainerCSS" @click="navBarToggler">
-            <NavbarTitle
+            <UiMainTitle
                 v-for="(item, index) in navList"
                 :key="index"
                 :title="item.title"
@@ -19,13 +19,13 @@
 
 <script>
 import MainTitle from '@/components/MainTitle'
-import NavbarTitle from '@/components/NavbarTitle'
+import UiMainTitle from '@/components/UiMainTitle'
 import NavBarBurger from '@/components/NavBarBurger'
 import navMixin from '@/mixins/navMixin'
 
 export default {
     mixins: [navMixin],
-    components: { MainTitle, NavBarBurger, NavbarTitle },
+    components: { MainTitle, NavBarBurger, UiMainTitle },
     data() {
         return {
             navBarIsOpen: false,

@@ -1,12 +1,12 @@
 <template>
     <div v-if="!isWarehouse7" class="navbar-title">
         <h1>{{ engTitle }}</h1>
-        <!-- prettier-ignore -->
+
         <p><span>〔</span>{{ title }}<span>〕</span></p>
     </div>
     <div v-else class="navbar-title">
         <h1><span>NO7</span> WAREHOUSE</h1>
-        <!-- prettier-ignore -->
+
         <p><span>〔</span>{{ title }}<span>〕</span></p>
     </div>
 </template>
@@ -33,12 +33,13 @@ export default {
 <style lang="scss" scoped>
 .navbar-title {
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     cursor: pointer;
     h1 {
         font-size: 30px;
         font-family: Broadwell;
         color: $mainWhite;
+        margin-bottom: 10px;
 
         @include atSmall {
             font-size: 60px;
