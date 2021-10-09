@@ -39,6 +39,10 @@ export default {
             .on('progress', (e) => {})
         // .addIndicators({ name: 'workflowScene' })
         this.$scrollmagic.addScene([videoScene])
+        this.videoScene = videoScene
+    },
+    destroyed() {
+        this.$scrollmagic.removeScene([this.videoScene])
     },
 }
 </script>

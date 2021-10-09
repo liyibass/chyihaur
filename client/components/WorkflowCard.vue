@@ -30,7 +30,7 @@ export default {
     mounted() {
         const cardId = `#workflow-card-${this.id}`
 
-        const workflowCardScene = this.$scrollmagic
+        this.workflowCardScene = this.$scrollmagic
             .scene({
                 triggerElement: cardId,
                 offset: 0,
@@ -45,7 +45,10 @@ export default {
             .on('leave', () => {})
 
         // .addIndicators({ name: cardId })
-        this.$scrollmagic.addScene([workflowCardScene])
+        this.$scrollmagic.addScene([this.workflowCardScene])
+    },
+    destroyed() {
+        this.$scrollmagic.removeScene([this.workflowCardScene])
     },
 }
 </script>

@@ -9,7 +9,7 @@ export default {
     mounted() {
         const arrowDOM = this.$refs['round-arrow']
 
-        const roundArrowScene = this.$scrollmagic
+        this.roundArrowScene = this.$scrollmagic
             .scene({
                 triggerElement: arrowDOM,
                 offset: 0,
@@ -22,7 +22,10 @@ export default {
             .on('leave', () => {})
 
         // .addIndicators({ name: cardId })
-        this.$scrollmagic.addScene([roundArrowScene])
+        this.$scrollmagic.addScene([this.roundArrowScene])
+    },
+    destroyed() {
+        this.$scrollmagic.removeScene([this.roundArrowScene])
     },
 }
 </script>

@@ -73,7 +73,6 @@ export default {
             const linkArray = link.split('#')
             const linkIsAnId = linkArray.length > 1
             if (linkIsAnId) {
-                console.log(this.$route.name)
                 if (this.$route.name !== 'home') this.$router.push('/home')
 
                 // const myEl = document.getElementById(`${linkArray[1]}`)

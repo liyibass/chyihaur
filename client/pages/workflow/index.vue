@@ -126,7 +126,7 @@ export default {
         },
     },
     mounted() {
-        const workflowSidebarScene = this.$scrollmagic
+        this.workflowSidebarScene = this.$scrollmagic
             .scene({
                 triggerElement: '.workflow-page__container',
                 offset: 0,
@@ -138,7 +138,10 @@ export default {
             .on('leave', () => {})
 
         // .addIndicators({ name: cardId })
-        this.$scrollmagic.addScene([workflowSidebarScene])
+        this.$scrollmagic.addScene([this.workflowSidebarScene])
+    },
+    destroyed() {
+        this.$scrollmagic.removeScene([this.workflowSidebarScene])
     },
 }
 </script>

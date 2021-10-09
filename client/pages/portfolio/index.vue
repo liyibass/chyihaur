@@ -33,7 +33,6 @@ export default {
             isLoading: false,
             portfolioList: [],
             portfolioListMetaCount: 0,
-            portfolioListScene: {},
         }
     },
     apollo: {

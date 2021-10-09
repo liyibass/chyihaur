@@ -23,15 +23,13 @@ export default {
     },
 
     computed: {
-        setLogoColor() {
-            console.log(this.color)
-        },
+        setLogoColor() {},
     },
 
     mounted() {
         const cardId = `#service-card-${this.service.id}`
 
-        const serviceCardScene = this.$scrollmagic
+        this.serviceCardScene = this.$scrollmagic
             .scene({
                 triggerElement: cardId,
                 offset: 0,
@@ -44,7 +42,10 @@ export default {
             .on('leave', () => {})
 
         // .addIndicators({ name: cardId })
-        this.$scrollmagic.addScene([serviceCardScene])
+        this.$scrollmagic.addScene([this.serviceCardScene])
+    },
+    destroyed() {
+        this.$scrollmagic.removeScene([this.serviceCardScene])
     },
 }
 </script>

@@ -42,7 +42,7 @@ export default {
 
     mounted() {
         // import slashBlockMixin from '@/mixins/slashBlockMixin'
-        const leftBlockScene = this.$scrollmagic
+        this.leftBlockScene = this.$scrollmagic
             .scene({
                 triggerElement: '.AboutNew',
                 offset: 0,
@@ -54,7 +54,7 @@ export default {
 
         // .addIndicators({ name: 'leftBlockScene' })
 
-        const rightBlockScene = this.$scrollmagic
+        this.rightBlockScene = this.$scrollmagic
             .scene({
                 triggerElement: '.AboutNew',
                 offset: 0,
@@ -64,7 +64,7 @@ export default {
             })
             .setClassToggle('.AboutNew__right_block', 'block_visible') // add class to block
 
-        const backgroundScene = this.$scrollmagic
+        this.backgroundScene = this.$scrollmagic
             .scene({
                 triggerElement: '.AboutNew',
                 offset: 0,
@@ -75,7 +75,10 @@ export default {
             .setClassToggle('.AboutNew__background', 'background_visible') // add class to block
         // .addIndicators({ name: 'rightBlockScene' })
 
-        this.$scrollmagic.addScene([leftBlockScene, rightBlockScene, backgroundScene])
+        this.$scrollmagic.addScene([this.leftBlockScene, this.rightBlockScene, this.backgroundScene])
+    },
+    destroyed() {
+        this.$scrollmagic.removeScene([this.leftBlockScene, this.rightBlockScene, this.backgroundScene])
     },
 }
 </script>

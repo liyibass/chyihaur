@@ -67,7 +67,6 @@ export default {
             return this.currentAnimate >= this.cardArray[0].id + 1
         },
         lightCss() {
-            console.log(this.currentAnimate)
             const firstCardId = this.cardArray[0].id
             const lastCardId = this.cardArray[this.cardArray.length - 1].id
             if (this.currentAnimate >= firstCardId + 1) {

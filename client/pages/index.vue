@@ -31,7 +31,6 @@ export default {
     },
     watch: {
         loaded: function(val) {
-            console.log(val)
             this.$router.push('/home')
         },
     },

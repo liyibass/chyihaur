@@ -50,6 +50,10 @@ export default {
             .setClassToggle('.UiSlashBlock__right_block_3', 'visible') // add class to block
 
         this.$scrollmagic.addScene([leftBlockScene, rightBlockScene])
+        this.slashBlockArrayScene = [leftBlockScene, rightBlockScene]
+    },
+    destroyed() {
+        this.$scrollmagic.removeScene(this.slashBlockArrayScene)
     },
 }
 </script>

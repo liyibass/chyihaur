@@ -208,6 +208,10 @@ export default {
         }
 
         this.$scrollmagic.addScene(sceneArray)
+        this.serviceTitleArrayScene = sceneArray
+    },
+    destroyed() {
+        this.$scrollmagic.removeScene(this.serviceTitleArrayScene)
     },
 }
 </script>

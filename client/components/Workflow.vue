@@ -49,7 +49,7 @@ export default {
     },
 
     mounted() {
-        const workflowScene = this.$scrollmagic
+        this.workflowScene = this.$scrollmagic
             .scene({
                 triggerElement: '.workflow',
                 offset: 0,
@@ -79,7 +79,10 @@ export default {
                 }
             })
         // .addIndicators({ name: 'workflowScene' })
-        this.$scrollmagic.addScene([workflowScene])
+        this.$scrollmagic.addScene([this.workflowScene])
+    },
+    destroyed() {
+        this.$scrollmagic.removeScene([this.workflowScene])
     },
 }
 </script>
