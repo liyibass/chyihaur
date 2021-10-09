@@ -10,7 +10,7 @@ export default {
     data() {
         return {
             video: {
-                url: require('@/static/videos/0.mp4'),
+                url: require('@/static/videos/1.mp4'),
             },
         }
     },
