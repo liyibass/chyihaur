@@ -64,7 +64,7 @@ export default {
                     title: '設計',
                     titleImage: require('@/static/images/service/service_title_1.png'),
                     engTitle: 'DESIGN',
-                    backgroundUrl: require('@/static/images/service1.jpg'),
+                    backgroundUrl: require('@/static/images/service01.jpg'),
                     serviceList: [
                         {
                             id: 0,
@@ -108,7 +108,7 @@ export default {
                     title: '工程',
                     titleImage: require('@/static/images/service/service_title_2.png'),
                     engTitle: 'PROJECT',
-                    backgroundUrl: require('@/static/images/service2.jpg'),
+                    backgroundUrl: require('@/static/images/service02.jpg'),
 
                     serviceList: [
                         {
@@ -142,7 +142,7 @@ export default {
                     title: '影像',
                     titleImage: require('@/static/images/service/service_title_3.png'),
                     engTitle: 'PHOTOGRAPH',
-                    backgroundUrl: require('@/static/images/service3.jpg'),
+                    backgroundUrl: require('@/static/images/service03.jpg'),
 
                     serviceList: [
                         {
