@@ -1,5 +1,5 @@
 // const { access } = require('./Permission.js');
-const { Text, Relationship } = require('@keystonejs/fields')
+const { Text, Relationship, Integer } = require('@keystonejs/fields')
 
 module.exports = {
   fields: {
@@ -13,11 +13,21 @@ module.exports = {
       type: Text,
       isRequired: true,
     },
+    order: {
+      label: '前台顯示順序',
+      type: Integer,
+      isRequired: true,
+      // isUnique: true,
+    },
     employee: {
       label: '員工',
       type: Relationship,
       ref: 'Employee.position',
       many: true,
     },
+  },
+  adminConfig: {
+    defaultColumns: 'name,engName,order',
+    defaultSort: 'order',
   },
 }

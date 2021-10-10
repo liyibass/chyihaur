@@ -1,7 +1,8 @@
 query fetchAllPositions {
-    allPositions {
+    allPositions(orderBy: "order_desc") {
         name
         engName
+        order
         employee {
             id
             name
