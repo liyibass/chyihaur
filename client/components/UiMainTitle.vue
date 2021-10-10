@@ -59,13 +59,14 @@ export default {
         font-size: 20px;
         color: $mainWhite;
         font-family: GenYoGothicTW;
+        font-weight: bold;
         @include atMedium {
             font-size: 36px;
             line-height: 43px;
         }
 
         span {
-            padding: 0 21px;
+            padding: 0 18px;
         }
     }
 }

@@ -214,9 +214,9 @@ export default {
 
         &_card {
             text-align: center;
-            font-size: 9px;
+            font-size: 16px;
             line-height: 21.6px;
-            margin-bottom: 9px;
+            margin-bottom: 16px;
             @include atLarge {
                 font-size: 18px;
                 text-align: left;
@@ -224,7 +224,7 @@ export default {
             }
             color: $mainWhite;
             h6 {
-                font-size: 9px;
+                font-size: 16px;
                 font-weight: bold;
 
                 @include atLarge {

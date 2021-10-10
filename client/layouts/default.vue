@@ -31,7 +31,7 @@ export default {
     }
 
     .Footer {
-        z-index: 999;
+        z-index: 100;
         position: relative;
     }
 }
