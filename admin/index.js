@@ -7,10 +7,6 @@ const { StaticApp } = require('@keystonejs/app-static')
 const cors = require('cors')
 const cron = require('node-cron')
 
-cron.schedule('* * * * *', () => {
-  console.log('running a task every minute')
-})
-
 const { createItems } = require('@keystonejs/server-side-graphql-client')
 
 const { app, admin, mongoUri, session } = require('./configs/config')
@@ -74,6 +70,22 @@ const authStrategy = keystone.createAuthStrategy({
 const corsOptions = {
   origin: false,
 }
+
+cron.schedule('* * * * *', async () => {
+  try {
+    const { data, errors } = await keystone.executeGraphQL({
+      query: `
+      query{
+        allPositions{
+          name
+        }
+      }`,
+    })
+    console.log(data.allPositions)
+  } catch (error) {
+    console.log(error.message)
+  }
+})
 
 module.exports = {
   keystone,
