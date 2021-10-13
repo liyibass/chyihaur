@@ -5,6 +5,11 @@ const { GraphQLApp } = require('@keystonejs/app-graphql')
 const { AdminUIApp } = require('@keystonejs/app-admin-ui')
 const { StaticApp } = require('@keystonejs/app-static')
 const cors = require('cors')
+const cron = require('node-cron')
+
+cron.schedule('* * * * *', () => {
+  console.log('running a task every minute')
+})
 
 const { createItems } = require('@keystonejs/server-side-graphql-client')
 
