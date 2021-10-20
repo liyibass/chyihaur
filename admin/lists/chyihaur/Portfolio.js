@@ -43,7 +43,6 @@ module.exports = {
     }) => {
       if (resolvedData && resolvedData.description) {
         const draftData = JSON.parse(resolvedData.description)
-
         resolvedData.descriptionApiData = JSON.stringify(draftData.apiData)
       }
 

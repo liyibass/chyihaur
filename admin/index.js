@@ -71,7 +71,7 @@ const corsOptions = {
   origin: false,
 }
 
-cron.schedule('* * * * *', async () => {
+cron.schedule('1,10,20,30,40,50 * * * *', async () => {
   try {
     const { data, errors } = await keystone.executeGraphQL({
       query: `
@@ -81,7 +81,8 @@ cron.schedule('* * * * *', async () => {
         }
       }`,
     })
-    console.log(data.allPositions)
+    console.log('fetch by cron : ')
+    console.log(data.allPositions[0])
   } catch (error) {
     console.log(error.message)
   }
