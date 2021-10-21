@@ -38,6 +38,7 @@ export default {
 <style lang="scss" scoped>
 .AboutPage {
     background: $mainGreen;
+    min-height: 90vh;
 
     &__color_bar {
         background: $mainBlue;

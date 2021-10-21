@@ -1,6 +1,6 @@
 <template>
-    <div class="video">
-        <video class="video__player" :src="video.url" loop muted playsinline></video>
+    <div class="video" ref="video">
+        <video class="video__player" :src="videoSrc" loop muted playsinline></video>
     </div>
 </template>
 
@@ -9,11 +9,28 @@ import 'intersection-observer'
 export default {
     data() {
         return {
+            isMobile: true,
             video: {
                 url: require('@/static/videos/1.mp4'),
             },
         }
     },
+    created() {
+        if (document.body.clientWidth > 480) {
+            this.isMobile = false
+        }
+    },
+
+    computed: {
+        videoSrc() {
+            if (this.isMobile) {
+                return require('@/static/videos/mobile.mp4')
+            } else {
+                return require('@/static/videos/1.mp4')
+            }
+        },
+    },
+
     mounted() {
         const videoDOM = document.querySelector('.video__player')
         videoDOM.addEventListener('loadeddata', () => {
