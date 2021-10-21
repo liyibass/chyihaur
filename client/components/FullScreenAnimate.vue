@@ -19,25 +19,50 @@ export default {
     data() {
         return {
             currentAnimation: 1,
+            isMobile: true,
+        }
+    },
+    created() {
+        if (document.body.clientWidth > 480) {
+            this.isMobile = false
         }
     },
     computed: {
         animationCss() {
-            switch (this.currentAnimation) {
-                case 1:
-                    return { width: '329px', height: '212px', opacity: 1 }
-                case 2:
-                    return { width: '212px', height: '212px', opacity: 1 }
-                case 3:
-                    return { width: '212px', height: '470px', opacity: 1 }
-                case 4:
-                    return { width: '616px', height: '212px', opacity: 1 }
-                case 5:
-                    return { width: '329px', height: '212px', opacity: 1 }
-                case 6:
-                    return { width: '329px', height: '212px', opacity: 0 }
-                default:
-                    return { width: '329px', height: '212px', opacity: 0 }
+            if (this.isMobile) {
+                switch (this.currentAnimation) {
+                    case 1:
+                        return { width: '230px', height: '150px' }
+                    case 2:
+                        return { width: '150px', height: '150px' }
+                    case 3:
+                        return { width: '150px', height: '250px' }
+                    case 4:
+                        return { width: '330px', height: '150px' }
+                    case 5:
+                        return { width: '230px', height: '150px' }
+                    case 6:
+                        return { width: '230px', height: '150px', opacity: '0' }
+                    default:
+                        return { width: '230px', height: '150px', opacity: '0' }
+                }
+            } else {
+                switch (this.currentAnimation) {
+                    case 1:
+                        return { width: '329px', height: '212px', opacity: 1 }
+                    case 2:
+                        return { width: '212px', height: '212px', opacity: 1 }
+                    case 3:
+                        return { width: '212px', height: '470px', opacity: 1 }
+                    case 4:
+                        return { width: '616px', height: '212px', opacity: 1 }
+                    case 5:
+                        return { width: '329px', height: '212px', opacity: 1 }
+                    case 6:
+                        return { width: '329px', height: '212px', opacity: 0 }
+                    default:
+                        return { width: '329px', height: '212px', opacity: 0 }
+                }
             }
         },
     },
@@ -94,49 +119,72 @@ export default {
         z-index: 1;
         margin-top: 30vh;
         position: relative;
-        width: 616px;
-        height: 212px;
-        // background: red;
-        border: 12px solid black;
+        width: 230px;
+        height: 150px;
+        border: 7px solid black;
         transition: all 0.4s ease-in-out;
         opacity: 1;
         background: rgb(238, 238, 238);
 
-        transform: scale(0.6);
         transform-origin: top;
         @include atSmall {
-            transform: scale(1);
+            width: 616px;
+            height: 212px;
+            border: 12px solid black;
         }
 
         &_degree {
             position: absolute;
-            top: 16px;
-            left: 16px;
-            width: 44px;
-            height: 44px;
             border-radius: 50%;
-            border: 10px solid black;
+            top: 13px;
+            left: 13px;
+            width: 30px;
+            height: 30px;
+            border: 7px solid black;
+
+            @include atSmall {
+                top: 16px;
+                left: 16px;
+                width: 44px;
+                height: 44px;
+                border: 10px solid black;
+            }
         }
 
         &_c {
             position: absolute;
-            bottom: 16px;
-            left: 16px;
-            width: calc(100% - (2 * 16px));
-            height: 60px;
-            border: 12px solid black;
+            bottom: 13px;
+            left: 13px;
+            width: calc(100% - (2 * 13px));
+            height: 40px;
+            border: 7px solid black;
             border-right: none;
+            @include atSmall {
+                bottom: 16px;
+                left: 16px;
+                height: 60px;
+                border: 12px solid black;
+                width: calc(100% - (2 * 16px));
+            }
         }
 
         &_h {
             position: absolute;
-            top: 16px;
-            right: 16px;
-            width: 60px;
-            height: calc(100% - (2 * 16px));
-            border: 12px solid black;
+            top: 13px;
+            right: 13px;
+            width: 40px;
+            height: calc(100% - (2 * 13px));
+            border: 7px solid black;
             border-top: none;
             border-bottom: none;
+
+            @include atSmall {
+                top: 16px;
+                right: 16px;
+                width: 60px;
+                border: 12px solid black;
+                height: calc(100% - (2 * 16px));
+            }
         }
     }
 }
