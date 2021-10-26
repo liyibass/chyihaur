@@ -101,10 +101,10 @@ export default {
     }
 
     &__title {
-        font-size: 12px;
+        font-size: 16px;
 
         @include atSmall {
-            font-size: 14px;
+            font-size: 16px;
         }
 
         @include atLarge {
