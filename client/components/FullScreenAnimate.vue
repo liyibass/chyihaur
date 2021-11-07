@@ -72,7 +72,7 @@ export default {
             if (this.currentAnimation < 7) {
                 this.currentAnimation++
             }
-        }, 1000)
+        }, 700)
     },
 }
 </script>

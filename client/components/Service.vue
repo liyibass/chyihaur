@@ -64,7 +64,7 @@ export default {
                     title: '設計',
                     titleImage: require('@/static/images/service/service_title_1.png'),
                     engTitle: 'DESIGN',
-                    backgroundUrl: require('@/static/images/service01.jpg'),
+                    backgroundUrl: require('@/static/images/service01_1.jpg'),
                     serviceList: [
                         {
                             id: 0,
@@ -108,7 +108,7 @@ export default {
                     title: '工程',
                     titleImage: require('@/static/images/service/service_title_2.png'),
                     engTitle: 'PROJECT',
-                    backgroundUrl: require('@/static/images/service02.jpg'),
+                    backgroundUrl: require('@/static/images/service02_1.jpg'),
 
                     serviceList: [
                         {
@@ -278,6 +278,8 @@ export default {
             left: 0;
             width: 100%;
             height: 100%;
+            background-color: black;
+            opacity: 0.6;
 
             transition: 0.3s all ease-in-out;
 

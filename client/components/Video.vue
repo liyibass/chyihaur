@@ -24,7 +24,7 @@ export default {
     computed: {
         videoSrc() {
             if (this.isMobile) {
-                return require('@/static/videos/mobile.mp4')
+                return require('@/static/videos/mobile_1.mp4')
             } else {
                 return require('@/static/videos/1.mp4')
             }
