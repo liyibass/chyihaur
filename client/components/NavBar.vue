@@ -96,6 +96,10 @@ export default {
         align-items: center;
 
         padding: 28px 10px;
+
+        & > .navbar-title {
+            margin-bottom: 45px;
+        }
     }
 }
 </style>

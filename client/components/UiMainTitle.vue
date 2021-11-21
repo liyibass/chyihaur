@@ -35,18 +35,16 @@ export default {
     margin-bottom: 20px;
     cursor: pointer;
     h1 {
-        font-size: 30px;
+        font-size: 20px;
         font-family: Broadwell;
         color: $mainWhite;
 
         @include atMedium {
-            font-size: 60px;
-            line-height: 73px;
-            margin-bottom: 10px;
+            font-size: 40px;
         }
 
         span {
-            font-size: 20px;
+            font-size: 14px;
             line-height: 20px;
 
             @include atMedium {
@@ -56,13 +54,12 @@ export default {
     }
 
     p {
-        font-size: 20px;
+        font-size: 16px;
         color: $mainWhite;
         font-family: GenYoGothicTW;
         font-weight: bold;
         @include atMedium {
-            font-size: 36px;
-            line-height: 43px;
+            font-size: 22px;
         }
 
         span {

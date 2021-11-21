@@ -8,10 +8,7 @@ const { resolve } = require('path')
 const { getNewFilename } = require('../utils/getNewFilename')
 
 const resizeTarget = {
-  tiny: { height: 84, width: 150 },
   mobile: { height: 450, width: 800 },
-  tablet: { height: 675, width: 1200 },
-  desktop: { height: 713, width: 1268 },
 }
 
 class ImageAdapter extends MediaAdapter {
@@ -20,7 +17,11 @@ class ImageAdapter extends MediaAdapter {
     this.meta = { url: {} }
   }
 
-  async uploadImages(stream) {
+  async uploadImages() {
+    const stream = fs.createReadStream(
+      `./public/images/${this.originalFileName}`
+    )
+
     await this.saveOriginalImage(stream)
     console.log('saveOriginalImage done')
     // await this.saveVariusSizeImages(stream)

@@ -96,13 +96,10 @@ module.exports = {
         const originalFileName = resolvedData.file.filename //image's name format: id-orgName.ext
         const newFileName = getNewFilename(resolvedData)
         const id = resolvedData.file.id
-        const stream = fs.createReadStream(
-          `./public/images/${originalFileName}`
-        )
 
         // upload image to gcs,and generate corespond meta data(url )
         const imageAdapter = new ImageAdapter(originalFileName, newFileName, id)
-        await imageAdapter.uploadImages(stream)
+        await imageAdapter.uploadImages()
 
         const meta = imageAdapter.meta
         distributeUrlsToResolvedData(resolvedData, meta)

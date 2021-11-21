@@ -156,6 +156,7 @@ export default {
         background-position-x: 50% !important;
         margin-left: 50px;
         width: calc(100% - 50px);
+        padding-bottom: 100px;
 
         @include atSmall {
             margin-left: 73px;
