@@ -3,48 +3,18 @@
         <div class="Footer__container">
             <div class="Footer__container_quote" />
 
-            <div class="Footer__nav">
-                <span v-for="nav in navs" :key="nav.id" @click="navHandler(nav.url)">{{ nav.title }}</span>
-            </div>
-
-            <div class="Footer__link Footer__link_desktop">
-                <a class="Footer__link_icon" v-for="link in links" :key="link.id" :href="link.url" target="_blank">
-                    <img :src="link.logo" alt="" />
-                </a>
-            </div>
-
-            <div class="Footer__info">
-                <div class="Footer__info_wrapper">
-                    <div class="Footer__info_card">
-                        <h6>Call us</h6>
-                        <p>02-2630-8111</p>
-                    </div>
-                    <div class="Footer__info_card">
-                        <h6>Line id</h6>
-                        <p>0917226506</p>
-                    </div>
-
-                    <div class="Footer__info_card">
-                        <h6>Fax us</h6>
-                        <p>02-2630-5777</p>
-                    </div>
-                    <div class="Footer__info_card">
-                        <h6>Email us</h6>
-                        <p>chyi.haur@msa.hinet.net</p>
-                    </div>
-
-                    <div class="Footer__info_card">
-                        <h6>Visit us</h6>
-                        <p>台北市內湖區</p>
-                        <p>康寧路三段189巷75號1F</p>
-                    </div>
+            <div class="Footer__container_top">
+                <div class="Footer__nav">
+                    <span v-for="nav in navs" :key="nav.id" @click="navHandler(nav.url)">{{ nav.title }}</span>
                 </div>
+
+                <FooterLink class="Footer__link_mobile" />
             </div>
 
-            <div class="Footer__link Footer__link_mobile">
-                <a class="Footer__link_icon" v-for="link in links" :key="link.id" :href="link.url" target="_blank">
-                    <img :src="link.logo" alt="" />
-                </a>
+            <div class="Footer__container_bottom">
+                <FooterInfo />
+
+                <!-- <FooterLink class="Footer__link_desktop" /> -->
             </div>
 
             <div class="Footer__logo">
@@ -55,7 +25,13 @@
 </template>
 
 <script>
+import FooterLink from './FooterLink.vue'
+import FooterInfo from './FooterInfo.vue'
 export default {
+    components: {
+        FooterLink,
+        FooterInfo,
+    },
     data() {
         return {
             navs: [
@@ -128,23 +104,61 @@ export default {
             border-top: 2px solid $mainWhite;
             border-right: 2px solid $mainWhite;
         }
+
+        &_top {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding-bottom: 30px;
+            margin-bottom: 30px;
+            border-bottom: 1px $mainWhite solid;
+            @include atMedium {
+                max-width: 230px;
+                flex-direction: column;
+                border: none;
+            }
+            @include atLarge {
+                max-width: 342px;
+                flex-direction: row-reverse;
+
+                margin-bottom: 0;
+                padding: 0;
+            }
+        }
+
+        &_bottom {
+            width: 100%;
+
+            // height: 158px;
+            // display: flex;
+            // flex-direction: column;
+            // flex-wrap: wrap;
+
+            // & > div {
+            //     width: 50%;
+            // }
+        }
     }
 
     &__nav {
         color: $mainWhite;
+        display: flex;
         flex-direction: column;
-        align-items: center;
-        font-size: 9px;
+        align-items: flex-start;
+        font-size: 22px;
         line-height: 36px;
         font-weight: bold;
-        margin-bottom: 60px;
+        margin-bottom: 0;
+        // margin-bottom: 60px;
         cursor: pointer;
-        display: none;
 
         @include atMedium {
             display: flex;
             margin-bottom: 0;
             align-items: flex-start;
+            font-size: 18px;
         }
 
         @include atLarge {
@@ -152,97 +166,12 @@ export default {
         }
     }
 
-    &__link {
-        width: 135px;
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 24px;
-
-        @include atMedium {
-            margin: 0 40px;
-            transform: translateY(30px);
-        }
-
-        @include atSuperLarge {
-            width: 155px;
-        }
-        &.Footer__link_mobile {
-            @include atMedium {
-                display: none;
-            }
-        }
-        &.Footer__link_desktop {
-            display: none;
-            @include atMedium {
-                display: flex;
-            }
-        }
-        &_icon {
-            width: 36px;
-            height: 36px;
-            img {
-                width: 100%;
-                height: 100%;
-            }
-        }
-    }
-
-    &__info {
-        margin-bottom: 22px;
-        display: flex;
-        flex-direction: column;
-        flex-grow: 1;
-
-        @include atMedium {
-            margin-bottom: 0;
-        }
-
-        &_wrapper {
-            display: flex;
-            flex-direction: column;
-            max-width: 834px;
-
-            @include atLarge {
-                height: 180px;
-                flex-wrap: wrap;
-            }
-
-            @include atSuperLarge {
-                height: 116px;
-            }
-        }
-
-        &_card {
-            text-align: center;
-            font-size: 16px;
-            line-height: 21.6px;
-            margin-bottom: 16px;
-            @include atLarge {
-                font-size: 18px;
-                text-align: left;
-                margin: 8px;
-            }
-            color: $mainWhite;
-            h6 {
-                font-size: 16px;
-                font-weight: bold;
-
-                @include atLarge {
-                    font-size: 18px;
-                }
-            }
-        }
-    }
-
     &__logo {
-        width: 100%;
-        max-width: 300px;
-        @include atMedium {
-            max-width: 200px;
-            margin-right: 20px;
-        }
+        display: none;
 
         @include atLarge {
+            display: block;
+            max-width: 200px;
             margin-right: 60px;
         }
 
