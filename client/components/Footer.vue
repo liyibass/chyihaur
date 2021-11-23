@@ -168,6 +168,10 @@ export default {
         cursor: pointer;
         width: 50%;
 
+        @include atSmall {
+            width: 60%;
+        }
+
         @include atMedium {
             width: auto;
             ont-size: 22px;

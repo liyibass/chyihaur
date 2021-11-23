@@ -72,6 +72,16 @@ export default {
         margin-bottom: 10px;
         width: 50%;
         line-height: 1.1;
+
+        @include atSmall {
+            width: 60%;
+            &:nth-child(2),
+            &:nth-child(4) {
+                width: 40%;
+                // background: red;
+            }
+        }
+
         @include atLarge {
             width: auto;
             text-align: center;
@@ -105,9 +115,12 @@ export default {
     }
 
     .Footer__logo {
-        max-width: 150px;
+        max-width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         @include atSmall {
-            max-width: 200px;
+            max-width: 40%;
         }
 
         @include atMedium {
