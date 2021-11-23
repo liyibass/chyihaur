@@ -34,14 +34,15 @@ export default {
 
 <style lang="scss" scoped>
 .footer-link {
-    width: 135px;
+    width: calc(50% + 10px);
+    max-width: 135px;
     display: flex;
     justify-content: space-between;
-    margin-bottom: 24px;
 
     @include atMedium {
         margin: 0 40px;
-        transform: translateY(30px);
+        width: 135px;
+        transform: translateY(20px);
     }
 
     @include atSuperLarge {

@@ -11,6 +11,8 @@
                 <FooterLink class="Footer__link_mobile" />
             </div>
 
+            <div class="Footer__container_line" />
+
             <div class="Footer__container_bottom">
                 <FooterInfo />
 
@@ -69,10 +71,9 @@ export default {
 <style lang="scss" scoped>
 .Footer {
     background: rgb(107, 107, 107);
-    padding: 30px 30px;
+    padding: 30px 30px 30px;
 
     &__container {
-        padding: 0px 30px;
         position: relative;
         display: flex;
         flex-direction: column;
@@ -81,7 +82,7 @@ export default {
         @include atMedium {
             flex-direction: row-reverse;
             justify-content: space-between;
-            padding: 30px 10px;
+            // padding: 30px 10px;
         }
 
         @include atLarge {
@@ -97,39 +98,52 @@ export default {
 
         &_quote {
             position: absolute;
-            width: 44px;
-            height: 44px;
+            width: 24px;
+            height: 24px;
             top: 0px;
             right: 0px;
             border-top: 2px solid $mainWhite;
             border-right: 2px solid $mainWhite;
+
+            @include atMedium {
+                width: 44px;
+                height: 44px;
+            }
         }
 
         &_top {
             width: 100%;
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: flex-start;
 
-            padding-bottom: 30px;
-            margin-bottom: 30px;
-            border-bottom: 1px $mainWhite solid;
+            padding: 12px 30px 20px;
+
             @include atMedium {
                 max-width: 230px;
                 flex-direction: column;
-                border: none;
             }
             @include atLarge {
                 max-width: 342px;
                 flex-direction: row-reverse;
 
-                margin-bottom: 0;
                 padding: 0;
+            }
+        }
+
+        &_line {
+            width: 100%;
+            border-bottom: 1px $mainWhite solid;
+            margin: 0 0 20px;
+            @include atMedium {
+                border: none;
+                width: 0;
             }
         }
 
         &_bottom {
             width: 100%;
+            padding: 0 30px 0;
 
             // height: 158px;
             // display: flex;
@@ -147,14 +161,16 @@ export default {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        font-size: 22px;
-        line-height: 36px;
+        font-size: 4px;
         font-weight: bold;
         margin-bottom: 0;
         // margin-bottom: 60px;
         cursor: pointer;
+        width: 50%;
 
         @include atMedium {
+            width: auto;
+            ont-size: 22px;
             display: flex;
             margin-bottom: 0;
             align-items: flex-start;
@@ -168,16 +184,22 @@ export default {
 
     &__logo {
         display: none;
+        flex-shrink: 0;
+        @include atMedium {
+            display: block;
+            width: 150px;
+            margin: 0;
+        }
 
         @include atLarge {
-            display: block;
-            max-width: 200px;
-            margin-right: 60px;
+            width: 200px;
+            // max-width: 200px;
+            // margin-right: 60px;
         }
 
         @include atUltraLarge {
-            max-width: 300px;
-            margin-right: 90px;
+            width: 300px;
+            // margin-right: 90px;
         }
 
         img {

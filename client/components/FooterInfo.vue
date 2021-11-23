@@ -41,7 +41,7 @@ export default {
 <style lang="scss" scoped>
 .footer-info {
     position: relative;
-    margin-bottom: 22px;
+
     display: flex;
     flex-direction: column;
     flex-grow: 1;
@@ -51,15 +51,11 @@ export default {
     }
 
     &_wrapper {
-        display: flex;
-        flex-direction: column;
         max-width: 834px;
-
-        @include atSmall {
-            flex-direction: row;
-            height: 180px;
-            flex-wrap: wrap;
-        }
+        display: flex;
+        flex-direction: row;
+        height: 115px;
+        flex-wrap: wrap;
 
         @include atLarge {
             height: 180px;
@@ -73,21 +69,34 @@ export default {
 
     &_card {
         text-align: left;
-        font-size: 16px;
-        line-height: 21.6px;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
         width: 50%;
+        line-height: 1.1;
         @include atLarge {
             width: auto;
             text-align: center;
-            font-size: 18px;
             text-align: left;
             margin: 8px;
         }
         color: $mainWhite;
         h6 {
-            font-size: 16px;
+            font-size: 10px;
             font-weight: bold;
+
+            @include atMedium {
+                font-size: 14px;
+            }
+
+            @include atLarge {
+                font-size: 18px;
+            }
+        }
+        p {
+            font-size: 10px;
+
+            @include atMedium {
+                font-size: 14px;
+            }
 
             @include atLarge {
                 font-size: 18px;
@@ -96,8 +105,12 @@ export default {
     }
 
     .Footer__logo {
-        max-width: 200px;
-        @include atLarge {
+        max-width: 150px;
+        @include atSmall {
+            max-width: 200px;
+        }
+
+        @include atMedium {
             display: none;
         }
     }
