@@ -1,7 +1,7 @@
 <template>
     <div :id="`workflow-card-${id}`" class="workflow-card">
         <h1>
-            <span>{{ step }}.</span>{{ name }}
+            <span>{{ step }}. </span>{{ name }}
         </h1>
         <p>{{ detail }}</p>
     </div>
@@ -63,6 +63,10 @@ export default {
     h1 {
         font-size: 40px;
         margin-bottom: 10px;
+
+        span {
+            font-family: 'Broadwell';
+        }
 
         @include atMedium {
             font-size: 50px;

@@ -63,7 +63,7 @@ export default {
         }
 
         span {
-            padding: 0 18px;
+            padding: 0 10px;
         }
     }
 }
