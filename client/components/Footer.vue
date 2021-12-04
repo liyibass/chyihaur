@@ -161,7 +161,7 @@ export default {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        font-size: 4px;
+        font-size: 10px;
         font-weight: bold;
         margin-bottom: 0;
         // margin-bottom: 60px;
@@ -170,6 +170,7 @@ export default {
 
         @include atSmall {
             width: 60%;
+            font-size: 14px;
         }
 
         @include atMedium {
