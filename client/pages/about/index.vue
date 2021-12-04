@@ -2,7 +2,7 @@
     <div class="AboutPage">
         <div class="AboutPage__color_bar" />
 
-        <UiEmployeeContainer :allPositions="allPositions" />
+        <UiEmployeeContainer :allEmployees="allEmployees" />
     </div>
 </template>
 
@@ -18,18 +18,23 @@ export default {
     },
     mixins: [employeeMixin],
     apollo: {
-        allPositions: {
+        allEmployees: {
             query: fetchAllPositions,
             update: (data) => {
                 const allPositions = data?.allPositions
 
-                return allPositions
+                let employees = []
+                allPositions.forEach((position) => {
+                    employees = employees.concat(position.employee)
+                })
+
+                return employees
             },
         },
     },
     data() {
         return {
-            allPositions: [],
+            allEmployees: [],
         }
     },
 }
