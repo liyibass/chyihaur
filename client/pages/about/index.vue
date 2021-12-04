@@ -27,7 +27,7 @@ export default {
                 allPositions.forEach((position) => {
                     employees = employees.concat(position.employee)
                 })
-
+                console.log(employees)
                 return employees
             },
         },
